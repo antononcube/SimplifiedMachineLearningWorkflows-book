@@ -1,0 +1,56 @@
+#+TITLE: Simplified Machine Learning Workflows book
+#+AUTHOR: Anton Antonov
+#+EMAIL: antononcube@gmail.com
+#+TODO: TODO ONGOING MAYBE | DONE CANCELED 
+#+OPTIONS: toc:1 num:0
+
+* Simplified Machine Learning Workflows
+** TODO GitHub [33%] [2/6]
+- [ ] Make a repository
+- [ ] README.md
+  - [ ] Mission statement
+  - [x] Links to code
+  - [ ] References
+- [X] Diagrams
+- [ ] Raw chapters (Markdown)
+- [X] org-mode
+- [ ] Consider making a GitLab mirror
+** DONE Preface
+- See the README.md. 
+** TODO Part 1: Overview [%] [/]
+*** TODO The big picture
+*** TODO Combinations of workflows
+*** TODO When to do what?
+*** TODO Production ready systems
+*** TODO Where to stop? Or why those workflows were selected?
+*** TODO Monads, grammars, and parsers
+*** TODO Testing
+** TODO Part 2: Workflows [0%] [0/8]
+*** TODO Classification
+  - ClCon
+*** TODO Quantile Regression
+  - QRMon
+*** TODO Latent Semantic Analysis
+  - LSAMon
+*** TODO Information Retrieval / Recommendation System
+  - SMRMon
+*** MAYBE SSparseMatrix
+*** TODO Making Neural Networks
+  - NetMon
+*** MAYBE Text POS analysis
+*** TODO Event records transformations
+  - ERTMon
+** TODO Part 3: Example applications [0%] [0/6]
+*** TODO Classifier application research
+*** TODO The Great Conversation in USA presidential speeches
+*** TODO The most important questions
+*** TODO Time series search engine
+*** TODO Progressive Machine Learning
+*** MAYBE Critical patients prediction
+** TODO Part 4: Natural language workflows specifications
+*** TODO The Conversational Agents perspective
+*** TODO Spoken Supervised Learning (Classification)
+*** TODO Spoken Neural Networks construction
+*** TODO Spoken Latent Semantic Analysis
+*** TODO Spoken Time Series analysis
+
