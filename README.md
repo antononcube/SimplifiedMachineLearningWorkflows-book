@@ -5,7 +5,7 @@ This repository contains chapters, code, and organizational files for the book "
 ## Mission statement 
 
 This book provides introductions, explanations, and demonstrations of different, frequently used Machine Learning (ML) workflows.
-The ML workflows discussed are build through monadic programming packages, and those packages should be easy to utilize 
+The ML workflows discussed are built through monadic programming packages, and those packages should be easy to utilize 
 after reading this book.
 
 ## Programming languages
@@ -29,6 +29,14 @@ All of the R monad packages are published in
 
 Most of the chapters are previously published in
 [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
+
+## Videos
+
+- ["Monadic Programming: With Application to Data Analysis, Machine Learning and Language Processing"](https://www.youtube.com/watch?v=_cIFA5GHF58), (2017).
+
+- ["A Conversational Agent for Neural Networks: Construction, Training and Utilization"](https://www.youtube.com/watch?v=9m6K2yISS0U), (2018).
+
+- ["Quantile Regression workflows" at the useR! meetup](), (2019).
 
 ----
 Anton Antonov   
