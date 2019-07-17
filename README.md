@@ -2,6 +2,8 @@
 
 This repository contains chapters, code, and organizational files for the book "Simplified Machine Learning Workflows".
 
+***The book is not finished yet -- it is a work in progress...***
+
 ## Mission statement 
 
 This book provides introductions, explanations, and demonstrations of different, frequently used Machine Learning (ML) workflows.
