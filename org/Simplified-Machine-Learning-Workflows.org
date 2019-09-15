@@ -30,22 +30,22 @@
   - ClCon
 *** TODO Quantile Regression
   - QRMon
+*** TODO SSparseMatrix
 *** TODO Latent Semantic Analysis
   - LSAMon
 *** TODO Information Retrieval / Recommendation System
   - SMRMon
-*** MAYBE SSparseMatrix
-*** TODO Making Neural Networks
+*** MAYBE Making Neural Networks
   - NetMon
 *** MAYBE Text POS analysis
 *** TODO Event records transformations
   - ERTMon
 ** TODO Part 3: Example applications [0%] [0/6]
 *** TODO Classifier application research
-*** TODO The Great Conversation in USA presidential speeches
+*** MAYBE The Great Conversation in USA presidential speeches
 *** TODO The most important questions
 *** TODO Time series search engine
-*** TODO Progressive Machine Learning
+*** MAYBE Progressive Machine Learning
 *** MAYBE Critical patients prediction
 ** TODO Part 4: Natural language workflows specifications
 *** TODO The Conversational Agents perspective
