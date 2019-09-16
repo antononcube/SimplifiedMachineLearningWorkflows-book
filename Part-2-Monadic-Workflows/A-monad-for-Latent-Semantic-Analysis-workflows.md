@@ -2,8 +2,7 @@
 
 ## Introduction
 
-In this chapter we describe the design and implementation of a (software programming) monad, [Wk1], for 
-[Latent Semantic Analysis](https://en.wikipedia.org/wiki/Latent_semantic_analysis) workflows specification and execution. 
+In this chapter we describe the design and implementation of a (software programming) monad, [Wk1], for [Latent Semantic Analysis](https://en.wikipedia.org/wiki/Latent_semantic_analysis) workflows specification and execution. 
 The design and implementation are done with Mathematica / Wolfram Language (WL).
 
 **What is Latent Semantic Analysis (LSA)? :** A statistical method (or a technique) for finding relationships in natural language texts that is based on the so called 
@@ -57,7 +56,7 @@ Below we refer to "LSI functions" like "IDF" and "TF-IDF" that are applied withi
 
 ### Contents description
 
-The document has the following structure.
+The chapter has the following structure.
 
    + The sections "Package load" and "Data load" obtain the needed code and data.
 
@@ -79,7 +78,8 @@ The document has the following structure.
 
    + The section "Implementation notes" just says that `LSAMon`'s development process and this chapter follow the ones of the classifications workflows monad ClCon, [[AA6](https://mathematicaforprediction.wordpress.com/2018/05/15/a-monad-for-classification-workflows/)].
 
-**Remark:** One can read only the sections "Introduction", "Design consideration", "Monad design", and "LSAMon overview". That set of sections provide a fairly good, programming language agnostic exposition of the substance and novel ideas of this chapter.
+**Remark:** One can read only the sections "Introduction", "Design consideration", "Monad design", and "LSAMon overview". 
+That set of sections provide a fairly good, programming language agnostic exposition of the substance and novel ideas of this chapter.
 
 ## Package load
 
@@ -91,7 +91,7 @@ The following commands load the packages
 
 ## Data load
 
-In this section we load data that is used in the rest of the document. The text data was obtained through WL's repository, transformed in a certain more convenient form, and uploaded to GitHub.
+In this section we load data that is used in the rest of the chapter. The text data was obtained through WL's repository, transformed in a certain more convenient form, and uploaded to GitHub.
 
 The text summarization and plots are done through `LSAMon`, which in turn uses the function RecordsSummary from the package ["MathematicaForPredictionUtilities.m"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MathematicaForPredictionUtilities.m), [[AAp7](https://github.com/antononcube/MathematicaForPrediction/blob/master/MathematicaForPredictionUtilities.m)].
 
@@ -242,21 +242,22 @@ Let us list the desired properties of the monad.
 
    + Rapid specification of non-trivial LSA workflows.
 
-   + The monad works with associations with string values, list of strings.
+   + The text data supplied to the monad can be: (i) a list of strings, or (ii) an association with string values.
 
-   + The monad use the Linear vector spaces model .
+   + The monad uses the Linear vector space model .
 
-   + The document-term frequency matrix is can be created after removing stop words and/or word stemming.
+   + The document-term frequency matrix can be created after removing stop words and/or word stemming.
 
    + It is easy to specify and apply different LSI weight functions. (Like "IDF" or "GFIDF".)
 
    + The monad can do dimension reduction with SVD and NNMF and corresponding matrix factors are retrievable with monad functions.
 
-   + Documents (or query strings) external to the monad a easily mapped into monad's Linear vector space of terms and the Linear vector space of topics.
+   + Documents (or query strings) external to the monad are easily mapped into monad's Linear vector space of terms and Linear vector space of topics.
 
    + The monad allows of cursory examination and summarization of the data.
 
-   + The pipeline values can be of different types. Most monad functions modify the pipeline value; some modify the context; some just echo results.
+   + The pipeline values can be of different types. 
+     (Most monad functions modify the pipeline value; some modify the context; some just echo results.)
 
    + It is easy to obtain the pipeline value, context, and different context objects for manipulation outside of the monad.
 
@@ -271,6 +272,8 @@ The main `LSAMon` operations implicitly put in the context or utilize from the c
    + document-term matrix, 
 
    + the factors obtained by matrix factorization algorithms,
+   
+   + LSI weight functions specifications,
 
    + extracted topics.
 
@@ -283,7 +286,7 @@ Obviously, we can put in the context any object through the generic operations o
 
 When using a monad we lift certain data into the "monad space", using monad's operations we navigate computations in that space, and at some point we take results from it. 
 
-With the approach taken in this chapter the "lifting" into the `LSAMon` monad is done with the function LSAMonUnit. 
+With the approach taken in this chapter the "lifting" into the `LSAMon` monad is done with the function `LSAMonUnit`. 
 Results from the monad can be obtained with the functions `LSAMonTakeValue`, `LSAMonContext`, 
 or with the other `LSAMon` functions with the prefix "LSAMonTake" (see below.)
 
@@ -595,7 +598,8 @@ We can also call `LSAMonEchoStatisticalThesaurus` directly without calling `LSAM
    
 ### Mapping queries and documents to terms
 
-One of the most natural operations is to find the representation of an arbitrary document (or sentence or a list of words) in monad's Linear vector space of terms. This is done with the function LSAMonRepresentByTerms.
+One of the most natural operations is to find the representation of an arbitrary document (or sentence or a list of words) in monad's Linear vector space of terms. 
+This is done with the function `LSAMonRepresentByTerms`.
 
 Here is an example in which a sentence is represented as a one-row matrix (in that space.)
 
@@ -611,7 +615,7 @@ Here we display only the non-zero columns of that matrix.
 
 #### Transformation steps
 
-Assume that LSAMonRepresentByTerms is given a list of sentences. Then that function performs the following steps.
+Assume that `LSAMonRepresentByTerms` is given a list of sentences. Then that function performs the following steps.
 
 **1.** The sentence is split into a list of words.
 
@@ -648,7 +652,8 @@ Here is an association of documents from monad's document collection.
 
 ### Mapping queries and documents to topics
 
-Another natural operation is to find the representation of an arbitrary document (or a list of words) in monad's Linear vector space of topics. This is done with the function LSAMonRepresentByTopics.
+Another natural operation is to find the representation of an arbitrary document (or a list of words) in monad's Linear vector space of topics. 
+This is done with the function `LSAMonRepresentByTopics`.
 
 Here is an example.
 
@@ -695,7 +700,7 @@ $x \in \mathbb{R}^{k}, H^{(-1)} \in \mathbb{R}^{n \times k}, I \in \mathbb{R}^{k
 
 In `LSAMon` for SVD $H^{(-1)} = H^T$; for NNMF $H^{(-1)}$ is the pseudo-inverse of $H$.
 
-The vector $x$ obtained with LSAMonRepresentByTopics.
+The vector $x$ obtained with `LSAMonRepresentByTopics`.
 
 ### Tags representation
 
@@ -737,7 +742,9 @@ Here is a heatmap plot of the tag-topics matrix made with the package
 ### Finding the most important documents
 
 There are several algorithms we can apply for finding the most important documents in the collection. 
-`LSAMon` utilizes two types algorithms: (1) graph centrality measures based, and (2) matrix factorization based. With certain graph centrality measures the two algorithms are equivalent. In this sub-section we demonstrate the matrix factorization algorithm (that uses SVD.)
+`LSAMon` utilizes two types algorithms: (1) graph centrality measures based, and (2) matrix factorization based. 
+With certain graph centrality measures the two algorithms are equivalent. 
+In this sub-section we demonstrate the matrix factorization algorithm (that uses SVD.)
 
 **Definition:** The most important sentences have the most important words and the most important words are in the most important sentences.
 
@@ -803,7 +810,7 @@ Here is an example.
 
 ![LSAMon-The-utilization-of-SSparseMatrix-random-matrix](https://github.com/antononcube/MathematicaForPrediction/raw/master/MarkdownDocuments/Diagrams/A-monad-for-Latent-Semantic-Analysis-workflows/LSAMon-The-utilization-of-SSparseMatrix-random-matrix.png)
 
-In this section we look into some useful SSparseMatrix idioms applied within LSAMon.
+In this section we look into some useful SSparseMatrix idioms applied within `LSAMon`.
 
 ### Visualize with sorted rows and columns
 
@@ -871,7 +878,8 @@ Here is way to compute the similarity matrix of different sets of documents that
 
 ### Similarities based on representation by topics 
 
-Similarly to weighted Boolean similarities matrix computation above we can compute a similarity matrix using the topics representations. Note that an additional normalization steps is required.
+Similarly to weighted Boolean similarities matrix computation above we can compute a similarity matrix using the topics representations. 
+Note that an additional normalization steps is required.
 
     sMat1 =
       lsaSpeeches⟹
@@ -979,7 +987,7 @@ Here is an example of natural language commands parsed into LSA code using the p
 
 The implementation methodology of the `LSAMon` monad packages [AAp3, AAp9] followed the methodology created 
 for the `ClCon` monad package [AAp10, AA6]. Similarly, this chapter closely follows the structure and exposition 
-of the `ClCon  monad document 
+of the `ClCon`  monad chapter 
 ["A monad for classification workflows"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MarkdownDocuments/A-monad-for-classification-workflows.md), 
 [AA6].
 
