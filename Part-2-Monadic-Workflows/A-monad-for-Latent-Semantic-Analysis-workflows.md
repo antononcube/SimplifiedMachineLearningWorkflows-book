@@ -345,7 +345,7 @@ It is better though to use the constructor `LSAMonUnit`. (Which adheres to the d
 
 ### Lifting data to the monad
 
-The function lifting the data into the monad QRMon is QRMonUnit.
+The function lifting the data into the monad LSAMon is LSAMonUnit.
 
 The lifting to the monad marks the beginning of the monadic pipeline. It can be done with data or without data. Examples follow.
 
@@ -779,7 +779,7 @@ For example:
 
 If other values are put in the context they can be obtained through the (generic) function LSAMonTakeContext, [AAp1]:
 
-    Short@(p⟹QRMonTakeContext)["documents"]
+    Short@(p⟹LSAMonTakeContext)["documents"]
      
     (* <|"id.0001" -> "1604", "id.0002" -> "THE TRAGEDY OF HAMLET, PRINCE OF DENMARK", <<220>>, "id.0223" -> "THE END"|> *) 
 
@@ -787,7 +787,7 @@ Another generic function from [AAp1] is LSAMonTakeValue (used many times above.)
 
 Here is an example of the "data dropper" LSAMonDropDocuments:
 
-    Keys[p⟹LSAMonDropDocuments⟹QRMonTakeContext]
+    Keys[p⟹LSAMonDropDocuments⟹LSAMonTakeContext]
 
     (* {"documentTermMatrix", "terms", "stopWords", "stemmingRules"} *)
     
