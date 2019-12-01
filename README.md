@@ -27,7 +27,9 @@ All of the WL monad packages are published in
 [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction/tree/master/MonadicProgramming).
 
 All of the R monad packages are published in
-[R-packages at GitHub](https://github.com/antononcube/R-packages).
+[R-packages at GitHub](https://github.com/antononcube/R-packages),
+[QRTMon-R](https://github.com/antononcube/QRMon-R), and
+[ERTMon-R](https://github.com/antononcube/ERTMon-R).
 
 Most of the chapters are previously published in
 [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
@@ -38,7 +40,7 @@ Most of the chapters are previously published in
 
 - ["A Conversational Agent for Neural Networks: Construction, Training and Utilization"](https://www.youtube.com/watch?v=9m6K2yISS0U), (2018).
 
-- ["Quantile Regression workflows" at the useR! meetup](), (2019).
+- ["Quantile Regression workflows" at the useR! meetup](https://www.youtube.com/watch?v=FBhmtIF1bJY), (2019).
 
 ----
 Anton Antonov   
