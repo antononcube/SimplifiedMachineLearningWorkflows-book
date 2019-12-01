@@ -5,57 +5,119 @@
 #+OPTIONS: toc:1 num:0
 
 * Introduction
-- See the call for proposals:
-* Form completion [8%] [1/12] 
+- See the call for tutorials:
+  - https://user2020.r-project.org/news/2019/09/28/call-for-tutorials/ .
+* Form completion [75%] [9/12] 
 ** DONE Title of Tutorial Presentation 
  - Simplified Machine Learning Workflows
-** TODO Tutorial presentation title
-- Simplified Machine Learning Workflows -- utilizing fundamental Machine Learning workflows through monadic pipelines
+** MAYBE Tutorial presentation title
+- Simplified Machine Learning Workflows -- introduction to fundamental Machine Learning workflows through monadic pipelines
 *** Explanations
 - The useR! 2020 committee is seeking submissions for tutorials to be hosted on the first day of the conference. The intended audience for these tutorials includes the useR! 2020 attendees, coming from a variety of academic background and levels of preparation and usage level of R. Each tutorial session will be 3.5 hours long, with a 30-minute break dividing the session into roughly two equal halves (audience is welcome to take additional breaks as needed). The instructor is expected to have fluency in the topic of the tutorial and in teaching the topic to an audience coming from a diverse range of academic, professional, and other backgrounds. 
-** TODO Audience
-- The target audience is 
+** DONE Audience
+- The target audience is
+  - Data Science or Machine Learning (ML) managers,
+  - beginner ML engineers,
+  - students with at least two years of STEM college education.
+- Basic programming knowledge is required.
+- Basic R-language knowledge is desireable, but not required.
 *** Explanations
-- AUDIENCE: Decribe the expected background, including subject matter and R experience, that an attendee should have in order to have a meaningful learning experience. (50-100 words)
+- AUDIENCE: Describe the expected background, including subject matter and R experience, that an attendee should have in order to have a meaningful learning experience. (50-100 words)
 - Word count: 0 / 100
-** TODO Instructor Background 
+** MAYBE Instructor Background 
+- Anton Antonov, Senior Data Scientist.
+- Anton is an applied mathematician (PhD) with 28+ years of experience in algorithm development, scientific computing, mathematical modeling, natural language processing, combinatorial optimization, research and development programming, machine learning, and data mining.
+- In the last ten years, he focused on developing machine learning
+  algorithms and workflows for different industries (music, movies,
+  points of interests, recruiting, healthcare.) Currently, he is
+  working on machine learning and data science applications to
+  telecommunications and manufacturing. 
+- Anton is a former kernel developer of Mathematica (7 years.)
+- Anton has given R-centric lectures and tutorials at various
+  conferences and meetups:
+  - Wolfram Technology Conference (2016, 2018),
+  - Data Science Salon Miami Nov 2018,
+  - Orlando Data Science and Machine Learning Meetup.
+  - Boston useR! meetup.
+- URL's:
+  - [[https://github.com/antononcube][GitHub repositories]],
+  - [[https://www.linkedin.com/in/anton-antonov-89a8797][LinkedIn profile]].
 *** Explanations
 - INSTRUCTOR BACKGROUND: Describe the instructor's domains of expertise, experience teaching courses/workshops/tutorials using R, and how the instructor's background has prepared them to teach the proposed tutorial. Provide the URL to the instructor's LinkedIn, Github, or any other site where details of academic/professional background that are relevant to the proposed tutorial are available. (~100 words)
 - Word count: 0 / 150
-** TODO Domain 
+** DONE Domain 
+- General Machine Learning applied to problems involving text, image,
+  or time series data.
 *** Explanations
 - DOMAIN: Describe the subject areas (e.g., Social Sciences, Neuroscience, Geospatial Statistics, etc.) to which the concepts and examples presented belong. This description will allow potential attendees to determine whether the tutorial would be of interest to them. (10-20 words)
 - Word count: 0 / 20
-** TODO Points of Appeal 
+** DONE Points of Appeal 
+- Utilizing easy to understand and follow workflows.
+  - Through monadic pipelines.
+- Using typical and easy to obtain data.
+- Appealing examples.
+- Universal workflows: the presented ML worflows -- if understood and
+  adopted -- can be applied to any programming language.
+- Using easy to follow flow charts.
 *** Explanations
 - POINTS OF APPEAL: Describe what makes the proposed tutorial appealing to audiences from a broad range of backgrounds. If the tutorial content draws on examples from multiple fields/disciplines, the fields are identified and the tutorial is described in a way that is appealing to audience from those and related disciplines. (~75 words)
 - Word count: 0 / 100
-** TODO Learning Objectives 
+** DONE Learning Objectives 
+- Utilization of pipelines in R.
+- Knowing the basic components of Quantile Regression workflows.
+- Knowing the basic components of Latent Semantic Analysis workflows.
+- Knowing the basic components of Classification workflows.
+- Being able to come up with susscess measures of different Machine
+  Learning algorithms and be able evalute them.
 *** Explanations
 - LEARNING OBJECTIVES: Describe the specific concepts and skills the audience can expect to have learned by attending the tutorial. Be sure to specify each learning objective succinctly. A well-drafted proposal would probably have 3-5 well-stated learning objectives. (100-200 words)
 - Word count: 0 / 200
-** TODO Computing Requirements 
+** DONE Computing Requirements 
+- Most of the computations are small-to-moderate size data.
+- I plat to use RStudio.
+- Internet connection is desired.
 *** Explanations
 - COMPUTING REQUIREMENTS: Describe the minimum hardware configuration and software attendees should bring to the tutorial to benefit from the hands-on exercises given during the tutorial. (~50 words)
 - Word count: 0 / 75
-** TODO Teaching Assistant
+** DONE Teaching Assistant
+- Ideally people with at least intermediate R knowledge that:
+  - know how to use RStudio,
+  - know how to install packages from GitHub.
 *** Explanations
 - TEACHING ASSISTANT: Will you be able to identify 1-2 individuals who can serve as teaching assistants? Will you need the conference committee to identify volunteers who can serve as teaching assistants? What subject matter expertise should such an individual have to help with any difficulties that the attendees might face in running the code examples being demonstrated?
 - Word count: 0 / 150
-** TODO Lesson Plan 
-1) Quantile Regression (QR) workflows
-   - Basic theory. (10 min)
+** DONE Lesson Plan 
+1) Course overview:
+   - Considered Machine Learning workflows.
+   - Monadic pipelines.
+   - Conversational agents perspective.
+2) Quantile Regression (QR) workflows (45-60 min)
+   - Basic, jump-start theory. (10 min)
      - Why QR?
      - How QR is computed?
-   - Hands-on with the package ~QRMon-R~. (15-20 min)
+   - Demonstrations or hands-on examples. (15-20 min)
      - Basic pipeline / workflow.
+     - Flow chart following.
    - Outlier and anomaly detection theory (5-10 min)
-   - Hands-on examples. ()
+   - Further demonstrations and hands-on examples. (10-20 min)
    - Additional topics.
      - Prediction today's temperature from yesterday's temperature.
      - Time series simulations.
-2) Classification workflows
-   - Theory. (10 min)
+   - QR Q&A.
+3) Latent Semantic Analysis (LSA) workflows (45-60 min)
+   - Basic, jump-start theory. (10 min)
+     - Why LSA?
+     - Fundamental overview example.
+     - Flow chart following.
+   - Demonstrations or hands-on examples. (10-20 min)
+   - Topic extraction. (5-10 min)
+     - Dimension reduction.
+   - Statistical thesauri. (5-10 min)
+   - Unknown documents representation. (5-10 min)
+   - Application to image and time series collections. (10-15 mmin)
+   - LSA Q&A.
+4) Classification workflows (45-60 min)
+   - Basic, jump-start theory. (10 min)
      - Supervised learning primer.
      - Measuring success.
    - Hands-on with the package ~ClCon-R~ and/or ~H2O~. (15-20 min)
@@ -63,16 +125,22 @@
    - Theory. (15-20 min)
      - Receiver Operating Characteristic (ROC).
      - Finding most important variables.
-   - Hands-on examples (10-20 min)
-3) Latent Semantic Analysis (LSA)
-4) Recommendations
+   - Demonstrations or hands-on examples. (10-20 min)
+   - Classification Q&A.
+5) Summary and final Q&A session.
 *** Explanations
 - LESSON PLAN: Describe via a bulleted list, a sketch of the sequence of activities (theory/domain explanation, demonstration of code, hand-on work time, formal/informal Q&A, etc.) that the instructor expects to follow for delivering the learning experience to attendees. (~150 words)
 - Word count: 0 / 200
 ** TODO Other Considerations 
+- The ML workflows discussed in the tutorial are described in detail
+  in the GitHub projects:
+  - [[https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book]["Simplified Machine Learning Workflows" book]],
+  - [[https://github.com/antononcube/MathematicaVsR][MathematicaVsR at GitHub]].
 *** Explanations
 - OTHER CONSIDERATIONS: Describe any other constraints/needs the instructor might have that are relevant in delivering the learning experience to the attendees. If there are additional resources (available online) that the instructor thinks can help the audience to continue their learning beyond the tutorial, they can be included here, too. (~100 words)
 - Word count: 0 / 150
-** TODO Number of Attendees
+** DONE Number of Attendees
+I would say the optimal number of attendees is between 10 and 30, but
+I am prepared to present to a larger audience.
 *** Explanations
 - How many attendees would the instructor and teaching assistants feel comfortable managing? (maximum seating is 100 people)
