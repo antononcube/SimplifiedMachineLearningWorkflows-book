@@ -14,7 +14,7 @@ page:
 ["[LiVE] Quantile Regression Workflows (WL Live-Stream Series)"](https://community.wolfram.com/groups/-/m/t/1787896).
 
 
-## The live-coding sessions
+## The lectures (as live-coding sessions)
 
 (*It seems to be a good idea to start with the last, 5th lecture that gives Quantile Regression overview 
 through questions and answers.)*
