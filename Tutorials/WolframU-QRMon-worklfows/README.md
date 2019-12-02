@@ -2,7 +2,8 @@
 
 ## In brief
 
-The lectures were recorder through Wolfram University (Wolfram U) from Aug to Nov 2019.
+The lectures were recorded through Wolfram University (Wolfram U) in August-November 2019.
+
 The lectures were recorded as Twitch sessions. The recordings can be found on both 
 Twitch and 
 [YouTube](https://www.youtube.com/playlist?list=PLxn-kpJHbPx17-6A5-yi2IbDZ0R9dFNHS).
@@ -10,12 +11,12 @@ Twitch and
 The notebooks can be found here and in this
 [Community](https://community.wolfram.com)
 page: 
-["[LiVE] Quantile Regression Workflows (WL Live-Stream Series)"](https://community.wolfram.com/groups/-/m/t/1787896) 
+["[LiVE] Quantile Regression Workflows (WL Live-Stream Series)"](https://community.wolfram.com/groups/-/m/t/1787896).
 
 
 ## The live-coding sessions
 
-(*It seems to be a good idea to start with the 5th, last lecture that gives Quantile Regression overview 
+(*It seems to be a good idea to start with the last, 5th lecture that gives Quantile Regression overview 
 through questions and answers.)*
 
 1. In the first 
@@ -30,10 +31,10 @@ and some of the underlying software design principles. (Namely
 
 3. In the [third live-coding session](https://www.twitch.tv/videos/485939037):
 
-   - First, we demonstrate and explain how to do QR-based time series simulations and their applications in Operations Research.
-   - Next, we discuss QR in 2D and 3D and a related application.
+   - First, I demonstrated and explained how to do QR-based time series simulations and their applications in Operations Research.
+   - Next, I discussed QR in 2D and 3D and a related application.
   
-4. In the [fourth live-coding session](https://www.twitch.tv/videos/498468049) we discussed the following the topics.
+4. In the [fourth live-coding session](https://www.twitch.tv/videos/498468049) I discussed the following the topics.
 
    - Review of previous sessions.
    - Proclaiming the upcoming `ResourceFunction["QuantileRegression"]`.
@@ -41,7 +42,8 @@ and some of the underlying software design principles. (Namely
    - Using NLP techniques on time series.
    - Generation of QR workflows with natural language commands.
    
-5. In the final, [fifth live-coding session](https://www.twitch.tv/videos/511900723) different questions are going to be answered.
+5. In the final, [fifth live-coding session](https://www.twitch.tv/videos/511900723) different questions were answered.
+   Here is the list:
 
    - Can we apply Quantile Regression (QR) without the package QRMon?
       - Yes, see the Wolfram Functions Repository item “QuantileRegression”.
