@@ -15,7 +15,7 @@
 *** Explanations
 - The useR! 2020 committee is seeking submissions for tutorials to be hosted on the first day of the conference. The intended audience for these tutorials includes the useR! 2020 attendees, coming from a variety of academic background and levels of preparation and usage level of R. Each tutorial session will be 3.5 hours long, with a 30-minute break dividing the session into roughly two equal halves (audience is welcome to take additional breaks as needed). The instructor is expected to have fluency in the topic of the tutorial and in teaching the topic to an audience coming from a diverse range of academic, professional, and other backgrounds. 
 ** DONE Audience
-- The target audience is
+- The target audience is:
   - Data Science or Machine Learning (ML) managers,
   - beginner ML engineers,
   - students with at least two years of STEM college education.
@@ -38,7 +38,8 @@
   - Wolfram Technology Conference (2016, 2018),
   - Data Science Salon Miami Nov 2018,
   - Orlando Data Science and Machine Learning Meetup.
-  - Boston useR! meetup.
+  - Boston useR! and Open Data Science Confrence meetup.
+  - WolframU live coding sessions. 
 - URL's:
   - [[https://github.com/antononcube][GitHub repositories]],
   - [[https://www.linkedin.com/in/anton-antonov-89a8797][LinkedIn profile]].
@@ -56,25 +57,25 @@
   - Through monadic pipelines.
 - Using typical and easy to obtain data.
 - Appealing examples.
-- Universal workflows: the presented ML worflows -- if understood and
+- Universal workflows: the presented ML workflows -- if understood and
   adopted -- can be applied to any programming language.
 - Using easy to follow flow charts.
 *** Explanations
 - POINTS OF APPEAL: Describe what makes the proposed tutorial appealing to audiences from a broad range of backgrounds. If the tutorial content draws on examples from multiple fields/disciplines, the fields are identified and the tutorial is described in a way that is appealing to audience from those and related disciplines. (~75 words)
 - Word count: 0 / 100
 ** DONE Learning Objectives 
-- Utilization of pipelines in R.
+- Utilization of data processing and ML pipelines in R.
 - Knowing the basic components of Quantile Regression workflows.
 - Knowing the basic components of Latent Semantic Analysis workflows.
 - Knowing the basic components of Classification workflows.
-- Being able to come up with susscess measures of different Machine
+- Being able to come up with success measures of different Machine
   Learning algorithms and be able evalute them.
 *** Explanations
 - LEARNING OBJECTIVES: Describe the specific concepts and skills the audience can expect to have learned by attending the tutorial. Be sure to specify each learning objective succinctly. A well-drafted proposal would probably have 3-5 well-stated learning objectives. (100-200 words)
 - Word count: 0 / 200
 ** DONE Computing Requirements 
-- Most of the computations are small-to-moderate size data.
-- I plat to use RStudio.
+- Most of the computations are with small-to-moderate size data.
+- I plan to use RStudio.
 - Internet connection is desired.
 *** Explanations
 - COMPUTING REQUIREMENTS: Describe the minimum hardware configuration and software attendees should bring to the tutorial to benefit from the hands-on exercises given during the tutorial. (~50 words)
@@ -120,7 +121,7 @@
    - Basic, jump-start theory. (10 min)
      - Supervised learning primer.
      - Measuring success.
-   - Hands-on with the package ~ClCon-R~ and/or ~H2O~. (15-20 min)
+   - Demonstrations and hands-on examples. (15-20 min)
      - Using small, simple data like "Titanic" or "Mushroom".
    - Theory. (15-20 min)
      - Receiver Operating Characteristic (ROC).
