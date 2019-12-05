@@ -15,7 +15,7 @@ The lectures are to be recorded through Wolfram University (Wolfram U) in Decemb
    - What it the fundamental philosophical or scientific assumption for LSA?   
    - What is the most important and/or fundamental step of LSA?   
    - What is the difference between LSA and Latent Semantic Indexing (LSI)?   
-   - What the alternatives?
+   - What are the alternatives?
      - Using Neural Networks instead?   
    - How is LSA used to derive similarities between two given texts?   
    - How is LSA used to evaluate the proximity of phrases?
