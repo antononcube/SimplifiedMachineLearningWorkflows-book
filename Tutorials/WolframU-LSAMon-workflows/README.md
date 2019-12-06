@@ -2,7 +2,9 @@
 
 ## In brief
 
-The lectures are to be recorded through Wolfram University (Wolfram U) in December 2019 and January-February 2020.
+The lectures on 
+[Latent Semantic Analysis (LSA)](https://en.wikipedia.org/wiki/Latent_semantic_analysis) 
+are to be recorded through Wolfram University (Wolfram U) in December 2019 and January-February 2020.
 
 
 ## The lectures (as live-coding sessions)
@@ -27,8 +29,12 @@ The lectures are to be recorded through Wolfram University (Wolfram U) in Decemb
 2. [ ] LSA for document collections.
 
    - Representation of the documents.
+     - The fundamental matrix object.
    - Dimension reduction methods comparisons.
    - Representation of unseen documents.
+   - Similarity between two text: 
+     - the "local world" perspective, and 
+     - the "bigger universe" perspective.
    
 3. [ ] LSA for image collections.
 
