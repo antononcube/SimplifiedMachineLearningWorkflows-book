@@ -7,8 +7,10 @@ The lectures are to be recorded through Wolfram University (Wolfram U) in Decemb
 
 ## The lectures (as live-coding sessions)
 
-1. Overview Latent Semantic Analysis (LSA) typical problems and basic workflows. 
-   Answering preliminary anticipated questions.
+1. [X] Overview Latent Semantic Analysis (LSA) typical problems and basic workflows.    
+   Answering preliminary anticipated questions.     
+   Here is 
+   [the recording of the first session at Twitch](https://www.twitch.tv/videos/517562647) .
    
    - What are the typical applications of LSA?   
    - Why use LSA?     
@@ -21,20 +23,20 @@ The lectures are to be recorded through Wolfram University (Wolfram U) in Decemb
    - How is LSA used to evaluate the proximity of phrases?
      (That have different words, but close semantic meaning.)   
    - How the main dimension reduction methods compare?
-   
-2. LSA for document collections.
+      
+2. [ ] LSA for document collections.
 
    - Representation of the documents.
    - Dimension reduction methods comparisons.
    - Representation of unseen documents.
    
-3. LSA for image collections.
+3. [ ] LSA for image collections.
 
    - Representation of the documents.
    - Dimension reduction methods comparisons.
    - Representation of unseen documents.
    
-4. Further use cases.
+4. [ ] Further use cases.
 
    - LSA based image classification.
    - LSA for time series collections.
