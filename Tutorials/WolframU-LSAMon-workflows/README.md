@@ -26,7 +26,21 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      (That have different words, but close semantic meaning.)   
    - How the main dimension reduction methods compare?
       
-2. [ ] LSA for document collections.
+2. [X] LSA for document collections.
+ 
+    - Motivational example -- full blown LSA workflow.
+    
+    - Fundamentals, text transformation (the hard way):
+        - bag of words model,
+        - stop words,
+        - stemming.
+
+    - The easy way with 
+      [LSAMon](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Part-2-Monadic-Workflows/A-monad-for-Latent-Semantic-Analysis-workflows.md).
+
+     - "Eat your own dog food" example.
+
+3. [ ] LSA data structures and typical use cases.
 
    - Representation of the documents.
      - The fundamental matrix object.
