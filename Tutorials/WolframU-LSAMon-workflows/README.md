@@ -26,8 +26,9 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      (That have different words, but close semantic meaning.)   
    - How the main dimension reduction methods compare?
       
-2. [X] LSA for document collections.
- 
+2. [X] LSA for document collections.   
+   Here is [the recording of the second session at Twitch](https://www.twitch.tv/videos/523306241) .
+   
     - Motivational example -- full blown LSA workflow.
     
     - Fundamentals, text transformation (the hard way):
@@ -40,7 +41,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
 
      - "Eat your own dog food" example.
 
-3. [ ] LSA data structures and typical use cases.
+3. [ ] LSA data structures and typical use cases.     
 
    - Representation of the documents.
      - The fundamental matrix object.
