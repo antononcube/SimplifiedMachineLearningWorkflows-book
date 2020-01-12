@@ -41,23 +41,37 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
 
      - "Eat your own dog food" example.
 
-3. [ ] LSA data structures and typical use cases.     
+3. [X] Representation of the documents - the fundamental matrix object.   
+   Here is [the recording of the third session at Twitch](https://www.twitch.tv/videos/533991174) .
+   
+   - Review: last session's example.
+   
+   - Review: the motivational example -- full blown LSA workflow.
 
-   - Representation of the documents.
-     - The fundamental matrix object.
-   - Dimension reduction methods comparisons.
+   - Linear vector space representation:
+       - LSA's most fundamental operation,
+       - matrix with named rows and columns.
+
+   - Pareto Principle adherence
+       - for a document,
+       - for a document collection, and
+       - (in general.)
+
+4. [ ] Typical use cases.     
+
    - Representation of unseen documents.
    - Similarity between two text: 
      - the "local world" perspective, and 
      - the "bigger universe" perspective.
+   - Dimension reduction methods comparisons.
    
-3. [ ] LSA for image collections.
+5. [ ] LSA for image collections.
 
    - Representation of the documents.
    - Dimension reduction methods comparisons.
    - Representation of unseen documents.
    
-4. [ ] Further use cases.
+6. [ ] Further use cases.
 
    - LSA based image classification.
    - LSA for time series collections.
