@@ -1,0 +1,1640 @@
+{
+	"Karl Isensee Oct 28,  9:00 AM":{
+		"name":"Training: Introduction to Machine Learning",
+		"speaker_names":"Karl Isensee",
+		"location":"Spartan",
+		"starts_at":"Oct 28,  9:00 AM",
+		"ends_at":"12:00 PM",
+		"description":"This course introduces the easy-to-use machine learning superfunctions available in the Wolfram Language. You will learn how to perform supervised and unsupervised learning tasks with just a few lines of code. We will start with regression, classification, clustering and anomaly detection, and, from there, we’ll move on to the state-of-the-art neural network framework. Examples using the Wolfram Neural Net Repository are shown with instructions for building your own neural networks from scratch. Basic familiarity with the Wolfram Language is recommended. \n",
+		"key":"Karl Isensee Oct 28,  9:00 AM"
+	},
+	"Jayanta Phadikar Oct 28,  9:00 AM":{
+		"name":"Training: Programming and Development in the Wolfram Language",
+		"speaker_names":"Jayanta Phadikar",
+		"location":"Golden Gopher",
+		"starts_at":"Oct 28,  9:00 AM",
+		"ends_at":"12:00 PM",
+		"description":"Learn the skills, knowledge and tools to develop your own project with the Wolfram Language. Start with fundamental programming concepts, including iterations, nesting, pattern matching and function definitions. Then move on to more advanced techniques for package development and deployment. Along the way learn tips and tricks for good programming practices, debugging and writing efficient code in the Wolfram Language. \n",
+		"key":"Jayanta Phadikar Oct 28,  9:00 AM"
+	},
+	"Tuseeta Banerjee Oct 28,  1:00 PM":{
+		"name":"Training: Applications of Neural Networks",
+		"speaker_names":"Tuseeta Banerjee",
+		"location":"Spartan",
+		"starts_at":"Oct 28,  1:00 PM",
+		"ends_at":" 4:00 PM",
+		"description":"Attend a hands-on workshop to learn how you can use the Wolfram Neural Net Framework to construct, modify, train and apply neural nets to common machine learning tasks. Start by building simple models from scratch, and then use the pre-built state-of-the-art models found in the Wolfram Neural Net Repository to tailor them to your applications. Examples will include applications of neural nets to images, natural language processing and more. \n",
+		"key":"Tuseeta Banerjee Oct 28,  1:00 PM"
+	},
+	"Jan Poeschko and Joel Klein Oct 28,  1:00 PM":{
+		"name":"Training: Building Applications with the Wolfram Cloud",
+		"speaker_names":"Jan Poeschko and Joel Klein",
+		"location":"Golden Gopher",
+		"starts_at":"Oct 28,  1:00 PM",
+		"ends_at":" 4:00 PM",
+		"description":"This workshop is run by Wolfram Cloud developers and shows how to design and build applications that use the Wolfram Cloud entirely or as part of a system. You’ll learn the web programmer’s model in the Wolfram Language, starting with the basics of the cloud object system, and the differences between public and private clouds when building applications. We’ll also show you how to use cloud notebooks to build entire web applications and how to integrate them into other pages. \n",
+		"key":"Jan Poeschko and Joel Klein Oct 28,  1:00 PM"
+	},
+	"Andrew Steinacher, Sylvia Haas, Keiko Hirayama , Jason Biggs, and Luke Titus Oct 28,  2:00 PM":{
+		"name":"Training: Computational X-plorations",
+		"speaker_names":"Andrew Steinacher, Sylvia Haas, Keiko Hirayama , Jason Biggs, and Luke Titus",
+		"location":"Wolfram U",
+		"starts_at":"Oct 28,  2:00 PM",
+		"ends_at":" 4:00 PM",
+		"description":"Register via  <a shape=\"rect\" href=\"https:\/\/www.wolfram.com\/wolfram-u\/catalog\/wl100\/\">https:\/\/www.wolfram.com\/wolfram-u\/catalog\/wl100\/<\/a> \n\n Join us for this free introductory course to learn how you can interactively explore nearly any field using computation. Find out how you can apply computational thinking—a modern blend of critical analysis and information processing—to a range of disciplines not traditionally associated with coding. From nutrition to journalism and beyond, you’ll learn practical ways to use knowledge-based programming in your classroom, research group or company. This class introduces innovative methods for discovering ideas and insights using the computational intelligence of the Wolfram Language, the user-friendly coding environment of Wolfram Notebooks and the curated real-world knowledge of the Wolfram Knowledgebase. \n",
+		"key":"Andrew Steinacher, Sylvia Haas, Keiko Hirayama , Jason Biggs, and Luke Titus Oct 28,  2:00 PM"
+	},
+	"Oct 28,  3:00 PM":{
+		"name":"Registration Open",
+		"speaker_names":[],
+		"location":"Hilton Garden Inn",
+		"starts_at":"Oct 28,  3:00 PM",
+		"ends_at":" 5:00 PM",
+		"description":"The Conference Registration Desk is located in the Hilton Garden Inn Conference Center Lobby. Wolfram staff will be here to assist with registration, nametags, general information, scheduling, meetings, and lost and found.  Or just stop by to say hello.  We look forward to seeing you! \n",
+		"key":"Oct 28,  3:00 PM"
+	},
+	"Oct 28,  4:30 PM":{
+		"name":"Welcome Reception",
+		"speaker_names":[],
+		"location":"Fighting Illini \/ Little Chief ",
+		"starts_at":"Oct 28,  4:30 PM",
+		"ends_at":" 6:00 PM",
+		"description":"Please join us as we kick off the conference at our Welcome Reception, preceding Stephen Wolfram’s Keynote address.  Beverages and appetizers will be served. \n",
+		"key":"Oct 28,  4:30 PM"
+	},
+	"Stephen Wolfram Oct 28,  6:00 PM":{
+		"name":"Wolfram Technology Conference Keynote",
+		"speaker_names":"Stephen Wolfram",
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 28,  6:00 PM",
+		"ends_at":" 8:00 PM",
+		"description":"Opening Keynote address by Stephen Wolfram. \n",
+		"key":"Stephen Wolfram Oct 28,  6:00 PM"
+	},
+	"Oct 29,  7:30 AM":{
+		"name":"Breakfast",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 29,  7:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"Enjoy breakfast and networking. \n",
+		"key":"Oct 29,  7:30 AM"
+	},
+	"Russell Foltz-Smith Oct 29,  8:30 AM":{
+		"name":"And Nothing Is, But What Is Not (Art+Computation as Shared Consequences—the Only Possible Basis of AI)",
+		"speaker_names":"Russell Foltz-Smith",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  8:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"Art is widely considered a universal activity throughout human history. It is also thought many other species perform symbolic expressions that don’t serve pure or obvious biological functions. What could be so useful about “art” that it would be so pervasive? Using examples and theory, this talk reframes art as a critical computational approach to efficiently explore large possibility spaces that the assumed power of mathematics, statistics, deep learning, NLP and other “AI” approaches cannot replicate. This talk demonstrates that all these approaches are really subsets of an artistic process. Art provides for the exploration of spaces not covered when learning towards or optimization is the goal. Art does this primarily by generating its own space of possibilities that brings observers into shared consequences. Art is its own theorem and its own proof, a simulation of event and consequences. It is this shared computing process of artist and audience where new possibilities of reality emerge. Art is play. Art is humor. Art is the existence theorem. Art is efficient and essential for biological entities, especially social species, in order to simulate shared consequences before those consequences are committed to in an irreversible way. This unsupervised generative simulation with perturbation process is a necessary and sufficient condition for general AI—in fact, it is the only possible basis capable of general AI. \n",
+		"key":"Russell Foltz-Smith Oct 29,  8:30 AM"
+	},
+	"Gerli Jõgeva Oct 29,  8:30 AM":{
+		"name":"Computer-Based Math (CBM) Case Study in the Cloud",
+		"speaker_names":"Gerli Jõgeva",
+		"location":"Little Chief",
+		"starts_at":"Oct 29,  8:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"CBM has long leveraged the power of Wolfram Notebooks and packages to deliver a beautiful, engaging experience in teaching and learning math. Our main delivery method involves packaging up a selection of notebooks, code and resource files in an installer that can be run on the user machine for use with pre-installed Mathematica or Wolfram Player. We are now also prototyping a delivery version based in the Wolfram Cloud that requires no installation except for a browser. This talk will give an overview of the methods we used to make all our materials work just as well in the cloud as they do on the desktop. \n",
+		"key":"Gerli Jõgeva Oct 29,  8:30 AM"
+	},
+	"Claudio Parazzoli Oct 29,  8:30 AM":{
+		"name":"Considerations for a Quantum Package in the Wolfram Language",
+		"speaker_names":"Claudio Parazzoli",
+		"location":"Badger",
+		"starts_at":"Oct 29,  8:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"The rapid evolution of quantum technology has not been met by an equivalent maturing of the numerical algorithms for simulating quantum mechanical processes. We are now in the same position that computational electrodynamics (CE) was in circa 1980. We have the theory, but we can solve only a limited set of problems. Computational quantum mechanics (CQM) will expedite the maturing of quantum technologies as CE did for electromagnetism. Mathematica needs a robust package for Dirac notations, with capabilities similar to the Matrix package. In this talk we’ll show how the unsupported Dirac package by Louis Gomez is used to improve the performance of a Mach–Zehnder interferometer by photon addition. In CE, there are six topologically different ordinary differential equations (ODE) in time, for the components of the electromagnetic tensor, in each point in spacetime. This results in a set of ODEs easily integrated. In CQM problems, there is a large number, in the millions, of topologically different ODEs, for the matrix elements of the unitary operator describing the quantum process. Mathematica, with the help of the Dirac package, generates all the required ODEs. Upon integration of the ODEs, the evolution of the density matrix can be computed with all the expectation values of the operators of interest. The available tools for the evaluation of the expectation values are slow; thus, an improved set of functions for this purpose would be extremely useful. \n",
+		"key":"Claudio Parazzoli Oct 29,  8:30 AM"
+	},
+	"Jason Harris Oct 29,  8:30 AM":{
+		"name":"Typesetting Workshop and New TemplateBox Enhancements",
+		"speaker_names":"Jason Harris",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29,  8:30 AM",
+		"ends_at":" 9:30 AM",
+		"description":"This workshop will detail some of the advanced typesetting capabilities in Mathematica. It will explore ways to create your own typeset notations that are particular to your field of study\/practice. We will cover boxes and, in particular, work up to TemplateBoxes, together with MakeBoxes and MakeExpression rules. We will also discuss stylesheets for packaging up your own notations. Additionally, I will showcase the latest additions to TemplateBox that allow them to work via associations together with other TemplateBox advancements, which will appear in a future version of Mathematica. \n",
+		"key":"Jason Harris Oct 29,  8:30 AM"
+	},
+	"Michael Ulrey Oct 29,  9:00 AM":{
+		"name":"Bell's Theorem: A Parametric and Geometric Perspective",
+		"speaker_names":"Michael Ulrey",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  9:00 AM",
+		"ends_at":" 9:30 AM",
+		"description":"This presentation is an update of last year’s presentation at this conference, concerning the author’s personal quest to better understand some of the very curious and interesting problems at the foundations of standard quantum mechanics, in particular Bell’s inequality and its consequences. Mathematica has been the computational workhorse behind everything in this presentation, but the highlights are the plots and visualizations produced by Mathematica, since they have proved invaluable in improving intuition and guiding the direction of the analysis. \n",
+		"key":"Michael Ulrey Oct 29,  9:00 AM"
+	},
+	"Philip Maymin, Ph.D. and Stella Maymin Oct 29,  9:00 AM":{
+		"name":"Computational Mindfulness",
+		"speaker_names":"Philip Maymin, Ph.D. and Stella Maymin",
+		"location":"Badger",
+		"starts_at":"Oct 29,  9:00 AM",
+		"ends_at":" 9:30 AM",
+		"description":"We report the results of experiments in computational mindfulness. First, subjects are deemed to be induced into either a mindless or a mindful condition through a spot-the-difference exercise where a sequence of random images are automatically modified to a degree of difficulty proxied for through image distances. “Mindless” condition subjects are shown relatively easy spot-the-difference pairs of pictures, while “mindful” subjects are shown more difficult ones. Next, subjects in both conditions complete a survey to measure standard biases to which truly mindful subjects should be less prone. They are also assessed on the 21-point Langer Mindfulness Scale. Then, electroencephalogram (EEG) measurements, taken throughout the study of each participant using a portable headband, are clustered and classified to determine the extent to which mindfulness is computationally measurable. Finally, subjects in both groups are shown a variety of spot-the-difference challenges of computationally known but undisclosed difficulty, and a correlation analysis is performed on the degree to which that actual difficulty varies with their live EEG measurements transformed into mindfulness probabilities using the clusters and machine learning classification computed earlier. In other words, we test the idea that mindfulness can be induced without meditation, practice, breathing exercises or even intent, but merely through the targeted presentation of an automated spot-the-difference game. \n",
+		"key":"Philip Maymin, Ph.D. and Stella Maymin Oct 29,  9:00 AM"
+	},
+	"Daavid Väänänen Oct 29,  9:00 AM":{
+		"name":"Meet-Up: Educator Code Together Part 1",
+		"speaker_names":"Daavid Väänänen",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 29,  9:00 AM",
+		"ends_at":"10:00 AM",
+		"description":"Educator Code Together welcomes all interested Wolfram Technology Conference 2019 attendees to join in three sessions on ideation, content creation and collaborative coding for educational applications using the Wolfram Language. During the sessions, the participants will be able to focus on the topic of their choice and receive help and feedback from both the Wolfram staff and other participating educators. Code Together sessions will also be great opportunities to network with other like-minded educators and build long-lasting collaborations and partnerships. Representatives from all levels of education, from pre-primary to university and beyond, including workforce (re-)training, are welcome to join! No prior Wolfram Language experience is expected. \n\n If you do not have a project in mind, this is an opportunity to create one! If you have an idea but have not yet started it, this is a chance to get your project launched! If you have already been working on an educational project, this is an opportunity to take it to the next level! \n\n • Introduce each other and the concept of Code Together <br clear=\"none\" \/> \n• Showcase of example educational projects that apply the Wolfram Language <br clear=\"none\" \/> \n• Choose an educational project and start coding together \n",
+		"key":"Daavid Väänänen Oct 29,  9:00 AM"
+	},
+	"Todd Gayley Oct 29,  9:00 AM":{
+		"name":"Paclet Development",
+		"speaker_names":"Todd Gayley",
+		"location":"Little Chief",
+		"starts_at":"Oct 29,  9:00 AM",
+		"ends_at":"10:00 AM",
+		"description":"Paclets are a way of packaging units of Wolfram system functionality so they can be easily found, distributed, updated and loaded. Many paclets contain Wolfram Language packages, but a paclet can be as simple as a single documentation notebook all the way up to a large application with multiple packages, documentation, front end palettes, libraries, etc. Paclets have been used internally in Wolfram products for years to componentize parts of the system and make it easy to provide updates to users. We are now enhancing the system and documenting it for users. We will also host a public paclet repository that accepts submissions from users. This talk will introduce paclets, explain their capabilities and show how to create and distribute them. \n",
+		"key":"Todd Gayley Oct 29,  9:00 AM"
+	},
+	"Jay Weininger Oct 29,  9:30 AM":{
+		"name":"A Staff-Based Sales Strategy for Implementing Your College's Computational Literacy Program",
+		"speaker_names":"Jay Weininger",
+		"location":"Badger",
+		"starts_at":"Oct 29,  9:30 AM",
+		"ends_at":"10:00 AM",
+		"description":"The strategy addresses multiple issues: basics, goals, platform, new concepts, faculty presentations, faculty training, curriculum integration, administrative involvement and board funding. \n",
+		"key":"Jay Weininger Oct 29,  9:30 AM"
+	},
+	"Tom Sherlock Oct 29,  9:30 AM":{
+		"name":"Aperture Photometry",
+		"speaker_names":"Tom Sherlock",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29,  9:30 AM",
+		"ends_at":"10:00 AM",
+		"description":"Stellar CCD aperture photometry is the technique of extracting information about the brightness of stars from a series of images collected over time. The light curve of a variable star can reveal useful information about the physics of the star, including a measure of the star’s intrinsic brightness. \n\n Light curve analysis can yield information about eclipsing binary systems and also lead to exoplanet discoveries where a planet alters the brightness of a star by crossing its disk as viewed from Earth. The Wolfram Language is an ideal tool for extracting and analyzing this data because it combines image processing, data reduction, plotting, curve fitting, file import and astronomical data into one package. \n\n This talk will address the basic techniques of stellar aperture CCD photometry using the Wolfram Language. \n",
+		"key":"Tom Sherlock Oct 29,  9:30 AM"
+	},
+	"Ramesh Adhikari Oct 29,  9:30 AM":{
+		"name":"Enhancing Hands-on Learning Using Mathematica",
+		"speaker_names":"Ramesh Adhikari",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  9:30 AM",
+		"ends_at":"10:00 AM",
+		"description":"I have shown the use of many Mathematica built-in financial functions and written many functions that are very useful for real-world financial data analysis and in teaching undergraduate finance courses. Topics covered include access and visualization of financial data from external sources such as Quandl and the Federal Reserve Bank of St. Louis, financial analysis of company data, capital budgeting and business valuation, performance analysis of individual stocks and portfolios, rolling window performance analysis, portfolio optimization, interactive graphics and technical analysis, bond mathematics, linear programming and its application, binomial and Black–Scholes–Merton options pricing models, simulation and financial application, bootstrapping and application and introductory time series analysis and forecasting. \n",
+		"key":"Ramesh Adhikari Oct 29,  9:30 AM"
+	},
+	"Oct 29, 10:00 AM":{
+		"name":"Break",
+		"speaker_names":[],
+		"location":"Alumni Ballroom",
+		"starts_at":"Oct 29, 10:00 AM",
+		"ends_at":"10:30 AM",
+		"description":"None",
+		"key":"Oct 29, 10:00 AM"
+	},
+	"Aneet Dharmavaram Narendranath, PhD Oct 29, 10:30 AM":{
+		"name":"Approximating Steam Properties: Machine Learning on IAPWS Standard",
+		"speaker_names":"Aneet Dharmavaram Narendranath, PhD",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"Predict[] and NetTrain[] are used as thermodynamic property approximators for water and steam, by training on the IF-97 industrial standard of the International Association of Properties of Water and Steam (IAPWS IF-97). The IAPWS IF-97 standard distributes thermodynamic data into nonintersecting zones of thermodynamic state prescribed by a (pressure, temperature) tuple, to which region-specific equations of state are applied to evaluate thermodynamic properties such as specific enthalpy, specific entropy, specific internal energy, etc. I compare the efficacy of out-of-the-box Predict and a heuristic neural network created using NetTrain to approximate the crucial thermodynamic property, specific enthalpy, given a large dataset extracted from the IAPWS steam data. In this demonstration, specific enthalpies (J\/kg) of steam as a function of pressure (P, bar) and temperature (T, Celsius) are first imported. Multiple different data-sample organizations and prediction\/approximation objects are used: (1) an out-of-the-box (ootb), gradient-boosted decision tree (GBDT) prediction object (Predict[]) is trained on the full dataset; (2) an ootb-GBDT is trained on a single isobar; and (3) a heuristic multilayer neural network (HPNN, NetTrain[]) is trained on the entire dataset, a single isobar and individual zones. It is observed that the HPNN is faster than GBDT and possesses greater accuracy when data is distributed into zones per the IAPWS standard. The current objective is to use the thermodynamic approximator example here as an experiential learning tool to demystify machine learning and neural networks for mechanical engineering students with a traditionally noncomputing coursework backgrounds. \n",
+		"key":"Aneet Dharmavaram Narendranath, PhD Oct 29, 10:30 AM"
+	},
+	"Rory Foulger Oct 29, 10:30 AM":{
+		"name":"Meet-Up: Student Community",
+		"speaker_names":"Rory Foulger",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 29, 10:30 AM",
+		"ends_at":"11:30 AM",
+		"description":"An opportunity for students to meet, network, have fun, and hear about student positions\/programs at Wolfram. Open to all students, and we especially welcome past and present Student Ambassadors, Wolfram Summer School alumni, Wolfram Summer Camp alumni, as well as past and present Wolfram interns \n",
+		"key":"Rory Foulger Oct 29, 10:30 AM"
+	},
+	"Benji Bernstein and Ben Kickert Oct 29, 10:30 AM":{
+		"name":"The Power of Wolfram for Twitter Analytics",
+		"speaker_names":"Benji Bernstein and Ben Kickert",
+		"location":"Badger",
+		"starts_at":"Oct 29, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"In this presentation, we will take the audience through many innovative ways we are using and continuing to build out\/automate Twitter analytics functionality to grow engagement and overall Twitter presence. This will include a review of many custom-built Twitter analytics tools, covering the areas of: * Engagement benchmarking (e.g. automated comparisons of high-engagement tweets vs. “baseline” engagement tweets vs. other users' tweets, etc.)  * Follower\/influencer analytics (e.g. individual followers' likelihoods to retweet particular types of posts, discovering “hidden gems” within your follower base, etc.)  * Content network analysis (e.g. mapping who within a user’s follower network is frequently engaging with particular content areas, etc.)  * AI for Tweet sentiment analysis and topic definition  The functionality is brought together into a series of cloud-based forms and high-impact data visualizations. \n",
+		"key":"Benji Bernstein and Ben Kickert Oct 29, 10:30 AM"
+	},
+	"André Kuzniarek Oct 29, 10:30 AM":{
+		"name":"Wolfram Player Post CDF",
+		"speaker_names":"André Kuzniarek",
+		"location":"Little Chief",
+		"starts_at":"Oct 29, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"A current summary of Notebook deployment-related features and initiatives after CDF \n",
+		"key":"André Kuzniarek Oct 29, 10:30 AM"
+	},
+	"Francisco Rodriguez Arias Oct 29, 10:30 AM":{
+		"name":"Wolfram|Alpha in Spanish",
+		"speaker_names":"Francisco Rodriguez Arias",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"None",
+		"key":"Francisco Rodriguez Arias Oct 29, 10:30 AM"
+	},
+	"Jayanta Phadikar Oct 29, 11:00 AM":{
+		"name":"Evaluation Control and Its Applications",
+		"speaker_names":"Jayanta Phadikar",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"Evaluation control is one of the most important topics for someone interested in doing advanced programming with the Wolfram Language. In this talk, the standard and non-standard evaluation procedures in Mathematica will be discussed, along with various application examples. The roles of various attributes will be described. A set of useful tips\/tricks and utility functions will be mentioned at the end. \n",
+		"key":"Jayanta Phadikar Oct 29, 11:00 AM"
+	},
+	"Yi-Lin Chiu Oct 29, 11:00 AM":{
+		"name":"Modeling Multi-physics with PDEs",
+		"speaker_names":"Yi-Lin Chiu",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"This talk will describe how to build multiphysics models in the Wolfram Language to simulate multiple interacting physical phenomena. The mathematical models are based on systems of possibly nonlinear partial differential equations (PDEs) that can be solved numerically using NDSolve and NDEigensystem. Techniques will be shown for setting up various types of boundary conditions and mapping different physical fields in the Wolfram Language. \n\n A practical problem will be presented to demonstrate the workflow of multiphysics modeling. Attending this talk will provide you with the capabilities to build real-world PDE models involving, but not limited to, acoustics, heat\/mass transfer, solid mechanics and fluid dynamics. \n",
+		"key":"Yi-Lin Chiu Oct 29, 11:00 AM"
+	},
+	"Maureen Baehr and Ben Kickert Oct 29, 11:00 AM":{
+		"name":"SDG Counting—Evolution of Tools and Techniques for Measurement",
+		"speaker_names":"Maureen Baehr and Ben Kickert",
+		"location":"Badger",
+		"starts_at":"Oct 29, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"In this presentation, we will provide an overview of the many methodologies, scorecards, reports, etc. that the SDGs have spawned for measuring. The goal of the project is to prepare useful resources for understanding, using, comparing and combining different methodologies. A linkage map and guideline website are two of the project goals.  To gather, analyze, assess and catalog this information, we’re using several of the newer features of the Wolfram technology stack. \n",
+		"key":"Maureen Baehr and Ben Kickert Oct 29, 11:00 AM"
+	},
+	"John Fultz Oct 29, 11:00 AM":{
+		"name":"State of the Front End",
+		"speaker_names":"John Fultz",
+		"location":"Little Chief",
+		"starts_at":"Oct 29, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"None",
+		"key":"John Fultz Oct 29, 11:00 AM"
+	},
+	"Jon Woodard Oct 29, 11:30 AM":{
+		"name":"Blockchain Education and Research Initiatives",
+		"speaker_names":"Jon Woodard",
+		"location":"Little Chief",
+		"starts_at":"Oct 29, 11:30 AM",
+		"ends_at":"12:00 PM",
+		"description":"Wolfram Blockchain Labs is working on two large-scale projects that provide information about blockchains, distributed ledger technologies and other decentralized technologies, an introductory blockchain course and an unbiased collection of attributes on different blockchain services. The introductory course features a comprehensive exploration of blockchain and decentralized services, including the technological, political, social, philosophical and economic areas of impact. The blockchain attribute collection will feature one of the largest collections of public and private blockchain solutions. The talk will feature a walk through of both projects. \n",
+		"key":"Jon Woodard Oct 29, 11:30 AM"
+	},
+	"Oct 29, 11:30 AM":{
+		"name":"Lunch",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 29, 11:30 AM",
+		"ends_at":" 1:00 PM",
+		"description":"Lunch and networking.  Join a round table discussion or start one of your own. \n",
+		"key":"Oct 29, 11:30 AM"
+	},
+	"Riccardo Di Virgilio Oct 29, 11:30 AM":{
+		"name":"Wolfram Web Engine for Python",
+		"speaker_names":"Riccardo Di Virgilio",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29, 11:30 AM",
+		"ends_at":"12:00 PM",
+		"description":"Wolfram Web Engine for Python is an open-source library that allows you to develop and publish web applications locally using the Wolfram Language. \n\n The library can be used with any Wolfram kernel, including the free Wolfram Engine for Developers, to create new applications from scratch or to integrate existing Python applications. \n\n In this talk, we will see how to create a web application using only the Wolfram Language, as well as how to start serving content in an existing Python application (Django and AIOHTTP). \n\n We will show how to take an existing Wolfram Cloud application and start developing and serving content from a local machine, and show how, with this system, you have some of the advantages of Wolfram Enterprise Private Cloud (ability to run arbitrary binaries using RunProcess, connect to external databases, etc.). We will also show which functions are currently supported (Delayed, APIFunction, FormFunction, URLDispatcher, etc.). \n",
+		"key":"Riccardo Di Virgilio Oct 29, 11:30 AM"
+	},
+	"Oct 29, 12:00 PM":{
+		"name":"General Announcements",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 29, 12:00 PM",
+		"ends_at":"12:10 PM",
+		"description":"Stay tuned for information on special events, schedule announcements, and general information to get the most out of the conference. \n",
+		"key":"Oct 29, 12:00 PM"
+	},
+	"Richard Potter Oct 29, 12:30 PM":{
+		"name":"M2SLink",
+		"speaker_names":"Richard Potter",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29, 12:30 PM",
+		"ends_at":" 1:00 PM",
+		"description":"I will demonstrate key features of M2SLink, which uses WSTP (Wolfram Symbolic Transfer Protocol) to connect Mathematica® to SAS®. M2SLink allows you to do the following: <br clear=\"none\" \/> \n- Import any SAS dataset (or JMP data table) directly into Mathematica without having to use a SAS transport file. <br clear=\"none\" \/> \n   - Built-in SAS formats as well as user-defined formats are fully supported. <br clear=\"none\" \/> \n   - Date, time and date-time values are automatically converted for you as you transfer your data back and forth between Mathematica and SAS. <br clear=\"none\" \/> \n- Export your Mathematica data back to a SAS dataset (or JMP data table). <br clear=\"none\" \/> \n- Run any SAS program from your Mathematica notebook. \n\n I will also demonstrate the M2SLink Interactive Scatter Plot, which facilitates data exploration by creating a dynamic link between a Mathematica ListPlot and an M2SLink Data Viewer. Using this special ListPlot, you can click a point in a Scatter Plot and the corresponding row will become selected in your M2SLink Data Viewer. Conversely, you can select a row in your M2SLink Data Viewer and the corresponding point will become highlighted in the Scatter Plot. \n",
+		"key":"Richard Potter Oct 29, 12:30 PM"
+	},
+	"Jason Biggs Oct 29, 12:30 PM":{
+		"name":"New Developments in the Wolfram Language Chemistry",
+		"speaker_names":"Jason Biggs",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29, 12:30 PM",
+		"ends_at":" 1:00 PM",
+		"description":"Version 12 of the Wolfram Language introduced the Molecule function, a  fully computable symbolic representation of a molecule. This presentation will show how to easily create arbitrary molecules, embed them in three dimensions and compute topological and geometric descriptors. New features currently in development, such as molecule fingerprinting and tautomer standardization, will be discussed. \n",
+		"key":"Jason Biggs Oct 29, 12:30 PM"
+	},
+	"Akira Toma and Piero Sanchez Oct 29, 12:30 PM":{
+		"name":"What’s New in Blockchain",
+		"speaker_names":"Akira Toma and Piero Sanchez",
+		"location":"Little Chief",
+		"starts_at":"Oct 29, 12:30 PM",
+		"ends_at":" 1:00 PM",
+		"description":"Discover the new additions to the blockchain functionalities in the Wolfram Language. We will also introduce the new Oracle service for computational contracts based on the Wolfram|Alpha Knowledgebase, as well as present the ARK blockchain integration with reading and writing capabilities for a complete interaction with this new distributed ledger technology. \n",
+		"key":"Akira Toma and Piero Sanchez Oct 29, 12:30 PM"
+	},
+	"Amy Friedman, PhD Oct 29,  1:00 PM":{
+		"name":"Computational Satire Humanities",
+		"speaker_names":"Amy Friedman, PhD",
+		"location":"Badger",
+		"starts_at":"Oct 29,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"In my upcoming book,  <i>Postcolonial Satire<\/i>  (Lexington Press), I argue for the importance of satire literacy in the current cultural-political media climate. The banned Iranian satirist Mahmūd Farjāmī has asserted that “political satire is often one of the first targets in press crackdowns and other attempts to limit political freedom owing to its critical examination of power and authority. As such, political satire can be regarded as an index of the freedom of speech” (2014). My talk considers approaches to quantitative analysis of pushback directed toward satire, exploring possible metrics for measuring the efficacy of satiric literatures of resistance. Though my coding abilities are nascent, my aim is to illustrate as strongly as possible some of the types of queries that drive the research of literature scholars, and which will inevitably contribute to the future shape of the evolving discipline of computational humanities. I am using Mathematica to try to extend the modes of analysis currently on offer via extant textual analytic tools such as those found at HathiTrust and Voyant. \n",
+		"key":"Amy Friedman, PhD Oct 29,  1:00 PM"
+	},
+	"Nina Dokeva Oct 29,  1:00 PM":{
+		"name":"Effective Solvers for Convex Optimization",
+		"speaker_names":"Nina Dokeva",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"The recent development of effective conic solvers has turned convex optimization into a mainstream discipline. This talk will focus on the available and upcoming solvers for real and mixed-integer convex optimization problems in the Wolfram Language. It will discuss how  <br clear=\"none\" \/> \nexternal libraries have been utilized under a common and easy-to-use  <br clear=\"none\" \/> \ninterface as well as a new plugin mechanism for adding more solvers as  <br clear=\"none\" \/> \nnew methods. \n",
+		"key":"Nina Dokeva Oct 29,  1:00 PM"
+	},
+	"Maik Meusel and Maria Meier Oct 29,  1:00 PM":{
+		"name":"NLP for Automated Grading of Mathematical Word Problems",
+		"speaker_names":"Maik Meusel and Maria Meier",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"Educators spend a significant amount of time preparing and grading assignments and exams. With the introduction of online assessments in recent years, new possibilities for efficiency improvement in education have arisen. SYLVA uses Wolfram technologies to provide a fully integrated platform allowing educators to create assessments that can be graded automatically. To increase the accessibility for teachers with little or no programming knowledge, we use NLP and GrammarRules to derive computable conditions for mathematical text questions. We analyze several large-scale datasets to compare and discuss performance and limitations of our NLP approach with regard to traditional deep learning and reinforcement learning approaches. \n",
+		"key":"Maik Meusel and Maria Meier Oct 29,  1:00 PM"
+	},
+	"Nick Zitzmann  and Parth Pratap Oct 29,  1:00 PM":{
+		"name":"Wolfram Apps on Your Mobile Devices",
+		"speaker_names":"Nick Zitzmann  and Parth Pratap",
+		"location":"Little Chief",
+		"starts_at":"Oct 29,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"Get an introduction to the Wolfram|Alpha, Wolfram Cloud and Wolfram Player mobile apps and learn about their use cases in an educational setting. \n",
+		"key":"Nick Zitzmann  and Parth Pratap Oct 29,  1:00 PM"
+	},
+	"Anton Antonov Oct 29,  1:30 PM":{
+		"name":"Anomalies, Breaks and Outlier Detection in Time Series",
+		"speaker_names":"Anton Antonov",
+		"location":"Badger",
+		"starts_at":"Oct 29,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"In this presentation we show, explain and compare methods for finding anomalies, breaks and outliers in time series. We are interested in finding anomalies in both a single time series and a collection of time series. We (mostly) employ nonparametric methods. First, we look at some motivational examples from well-known datasets. Then we look into definitions of anomalies and definitions for measuring the success of time series anomaly detection. For a single time series, we apply both Wolfram Language built-in algorithms and additional specialized algorithms. We discuss in more detail algorithms based on  <i>k<\/i> -nearest neighbors (KNN), dimension reduction, linear regression, quantile regression and prefix trees. For collections of time series, we discuss: transformations into uniform representations, simple outlier finding based on variable distributions, anomalous trend finding, anomaly finding with KNN and other related algorithms. We are going to discuss how anomaly finding helps in producing faithful simulations of multivariable datasets. Concrete, real-life time series are used in the examples. \n",
+		"key":"Anton Antonov Oct 29,  1:30 PM"
+	},
+	"Rob Knapp Oct 29,  1:30 PM":{
+		"name":"Applications of Convex Optimization",
+		"speaker_names":"Rob Knapp",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"Convex optimization can be thought of as an extension of linear optimization (linear programming) to nonlinear cases. Just as the advent of efficient solvers for linear optimization led to an explosion of the applications and uses of linear optimization, the relatively new efficient solvers for convex optimization are opening up a whole new set of applications and uses for convex optimization. This presentation will describe some of the basics of convex optimization and focus on a variety of examples of applications of convex optimization. \n",
+		"key":"Rob Knapp Oct 29,  1:30 PM"
+	},
+	"Ben Kickert and Maureen Baehr Oct 29,  1:30 PM":{
+		"name":"Structuring Diverse Data Sources for Machine Learning and Analysis",
+		"speaker_names":"Ben Kickert and Maureen Baehr",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"What do you do when the data you need comes from sources such as online content, relational databases, EntityStores and a variety of different flat tables? In this presentation, we will explore how diverse data sources with divergent structures and formats can be brought together for unified analysis. Skills covered will include: •   Importing structured and unstructured data from the web •   Data cleaning and structuring techniques •   Connecting to relational databases such as SQL through Wolfram •   Formatting flat tables into relational Entities while utilizing Wolfram’s built in EntityStores •   Using machine learning to generate connections between sources •   Generating reports and visualizations •   Creating dynamic analysis and summaries that build from linked sources •   Implementing supervised and unsupervised machine learning techniques to draw conclusions  This session will utilize public data around the Sustainable Development Goals as well as the impact investing spheres, but will be applicable to a wide range of fields. \n",
+		"key":"Ben Kickert and Maureen Baehr Oct 29,  1:30 PM"
+	},
+	"Jan Poeschko Oct 29,  1:30 PM":{
+		"name":"What's New in the Cloud",
+		"speaker_names":"Jan Poeschko",
+		"location":"Little Chief",
+		"starts_at":"Oct 29,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"After a general introduction to the Wolfram Cloud, we’ll talk about what’s new in the world of cloud notebooks and beyond. Over the last year, we’ve been working hard to bring notebooks in the cloud another step closer to the desktop, continuously improving performance and adding functionality such as InputForm-based typesetting, Evaluate in Place, Print to PDF and improved font rendering. We have also simplified the cloud product selection and made it easier to embed cloud notebooks on websites. \n",
+		"key":"Jan Poeschko Oct 29,  1:30 PM"
+	},
+	"Seth Chandler Oct 29,  1:30 PM":{
+		"name":"Working with Data in the Wolfram Language",
+		"speaker_names":"Seth Chandler",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 29,  1:30 PM",
+		"ends_at":" 2:30 PM",
+		"description":"This workshop is intended to develop the ability of intermediate Wolfram Language users to retrieve data from external sources such as CSV, Excel files or Google Sheets; convert them into Datasets; and then use the Query construct to create compositions of operator forms (pipelines) that extract useful information. Instruction will focus on how Query creates something similar to Map statements operating at different levels of a data structure and how Query takes the functions contained in its arguments to construct an order of operations. Various ResourceFunction functions useful in data analysis will also be introduced. The workshop will also touch briefly on how to use the Entity framework to extract information from the Wolfram Knowledgebase and how to move data between entity stores and more traditional Wolfram Language constructs such as Dataset or structures involving associations. \n\n Attendees can further the knowledge obtained from the workshop by obtaining Professor Chandler’s forthcoming book, provisionally titled  <i>Transforming Data into Information: The Wolfram Language<\/i> , which should be available from Wolfram Media before year end. \n\n Attendees should be able to understand the attached code at the end of the workshop. \n",
+		"key":"Seth Chandler Oct 29,  1:30 PM"
+	},
+	"Dennis Collins Oct 29,  2:00 PM":{
+		"name":"Drama Triangle Cycling of Julius Caesar Triumvirate",
+		"speaker_names":"Dennis Collins",
+		"location":"Badger",
+		"starts_at":"Oct 29,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"This paper follows up on a 2009 paper, “Political Spectrum Models,” by Dennis Collins and David Scienceman in  <i>Emergy Synthesis 5<\/i> , Univ. of Florida, Gainesville, FL. The section POSSIBLE PATHOLOGY states “[t]he Founding Fathers of the U.S. republic had the idea that democracy could degenerate into dictatorship… could the same instabilities beset the U.S. as caused the Roman republic to falter within 20 years of the end [in 63 b.c.] of Mithradates VI… [and] lead to a return to the paternal model of politics, such as practiced in North Korea.”  Here a central force model solved in  <i>Ordinary Differential Equations<\/i> , 1963 pp. 476–479 by Morris Tenenbaum and Harry Pollard is applied to drama triangle cycling to model the Julius Caesar triumvirate with deaths of Victim Crassus (53 BC), Rescuer Pompey (48 BC) and Aggressor Julius Caesar (March 15, 44 BC).  Status in Life (SIL=0, near death; SIL=9, very powerful) calculations are based on an an obliquely placed circle in ( <i>x<\/i> , <i>y<\/i> , <i>z<\/i> )=(Aggressor, Victim, Rescuer) space as developed in the 2019 paper “Toward the Transformity of Christian or Other Advanced Religion Follower” by David Scienceman and Dennis Collins in  <i>Emergy Synthesis 10<\/i> . \n",
+		"key":"Dennis Collins Oct 29,  2:00 PM"
+	},
+	"Anand Sundaram Oct 29,  2:00 PM":{
+		"name":"Enabling Math and Science Faculty to Craft Active Learning Engagements",
+		"speaker_names":"Anand Sundaram",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"A static learning environment is impeding math and science educators from creating an active learning environment where they can teach, grade through interactivity and machine learning–based assessments, and auto-grade. The latest EDUCAUSE faculty survey validates this need, and this (in combination with the struggles that math and science textbook publishers face in creating interactive content and in keeping the prices down, and finally the significant growth in distant learning enrollment) makes it an issue that needs to addressed immediately. The SYLVA interactive platform with Wolfram technology is the perfect environment to address these critical teaching\/learning issues. \n",
+		"key":"Anand Sundaram Oct 29,  2:00 PM"
+	},
+	"Yuzhu Lu  Oct 29,  2:00 PM":{
+		"name":"Graphics",
+		"speaker_names":"Yuzhu Lu ",
+		"location":"Little Chief",
+		"starts_at":"Oct 29,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"This talk will present some new features and optimizations of Mathematica 2D and 3D graphics language, including new non-photorealistic shading directives and customized rendering. It will also show our new 3D drawing layers of Direct3D 11 and Metal, as well as their benefits. \n",
+		"key":"Yuzhu Lu  Oct 29,  2:00 PM"
+	},
+	"Paritosh Mokhasi Oct 29,  2:00 PM":{
+		"name":"Mixed Integer Convex Optimization",
+		"speaker_names":"Paritosh Mokhasi",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"This talk will provide an overview of solving mixed-integer convex optimization problems using dedicated Mathematica solver functions. Examples will be shown that demonstrate how a variety of problems can be specified using the mixed-integer formulations and how the results can be interpreted. An overview of the underlying algorithm that solves mixed-integer convex problems will also be given in this talk. \n",
+		"key":"Paritosh Mokhasi Oct 29,  2:00 PM"
+	},
+	"Eric Jacopin Oct 29,  2:30 PM":{
+		"name":"A Package for Game AI Planning Analytics",
+		"speaker_names":"Eric Jacopin",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"I describe the (Game AI) Planning Analytics Package (PAP), which I have been developing since 2015. PAP provides (about 60) functions and various constants to analyze in-game data from the planning component of the AI engine of a video game. I also briefly address Mathematica package development. \n",
+		"key":"Eric Jacopin Oct 29,  2:30 PM"
+	},
+	"Christopher Hanusa Oct 29,  2:30 PM":{
+		"name":"Datamining Imaginary Maps",
+		"speaker_names":"Christopher Hanusa",
+		"location":"Little Chief",
+		"starts_at":"Oct 29,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"What can mathematics say about imaginary places? We explore a variety of statistical measures of sci-artist Emily Garfield’s  <i>Imaginary Maps<\/i>  collection to ask and answer questions about the demographics, neighborhoods and fractal nature of her imagined places. Our destination will surprise you. All aboard! \n",
+		"key":"Christopher Hanusa Oct 29,  2:30 PM"
+	},
+	"Joo Haeng  Lee Oct 29,  2:30 PM":{
+		"name":"PixelStack Operation and Its Applications",
+		"speaker_names":"Joo Haeng  Lee",
+		"location":"Badger",
+		"starts_at":"Oct 29,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"A pixel is the minimum unit of information that constitutes an image. Existing image transformation operations are mainly focused on changing the color value of a pixel. In this talk, we describe a set of methods for transforming an image by changing the positions of pixels rather than their colors. The conceptual framework and individual operations are referred to as PixelStack. Various exemplary operations are proposed based on different positioning criteria. It is possible, as a representative effect, to automatically generate a wide variety of abstract images based on a single input image, or a simple style transfer effect on two or more input images. \n",
+		"key":"Joo Haeng  Lee Oct 29,  2:30 PM"
+	},
+	"Jason Sonnenberg, PhD Oct 29,  2:30 PM":{
+		"name":"Stepping Towards Chemistry Mastery",
+		"speaker_names":"Jason Sonnenberg, PhD",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"Solution guides are useful chemical education tools for lowering the barrier to chemical mastery across disciplines and cultures. Wolfram|Alpha has been providing such solution guides for chemistry since 2013 through the step-by-step solutions framework.   <br clear=\"none\" \/>  Following recent evolutions in chemical problem-solving pedagogy, new chemistry step-by-step offerings now include a Plan step and emphasize how to check one’s work along the way. Additionally, significant figure compliance is rolling out in new and existing chemistry step-by-step offerings. Examples from the expanded step-by-step catalog for chemistry will be presented. \n",
+		"key":"Jason Sonnenberg, PhD Oct 29,  2:30 PM"
+	},
+	"Oct 29,  3:00 PM":{
+		"name":"Break",
+		"speaker_names":[],
+		"location":"Alumni Ballroom",
+		"starts_at":"Oct 29,  3:00 PM",
+		"ends_at":" 3:30 PM",
+		"description":"None",
+		"key":"Oct 29,  3:00 PM"
+	},
+	"Bruce Colletti, Mads Bahrami, and Vitaliy Kaurov Oct 29,  3:00 PM":{
+		"name":"Meet-Up: Wolfram Language in Defense and Homeland Security",
+		"speaker_names":"Bruce Colletti, Mads Bahrami, and Vitaliy Kaurov",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 29,  3:00 PM",
+		"ends_at":" 4:00 PM",
+		"description":"This informal meet-up session discusses how the Wolfram Language has been (or can be) applied to defense, military-industrial preparedness and homeland security. The aim is to make use of the Wolfram Language within the defense and homeland security areas more visible, and to aggressively extend such uses. Our discussion will inform these aims and, ideally, yield a small Wolfram Language user community that enables technical discussion, collaboration and proponency among ourselves. \n\n This session aims to draw Wolfram Language users from diverse backgrounds, including those who belong to the Military Operations Research Society, (MORS, mors.org),the Military and Security Society of the Institute for Operations Research and the Management Sciences (INFORMS-MAS, connect.informs.org\/militaryandsecurity) and the National Defense Industrial Association (NDIA, ndia.org). This session builds upon discussions (about defense-related applications of operations research) held at the end of the 2017 Wolfram Technology Conference. \n\n The session’s prepared framework launches a free-wheeling discussion that is informed by our interests and stories in diverse areas such as manufacturing and transportation; high-power electromagnetic systems and night vision; personnel management; deliberate and contingency planning; humanitarian relief; inventory and depot management; aerospace systems; policy analysis and automated reasoning; the Defense Acquisition System; health care; C^4 ISR (command, control, communications, computers, intelligence, surveillance, reconnaissance); threat assessment; campaign analysis; weapon system simulations; operations and maintenance(O&M); and the master of it all, the Planning, Programming, Budgeting & Execution System (PPBES). \n\n Other topical areas are provided by the titles of the MORS Symposium Working Groups and NDIA divisions. \n",
+		"key":"Bruce Colletti, Mads Bahrami, and Vitaliy Kaurov Oct 29,  3:00 PM"
+	},
+	"Kevin Daily Oct 29,  3:30 PM":{
+		"name":"CSS Importer (.css)",
+		"speaker_names":"Kevin Daily",
+		"location":"Little Chief",
+		"starts_at":"Oct 29,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"The cascading stylesheet (CSS) is the standard for styling HTML documents. Wolfram Notebooks use a similar but distinct stylesheet system. This talk introduces a robust importer for CSS documents to validate and translate CSS declarations into Wolfram Language options. CSS can optionally be imported as uninterpreted data or directly as a notebook stylesheet. Strategies for conversion are discussed. \n",
+		"key":"Kevin Daily Oct 29,  3:30 PM"
+	},
+	"George Woodrow III Oct 29,  3:30 PM":{
+		"name":"Fractal Planets",
+		"speaker_names":"George Woodrow III",
+		"location":"Badger",
+		"starts_at":"Oct 29,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"Fractal landscapes were first demonstrated in 1980 by Loren Carpenter, who worked on the fractal landscape seen in the “genesis effect” in  <i>Star Trek II: The Wrath of Khan<\/i> . In this presentation, I will show how to use the functionality in the Wolfram Language to generate fractal landscapes for an entire planet effectively and efficiently. The principles and execution shown here may have application to other interesting problems. \n",
+		"key":"George Woodrow III Oct 29,  3:30 PM"
+	},
+	"Eric Smith Oct 29,  3:30 PM":{
+		"name":"Interoperability: Leaving the Kernel to Build LIMS in the Cloud",
+		"speaker_names":"Eric Smith",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"The capabilities of the Wolfram Language are not confined to the notebook; another tier of power is unleashed when connecting to other platforms. Assured Flow Solutions (AFS) has been leveraging these interoperability functions to build a laboratory information management system (LIMS). The LIMS uses the Wolfram Language as the backbone but connects to a NoSQL MongoDB server via MongoLink, writes to AWS S3 via REST APIs, creates COM objects via NETLink and will hopefully one day be centralized on Wolfram Enterprise Private Cloud.  The AFS laboratory is a specialized, small-scaled facility focusing on identifying flow assurance risks for the oil and gas industry. The AFS engineering department uses complex Wolfram Language packages to address flow assurance issues, which should be used to analyze lab results. However, commercial LIMS options do not easily integrate with their users' custom code and are aimed more at high-volume, routine-experiment labs. This talk will focus on leveraging other platforms with the Wolfram Language in order to build a custom LIMS that addresses AFS’s laboratory needs. Examples from the LIMS will be presented, but the primary focus is the interoperability of the Wolfram Language with other frameworks and platforms. \n",
+		"key":"Eric Smith Oct 29,  3:30 PM"
+	},
+	"Andrea Griffin Oct 29,  3:30 PM":{
+		"name":"Wolfram Tech in Online Course Platforms like edX\/Moodle\/Coursera",
+		"speaker_names":"Andrea Griffin",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 29,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"This talk will introduce a publicly available course detailing a Wolfram Language package for embedding content in online course platforms such as edX, Moodle and Coursera. The package allows the Wolfram Cloud to inject grades directly into the course’s grade book after students submit their work. We will walk through how to embed a set of the simplest examples to demonstrate the package’s functionality. Then we will demonstrate several examples of how we have used the package and other Wolfram Language features at MIT to augment our online courses and run educational studies across various departments at MIT including physics, education, mathematics and material science. The course is available for others to learn how to use the LTI package in their courses. \n",
+		"key":"Andrea Griffin Oct 29,  3:30 PM"
+	},
+	"Charles Pooh and Keren Garcia Oct 29,  4:00 PM":{
+		"name":"AR\/VR in the Wolfram Language",
+		"speaker_names":"Charles Pooh and Keren Garcia",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":": Want to build your first AR\/VR application? Join this session and see how UnityLink capabilities enable augmented reality and virtual reality in the Wolfram Language, allowing you to easily build AR and VR applications. \n",
+		"key":"Charles Pooh and Keren Garcia Oct 29,  4:00 PM"
+	},
+	"Casey Mulligan, PhD Oct 29,  4:00 PM":{
+		"name":"Automated Economic Reasoning with Mathematica",
+		"speaker_names":"Casey Mulligan, PhD",
+		"location":"Badger",
+		"starts_at":"Oct 29,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"The social sciences have been profoundly affected by progress in information technology that has facilitated the collection and processing of vast amounts of data related to human activity. Information technology has so far assisted less with theoretical reasoning. Computers have already been used for generating numerical examples, but approximation quality is a concern, and more thinking is always needed to appreciate the generality of the results from examples. TheoryGuru is user-friendly software that, without approximation, automates reasoning in the social sciences. The reasoning is about connecting assumptions with conclusions, each of which is expressed with a finite number of symbols. Examples feature algebraic symbols that represent real numbers (e.g. prices, the number of votes for the Democratic candidate, etc.), vectors of real numbers and real-valued functions of those variables (e.g. quantity demanded as a function of price). Assumptions of this type could come from statistical theory, or any number of social theories that are not necessarily derived from optimization. More importantly, reasoning can begin with purely qualitative assumptions. We may not be ready to assume, say, how much price reduces quantity demanded, or that the demand function takes a specific form (e.g. linear or log-linear); we only know that the relationship is negative. Assumptions and conclusions that formerly took a social scientist hours or even days to connect can now be done in seconds with fewer chances for human error.  Indeed, the automation advantage is especially large with qualitative systems—systems of inequalities—as compared to equation systems. \n",
+		"key":"Casey Mulligan, PhD Oct 29,  4:00 PM"
+	},
+	"Rory Foulger Oct 29,  4:30 PM":{
+		"name":"Meet-Up: Student Community",
+		"speaker_names":"Rory Foulger",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 29,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"An opportunity for students to meet, network, have fun, and hear about student positions\/programs at Wolfram. Open to all students, and we especially welcome past and present Student Ambassadors, Wolfram Summer School alumni, Wolfram Summer Camp alumni, as well as past and present Wolfram interns. \n",
+		"key":"Rory Foulger Oct 29,  4:30 PM"
+	},
+	"Robert Nachbar Oct 29,  4:30 PM":{
+		"name":"New Life for Old Code",
+		"speaker_names":"Robert Nachbar",
+		"location":"Badger",
+		"starts_at":"Oct 29,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"A lot of good code was written in Fortran in the days of punch cards. Unfortunately, a good deal of it was lost along with the boxes of cards. I recently had need of the Akima spline method, which we used a lot in those days, and reimplementing the algorithm from the original Fortran (still online at  <a shape=\"rect\" href=\"https:\/\/www.acm.org\" target=\"_blank\" \/> <a shape=\"rect\" href=\"https:\/\/www.acm.org\">https:\/\/www.acm.org<\/a> ) in the Wolfram Language was less than ideal. Since then, I’ve had the opportunity to start fresh from the original math. This talk will describe the new implementation of both the spline and interpolation methods as CompiledFunction and InterpolatingFunction objects, and their deployment in the Wolfram Function Repository. Additionally, Akima had published a 2D interpolation algorithm, and I will describe how his method can be extended to  <em>n<\/em>  dimensions and implemented efficiently with ListConvolve. \n",
+		"key":"Robert Nachbar Oct 29,  4:30 PM"
+	},
+	"Bruce Colletti Oct 29,  4:30 PM":{
+		"name":"Vehicle Routing and Group Theory",
+		"speaker_names":"Bruce Colletti",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"Let’s use permutation groups to obtain the population variance of route lengths in a transportation problem. Since statistical estimates are problematic—there are gigantically many routes—we instead want the “unobtainable” true variance.  A surprising use of group theory yields this result in a timely manner. \n",
+		"key":"Bruce Colletti Oct 29,  4:30 PM"
+	},
+	"Diego Zviovich and Pedro Fonseca Oct 29,  5:00 PM":{
+		"name":"Computational X Escape Box",
+		"speaker_names":"Diego Zviovich and Pedro Fonseca",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 29,  5:00 PM",
+		"ends_at":" 5:30 PM",
+		"description":"Escape rooms have gained a lot of popularity in these last 10 years. Escape boxes are the portable version of these enigma games, where the challenge is to open a box through a series of puzzle-solving steps, gathering clues or keys along the way. They can be “installed” anywhere (in a hotel lobby, at a company party, etc.), and add a lot of fun in a social environment. In this presentation, we will be exploring the potential of the Wolfram Language to orchestrate the puzzles and enigma solving with its large knowledgebase and devices connectivity, enabling an infinite set of game topics and configurations. \n",
+		"key":"Diego Zviovich and Pedro Fonseca Oct 29,  5:00 PM"
+	},
+	"Oct 29,  5:00 PM":{
+		"name":"Poster Session",
+		"speaker_names":[],
+		"location":"Alumni Ballroom",
+		"starts_at":"Oct 29,  5:00 PM",
+		"ends_at":" 6:00 PM",
+		"description":"Visit with students and learn  more about their projects  during this interactive poster session. \n",
+		"key":"Oct 29,  5:00 PM"
+	},
+	"Stephen Wolfram Oct 29,  5:00 PM":{
+		"name":"Quantum Computing Meet-up with Stephen Wolfram",
+		"speaker_names":"Stephen Wolfram",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 29,  5:00 PM",
+		"ends_at":" 6:00 PM",
+		"description":"None",
+		"key":"Stephen Wolfram Oct 29,  5:00 PM"
+	},
+	"Oct 29,  6:00 PM":{
+		"name":"Cocktail Hour",
+		"speaker_names":[],
+		"location":"Fighting Illini \/ Little Chief ",
+		"starts_at":"Oct 29,  6:00 PM",
+		"ends_at":" 7:00 PM",
+		"description":"Join us for hors d'oeuvres, drinks and networking before dinner. \n",
+		"key":"Oct 29,  6:00 PM"
+	},
+	"Oct 29,  7:00 PM":{
+		"name":"Keynote Dinner & Innovator Awards Ceremony",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 29,  7:00 PM",
+		"ends_at":" 8:30 PM",
+		"description":"None",
+		"key":"Oct 29,  7:00 PM"
+	},
+	"Oct 30,  7:30 AM":{
+		"name":"Breakfast",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 30,  7:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"Enjoy breakfast and networking. \n",
+		"key":"Oct 30,  7:30 AM"
+	},
+	"John Odden Oct 30,  8:30 AM":{
+		"name":"Basic \"Algorithms\" for US Healthcare",
+		"speaker_names":"John Odden",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  8:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"US healthcare is generating costs (spending) that may threaten the viability of the national economy. Billions have been invested to migrate most of the US healthcare providers to digital patient records. The resulting “Certified EHR” vendors are said by some to operate “walled gardens.” These oases may not readily absorb external information and may not effectively share a patient chart with external sites. Adding in missing information, rules or algorithms is often reported to be difficult or unaffordable.  Can C4UH, a small 501©(3) entity, possibly make a contribution?  Our hypothesis: Yes, assuming simple use cases facilitated by Mathematica! \n",
+		"key":"John Odden Oct 30,  8:30 AM"
+	},
+	"Daniel Carvalho Oct 30,  8:30 AM":{
+		"name":"Counting Objects in Images",
+		"speaker_names":"Daniel Carvalho",
+		"location":"Badger",
+		"starts_at":"Oct 30,  8:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"Sophisticated computer vision can be done in the Wolfram Language with an impressively short amount of code. Computers and cameras are everywhere nowadays, and we can use this data and computational power to extract information from those images. In the vast range of possibilities with image processing, counting objects in images is a powerful tool—we are going to see some ways to do that with the Wolfram Language using morphological image processing techniques. These high-level Wolfram Language functions give us powerful algorithms that empower researchers and gain productivity. Counting objects in images can be interesting for many different applications in various areas of research and business. \n",
+		"key":"Daniel Carvalho Oct 30,  8:30 AM"
+	},
+	"Mark Sofroniou Oct 30,  8:30 AM":{
+		"name":"From PackedArray to NumericArray",
+		"speaker_names":"Mark Sofroniou",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  8:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"PackedArray is a data structure that permits efficient machine-precision computations in Mathematica. This talk gives an outline of the design, scope and implementation of PackedArray. NumericArray is a new generalization of PackedArray that allows computations for a wider set of machine-precision types. An overview of the goals and differences with PackedArray will be given, together with some new algorithms that have been implemented. Integration into the new compiler will also be described. \n",
+		"key":"Mark Sofroniou Oct 30,  8:30 AM"
+	},
+	"Dan McDonald, PhD, Ian Ford, Lin Cong, and Peter Barendse , Ph.D. Oct 30,  9:00 AM":{
+		"name":"Automated Planar Geometry",
+		"speaker_names":"Dan McDonald, PhD, Ian Ford, Lin Cong, and Peter Barendse , Ph.D.",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  9:00 AM",
+		"ends_at":"10:00 AM",
+		"description":"We present updates to the automated geometric functionality of the Wolfram Language introduced in Version 12, including the functions GeometricScene, RandomInstance and FindGeometricConjectures, as well as formally introduce the Version 12.1 function FindGeometricProof. Given a symbolically described, coordinate-free scene in plane geometry, these functions can automatically produce drawings of the scene, conjectures about the scene and human-readable proofs of theorems pertaining to the scene. We also detail progress in bringing this functionality to Wolfram|Alpha, as well as curating theorems from Euclid’s  <i>Elements<\/i>  and beyond. \n",
+		"key":"Dan McDonald, PhD, Ian Ford, Lin Cong, and Peter Barendse , Ph.D. Oct 30,  9:00 AM"
+	},
+	"Abdul Dakkak Oct 30,  9:00 AM":{
+		"name":"Developing in the Wolfram Compiler",
+		"speaker_names":"Abdul Dakkak",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30,  9:00 AM",
+		"ends_at":"10:00 AM",
+		"description":"None",
+		"key":"Abdul Dakkak Oct 30,  9:00 AM"
+	},
+	"Daavid Väänänen Oct 30,  9:00 AM":{
+		"name":"Meet-Up: Educator Code Together Part 2",
+		"speaker_names":"Daavid Väänänen",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 30,  9:00 AM",
+		"ends_at":"10:00 AM",
+		"description":"• Code Together; participants have a couple of hours to focus on ideation\/content creation\/coding \n",
+		"key":"Daavid Väänänen Oct 30,  9:00 AM"
+	},
+	"Jan Brugard Oct 30,  9:00 AM":{
+		"name":"New in SystemModeler",
+		"speaker_names":"Jan Brugard",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  9:00 AM",
+		"ends_at":" 9:30 AM",
+		"description":"SystemModeler is routinely used by the world’s engineering organizations on some of the world’s most complex engineering systems—as well as in fields such as life sciences and social science. We’ve been pursuing the development of what is now SystemModeler for more than 15 years, adding more and more sophistication to the capabilities of the system. \n\n This presentation will cover key new features of SystemModeler 12 and a preview of upcoming features, such as the new Fluid library, improved debugging and cloud and machine-learning integration. \n",
+		"key":"Jan Brugard Oct 30,  9:00 AM"
+	},
+	"Jesse Friedman Oct 30,  9:00 AM":{
+		"name":"Transcript Analysis of Wolfram Technology Conference Talks",
+		"speaker_names":"Jesse Friedman",
+		"location":"Badger",
+		"starts_at":"Oct 30,  9:00 AM",
+		"ends_at":" 9:30 AM",
+		"description":"Over the last decade, Wolfram’s online video archives have amassed more than 100 hours of audio from the annual Wolfram Technology Conference. This talk demonstrates the use of machine transcription and the text analysis functionality of the Wolfram Language to draw insights from this wealth of unprocessed data. \n",
+		"key":"Jesse Friedman Oct 30,  9:00 AM"
+	},
+	"Jerome Louradour Oct 30,  9:30 AM":{
+		"name":"Generative Adversarial Networks with NetTrain",
+		"speaker_names":"Jerome Louradour",
+		"location":"Badger",
+		"starts_at":"Oct 30,  9:30 AM",
+		"ends_at":"10:00 AM",
+		"description":"This talk will show how to train generative adversarial networks (GANs) in the Wolfram Language. A GAN consists of making two deep learning models, a generator and a discriminator, play a zero-sum game. This concept enables the artificial production of realistic images.  \n",
+		"key":"Jerome Louradour Oct 30,  9:30 AM"
+	},
+	"Ankit Naik Oct 30,  9:30 AM":{
+		"name":"Launching Wolfram Virtual Labs",
+		"speaker_names":"Ankit Naik",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  9:30 AM",
+		"ends_at":"10:00 AM",
+		"description":"How can you make teaching come alive and be more engaging? In this talk, I want to present something new to the pedagogical toolkit: Wolfram Virtual Labs. These are open educational resources in the form of interactive courseware that are used to explain difficult concepts in the classroom. If you want to know more, read the blog post Powering Engineering Education with Wolfram Virtual Labs. \n",
+		"key":"Ankit Naik Oct 30,  9:30 AM"
+	},
+	"Oct 30, 10:00 AM":{
+		"name":"Break",
+		"speaker_names":[],
+		"location":"Alumni Ballroom",
+		"starts_at":"Oct 30, 10:00 AM",
+		"ends_at":"10:30 AM",
+		"description":"Join us for beverages and snacks, network with fellow attendees, enjoy demonstrations and visit the Wolfram store. \n",
+		"key":"Oct 30, 10:00 AM"
+	},
+	"Andrew Yule Oct 30, 10:30 AM":{
+		"name":"Having Your Cake and Eating It Too: User Interfaces with Core Model Back Ends",
+		"speaker_names":"Andrew Yule",
+		"location":"Badger",
+		"starts_at":"Oct 30, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"The skillsets of employees across businesses today are vastly more diverse than they ever have been. Because of that, the need for various ways of interacting with a company’s critical software is becoming just as diverse. Scripting languages such as Python and the Wolfram Language have created the need for back ends to be more accessible, while some employees still prefer traditional user interfaces.  Developing business-critical software in the Wolfram Language helps to address all of the needs a business may have in terms of interaction. User interfaces can be constructed and deployed through Wolfram Player or even more traditional desktop software, while the core functions on the back end can be accessible with notebooks, or now even additional languages through the ExternalEvaluate framework. Assured Flow Solutions (AFS) has been developing an application for the last four years that places an emphasis on giving employees multiple ways of interacting with it. This presentation will focus on the best techniques for this kind of development and all of the advantages it can offer a company in today’s world. \n",
+		"key":"Andrew Yule Oct 30, 10:30 AM"
+	},
+	"Kevin Hao and Maik Meusel Oct 30, 10:30 AM":{
+		"name":"Meet-Up: Using Wolfram Technology in the Classroom",
+		"speaker_names":"Kevin Hao and Maik Meusel",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 30, 10:30 AM",
+		"ends_at":"11:30 AM",
+		"description":"Discuss with other educators how you use Wolfram tech in the classroom and any problems you face. We will demonstrate how Mathematica can be used for teaching larger classes, how to create interactive courseware and how to set up questions for auto-grading. Examples for the classroom will be shown using SYLVA, an integrated learning and assessment platform built on Wolfram tech. Come join other educators in the discussion! \n",
+		"key":"Kevin Hao and Maik Meusel Oct 30, 10:30 AM"
+	},
+	"Kirk Reinholtz Oct 30, 10:30 AM":{
+		"name":"Numerical Evaluation of the Probability of Planetary Contamination",
+		"speaker_names":"Kirk Reinholtz",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"A planetary biological contamination equation of huge scale and challenging numerics must be evaluated with stringent performance and accuracy\/precision requirements. Several unique capabilities of Mathematica were used to solve these in a cost-effective and transparent (repeatable by others) manner. The major features used were: (1) tracking of accuracy and precisions (N[] et al.); (2) several approaches to parallelization across one and several machines; (3) RandomVariate[] et al. to generate random variates from a number of distributions in order to assess sensitivities to the hundreds of input parameters; (4) symbolic mathematical manipulation to prepare the equations for efficient numerical evaluation; (5) approximate and exact numbers (contrasted with “Excel math” machine precision); and (6) catching all generated messages and other anomaly indications so that we could know that nothing went visibly wrong in any of the many many billions of computations. \n",
+		"key":"Kirk Reinholtz Oct 30, 10:30 AM"
+	},
+	"Amir Azadi Oct 30, 10:30 AM":{
+		"name":"Review of Unsupervised Learning in the Wolfram Language",
+		"speaker_names":"Amir Azadi",
+		"location":"Little Chief",
+		"starts_at":"Oct 30, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"We will review recent advances in unsupervised learning functions,  including AnomalyDetection, FindAnomalies, SynthesizeMissingValues and ClusterClassify. First, we will introduce an unsupervised approach that exploits LearnDistribution capabilities to compute statistical measures relevant to quantify anomalous examples and generate samples to fill in missing values. Furthermore, we will review recent improvements in clustering analysis functions and present a practical guide to use them efficiently for various machine-learning problems. \n",
+		"key":"Amir Azadi Oct 30, 10:30 AM"
+	},
+	"Devendra Kapadia Oct 30, 10:30 AM":{
+		"name":"What's New in Calculus and Algebra",
+		"speaker_names":"Devendra Kapadia",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"I will give an overview of recent developments related to calculus and algebra in the Wolfram Language. \n\n The developments include new superfunctions for asymptotic computation, new Heun special functions, extensive support for computing properties of mathematical functions and improvements for symbolic solutions to ordinary and partial differential equations. \n\n I will also discuss current initiatives related to documentation, benchmarking, classroom teaching and online education in this area. \n",
+		"key":"Devendra Kapadia Oct 30, 10:30 AM"
+	},
+	"Cody Trevillian Oct 30, 11:00 AM":{
+		"name":"Time-Dependent Differential Equation Networks: TDDiffyQNetworks",
+		"speaker_names":"Cody Trevillian",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"In this project, coupled sets of time-dependent second-order ordinary differential equations (DiffyQs) simulated based on given parameters describe the spiking behavior of materials forming a physical neuron network. These DiffyQNets are trained through a stochastic gradient descent–like method. This implemented functionality consists of a set of functions: DiffyQNet, DiffyQNetSim, DiffyQNetTrain and DiffyQNetPlot. In the presented case, DiffyQNet dictates the behavior of a bilayer of an antiferromagnet and a normal metal using a DiffyQ described in [1–2]. Then, DiffyQNetSim simulates the results of an application of DiffyQNetTrain. Finally, the resulting actions of the system are shown using DiffyQNetPlot. We find that AND, OR and XOR gates can be simulated using NDSolve, with over 200 iterative computations occurring in under three seconds. By demonstrating this system with simple gates, we show that this method is not overly computationally intensive to classify larger systems like the MNIST database. These results thus provide impetus to the continued development of this project for generalized time-dependent DiffyQNets.  \n\n [1] Roman Khymyn et al., “Ultra-fast Artificial Neuron: Generation of Picosecond-Duration Spikes in a Current-Driven Antiferromagnetic Auto-oscillator”,  <i>Scientific Reports<\/i>  8, (Oct. 2018).  \n\n [2] Olga Sulymenko et al., “Ultra-fast Logic Devices Using Artificial ‘Neurons’ Based on Antiferromagnetic Pulse Generators”,  <i>Journal of Applied Physics<\/i>  124, 152115 (July 2018). \n\n Cody A. Trevillian & Dr. Vasyl Tyberkevych \n",
+		"key":"Cody Trevillian Oct 30, 11:00 AM"
+	},
+	"Timothee Verdier Oct 30, 11:00 AM":{
+		"name":"Training Neural Networks on Large Datasets",
+		"speaker_names":"Timothee Verdier",
+		"location":"Little Chief",
+		"starts_at":"Oct 30, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"The full potential of neural net training is usually achieved using large datasets and with massively parallel computing power. Those two resources became widely available only recently, explaining the current success of neural nets. In this workshop, we will expose the machine-learning group typical workflow using remote computation and large-scale storage services to go beyond the limits of our laptops and train the neural nets behind our applications. \n",
+		"key":"Timothee Verdier Oct 30, 11:00 AM"
+	},
+	"Itai Seggev, PhD Oct 30, 11:00 AM":{
+		"name":"Version 12 Enhancements for the (Pre-) College Classroom",
+		"speaker_names":"Itai Seggev, PhD",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"Version 12 includes a number of enhancements aimed at users in calculus courses and their prerequisites. We will survey a number of these features, which include dedicated functions for equation manipulation; enhancement to core calculus functions, such as D and Limit; and greatly expanded documentation that keeps the needs of these students front and center. \n",
+		"key":"Itai Seggev, PhD Oct 30, 11:00 AM"
+	},
+	"Carlo Barbieri, PhD Oct 30, 11:00 AM":{
+		"name":"What's New and Coming in Relational Databases",
+		"speaker_names":"Carlo Barbieri, PhD",
+		"location":"Badger",
+		"starts_at":"Oct 30, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"In this talk, we will discuss extensions to the Entity query language as it applies to SQL databases. The features we have added to the last release include set operations such as Union, Intersection and Except; the ability to run raw SQL with the new “EmbeddedSQL” primitive; and the support for Oracle-based databases. In the second part of this talk, we will address writing to databases and integration with FormObject. \n",
+		"key":"Carlo Barbieri, PhD Oct 30, 11:00 AM"
+	},
+	"Chris Carlson and José Martín-García Oct 30, 11:30 AM":{
+		"name":"Coming Dataset Enhancements",
+		"speaker_names":"Chris Carlson and José Martín-García",
+		"location":"Little Chief",
+		"starts_at":"Oct 30, 11:30 AM",
+		"ends_at":"12:00 PM",
+		"description":"Dataset is undergoing a major overhaul that will add significant interactive, styling and computational functionality. Get a preview of what you can look forward to in the forthcoming release, and let the developers know what Dataset enhancements you’d like to see in subsequent releases. \n",
+		"key":"Chris Carlson and José Martín-García Oct 30, 11:30 AM"
+	},
+	"Oct 30, 11:30 AM":{
+		"name":"Lunch",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 30, 11:30 AM",
+		"ends_at":" 1:00 PM",
+		"description":"Lunch and networking.  Join a round table discussion or start one of your own. \n",
+		"key":"Oct 30, 11:30 AM"
+	},
+	"Keehong Song Oct 30, 11:30 AM":{
+		"name":"Mathematica and TikZ-Based SVG Animation",
+		"speaker_names":"Keehong Song",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30, 11:30 AM",
+		"ends_at":"12:00 PM",
+		"description":"This presentation is about developing the SVG animation based on Mathematica and TikZ. One feature worth noting about the talk is a novel approach of running and debugging TikZ from an interactive platform like CodePen. That feature of TikZ usability alone would greatly interest certain groups of Mathmatica users who are after a bridge tool such as matlab2tikz. \n",
+		"key":"Keehong Song Oct 30, 11:30 AM"
+	},
+	"Adam Strzebonski Oct 30, 11:30 AM":{
+		"name":"Mathematical Function Properties",
+		"speaker_names":"Adam Strzebonski",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30, 11:30 AM",
+		"ends_at":"12:00 PM",
+		"description":":  I will present new Mathematica functionality for computing properties of mathematical functions. The functionality, which is currently under development, includes computation of several classes of function properties. The new capabilities for computing set-theoretical properties include testing for injectivity, surjectivity and bijectivity, as well as improvements in the computation of function domain and range.  Topological and analytic properties computed include continuity, holomorphicity, meromorphicity, singularities and discontinuities. For real functions, the new features include computation of sign, monotonicity and convexity. In my talk, I will introduce the new Mathematica functions and discuss the methods they use. \n",
+		"key":"Adam Strzebonski Oct 30, 11:30 AM"
+	},
+	"Maegan Jennings Oct 30, 11:30 AM":{
+		"name":"Using Mathematica to Explain the Darkness of the Night Sky",
+		"speaker_names":"Maegan Jennings",
+		"location":"Badger",
+		"starts_at":"Oct 30, 11:30 AM",
+		"ends_at":"12:00 PM",
+		"description":"The sky is dark at night, even though the universe is infinite and uniformly filled with light sources. Think about that for a second. Why don’t we see galaxies in every direction, just as we see trees in every direction in the middle of a large forest? This question is known as Olbers' paradox in cosmology. Its resolution is known to be mostly due to the fact that the speed of light and the age of the universe are both finite (and, to a lesser extent, the fact that space is expanding). But do these factors explain the entire darkness of the night sky? There is also a dusty intergalactic medium (IGM) that is particularly good at absorbing visible light and reradiating it at longer wavelengths. Observations of quasar reddening are now becoming sensitive enough to constrain the properties of the IGM, but its quantitative effect on the spectral intensity of the extragalactic background light has yet to be established. We use Mathematica to calculate this intensity within standard relativistic cosmology, representing the light of galaxies with multiple blackbody functions at different redshifts, and convolving it with a detailed model for intergalactic dust. A crucial feature is the use of ListInterpolation to calculate dust opacity as a function of redshift and wavelength, reducing a time-consuming double integral to a much faster single integral. Our results suggest that intergalactic dust may play a more significant role in darkening the night sky than has usually been thought. \n",
+		"key":"Maegan Jennings Oct 30, 11:30 AM"
+	},
+	"Tigran Ishkhanyan, PhD Oct 30, 12:30 PM":{
+		"name":"Mathematical Functions",
+		"speaker_names":"Tigran Ishkhanyan, PhD",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30, 12:30 PM",
+		"ends_at":" 1:00 PM",
+		"description":"The wide range of mathematical functions that includes the classes of elementary and special functions has played a crucial role in solving real-world problems for centuries. Nowadays, these functions appear in almost any field of contemporary science—which, however, requires more and more advanced, powerful functions. \n\n New developments in the Wolfram Language include implementation of the 10 Heun functions that are special functions of the next generation, making the Wolfram Language more powerful in solving different modern problems originating from astrophysics, quantum mechanics, lattice systems in statistical mechanics and other fields. Also, new fundamental developments in the area of numerical evaluation of the general holonomic functions and fully updated documentation pages for elementary and special functions will be presented. \n",
+		"key":"Tigran Ishkhanyan, PhD Oct 30, 12:30 PM"
+	},
+	"Carlo Giacometti and Markus van Almsick, PhD Oct 30, 12:30 PM":{
+		"name":"Neural Networks for Images and Audio Workshop",
+		"speaker_names":"Carlo Giacometti and Markus van Almsick, PhD",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30, 12:30 PM",
+		"ends_at":" 1:30 PM",
+		"description":"Deep neural networks (DNN) are potent tools that help to achieve amazing results in artificial intelligence. The design of DNN architectures, however, still appears to be a black art. In this workshop, we discuss the properties of image and audio data and show how these properties imply the appropriate neural layer types and network architectures. We perform experiments to determine the limitations of current networks and demonstrate DNN solutions for a range of application tasks. \n",
+		"key":"Carlo Giacometti and Markus van Almsick, PhD Oct 30, 12:30 PM"
+	},
+	"Dariia Porechna Oct 30, 12:30 PM":{
+		"name":"What’s New in Cryptography",
+		"speaker_names":"Dariia Porechna",
+		"location":"Badger",
+		"starts_at":"Oct 30, 12:30 PM",
+		"ends_at":" 1:00 PM",
+		"description":"Information security and protection are becoming increasingly vital in the modern world of computer systems, making cryptography an indispensable tool. Version 12 of the Wolfram Language continues to grow its coverage of methods for both symmetric (shared secret key) and asymmetric (public\/private key pair) cryptography to ensure confidentiality, data integrity and authenticity of encrypted and\/or digitally signed data of various formats, as well as arbitrary Wolfram Language expressions. \n\n This talk will cover key generation and management, explain purposes and usage differences among hashing, encryption and digital signatures, and list which algorithms in those topics are supported in the Wolfram Language, as well as announce planned development for future versions. \n",
+		"key":"Dariia Porechna Oct 30, 12:30 PM"
+	},
+	"Jason Harris and Rob Raguet-Schofield Oct 30, 12:30 PM":{
+		"name":"Wolfram Player and Wolfram Engine on iOS",
+		"speaker_names":"Jason Harris and Rob Raguet-Schofield",
+		"location":"Little Chief",
+		"starts_at":"Oct 30, 12:30 PM",
+		"ends_at":" 1:00 PM",
+		"description":"View and interact with notebooks from your Wolfram Cloud account, websites, email attachments or other cloud storage using Wolfram Player for iOS. Embed the Wolfram Engine into your iOS apps using our SDK. \n",
+		"key":"Jason Harris and Rob Raguet-Schofield Oct 30, 12:30 PM"
+	},
+	"Jonathan Gorard Oct 30,  1:00 PM":{
+		"name":"Automated Theorem Proving and Axiomatic Mathematics",
+		"speaker_names":"Jonathan Gorard",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"This talk will be a brief introduction to the current status of the Wolfram Language’s framework for automated theorem proving and the axiomatic representation of pure mathematics as of Version 12. This includes recent updates to the FindEquationalProof function and the newly introduced AxiomaticTheory function. The talk will explain some of the basic algorithmic principles behind the theorem-proving framework, such as the Knuth–Bendix (unfailing) completion and superposition calculus, and will also briefly demonstrate some future planned functionality (including support for higher-order logics, temporal logic, modal logic, etc.). \n",
+		"key":"Jonathan Gorard Oct 30,  1:00 PM"
+	},
+	"Bob Sandheinrich, Daniel Lichtblau, and Richard Hennigan Oct 30,  1:00 PM":{
+		"name":"Meet-Up: Introducing the Wolfram Function Repository",
+		"speaker_names":"Bob Sandheinrich, Daniel Lichtblau, and Richard Hennigan",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 30,  1:00 PM",
+		"ends_at":" 2:00 PM",
+		"description":"Meet with the people of the Wolfram Function Repository: function creators, content reviewers and repository developers. We will give a brief introduction to resource functions. Then we’ll discuss how to write and submit your functions and provide a behind-the-scenes look into the curation and review process.  \n",
+		"key":"Bob Sandheinrich, Daniel Lichtblau, and Richard Hennigan Oct 30,  1:00 PM"
+	},
+	"Eric Weisstein Oct 30,  1:00 PM":{
+		"name":"The 2019 SI System of Units",
+		"speaker_names":"Eric Weisstein",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"On World Metrology Day, May 20, 2019 (the 144th anniversary of the Metre Convention), four SI base units (the kilogram, ampere, kelvin and mole) were redefined by setting the Planck constant, elementary electric charge, Boltzmann constant and Avogadro constant to have exact values when expressed in SI units. This means that in addition to the second, meter and candela (the latter whose definition received a technical refinement but effectively remained unchanged), all seven base SI units now have exact definitions based on  physical constants.  \n\n While the new definitions do not change the magnitude of any existing unit to within the precision measurable by existing techniques, the change from high-precision numeric values to exact (usually rational) numbers nonetheless required a significant update of unit and physical  constant values and uncertainties in Wolfram&|Alpha and the Wolfram Language unit systems. These changes and their implications will be discussed and illustrated in this talk. \n",
+		"key":"Eric Weisstein Oct 30,  1:00 PM"
+	},
+	"Daniel Bigham Oct 30,  1:00 PM":{
+		"name":"Wolfram's Symbolic ERP Project",
+		"speaker_names":"Daniel Bigham",
+		"location":"Badger",
+		"starts_at":"Oct 30,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"Wolfram Research is rebuilding its ERP systems using the Wolfram technology stack. After reviewing our data and workflows, we started building a rich data framework that leverages the Wolfram Language’s inherent strengths in symbolic representation. In this talk, we will demonstrate how to use our framework to build a simple company directory. We will livecode the modeling of an employee entity type, the importing of data and then the creation of a form page that leverages a grammar to provide natural language search capabilities. \n",
+		"key":"Daniel Bigham Oct 30,  1:00 PM"
+	},
+	"Jaebum Jung Oct 30,  1:30 PM":{
+		"name":"Advances in Graphs and Networks",
+		"speaker_names":"Jaebum Jung",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"The Wolfram Language provides easy access to powerful graph functionalities. Familiarize yourself with the new features in Version 12 and get a sneak peek into the upcoming versions. \n\n Learn how to use Wolfram Language graph capabilities in computational geometry, transportation, optimization, automated network visualization and more. \n",
+		"key":"Jaebum Jung Oct 30,  1:30 PM"
+	},
+	"Andrew Steinacher Oct 30,  1:30 PM":{
+		"name":"Automotive Data Analysis",
+		"speaker_names":"Andrew Steinacher",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"In an effort to measure my fuel use on a per-trip scale, I connected a microcontroller to my car’s Controller Area Network (CAN) bus, and I found a fire hose of information from simply recording messages sent over the CAN bus. This fire hose of data has given me a large dataset of over 16 GB from thousands of car trips, including time series for engine temperatures, steering angles, fuel flow and more. Using the Wolfram Language, it was easy to build a user interface for interactively analyzing and processing this CAN data, as well as an  EntityStore to more programmatically analyze the data on longer timescales with EntityValue syntax. These tools have allowed me to analyze warmup times and fuel usage trends, as well as waiting times at intersections with some alignment to GPS location data. \n",
+		"key":"Andrew Steinacher Oct 30,  1:30 PM"
+	},
+	"Leonardo Roncetti, MSc and Pollyana Rosa Daniel Oct 30,  1:30 PM":{
+		"name":"Image Processing for Continuous Monitoring of Cracks in Civil Constructions",
+		"speaker_names":"Leonardo Roncetti, MSc and Pollyana Rosa Daniel",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"A crack is a symptom of distress with the materials used in a construction. Perhaps it could be only damage on the covering; however, a structural collapse also starts with a tiny crack. Therefore, it is very important to identify the emergence of them. Continuous monitoring of cracks is the follow-up of the appearance and aggravation of cracks to determine the appropriate method for the treatment of the pathology; this could have been the solution for huge disasters around the world where cracks were the first sign of a serious defect that affected the stability of the building. Given the importance of continuous monitoring of cracks, this presentation shows how Mathematica receives images obtained by a microscope. At each frame, two feature points are tracked and their positions compared to show the displacement between them in a period of time, evidencing the opening or closing of the crack.  This method improves the technique of tracking cracks by allowing the dimensions of the aperture to be measured without needing to be present to read on the spot, as seen in the methods currently used. \n",
+		"key":"Leonardo Roncetti, MSc and Pollyana Rosa Daniel Oct 30,  1:30 PM"
+	},
+	"Jayanta Phadikar Oct 30,  1:30 PM":{
+		"name":"Numerics Refresher: Overview, Tips and Tricks",
+		"speaker_names":"Jayanta Phadikar",
+		"location":"Badger",
+		"starts_at":"Oct 30,  1:30 PM",
+		"ends_at":" 2:30 PM",
+		"description":"In this talk, I will present an overview of various numerics functionalities of Mathematica along with tips, tricks and frequently encountered questions\/pitfalls. Topics will include the precision frameworks in Mathematica, numerical operators (e.g. NMinimize and NSolve), compile functions and advanced options. Certain important features introduced in Version 12 will be discussed as well. For an audience that has already been exposed to the Wolfram Language and the numerics capabilities of Mathematica to a certain extent, the talk aims to expand their knowledgebase of numerics functions to a higher level. \n",
+		"key":"Jayanta Phadikar Oct 30,  1:30 PM"
+	},
+	"Charles Pooh Oct 30,  2:00 PM":{
+		"name":"Advances in Geometry",
+		"speaker_names":"Charles Pooh",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"The Wolfram Language provides easy access to powerful computational geometric functionalities. Familiarize yourself with the new features in Version 12 and get a sneak peek into the upcoming versions. Learn how to use Wolfram Language geometric capabilities in geographic information systems, computer graphics, computer-aided design and more. \n",
+		"key":"Charles Pooh Oct 30,  2:00 PM"
+	},
+	"Jiri Benedikt Oct 30,  2:00 PM":{
+		"name":"Computing Principal Eigenvalue in Interval Arithmetic",
+		"speaker_names":"Jiri Benedikt",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"The solvability of boundary value problems for elliptic and parabolic differential equations (e.g. diffusion equations) is closely related to the corresponding eigenvalues. In particular, the principal eigenvalue in which the geometry of the energy functional is substantially changed. In the lecture, we present a numerical method of finding guaranteed upper and lower estimates of the principal eigenvalue in Mathematica using interval arithmetic. \n",
+		"key":"Jiri Benedikt Oct 30,  2:00 PM"
+	},
+	"Mads Bahrami and Vitaliy Kaurov Oct 30,  2:00 PM":{
+		"name":"Meet-Up: Computational Humanities",
+		"speaker_names":"Mads Bahrami and Vitaliy Kaurov",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 30,  2:00 PM",
+		"ends_at":" 3:00 PM",
+		"description":"Computational Humanities (CH) is an emergent field with a rapidly changing vast scope. Standing apart from natural sciences that are of a more exact and mesurable nature, CH is a highly debatable and even controversial discipline whose conclusions are dependent on context and other quite subjectively defined variables. Rather than trying to define this emerging field, in this meetup we will discuss some  major questions that Computational Humanities address. How can humanities data - which is traditionally interpreted in an idiographic way - be modeled in a way it becomes available for computational analysis? How can computational thinking enhance existing scholarly practices in the humanities? How machine and deep learning - and A.I. in general - are transforming humanities? How can we teach computational humanities at schools, colleges and universities?We would like to invite you to this meetup, to share with us your experience and challenges that you think are essential for computational humanities at both research and educational levels. Please do bring your own questions and topics for discussion! \n",
+		"key":"Mads Bahrami and Vitaliy Kaurov Oct 30,  2:00 PM"
+	},
+	"Jon McLoone Oct 30,  2:00 PM":{
+		"name":"Non-invasive Cancer Screening with Capsule Endoscopy",
+		"speaker_names":"Jon McLoone",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"Screening for bowel cancer has traditionally been an invasive process which carried its own risks. Coupled with the high cost of skilled operators, it has been limited in its application, almost certainly costing lives. \n\n The availability of cheap digital cameras small enough to be swallowed, together with the promise of automated screening with neural network–based image recognition, offers the promise of low-cost, safe mass screening. Wolfram Technical Services have been working with a European consortium to develop the infrastructure to make this possible. \n\n The talk will show the work in progress to use the Wolfram Language to make an integrated operator dashboard. Initially focused on reviewing footage in order to build machine learning training sets, the project intends to allow rapid review of patient footage with provisional diagnosis. \n",
+		"key":"Jon McLoone Oct 30,  2:00 PM"
+	},
+	"Rafał Chojna and Sean Cheren Oct 30,  2:30 PM":{
+		"name":"Import\/Export—Updates and Applications",
+		"speaker_names":"Rafał Chojna and Sean Cheren",
+		"location":"Badger",
+		"starts_at":"Oct 30,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"Importing and exporting data is a constantly growing field that remains an integral part of working with the Wolfram Language. In this talk, we will demonstrate some of the key improvements to various formats in upcoming versions. In particular, we will explore updates to DICOM images, archive\/compression formats and email-related formats. We will also give a sneak peak of some convenient import\/export utility functions coming in the next version of the Wolfram Language. \n",
+		"key":"Rafał Chojna and Sean Cheren Oct 30,  2:30 PM"
+	},
+	"Jane Shen-Gunther, MD Oct 30,  2:30 PM":{
+		"name":"Molecular Pap Smear: Automating Data Processing with Wolfram Solutions",
+		"speaker_names":"Jane Shen-Gunther, MD",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"HPV is now recognized as the carcinogen of almost all invasive cervical cancers and a major cause of other human malignancies, including oral and anal cancers, totaling ~600,000 cases annually worldwide. The Pap smear, regarded as the most successful cancer screening test in the history of medicine, has been in existence for over 70 years. However, due to the lack of Pap smear screening programs in developing countries or other social and economic barriers in developed countries, the rates of new cervical cancer cases and deaths remain high worldwide. To circumvent these challenges, we developed a molecular diagnostic test, coined the “Molecular Pap” based on HPV typing and unique genetic changes inside cells. The Molecular Pap was designed to be accurate, automated, low cost and compatible with self-collected samples from any bodily site. With the end user in mind, this project started with advanced molecular techniques, bioinformatics pipelines and probabilistic modeling, and will conclude with risk stratification and data visualization. The framework for consolidating clinical, genomic and analytical data were developed in collaboration with Wolfram Solutions. The ultimate goal is to transform our current discoveries into a widely accessible clinical test for the improvement of global health. \n",
+		"key":"Jane Shen-Gunther, MD Oct 30,  2:30 PM"
+	},
+	" Juan Arturo  Silva-Ordaz Oct 30,  2:30 PM":{
+		"name":"Optimal Placement of Carbon Sequestration Facilities on Earth",
+		"speaker_names":" Juan Arturo  Silva-Ordaz",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"Carbon sequestration can, in principle and with the current technology, avert the existential danger posed by CO <sub>2<\/sub>  emissions. The implementation costs of carbon sequestration technology are lower than the economic consequences of climate change. We present the results of source-and-sink CO <sub>2<\/sub>  models that indicate the optimal number of sites and best locations of carbon sequestration facilities that take into account geographic, atmospheric and geologic factors to help solve the climate emergency that threatens the survival of humanity and many other species. \n",
+		"key":" Juan Arturo  Silva-Ordaz Oct 30,  2:30 PM"
+	},
+	"Eduardo Serna, PhD Oct 30,  2:30 PM":{
+		"name":"Spatial Statistics Models with Data",
+		"speaker_names":"Eduardo Serna, PhD",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"Spatial point data, also known as spatial point patterns, refers to the collection of points (or events) in space. Examples include trees in a forest, gold deposits, positions of stars, earthquakes, crime locations, animal sightings, etc. \n\n The aim of spatial point data modeling is to capture the essential features of the process underlying a given point pattern. \n\n In this talk, we will explore the existing and upcoming Wolfram Language functionality designed for the analysis and modeling of spatial point data. \n",
+		"key":"Eduardo Serna, PhD Oct 30,  2:30 PM"
+	},
+	"Oct 30,  3:00 PM":{
+		"name":"Break",
+		"speaker_names":[],
+		"location":"Alumni Ballroom",
+		"starts_at":"Oct 30,  3:00 PM",
+		"ends_at":" 3:30 PM",
+		"description":"Join us for beverages and snacks, network with fellow attendees, enjoy demonstrations and visit the Wolfram store. \n",
+		"key":"Oct 30,  3:00 PM"
+	},
+	"Etienne Bernard Oct 30,  3:30 PM":{
+		"name":"Advanced Use of Automatic Machine Learning Functions",
+		"speaker_names":"Etienne Bernard",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"High-level machine learning functions in the Wolfram Language (Classify, Predict, LearnDistribution, etc.) are automatic, but they also offer a variety of controls that can be used to obtain the best results. In this talk, I will review these machine learning functions and detail some of their advanced uses, such as specifying goals, hyperparameters, utility functions, preprocessing, etc. I will also give insights about how these functions work under the hood. \n",
+		"key":"Etienne Bernard Oct 30,  3:30 PM"
+	},
+	"Ethan Bogle Oct 30,  3:30 PM":{
+		"name":"Developing a Culture of Computational Thinking",
+		"speaker_names":"Ethan Bogle",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"In this talk, I present on a curriculum I designed for a pilot course on computational thinking at my school. My purpose while building this curriculum was to build interest and excitement about computational thinking and the Wolfram Language in my school community, or in other words to develop a culture of computational thinking. Given an audience who does not know about computational thinking and is not woven together by another common interest, my goal is to catch, and then retain, their interest so that they will learn computational thinking and the Wolfram Language for themselves. The design of the course includes flexible paths allowing participants to devote varying amounts of time to learning the Wolfram Language according to their interests and availability, and weekly sessions designed to be applicable for a wide range of audiences. I will discuss the structure of the course, focusing on my design of the special topics discussions, and show several example sessions. I will also discuss my experience using the curriculum so far and its possible future. What I have designed is very much an experiment, but this experiment will give valuable data about what it takes to create a culture of computational thinking. \n",
+		"key":"Ethan Bogle Oct 30,  3:30 PM"
+	},
+	"Petr Girg Oct 30,  3:30 PM":{
+		"name":"Flow in Porous Media and Its Simulation",
+		"speaker_names":"Petr Girg",
+		"location":"Badger",
+		"starts_at":"Oct 30,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"The flow of fluid in porous media consists of very complex 3D motions in geometrically complicated nets of millions of micro-channels, which is difficult to handle using fundamental equations of fluid motion such as Navier–Stokes equations. Alternatively, several phenomenological approaches were proposed. In this talk, we focus on mathematical models based on quasilinear parabolic equations driven by the so called  <i>p<\/i> -Laplacian (as the elliptic part of the equation) Δ <sub>\n <i>p<\/i>\n<\/sub> =div(|grad  <i>u<\/i> | <sup><i>p<\/i>&#8211;2<\/sup>  grad  <i>u<\/i> ),  <i>p<\/i> >1.  These models cover situations when linear constitutive law (Darcy’s law) fails to hold due to the prevailing effect of turbulence for high Reynolds numbers or due to interaction between walls of media and liquid at the molecular level for very low Reynolds numbers. The former case corresponds to 3\/2< <i>p<\/i> <_2 singular=\"singular\" diffusion=\"diffusion\" and=\"and\" the=\"the\" latter=\"latter\" to=\"to\" _2i=\"_2i\" \/> p <_5 degenerate=\"degenerate\" diffusion=\"diffusion\" where=\"where\" the=\"the\" values=\"values\" of=\"of\" i=\"i\" \/> p are obtained experimentally. Both of these situations appear in important practical applications such as groundwater modeling, petroleum and natural gas extraction. In the talk, we will present several typical real-world situations, their formulations as initial-boundary value problems and their numerical solutions. We use implicit semi-discretization in time, which has much better stability than the explicit one, but requires the solving of strongly nonlinear elliptic problems at each step. To solve the elliptic problem, we will use several approaches based on finite differences, SparseArray and FindMinimum and\/or new features of NDSolve in Version 12 using finite elements for nonlinear elliptic problems. The use of the implicit semi-discretization in time is justified by our recent findings obtained jointly with Benedikt, Kotrla and Takáč. \n",
+		"key":"Petr Girg Oct 30,  3:30 PM"
+	},
+	"Gosia Konwerska, PhD Oct 30,  3:30 PM":{
+		"name":"Spatial Statistics Data with Models",
+		"speaker_names":"Gosia Konwerska, PhD",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"Spatial point data, also known as spatial point patterns, refers to the collection of points (or events) in space. Examples include trees in a forest, gold deposits, positions of stars, earthquakes, crime locations, animal sightings, etc. \n\n Spatial data analysis, as a statistical exploration of point patterns, aims to answer questions about spatial randomness, point intensity and interpoint interactions. \n\n In this talk, we will explore the existing and upcoming Wolfram Language functionality designed for the analysis and modeling of spatial point data. \n",
+		"key":"Gosia Konwerska, PhD Oct 30,  3:30 PM"
+	},
+	"Tuseeta Banerjee Oct 30,  4:00 PM":{
+		"name":"Importing Neural Networks with ONNX",
+		"speaker_names":"Tuseeta Banerjee",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"ONNX is an open format for representing deep learning models. It allows easy conversion of models from one framework to another. In this talk, we will provide an overview of the advantages and disadvantages of having an ONNX importer. With the help of a few simple models, we will show how to extract relevant information about the ONNX model and extract information regarding the nodes, the shapes and the weight initializers stored in the ONNX format. Finally, we will show how to import a model using just a single function and the various options available for importing. \n",
+		"key":"Tuseeta Banerjee Oct 30,  4:00 PM"
+	},
+	"Matt Klimuszka, Gosia Konwerska, PhD, and Etienne Bernard Oct 30,  4:00 PM":{
+		"name":"Meet-Up: Data Science Workflows: Wolfram Approach",
+		"speaker_names":"Matt Klimuszka, Gosia Konwerska, PhD, and Etienne Bernard",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 30,  4:00 PM",
+		"ends_at":" 5:00 PM",
+		"description":"Join our users, practitioners, lead architects and specialists from Wolfram at a roundtable discussion about how Wolfram’s multiparadigm approach affects their data science workflows. We would love to hear about your good or not-so-good experiences and your best practices. \n",
+		"key":"Matt Klimuszka, Gosia Konwerska, PhD, and Etienne Bernard Oct 30,  4:00 PM"
+	},
+	"José Martín-García Oct 30,  4:00 PM":{
+		"name":"New in Geography",
+		"speaker_names":"José Martín-García",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"This talk reviews the most recent improvements and additions in the Geo framework of the Wolfram Language. We explore new ways to connect to geo servers, new methods of transforming GeoPosition objects, a new extension to geometric computation with geo regions, and other things. The talk concludes with a discussion of what will come next in the Geo project.  \n",
+		"key":"José Martín-García Oct 30,  4:00 PM"
+	},
+	"Pablo Lorenzo Eiroa Oct 30,  4:00 PM":{
+		"name":"Site-Specific Adaptable Robotic 3D Printer and e-Chaise Longue",
+		"speaker_names":"Pablo Lorenzo Eiroa",
+		"location":"Badger",
+		"starts_at":"Oct 30,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"Contemporary architecture has been progressively informed by new technologies, to the point that they currently determine its cultural projects. E-Architects’s philosophy is to design at the same level both foreground and background processes, displacing systems, parameters, computer codes and fabrication technologies to secure cultural innovation at a structural level, opening up new possibilities for new architectures. E-Architects expands design authorship, critiquing the division of labor (Fordism). This project challenges the background processes that usually remain separated from foreground object design. The e-Chaise Longue is 3D printed through a research, design and developed site-specific adaptable robotic 3D printer tensegrity. The uniqueness of this robotic 3D printer mechanism is that it is site-specific, therefore it does not depend on a structure to adapt to any existing condition. The e-Chaise Longue expands dimensions in the architecture of its differentiated field of points, lines, surfaces, volume and topology to displace the background process that informs its design. E-Chaise Longue’s digital design, 3D-printer fabrication system and material behaviorally feed back on each other, identifying latent opportunities to inform its design process. 3D scanning is used to start up in real time the e-Chaise design, which can be custom-fabricated to anybody. The G-code that controls the way the robotic 3D printer distributes the material is customized to address material behavior under stress. The e-Chaise can be materialized through industrially programmed polymer materials that sense and adapt to body temperature. The aim is to create a design that can only help in recognizing potential relationships between background and foreground design processes developing a continuously informed topological object space. \n",
+		"key":"Pablo Lorenzo Eiroa Oct 30,  4:00 PM"
+	},
+	"Ashley Brozenec and Kelvin Mischo Oct 30,  4:00 PM":{
+		"name":"Wolfram|Alpha Notebook Edition: The Simplicity of Wolfram|Alpha with the Dynamic Computational Capabilities of Mathematica",
+		"speaker_names":"Ashley Brozenec and Kelvin Mischo",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"Kelvin Mischo, one of the co-authors of the Hands-on Start to Mathematica book, will provide an overview of Wolfram|Alpha Notebook Edition. Wolfram|Alpha Notebook Edition combines the best of both Wolfram|Alpha and Mathematica into a single, unified program perfect for teaching and learning, especially at the high school and junior college level. Kelvin will show the product as well as a preview of the new Hands-on Start book centered around Wolfram|Alpha and Wolfram|Alpha Notebook Edition. \n",
+		"key":"Ashley Brozenec and Kelvin Mischo Oct 30,  4:00 PM"
+	},
+	"Lauren Berk Oct 30,  4:30 PM":{
+		"name":"Analyzing Class Discussion Forums with Author-Sensitive Topic Modeling",
+		"speaker_names":"Lauren Berk",
+		"location":"Badger",
+		"starts_at":"Oct 30,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"We extended the generative latent Dirichlet allocation (LDA) framework for topic modeling to include distinct author priors and allow for multiple authors to collaborate on a text. Revised inference methods were designed to handle the additional complexity and larger parameter space. Extending LDA in this way not only gives it more modeling power, but leads to insights about author interests, allowing for more accurate inference and the personalization of recommendations in online systems. We applied this analysis to forum data from two MOOCs at MIT to understand the evolution of conversation topics in the courses and evaluate student engagement and learning outcomes. We compared this analysis to hand-coded topic analysis to understand the benefits and drawbacks of the automated approach. \n",
+		"key":"Lauren Berk Oct 30,  4:30 PM"
+	},
+	"Ashley Brozenec and Kelvin Mischo Oct 30,  4:30 PM":{
+		"name":"Hands-on Start to Wolfram|Alpha Notebook Edition",
+		"speaker_names":"Ashley Brozenec and Kelvin Mischo",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 30,  4:30 PM",
+		"ends_at":" 6:00 PM",
+		"description":"Join us for this free hands-on course that will get you started using Wolfram|Alpha Notebook Edition for your math and science classes. Wolfram|Alpha Notebook Edition combines the best of both Wolfram|Alpha and Mathematica into a single, unified program perfect for teaching and learning. During this training you’ll use Wolfram|Alpha Notebook Edition to solve multistep math and science problems by entering calculations using plain English, create and customize graphs, and turn static examples into dynamic models. You’ll also learn how to create interactive Wolfram Notebooks that combine text, calculations, graphics and interactive models—then turn your notebooks into dynamic slide shows that you can edit on the fly. Participants will be provided with a free four-month subscription to Wolfram|Alpha Notebook Edition.  <b>SOFTWARE DOWNLOAD required. Please RSVP to <a shape=\"rect\" href=\"mailto:bautista@wolfram.com\" \/><a shape=\"rect\" href=\"mailto:bautista@wolfram.com\">bautista@wolfram.com<\/a> for this session no later than 10\/29.<\/b> \n",
+		"key":"Ashley Brozenec and Kelvin Mischo Oct 30,  4:30 PM"
+	},
+	"Rafał Chojna Oct 30,  4:30 PM":{
+		"name":"LibraryLink Utilities",
+		"speaker_names":"Rafał Chojna",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"LibraryLink Utilities (LLU) is a set of modern C++ wrappers over most parts of LibraryLink—the Wolfram Language framework for connecting to C\/C++ libraries. LLU started as an internal Wolfram project that can now be used as a standalone library and will soon be available publicly on GitHub. This talk will provide an overview of specific LLU features that make it a better alternative for C++ developers compared to a plain LibraryLink. Basic familiarity with C++ and previous experience with LibraryLink are required to get the most out of this talk. \n",
+		"key":"Rafał Chojna Oct 30,  4:30 PM"
+	},
+	"Francisco Rodriguez Arias Oct 30,  4:30 PM":{
+		"name":"More Geographic Data in Wolfram Language 12",
+		"speaker_names":"Francisco Rodriguez Arias",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"None",
+		"key":"Francisco Rodriguez Arias Oct 30,  4:30 PM"
+	},
+	"Roman Maeder Oct 30,  5:00 PM":{
+		"name":"Advanced Remote Kernel Launching",
+		"speaker_names":"Roman Maeder",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 30,  5:00 PM",
+		"ends_at":" 5:30 PM",
+		"description":"We discuss a new launcher for remote parallel subkernels. It can launch multiple kernels with a single SSH connection, and also supports port forwarding for the kernel WSTP connections to get around NAT and firewall restrictions and support kernels on cloud compute services, such as Amazon EC2. \n",
+		"key":"Roman Maeder Oct 30,  5:00 PM"
+	},
+	"Stephen Wolfram Oct 30,  5:00 PM":{
+		"name":"Discussing a New Computational Journal with Stephen Wolfram",
+		"speaker_names":"Stephen Wolfram",
+		"location":"Badger",
+		"starts_at":"Oct 30,  5:00 PM",
+		"ends_at":" 5:45 PM",
+		"description":"None",
+		"key":"Stephen Wolfram Oct 30,  5:00 PM"
+	},
+	"John Cassel Oct 30,  5:00 PM":{
+		"name":"Representing Biological Sequence Data in the Wolfram Language",
+		"speaker_names":"John Cassel",
+		"location":"Little Chief",
+		"starts_at":"Oct 30,  5:00 PM",
+		"ends_at":" 5:30 PM",
+		"description":"This talk will introduce BioSequence, a new structure for representing biological sequence data in the Wolfram Language. BioSequence can represent DNA, RNA and amino acid sequences. BioSequence is integrated with the Wolfram Knowledgebase to allow  obtaining the BioSequences associated with gene and protein entities, as well as finding the genes, proteins and SNPs associated with a given biological sequence. This representation supports the cases where sequence terms are not known through rich handling and pattern matching for degenerate terms. BioSequence can undertake biological conversion processes such as transcription and translation. Overall, BioSequence provides the basic representation needed as the Wolfram Language extends its support for computational biology. \n",
+		"key":"John Cassel Oct 30,  5:00 PM"
+	},
+	"Oct 30,  6:00 PM":{
+		"name":"Shuttle Service to Jupiter's",
+		"speaker_names":[],
+		"location":"Jupiter's at the Crossing",
+		"starts_at":"Oct 30,  6:00 PM",
+		"ends_at":" 9:00 PM",
+		"description":"Shuttle to Jupiters from Hilton Garden Inn <br clear=\"none\" \/> \n5:30pm <br clear=\"none\" \/> \n6:00pm <br clear=\"none\" \/> \n6:30pm <br clear=\"none\" \/> \n7:00pm \n\n Return Shuttle to Hilton <br clear=\"none\" \/> \n7:30pm <br clear=\"none\" \/> \n8:00pm <br clear=\"none\" \/> \n8:30pm <br clear=\"none\" \/> \n9:00pm \n",
+		"key":"Oct 30,  6:00 PM"
+	},
+	"Oct 30,  9:00 PM":{
+		"name":"Livecoding Competition",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 30,  9:00 PM",
+		"ends_at":"11:00 PM",
+		"description":"What is the Wolfram Livecoding Championship all about?  Coders of all levels compete against each other as they work through a series of Wolfram Language Challenges.  Challenges are judged on speed, accuracy and elegance.  Will the defending champion from last year prevail?  Or will we crown a new challenger as topcoder for 2019? \n\n Want to watch the fun instead?  This entertaining, lively event will be featured live on Twitch, but you can be part of the fun in person.   \n\n This competition is open to coders of all ages, conference attendees and Wolfram staff.  To enter, please sign in at the Championship registration table (located in the Badger room at the Hilton Garden Inn) between 9 and 9:30pm on Wednesday, October 30. \n\n The award ceremony will take place at the conclusion of the contest.  Prizes will be awarded to winners in two categories:  conference attendees and staff. \n\n This event is sure to be a highlight of the conference for coders and spectators alike!  Don’t miss out! \n\n DATE:  Wednesday, October 30 \n\n TIME:  9:30-11:30pm \n\n (immediately following the Jupiter’s outing )  \n\n LOCATION:  Hilton Garden Inn, Badger Room \n",
+		"key":"Oct 30,  9:00 PM"
+	},
+	"Oct 31,  7:30 AM":{
+		"name":"Breakfast",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 31,  7:30 AM",
+		"ends_at":" 9:00 AM",
+		"description":"Enjoy breakfast and networking. \n",
+		"key":"Oct 31,  7:30 AM"
+	},
+	"Arnoud Buzing, John Fultz, Roger Germundsson, and Tom Wickham-Jones Oct 31,  8:45 AM":{
+		"name":"Technical Q&A: An Expert Panel",
+		"speaker_names":"Arnoud Buzing, John Fultz, Roger Germundsson, and Tom Wickham-Jones",
+		"location":"Fighting Illini \/ Little Chief ",
+		"starts_at":"Oct 31,  8:45 AM",
+		"ends_at":"10:00 AM",
+		"description":"Taking questions on everything from the Wolfram Engine to Compiler and Language to the front end, join our panel of experts as they answer your questions live. If you’d like to submit a topic or question ahead of time, please provide who the question is directed toward (if known) and your question with any background to the  <a shape=\"rect\" href=\"mailto:events@wolfram.com\">registration desk staff<\/a> .  Questions must be received by 4:00pm on Wednesday. \n",
+		"key":"Arnoud Buzing, John Fultz, Roger Germundsson, and Tom Wickham-Jones Oct 31,  8:45 AM"
+	},
+	"Oct 31, 10:00 AM":{
+		"name":"Break",
+		"speaker_names":[],
+		"location":"Alumni Ballroom",
+		"starts_at":"Oct 31, 10:00 AM",
+		"ends_at":"10:30 AM",
+		"description":"Join us for beverages and snacks, network with fellow attendees, enjoy demonstrations and visit the Wolfram store. \n",
+		"key":"Oct 31, 10:00 AM"
+	},
+	"Brett Champion Oct 31, 10:30 AM":{
+		"name":"Advances in Visualization",
+		"speaker_names":"Brett Champion",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"We’ll begin the talk by looking at visualization features and functions that are new in the Wolfram Language in Version 12.0, including displaying data with uncertainty and using gridded displays. Later in the talk, we’ll look forward to upcoming improvements, including great strides in visualizing vector fields. \n",
+		"key":"Brett Champion Oct 31, 10:30 AM"
+	},
+	"Fahim Chandurwala Oct 31, 10:30 AM":{
+		"name":"Finance Data Feeds in Wolfram Finance Platform",
+		"speaker_names":"Fahim Chandurwala",
+		"location":"Little Chief",
+		"starts_at":"Oct 31, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"Wolfram Finance Platform enables access to live market data feeds from key financial data providers. \n\n In this talk, we will discuss retrieving financial data from such sources through a knowledge-based interface, i.e. EntityValue, and through performance-centric APIs \n",
+		"key":"Fahim Chandurwala Oct 31, 10:30 AM"
+	},
+	"Daavid Väänänen Oct 31, 10:30 AM":{
+		"name":"Meet-Up: Educator Code Together Part 3",
+		"speaker_names":"Daavid Väänänen",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 31, 10:30 AM",
+		"ends_at":"11:30 AM",
+		"description":"• Participants have the opportunity to share what they have worked on during the sessions and what they have learned during the conference that applies to their educational applications <br clear=\"none\" \/> \n• Discussion on ways to move forward (possibilities within the Wolfram ecosystem, Wolfram Summer School 2020, Wolfram Technology Conference 2020, …) \n",
+		"key":"Daavid Väänänen Oct 31, 10:30 AM"
+	},
+	"Maksim Piskunov and Jonathan Gorard Oct 31, 10:30 AM":{
+		"name":"SetReplace and Fundamental Physics",
+		"speaker_names":"Maksim Piskunov and Jonathan Gorard",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"The SetReplace package implements a set substitution system such that in each step, an unordered subset matching a given pattern is deleted from a multiset and replaced with a different subset. If each element of the set is a pair (of vertices), this set can be thought of as a graph, and the system becomes a network substitution (graph rewrite) system. The main application we consider is fundamental physics as described in Chapter 9 of  <i>NKS<\/i> , where the networks are models of space and the associated causal networks of substitution events are models of spacetime. SetReplace uses C++ code over LibraryLink for efficiency and can generate networks with >10 <sup>6<\/sup>  edges. It can also produce causal networks and check for causal invariance with respect to the order of replacement events. \n",
+		"key":"Maksim Piskunov and Jonathan Gorard Oct 31, 10:30 AM"
+	},
+	"Toni Schindler Oct 31, 10:30 AM":{
+		"name":"WikidataData",
+		"speaker_names":"Toni Schindler",
+		"location":"Badger",
+		"starts_at":"Oct 31, 10:30 AM",
+		"ends_at":"11:00 AM",
+		"description":"<a shape=\"rect\" href=\"https:\/\/www.wikidata.org\/wiki\/Wikidata:Main_Page \">Wikidata<\/a>   is the machine-readable data complement to Wikipedia. It contains about 60 million data items. Building on the symbolic SPARQL query functionality of Version 12 of the Wolfram Language, the function WikidataData automates the use of this extensive crowd-sourced knowledgebase. \n",
+		"key":"Toni Schindler Oct 31, 10:30 AM"
+	},
+	"Anthony Zupnik Oct 31, 11:00 AM":{
+		"name":"CloudConnector for Excel",
+		"speaker_names":"Anthony Zupnik",
+		"location":"Little Chief",
+		"starts_at":"Oct 31, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"None",
+		"key":"Anthony Zupnik Oct 31, 11:00 AM"
+	},
+	"Emmanuel Garces  Oct 31, 11:00 AM":{
+		"name":"Geo Visualization",
+		"speaker_names":"Emmanuel Garces ",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"Wolfram Language supports different ways of representing geographic data. We basically deal with coordinates, coordinates with associated values and vectors. Here we will survey through visualization functions depending on the type of data and what we want to look at. We will also introduce new geographic visualization functions \n",
+		"key":"Emmanuel Garces  Oct 31, 11:00 AM"
+	},
+	"Edmund Robinson Oct 31, 11:00 AM":{
+		"name":"Sunny Day Flooding",
+		"speaker_names":"Edmund Robinson",
+		"location":"Badger",
+		"starts_at":"Oct 31, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"Sunny day flooding occurs due to increased tidal height without the influence of weather systems. There is an increasing awareness of the occurrence of these events and their impact on coastal communities and municipalities. This talk utilises NOAA Tides & Currents and NWS flood stage data to examine historic sunny day flooding trends along the USA coastline, including Hawaii and Puerto Rico. It is a curious look-for-myself examination of publicly available, professionally curated data to assist my understanding of sunny day flooding and its potential impact on coastal communities.  This talk covers all stages of the analysis process. It starts at the NOAA Tides & Currents data API webpage and then follows my path to digest the data and present an informative view of the topic. Web data access and management, interactive cartography, statistical modelling and analysis and interactive visualisations are a few of the knowledge domains that are visited along the way. The outputs include interactive summaries and models which inform on the state of sunny day flooding along the USA coastline. \n",
+		"key":"Edmund Robinson Oct 31, 11:00 AM"
+	},
+	"Gerald Thomas Oct 31, 11:00 AM":{
+		"name":"The New Decision Process Toolkit",
+		"speaker_names":"Gerald Thomas",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31, 11:00 AM",
+		"ends_at":"11:30 AM",
+		"description":"There is a newly created decision process toolkit for analyzing a variety of decision processes, to be published by Wolfram Media. Currently, the toolkit is limited to two-person processes. As input, it takes the process formulated as a classic two-person game, where each player has several intrinsic strategies. The cultural aspects of the process provide additional input to the toolkit. The output is an analysis of the steady-state behavior of such a process, including how it might react to time-dependent disruptions. The toolkit will be used as the basis for a course to be taught next spring. \n",
+		"key":"Gerald Thomas Oct 31, 11:00 AM"
+	},
+	"Oct 31, 11:30 AM":{
+		"name":"Lunch and Competition Winners Announced",
+		"speaker_names":[],
+		"location":"Illini Ballroom",
+		"starts_at":"Oct 31, 11:30 AM",
+		"ends_at":" 1:00 PM",
+		"description":"Results of the Sprint Repository and One Liner competitions will be announced, starting at 11:45am. \n",
+		"key":"Oct 31, 11:30 AM"
+	},
+	"Nirmal Malapaka Oct 31,  1:00 PM":{
+		"name":"Complex-Valued Visualization",
+		"speaker_names":"Nirmal Malapaka",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"In this talk, we will look at visualizing complex numbers and functions in the Wolfram Language. We will look at the new complex-valued functions that have been added in addition to covering improvements to existing complex-valued visualizations. \n",
+		"key":"Nirmal Malapaka Oct 31,  1:00 PM"
+	},
+	"John Fultz and Parth Pratap Oct 31,  1:00 PM":{
+		"name":"Meet-Up: Wolfram Notebook Technologies",
+		"speaker_names":"John Fultz and Parth Pratap",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 31,  1:00 PM",
+		"ends_at":" 2:00 PM",
+		"description":"None",
+		"key":"John Fultz and Parth Pratap Oct 31,  1:00 PM"
+	},
+	"William Lewis Oct 31,  1:00 PM":{
+		"name":"Promise of Mathematica in Operations Research",
+		"speaker_names":"William Lewis",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"Operations research is an unusual field with no limits on the mathematical techniques it can apply. Anything, from any field, that can help operations is used. Mathematica unified work environment should Mathematica well adapted to operations research (OR). Mathematica can acquire data from SQL databases directly, insert this data into a simulation and send a report with plots by email to interested people, or display them on a webpage for people who are interested but cannot be contacted. Simulation output can also be used to drive interactive training modules. Mathematica can run on DoD-secure networks or on corporate networks. Mathematica supports many classic OR techniques: gradient climbing optimization, linear programming and integer programming. Mathematica supports various predictive models and network optimization models, and much of probability and statistics. Mathematica has excellent display capability, both mathematical and geographical, and supports access to various reference databases. It has Dataset[], which makes maximal use of memory and processors. Mathematica is capable of textual analyses, to include semiautomatic indexing of DoD manuals (through detection of acronyms and sections that contain similar acronyms). Mathematica supports machine learning on graphics processors, and directly interfaces with the most widely used procedural languages. Mathematica supports both data storage and computation in the cloud of rented computer capabilities. \n",
+		"key":"William Lewis Oct 31,  1:00 PM"
+	},
+	"Andrew Steinacher Oct 31,  1:00 PM":{
+		"name":"Stack Exchange Exploration with Entities",
+		"speaker_names":"Andrew Steinacher",
+		"location":"Badger",
+		"starts_at":"Oct 31,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"The Stack Exchange network of question-and-answer sites provides a large  network of knowledge in various subjects, including mathematics, physics, travel and more. Snapshots of these constantly evolving sites are kept and distributed in archives in a uniform, XML-based format, which makes them easy to process. With the power of the Wolfram Language, a tool has been built to convert each of these archives into an EntityStore, which allows for a wide range of detailed analysis on the knowledge of many subjects. Some interesting examples include an analysis of Wolfram Language code on  <a shape=\"rect\" href=\"https:\/\/mathematica.stackexchange.com\/\" \/> <a shape=\"rect\" href=\"https:\/\/mathematica.stackexchange.com\/\">https:\/\/mathematica.stackexchange.com\/<\/a> , the theorems and mathematicians mentioned on  <a shape=\"rect\" href=\"https:\/\/mathoverflow.net\/\">MathOverflow.net<\/a> , flight sequences from  <a shape=\"rect\" href=\"https:\/\/travel.stackexchange.com\/\" \/> <a shape=\"rect\" href=\"https:\/\/travel.stackexchange.com\/\">https:\/\/travel.stackexchange.com\/<\/a>  and more. \n",
+		"key":"Andrew Steinacher Oct 31,  1:00 PM"
+	},
+	"Piotr Wendykier, PhD Oct 31,  1:00 PM":{
+		"name":"Video Import\/Export",
+		"speaker_names":"Piotr Wendykier, PhD",
+		"location":"Little Chief",
+		"starts_at":"Oct 31,  1:00 PM",
+		"ends_at":" 1:30 PM",
+		"description":"In this talk, we will show how to import and export video data in the Wolfram Language. Based on an efficient backend, we can now read, stream and process almost any video file. Manipulate expressions, audio objects and lists of images can now be exported to MP4, Matroska, Ogg, QuickTime and AVI formats. We will also present how to further extend built-in video capabilities by installing the FFMPEG library on selected operating systems. \n",
+		"key":"Piotr Wendykier, PhD Oct 31,  1:00 PM"
+	},
+	"Tom Wickham-Jones Oct 31,  1:30 PM":{
+		"name":"Advances in the Wolfram Compiler",
+		"speaker_names":"Tom Wickham-Jones",
+		"location":"Little Chief",
+		"starts_at":"Oct 31,  1:30 PM",
+		"ends_at":" 2:30 PM",
+		"description":"None",
+		"key":"Tom Wickham-Jones Oct 31,  1:30 PM"
+	},
+	"Colleen Marciel Rosales Oct 31,  1:30 PM":{
+		"name":"Creating Programs for Data-Intensive Field Campaigns",
+		"speaker_names":"Colleen Marciel Rosales",
+		"location":"Badger",
+		"starts_at":"Oct 31,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"Most atmospheric research activities (“field campaigns”) require obtaining high-resolution data for a long period of time (e.g. per-second data for one month). Such campaigns involve collaborations between multiple research groups that have different instruments and could have different output file types and sizes. Thus, data organization could be challenging. In this talk, I will share the structure of field campaigns and how quick and reliable data organization plays a role in ensuring accuracy and traceability of data. I will also share how I used Mathematica to sort, analyze and process output files from our instrument. Lastly, I will share how I transformed a Macro originally written in VBA to a GUI-based program written entirely in Mathematica. While both have user-friendly interfaces, writing it in Mathematica greatly reduced processing time from ~30 minutes to ~30 seconds. \n",
+		"key":"Colleen Marciel Rosales Oct 31,  1:30 PM"
+	},
+	"David Smrcka and Jan Riha, PhD Oct 31,  1:30 PM":{
+		"name":"Improved Data Analysis of Millikan Experiment Using Mathematica",
+		"speaker_names":"David Smrcka and Jan Riha, PhD",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"Atoms are composed of a nucleus and electrons that orbit around it. These electrons have a negative charge. The value of their charge is one of the physical constants that have been crucial in many insights into the micro-cosmos. One of the experimental measurements of this elementary charge has been performed by Millikan. The elementary charge is calculated from the movement of charged oil droplets between the two plates of an inducer. By varying polarity of the voltage, we are able to the change direction of the electrical field and thus move oil droplets with nonzero charges in different directions. From their velocity in both settings, we are able to calculate the elementary charge. The motion is observed through a microscope. This experiment is interesting for the simple physics behind it, which makes it suitable for teaching purposes. At our university, this experiment is performed by our students as part of their practical class on atomic and nuclear physics. For more precise measurements, the motion of droplets is recorded by camera. Using Mathematica, we analyze the video footage. Using image processing tools, we are able to follow the path of moving oil droplets with higher precision than just from analysis by the human eye. In doing so, we extract more detailed information about the  velocity of these droplets, and also further speed up the analysis process. \n",
+		"key":"David Smrcka and Jan Riha, PhD Oct 31,  1:30 PM"
+	},
+	"Shadi Ashnai Oct 31,  1:30 PM":{
+		"name":"New in Image and Audio Processing",
+		"speaker_names":"Shadi Ashnai",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  1:30 PM",
+		"ends_at":" 2:00 PM",
+		"description":"Recent advancements in machine learning and neural networks have made significant improvements in applications such as computer vision and audio analysis. Utilizing these technologies to achieve higher-accuracy results has been a priority for us in the latest releases of the Wolfram Language. In this talk, I will mention new additions and ongoing efforts to make smarter built-in functions including, but not limited to, facial analysis and speech understanding. Also, I will talk about other important additions and updates to provide practical utilities such as annotating objects, bridging different data domains and many more. At the end, I will briefly highlight our achievements toward having built-in and efficient video support, processing and analysis. \n",
+		"key":"Shadi Ashnai Oct 31,  1:30 PM"
+	},
+	"Mads Bahrami, William Lewis, and Vitaliy Kaurov Oct 31,  2:00 PM":{
+		"name":"Adapting the Wolfram Language to Operations Research Analyses in Defense",
+		"speaker_names":"Mads Bahrami, William Lewis, and Vitaliy Kaurov",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 31,  2:00 PM",
+		"ends_at":" 3:00 PM",
+		"description":"On paper, Mathematica for operations research (OR) looks unbeatable.  And yet, anecdotal evidence suggests that Mathematica is not widely used in OR.  Why? <br clear=\"none\" \/> \n\n A)  Job market for for operations research in DoD is of uncertain quality.  Many managers do not have an OR background, and generally act as heads of household rather than as innovators.  While adept at dealing with people, the managers (even in technical fields) are often not technical in any sense of the word. <br clear=\"none\" \/> \n\n B) Learning curve: Learning Mathematica is roughly equivalent to learning Spanish. To capture the market from Excel users, you need something simpler. <br clear=\"none\" \/> \n\n C) Mathematica has not always lived up to its fundamental design potential.  Some parts of Mathematica are about 90% complete and suitable for use only by areas specialists, and no tutorial texts are cited. As a result, the switching between different methods necessitated by exploratory use of Mathematica becomes impossibly slow. Further, Mathematica and SystemModeler do not support Monte Carlo simulations as well as Pritzker’s, Gasp IV and Successor Languages or SIMSCRIPT.  This makes simulation of industrial or military operations prohibitively difficult, and there does not appear to be any direct support for the statistical analyses required to transform simulation time series to probability distributions and confidence intervals required by OR. <br clear=\"none\" \/> \n\n D) Mathematica has occasionally produced unpredictable delays that compromised its credibility with practitioners and managers.   \n",
+		"key":"Mads Bahrami, William Lewis, and Vitaliy Kaurov Oct 31,  2:00 PM"
+	},
+	"Jan Riha, PhD and Pavla Sretrova Oct 31,  2:00 PM":{
+		"name":"Nuclear Angular Correlation: Evaluation of Experimental Data",
+		"speaker_names":"Jan Riha, PhD and Pavla Sretrova",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"Time differential perturbed angular correlation (TDPAC) belongs to a family of hyperfine methods and gives information on the hyperfine (nuclear magnetic dipole and electric quadrupole) interactions of specific nuclei. The technique is based on the observation of time and spacial correlation between two succeeding photons emitted by one nucleus.  This presentation provides numerical calculations of perturbation and correlation functions and their comparison with experimental data of different compounds of cobalt 57. The samples were measured simultaneously by Mössbauer spectrometer for verification of data rightness from TDPAC measurement. Simulation, evaluation and comparison were made in Mathematica. \n\n Jan Rhia, Pavla Sretrova, Vit Prochazka \n",
+		"key":"Jan Riha, PhD and Pavla Sretrova Oct 31,  2:00 PM"
+	},
+	"Carlo Giacometti and Rebecca Frederick Oct 31,  2:00 PM":{
+		"name":"Understanding Speech—Speech and Speaker Analysis",
+		"speaker_names":"Carlo Giacometti and Rebecca Frederick",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"In this talk, we will approach the analysis and understanding of speech signals with methods ranging from classical signal processing to deep neural networks. We will briefly cover preprocessing for speech analysis and vocoder methods for analyzing speech, and then move forward with speaker classification and feature extraction for speech signals. Along the way, we will also demonstrate upcoming high-level speech functions in the Wolfram Language. \n",
+		"key":"Carlo Giacometti and Rebecca Frederick Oct 31,  2:00 PM"
+	},
+	"Kari Grafton Oct 31,  2:00 PM":{
+		"name":"What-If Analysis of Placement Test Cutoff Scores",
+		"speaker_names":"Kari Grafton",
+		"location":"Badger",
+		"starts_at":"Oct 31,  2:00 PM",
+		"ends_at":" 2:30 PM",
+		"description":"The Wolfram Language’s Manipulate function lends itself well to what-if analysis and produces a simple user interface that anyone can use. This research looks at five years of student remedial course placements based on placement test scores, and how those students performed in the course(s), to see if changes are needed in how the college places students within remedial coursework. The format of the output allows the user to try out a number of different scenarios to see how they’d work. \n",
+		"key":"Kari Grafton Oct 31,  2:00 PM"
+	},
+	"Rodrigo Obando, PhD Oct 31,  2:30 PM":{
+		"name":"Chasing Class Transitions in Cellular Automata Rule Spaces",
+		"speaker_names":"Rodrigo Obando, PhD",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"Since the 1980s, when Stephen Wolfram classified the behavior of the evolution of cellular automata into four classes, we have investigated and studied individual classes or groups of classes. Using the primitives defined in  <i>Partitioning of Cellular Automata Rule Spaces<\/i> , published in 2015, we define the rule spaces and provide direction in navigating them, searching for class transitions. We find that the space has large regions of rules of the same class and there are particular transitions between those regions. We start this project with the elementary cellular automata and lay out the foundation to explore bigger spaces. According to the research, we found that the layout is based on partially ordered lattices, which may explain why these regions are not easily defined under other alternative orderings. Just as it is with phase transitions, traversing the space and trying to move from one class to another may circumvent regions depending on how you traverse the space. We will show Manipulate statements to explore the elementary cellular automata. \n",
+		"key":"Rodrigo Obando, PhD Oct 31,  2:30 PM"
+	},
+	"Giulio Alessandrini and Mikayel Egibyan Oct 31,  2:30 PM":{
+		"name":"Computer Vision",
+		"speaker_names":"Giulio Alessandrini and Mikayel Egibyan",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"The field of computer vision has undergone a tremendous acceleration in recent years. The advent of neural networks has completely revolutionized the field, and the Wolfram Language has been gearing up for the task. During this talk, we will present the latest additions to the language for object classification, segmentation and detection. We will show applications in medical image segmentation and text detection in natural images, combined with more traditional image processing methods. \n",
+		"key":"Giulio Alessandrini and Mikayel Egibyan Oct 31,  2:30 PM"
+	},
+	"Brenton Bostick Oct 31,  2:30 PM":{
+		"name":"Parsing the Wolfram Language",
+		"speaker_names":"Brenton Bostick",
+		"location":"Little Chief",
+		"starts_at":"Oct 31,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"A new parser for the Wolfram Language is presented. Design challenges are discussed and comparisons with existing parsers are given. Applications of parsing technology are explored, including developing new tools for analyzing the Wolfram Language. \n",
+		"key":"Brenton Bostick Oct 31,  2:30 PM"
+	},
+	"Bjorn Schelter Oct 31,  2:30 PM":{
+		"name":"Setting Up an MSc Data Science Degree at the University of Aberdeen",
+		"speaker_names":"Bjorn Schelter",
+		"location":"Badger",
+		"starts_at":"Oct 31,  2:30 PM",
+		"ends_at":" 3:00 PM",
+		"description":"Recently, we have set up an MSc degree in Data Science at the University of Aberdeen; it is taught in the Wolfram Language. This degree is part of a larger effort of using the Wolfram Language in projects ranging from nursery\/preschool level, primary and secondary school, to university level and academic and industrial research.  In this presentation we will discuss some of the experiences we have made while developing this degree. This includes a discussion of the requirements as communicated to us from industrial stakeholders, to expectations of the students, up to technologies and methodologies we use for our teaching. \n",
+		"key":"Bjorn Schelter Oct 31,  2:30 PM"
+	},
+	"Oct 31,  3:00 PM":{
+		"name":"Break",
+		"speaker_names":[],
+		"location":"Alumni Ballroom",
+		"starts_at":"Oct 31,  3:00 PM",
+		"ends_at":" 3:30 PM",
+		"description":"Join us for beverages and snacks, network with fellow attendees, enjoy demonstrations and visit the Wolfram store. \n",
+		"key":"Oct 31,  3:00 PM"
+	},
+	"Charles Pooh Oct 31,  3:30 PM":{
+		"name":"Advances in Number Theory and Practice",
+		"speaker_names":"Charles Pooh",
+		"location":"Little Chief",
+		"starts_at":"Oct 31,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"Gain insights into the key practices and latest advances in number theory with the Wolfram Language. Discover new ways to compute with asymptotic methods and new capabilities with state-of-the-art algorithms. \n",
+		"key":"Charles Pooh Oct 31,  3:30 PM"
+	},
+	"Diego Zviovich and Marco Thiel Oct 31,  3:30 PM":{
+		"name":"Computational Conversations",
+		"speaker_names":"Diego Zviovich and Marco Thiel",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31,  3:30 PM",
+		"ends_at":" 4:30 PM",
+		"description":"In this live demonstration, we will show our attempt at using the Wolfram Language for real-time computational discussions. We will show that in times where the discussion culture is potentially under threat, and where statements are often not backed up by facts, the Wolfram Languages provides a tool to conduct computational conversations that are more evidence based. \n",
+		"key":"Diego Zviovich and Marco Thiel Oct 31,  3:30 PM"
+	},
+	"Dylan Boliske Oct 31,  3:30 PM":{
+		"name":"Design and Implementation of an Automated Analysis and Reporting System",
+		"speaker_names":"Dylan Boliske",
+		"location":"Badger",
+		"starts_at":"Oct 31,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"What good is data if it’s disorganized, inconsistent or out of date? Who has time to build an automated system to collect and process data, generate visualizations that give actual insights, create dashboards and then distribute or publish the results? You do! \n\n Oftentimes, designing or working with these systems can be more difficult and time-consuming than deciding on the actual analysis. In this presentation, we’ll look at a case study of building a media monitoring and reporting system from the ground up, and that was purpose-built for use by an in-house public relations department in just a few hours. \n",
+		"key":"Dylan Boliske Oct 31,  3:30 PM"
+	},
+	"John Fultz and Parth Pratap Oct 31,  3:30 PM":{
+		"name":"Meet-Up: Wolfram on Mobile Devices",
+		"speaker_names":"John Fultz and Parth Pratap",
+		"location":"Illinois Room @ Homewood",
+		"starts_at":"Oct 31,  3:30 PM",
+		"ends_at":" 4:30 PM",
+		"description":"None",
+		"key":"John Fultz and Parth Pratap Oct 31,  3:30 PM"
+	},
+	"Carlo Giacometti and Chien-Yu Chen Oct 31,  3:30 PM":{
+		"name":"Video Processing and Analysis",
+		"speaker_names":"Carlo Giacometti and Chien-Yu Chen",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  3:30 PM",
+		"ends_at":" 4:00 PM",
+		"description":"None",
+		"key":"Carlo Giacometti and Chien-Yu Chen Oct 31,  3:30 PM"
+	},
+	"Devendra Kapadia Oct 31,  4:00 PM":{
+		"name":"Asymptotic Computation",
+		"speaker_names":"Devendra Kapadia",
+		"location":"Little Chief",
+		"starts_at":"Oct 31,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"The aim of asymptotic computation is to provide useful approximate formulas for expressions in the vicinity of a fixed point, such as zero or infinity. Stirling’s formula for factorials is an excellent example that illustrates the power and utility of asymptotic approximations. \n\n In this talk, I will discuss the new Asymptotic and DiscreteAsymptotic functions, which can be used to compute asymptotic approximations for functions and sequences, integral and summation transforms, differential and difference equations,  integrals and sums, etc. These superfunctions will provide the next level of automation beyond functions such as AsymptoticDSolveValue and AsymptoticIntegrate, which were introduced in earlier versions, and will bring us closer to the goal of establishing asymptotic methods as a third mode of computing in the Wolfram Language. \n",
+		"key":"Devendra Kapadia Oct 31,  4:00 PM"
+	},
+	"Suba Thomas Oct 31,  4:00 PM":{
+		"name":"Color Sensing Using Arduino and the Wolfram Language",
+		"speaker_names":"Suba Thomas",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"This talk will demonstrate various ways in which the Wolfram Language Microcontroller Kit can be used to acquire color using a TCS34725 sensor. The sensor data is sent over I2C by integrating the currents from an array consisting of red-filtered, green-filtered, blue-filtered and unfiltered photodiodes. The microcontroller obtains the I2C data and then sends it over serial to Mathematica. The I2C and serial communication techniques are general, and can be adapted for other I2C and serial devices. The various approaches are compared, and the talk also includes a potential application example. \n",
+		"key":"Suba Thomas Oct 31,  4:00 PM"
+	},
+	"Lou D'Andria  Oct 31,  4:00 PM":{
+		"name":"Understanding Manipulate",
+		"speaker_names":"Lou D'Andria ",
+		"location":"Badger",
+		"starts_at":"Oct 31,  4:00 PM",
+		"ends_at":" 4:30 PM",
+		"description":"The Manipulate function continues to provide a unique and convenient way to interact with the Wolfram Language, empowering any user to easily create flexible interfaces for investigating any output on any platform, including cloud and mobile, that supports Wolfram Notebooks. In this talk, we will give a refresher of Manipulate basics and an overview of the key features that will allow you to take full advantage of this inimitable function. \n",
+		"key":"Lou D'Andria  Oct 31,  4:00 PM"
+	},
+	"MinHsuan Peng Oct 31,  4:30 PM":{
+		"name":"Automated Labeling in Visualization",
+		"speaker_names":"MinHsuan Peng",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"Automated labeling in visualization was introduced in the Wolfram Language in Version 10.4. In Version 12, we extended the feature into many 2D and 3D visualization functions. Labeling automation includes algorithms that find label locations with minimal conflicts, optimization problems for adjusting positions for chart and curve labels, and the resizing of non-textual labels to fit in the graphics for maximal display. In this talk, we will take a look at what we have worked on since last year. \n",
+		"key":"MinHsuan Peng Oct 31,  4:30 PM"
+	},
+	"Roman Maeder Oct 31,  4:30 PM":{
+		"name":"Counting Truncatable Primes",
+		"speaker_names":"Roman Maeder",
+		"location":"Badger",
+		"starts_at":"Oct 31,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"The 24-digit number 357686312646216567629137 is the longest left-truncatable prime in base 10. The number remains prime when any sequence of leading digits is removed, down to 7. There are 4260 such primes. In base 24, there are 1'052'029'701 truncatable primes. \n\n We discuss parallel search strategies for counting all primes in bases up to 100 and compare the results with predictions based on the prime number theorem for arithmetic progressions. For example, the calculation for base 30 is estimated to take about 750 CPU core years. \n",
+		"key":"Roman Maeder Oct 31,  4:30 PM"
+	},
+	"Brenton Bostick Oct 31,  4:30 PM":{
+		"name":"Finding Bugs in the Wolfram Language",
+		"speaker_names":"Brenton Bostick",
+		"location":"Little Chief",
+		"starts_at":"Oct 31,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"A new linting tool for finding bugs in the Wolfram Language is presented, as well as new tools for profiling and coverage reporting. The topic of static analysis in the Wolfram Language is discussed. Finally, we talk about the presentation of problems in notebooks and in the cloud. \n",
+		"key":"Brenton Bostick Oct 31,  4:30 PM"
+	},
+	"Peter Jacobse, PhD Oct 31,  4:30 PM":{
+		"name":"Graphene Nanoribbons and the Experimentalist Who Used Mathematica",
+		"speaker_names":"Peter Jacobse, PhD",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31,  4:30 PM",
+		"ends_at":" 5:00 PM",
+		"description":"Scanning tunneling and atomic force microscopy are methods that have the power to resolve structures, materials and molecules down to the single atom and single bond. Additionally, they can provide insight into the electronic structure of materials.      The materials that I am interested in are graphene nanoribbons (GNRs). These strips of single-atom-thick carbon have a much more solid electronic performance than their flimsy nature seems to suggest: their conductance can outperform metals like copper and gold, and the electrons are so fast that they enable electronic components with unrivaled operating speeds. In contrast with their parent material graphene, GNRs feature a band gap, so that the material can be made to conduct at will. To understand the electronic structure of GNRs, I developed a Mathematica package with a set of functions that allowed me to perform quantum mechanical calculations at the level of (Hubbard) tight-binding. Recently, the package was published: an all-purpose tight-binding code featuring functionality that allows for a plethora of calculations to be carried out on a large variety of different structures. In this presentation I would like to show how MathemaTB has become my loyal “GNR electronic structure cruncher.” Its wide applicability means that it might be your loyal help in your tight-binding needs too. \n",
+		"key":"Peter Jacobse, PhD Oct 31,  4:30 PM"
+	},
+	"Ruhi Shah Oct 31,  5:00 PM":{
+		"name":"A Model for Quantum Cellular Automata",
+		"speaker_names":"Ruhi Shah",
+		"location":"Spartan\/Golden Gopher",
+		"starts_at":"Oct 31,  5:00 PM",
+		"ends_at":" 5:30 PM",
+		"description":"A new model for quantum cellular automata (QCAs) is proposed. It evolves a tensor product of qubits using unitary operators that are arity-2 logic gates. The models currently available for QCAs are limited in the amount of rules one can apply. The models mentioned in this paper allow for an infinite number of possible rules, from which interesting behaviour can arise. It is found that all QCAs of this form reach an equilibrium state. It is found that the time taken to reach this state is independent of initial conditions. It is also found that certain QCAs show resonance. Another new model is also proposed, one based on the quantum teleportation protocol. \n",
+		"key":"Ruhi Shah Oct 31,  5:00 PM"
+	},
+	"Jofre Espigule-Pons Oct 31,  5:00 PM":{
+		"name":"Computational Taxonomy (Biology)",
+		"speaker_names":"Jofre Espigule-Pons",
+		"location":"Little Chief",
+		"starts_at":"Oct 31,  5:00 PM",
+		"ends_at":" 5:30 PM",
+		"description":"The goal of this presentation is to showcase data science tools available using the Wolfram Language. It will be relevant to a broad audience, and knowledge about taxonomy won’t be required. First, I will show how to import species data from external biodiversity databases. This data will contain taxonomic information, images and other information like distribution (spatial) data and ecological data of the species. Then I’ll make use of several frameworks, such as knowledge representation using entities; graphs and networks; and geographic data and computation. Finally, I will show how to use machine learning techniques to perform automated species identification (using both images and audios files). \n",
+		"key":"Jofre Espigule-Pons Oct 31,  5:00 PM"
+	},
+	"Jay Alan Jackson Oct 31,  5:00 PM":{
+		"name":"How to Train Your Robotic Sea Turtle\/Close Encounters of the m-th Kind",
+		"speaker_names":"Jay Alan Jackson",
+		"location":"Badger",
+		"starts_at":"Oct 31,  5:00 PM",
+		"ends_at":" 5:30 PM",
+		"description":"This presentation will show how a combination of Mathematica, UnityLink and the Unity3D game engine helped to produce an interactive music video. It will examine a number of capabilities of the Wolfram Language useful in making a Unity project, e.g. to calculate positions and orientations along curves, fashion geometric objects, generate sounds, sequence events and map motion capture data to avatar control. The video features AIMSPP, an Artificially Intelligent Multi-sensory Signal and Pattern Perceiver embodied as a robotic sea turtle and six wild yet playful dolphins, nicknamed A Pod Calypso. The sci-fi storyline goes like this: A Pod Calypso has taken refuge within a desolated aquatic zone known as the Caribbean Trapezoid.  Scientists aboard  <i>Riff Raft<\/i> , an exploratory vessel from the Cetacean Intelligence and Communication Investigation Lab (CICIL), are seeking to make contact and carry out research, but this atypical tropical troupe of marine mammals remains elusive and cautiously distant. Observations from far away reveal A Pod Calypso likes to perform expressive and polyrhythmic body movements while emitting exotic percussive sounds in synchrony. Consequently, the CICIL squad now plans to carry out experiments deploying a purposely trained AIMSPP to conduct novel song-and-dance routines composed from myriad mixed messages of music, motion and math. The conjecture is that such actions may draw A Pod Calypso nearer, giving rise to close encounters of the  <i>m<\/i> th kind. \n",
+		"key":"Jay Alan Jackson Oct 31,  5:00 PM"
+	},
+	"Flip Phillips Oct 31,  5:00 PM":{
+		"name":"Teaching Computational Thinking through Colorimetry",
+		"speaker_names":"Flip Phillips",
+		"location":"Fighting Illini",
+		"starts_at":"Oct 31,  5:00 PM",
+		"ends_at":" 5:30 PM",
+		"description":"In our Computational Methods for Psychology and Neuroscience course, we teach undergraduate students the fundamentals of computational thinking (as opposed to traditional “programming”) using a project-based approach. Over the years, project topics have included linguistics, video image analysis, Dynamic[] data collection, analysis and presentation, machine learning, and beyond. Most recently, we chose colorimetry and psychophysics as our project theme. Using the Device[] framework and an Arduino for data collection, we built a machine learning model from publicly available hyperspectral data that could reliably discriminate fruit types from simple, low-dimensional spectral scans.  The resulting project was well received by students and covered a broad range of topics that are useful in neuroscience, including procedural programming of the Arduino, basic electronics, sensor-based data acquisition, functional programming in the Wolfram Language, instrument calibration, analysis, visualization and machine learning. Here we discuss the various challenges and successes in this 15-week class. \n",
+		"key":"Flip Phillips Oct 31,  5:00 PM"
+	}
+}
