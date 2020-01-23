@@ -42,7 +42,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      - "Eat your own dog food" example.
 
 3. [X] Representation of the documents - the fundamental matrix object.   
-   Here is [the recording of the third session at Twitch](https://www.twitch.tv/videos/533991174) .
+   Here is [the recording of the third session at Twitch](https://www.twitch.tv/videos/533991174).
    
    - Review: last session's example.
    
@@ -57,21 +57,44 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
        - for a document collection, and
        - (in general.)
 
-4. [ ] Typical use cases.     
-
-   - Representation of unseen documents.
-   - Similarity between two text: 
-     - the "local world" perspective, and 
-     - the "bigger universe" perspective.
-   - Dimension reduction methods comparisons.
+4. [X] Representation of unseen documents.   
+   Here is [the recording of the fourth session at Twitch](https://www.twitch.tv/videos/540209071).
    
-5. [ ] LSA for image collections.
+   - Review: last session's matrix object.
 
-   - Representation of the documents.
-   - Dimension reduction methods comparisons.
-   - Representation of unseen documents.
+      - Sparse matrix with named rows and columns.
+
+   - Queries representation.
+
+     - Representing 
+       [rstudio-conf-2019 abstracts](../../Data/RStudio-conf-2019-abstracts.json)
+       in the vector space of 
+       [WTC-2019 abstracts](../../Data/Wolfram-Technology-Conference-2019-abstracts.json).
+
+   - Making a search engine for
+
+     - [ ] [Raku's documentation](https://github.com/Raku/doc),
+     
+     - [X] WTC-2019 abstracts.
+
+   - Dimension reduction over an image collection.
+
+     - Topics over [random mandalas](https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala).
+
+     - Representation of unseen mandala images.
+
    
-6. [ ] Further use cases.
+5. [ ] Further use cases.
 
+   - LSA for language translations.
+     - Using Dostoevsky's novel "The Idiot".
+       - [Russian chapters breakdown](../../Data/Dostoyevsky-The-Idiot-Russian-chapters.json.zip).
+       - [English chapters breakdown](../../Data/Dostoyevsky-The-Idiot-English-chapters.json.zip).
+       
+   - LSA for phrases.
+     - Using [AirBnB data](https://community.wolfram.com/groups/-/m/t/1835575).
+     
    - LSA based image classification.
+   
    - LSA for time series collections.
+   
