@@ -4,6 +4,20 @@ In this directory is placed most of the data used in this book.
 
 ## Reading the chapters of "The Idiot"
 
+### R
+
+```r
+library(jsonlite)
+temp <- tempfile()
+download.file("https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/raw/master/Data/Dostoyevsky-The-Idiot-Russian-chapters.json.zip",temp)
+jsonRes <- jsonlite::fromJSON(unz(temp, "Dostoyevsky-The-Idiot-Russian-chapters.json"))
+length(jsonRes)
+# [1] 50
+```
+
+
+### WL
+
 Here is WL code to read the chapters of the Dostoevsky's novel "The Idiot" (in Russian):
 
 ```mathematica
