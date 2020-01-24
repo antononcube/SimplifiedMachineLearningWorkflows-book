@@ -32,23 +32,27 @@ Length[aULRIdiotRussianChapters]
 
 ## rstudio::conf 2019 abstracts
 
-The rstudio::conf 2019 abstracts were taken from the Markdown file
+The 
+[rstudio::conf](https://rstudio.com/conference/) 
+2019 abstracts were taken from the Markdown file
 [sessions.md](https://github.com/rstudio/rstudio-conf/blob/master/2019/sessions.md)
 from the GitHub repository 
 [rstudio-conf](https://github.com/rstudio/rstudio-conf).
 
 That Markdown files was parsed in order to produce 
-[the corresponding JSON records](./RStudio-conf-2019-abstracts.json), and
+[the corresponding JSON records](./RStudio-conf-2019-abstracts.json) and
 [the corresponding CSV file](./RStudio-conf-2019-abstracts.csv).
 
  
 ## Wolfram Technology Conference (WTC) abstracts
 
-The abstracts were taken from 
+The abstracts of 
+[WTC-2019](https://www.wolfram.com/events/technology-conference/2019)
+were taken from 
 https://wtc19.pathable.com/meetings.html 
 and parsed in order to produce
 [the corresponding JSON records](./Wolfram-Technology-Conference-2019-abstracts.json).
 
-Using additional the data (notebooks) a 
+Using additional WTC presentation notebooks from past years a 
 [CSV file](./Wolfram-Technology-Conference-2016-to-2019-abstracts.csv) 
 was produced with WTC abstracts for the years 2016 to 2019.  
