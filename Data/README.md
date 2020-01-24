@@ -38,11 +38,17 @@ from the GitHub repository
 [rstudio-conf](https://github.com/rstudio/rstudio-conf).
 
 That Markdown files was parsed in order to produce 
-[the corresponding JSON records](./RStudio-conf-2019-abstracts.json).  
+[the corresponding JSON records](./RStudio-conf-2019-abstracts.json), and
+[the corresponding CSV file](./RStudio-conf-2019-abstracts.csv).
+
  
-## Wolfram Technology Conference 2019 abstracts
+## Wolfram Technology Conference (WTC) abstracts
 
 The abstracts were taken from 
 https://wtc19.pathable.com/meetings.html 
 and parsed in order to produce
-[the corresponding JSON records](./Wolfram-Technology-Conference-2019-abstracts.json).  
+[the corresponding JSON records](./Wolfram-Technology-Conference-2019-abstracts.json).
+
+Using additional the data (notebooks) a 
+[CSV file](./Wolfram-Technology-Conference-2016-to-2019-abstracts.csv) 
+was produced with WTC abstracts for the years 2016 to 2019.  
