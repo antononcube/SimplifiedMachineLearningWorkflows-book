@@ -55,7 +55,7 @@ dsRSCAbstracts=ResourceFunction["ImportCSVToDataset"]["https://raw.githubusercon
 RandomSample[dsRSCAbstracts,3]
 ```
 
-![0zh24by7c0v42](Diagrams/Text-similarities-through-bags-of-words/0zh24by7c0v42.png)
+![11kazdxma26s6](img/11kazdxma26s6.png)
 
 ### Read WTC-2019 abstracts
 
@@ -70,7 +70,7 @@ dsWTCAbstracts=ResourceFunction["ImportCSVToDataset"]["https://raw.githubusercon
 RandomSample[dsWTCAbstracts,3]
 ```
 
-![0gs0kzaj3uiaz](Diagrams/Text-similarities-through-bags-of-words/0gs0kzaj3uiaz.png)
+![108v5e4soljo6](img/108v5e4soljo6.png)
 
 ## Texts to compare
 
@@ -103,7 +103,7 @@ text=StringJoin[txt1,txt2];
 fed=FeatureExtraction[DeleteStopwords@sentences,"TFIDF","FeatureDistance"]
 ```
 
-![0vpbn32rabddj](Diagrams/Text-similarities-through-bags-of-words/0vpbn32rabddj.png)
+![1aa30k26fl86v](img/1aa30k26fl86v.png)
 
 ```mathematica
 fed[txt1,txt2]
@@ -117,25 +117,25 @@ Remark: Note that below we use Cosine Similarity, not Euclidean Distance, which 
 
    1. Join the texts and partition the result into sentences.
 
-   0. For each sentence:
+   2. For each sentence:
 
       1. extract words,
 
-      0. delete stop words,
+      2. delete stop words,
 
-      0. stem the rest of the words.
+      3. stem the rest of the words.
 
-   0. Make a sentence-word contingency matrix.
+   3. Make a sentence-word contingency matrix.
 
-   0. Apply LSI weighting functions to the contingency matrix.
+   4. Apply LSI weighting functions to the contingency matrix.
 
-   0. Extract topics.
+   5. Extract topics.
 
-   0. Represent each of the texts into the space of sentence-word matrix.
+   6. Represent each of the texts into the space of sentence-word matrix.
 
-   0. Represent each of the texts into the space of sentence-topic matrix.
+   7. Represent each of the texts into the space of sentence-topic matrix.
 
-   0. Using the representations compute similarities between the texts with Cosine similarity. (Or with other metrics.)
+   8. Using the representations compute similarities between the texts with Cosine similarity. (Or with other metrics.)
 
 The steps above are easily done with the software monad LSAMon.
 
@@ -158,9 +158,9 @@ SeedRandom[234];
     LSAMonEchoTopicsTable["NumberOfTableColumns"->4];
 ```
 
-![1eqfadmelvv57](Diagrams/Text-similarities-through-bags-of-words/1eqfadmelvv57.png)
+![1eqfadmelvv57](img/1eqfadmelvv57.png)
 
-![18iyaak085dev](Diagrams/Text-similarities-through-bags-of-words/18iyaak085dev.png)
+![18iyaak085dev](img/18iyaak085dev.png)
 
 ### Vector representation
 
@@ -172,9 +172,9 @@ sMat1=
     LSAMonTakeValue
 ```
 
-![1f59wkovwrezf](Diagrams/Text-similarities-through-bags-of-words/1f59wkovwrezf.png)
+![1f59wkovwrezf](img/1f59wkovwrezf.png)
 
-![1rwzta9o92ab0](Diagrams/Text-similarities-through-bags-of-words/1rwzta9o92ab0.png)
+![1rwzta9o92ab0](img/1rwzta9o92ab0.png)
 
 ```mathematica
 sMat2=
@@ -184,9 +184,9 @@ sMat2=
     LSAMonTakeValue
 ```
 
-![125uggdxfa2j5](Diagrams/Text-similarities-through-bags-of-words/125uggdxfa2j5.png)
+![125uggdxfa2j5](img/125uggdxfa2j5.png)
 
-![0g2n6sa5rjc6v](Diagrams/Text-similarities-through-bags-of-words/0g2n6sa5rjc6v.png)
+![0g2n6sa5rjc6v](img/0g2n6sa5rjc6v.png)
 
 ```mathematica
 Norm@*SparseArray/@{sMat1,sMat2}
@@ -198,7 +198,7 @@ Norm@*SparseArray/@{sMat1,sMat2}
 MatrixForm[sMat1.Transpose[sMat2]]
 ```
 
-![0h5xn111pwck4](Diagrams/Text-similarities-through-bags-of-words/0h5xn111pwck4.png)
+![0h5xn111pwck4](img/0h5xn111pwck4.png)
 
 ### Topics representation
 
@@ -211,9 +211,9 @@ sMat1=
     sMat1=WeightTermsOfSSparseMatrix[sMat1,"None","None","Cosine"]
 ```
 
-![125y9zd77gakp](Diagrams/Text-similarities-through-bags-of-words/125y9zd77gakp.png)
+![125y9zd77gakp](img/125y9zd77gakp.png)
 
-![1dbz24m8rrscc](Diagrams/Text-similarities-through-bags-of-words/1dbz24m8rrscc.png)
+![1dbz24m8rrscc](img/1dbz24m8rrscc.png)
 
 ```mathematica
 TakeLargest[ColumnSumsAssociation[sMat1],UpTo[6]]
@@ -230,9 +230,9 @@ sMat2=
     sMat2=WeightTermsOfSSparseMatrix[sMat2,"None","None","Cosine"]
 ```
 
-![1fif9d43kua5d](Diagrams/Text-similarities-through-bags-of-words/1fif9d43kua5d.png)
+![1fif9d43kua5d](img/1fif9d43kua5d.png)
 
-![0g7ri31i5c0lz](Diagrams/Text-similarities-through-bags-of-words/0g7ri31i5c0lz.png)
+![0g7ri31i5c0lz](img/0g7ri31i5c0lz.png)
 
 ```mathematica
 TakeLargest[ColumnSumsAssociation[sMat2],UpTo[6]]
@@ -250,7 +250,7 @@ Norm@*SparseArray/@{sMat1,sMat2}
 MatrixForm[sMat1.Transpose[sMat2]]
 ```
 
-![1wz4uaauilq1a](Diagrams/Text-similarities-through-bags-of-words/1wz4uaauilq1a.png)
+![1wz4uaauilq1a](img/1wz4uaauilq1a.png)
 
 ## External corpus LSA monad object
 
@@ -270,7 +270,7 @@ SeedRandom[132];
     LSAMonEchoTopicsTable["NumberOfTableColumns"->6];
 ```
 
-![0yqvvulf6tlo2](Diagrams/Text-similarities-through-bags-of-words/0yqvvulf6tlo2.png)
+![0yqvvulf6tlo2](img/0yqvvulf6tlo2.png)
 
 Note that the extracted topics do make sense!
 
@@ -292,9 +292,9 @@ sMat1=
     LSAMonTakeValue
 ```
 
-![021lnt4qsinw6](Diagrams/Text-similarities-through-bags-of-words/021lnt4qsinw6.png)
+![021lnt4qsinw6](img/021lnt4qsinw6.png)
 
-![1mhmakjcqsqzh](Diagrams/Text-similarities-through-bags-of-words/1mhmakjcqsqzh.png)
+![1mhmakjcqsqzh](img/1mhmakjcqsqzh.png)
 
 ```mathematica
 sMat2=
@@ -304,9 +304,9 @@ sMat2=
     LSAMonTakeValue
 ```
 
-![0ga2l03ar3y4p](Diagrams/Text-similarities-through-bags-of-words/0ga2l03ar3y4p.png)
+![0ga2l03ar3y4p](img/0ga2l03ar3y4p.png)
 
-![0ohm5nud7b22r](Diagrams/Text-similarities-through-bags-of-words/0ohm5nud7b22r.png)
+![0ohm5nud7b22r](img/0ohm5nud7b22r.png)
 
 ```mathematica
 Norm@*SparseArray/@{sMat1,sMat2}
@@ -318,7 +318,7 @@ Norm@*SparseArray/@{sMat1,sMat2}
 MatrixForm[sMat1.Transpose[sMat2]]
 ```
 
-![1tu8j72ymqo88](Diagrams/Text-similarities-through-bags-of-words/1tu8j72ymqo88.png)
+![1tu8j72ymqo88](img/1tu8j72ymqo88.png)
 
 ### Topics representation
 
@@ -331,9 +331,9 @@ sMat1=
     sMat1=WeightTermsOfSSparseMatrix[sMat1,"None","None","Cosine"]
 ```
 
-![0pxp883wwaidu](Diagrams/Text-similarities-through-bags-of-words/0pxp883wwaidu.png)
+![0pxp883wwaidu](img/0pxp883wwaidu.png)
 
-![1vdyzb1ve5g1j](Diagrams/Text-similarities-through-bags-of-words/1vdyzb1ve5g1j.png)
+![1vdyzb1ve5g1j](img/1vdyzb1ve5g1j.png)
 
 ```mathematica
 TakeLargest[ColumnSumsAssociation[sMat1],UpTo[6]]
@@ -350,9 +350,9 @@ sMat2=
     sMat2=WeightTermsOfSSparseMatrix[sMat2,"None","None","Cosine"]
 ```
 
-![0x63ljbhigjip](Diagrams/Text-similarities-through-bags-of-words/0x63ljbhigjip.png)
+![0x63ljbhigjip](img/0x63ljbhigjip.png)
 
-![10alxczh00fa5](Diagrams/Text-similarities-through-bags-of-words/10alxczh00fa5.png)
+![10alxczh00fa5](img/10alxczh00fa5.png)
 
 ```mathematica
 TakeLargest[ColumnSumsAssociation[sMat2],UpTo[6]]
@@ -370,7 +370,7 @@ Norm@*SparseArray/@{sMat1,sMat2}
 MatrixForm[sMat1.Transpose[sMat2]]
 ```
 
-![1wy2q2fvlr9u4](Diagrams/Text-similarities-through-bags-of-words/1wy2q2fvlr9u4.png)
+![1wy2q2fvlr9u4](img/1wy2q2fvlr9u4.png)
 
 ## Using Neural Net encoding
 
@@ -386,12 +386,13 @@ Similar to the previous approach that uses an external corpus we can use some of
 
 ### Data
 
-[AAd1] Anton Antonov, [RStudio::conf-2019-abstracts.csv](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Data/RStudio-conf-2019-abstracts.csv), (2020), [SimplifiedMachineLearningWorfklows-book at GitHub]({Simplified Machine Learning Workflows, None}).
+[AAd1] Anton Antonov, [RStudio::conf-2019-abstracts.csv](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Data/RStudio-conf-2019-abstracts.csv), (2020), [SimplifiedMachineLearningWorkflows-book at GitHub](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book).
 
-[AAd2] Anton Antonov, [Wolfram-Technology-Conference-2016-to-2019-abstracts.csv](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Data/Wolfram-Technology-Conference-2016-to-2019-abstracts.csv), (2020), [SimplifiedMachineLearningWorfklows-book at GitHub]({Simplified Machine Learning Workflows, None}).
+[AAd2] Anton Antonov, [Wolfram-Technology-Conference-2016-to-2019-abstracts.csv](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Data/Wolfram-Technology-Conference-2016-to-2019-abstracts.csv), (2020), [SimplifiedMachineLearningWorkflows-book at GitHub](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book).
 
 ### Packages & repositories
 
 [AAp1] Anton Antonov, [Monadic Latent Semantic Analysis Mathematica packag](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicLatentSemanticAnalysis.m)e, (2017), [MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
 
 [AAr1] Anton Antonov, [Simplified Machine Learning Workflows](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book), 2019, GitHub.
+
