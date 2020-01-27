@@ -20,7 +20,7 @@
   - beginner ML engineers,
   - students with at least two years of STEM college education.
 - Basic programming knowledge is required.
-- Basic R-language knowledge is desireable, but not required.
+- Basic R-language knowledge is desirable, but not required.
 *** Explanations
 - AUDIENCE: Describe the expected background, including subject matter and R experience, that an attendee should have in order to have a meaningful learning experience. (50-100 words)
 - Word count: 0 / 100
@@ -38,7 +38,7 @@
   - Wolfram Technology Conference (2016, 2018),
   - Data Science Salon Miami Nov 2018,
   - Orlando Data Science and Machine Learning Meetup.
-  - Boston useR! and Open Data Science Confrence meetup.
+  - Boston useR! and Open Data Science Conference meetup.
   - WolframU live coding sessions. 
 - URL's:
   - [[https://github.com/antononcube][GitHub repositories]],
