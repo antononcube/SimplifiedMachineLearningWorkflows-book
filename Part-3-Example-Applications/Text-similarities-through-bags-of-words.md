@@ -168,7 +168,7 @@ SeedRandom[234];
 sMat1=
     lsaTwoTexts⟹
     LSAMonRepresentByTerms[ToLowerCase@txt1]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue
 ```
 
@@ -180,7 +180,7 @@ sMat1=
 sMat2=
     lsaTwoTexts⟹
     LSAMonRepresentByTerms[ToLowerCase@txt2]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue
 ```
 
@@ -206,7 +206,7 @@ MatrixForm[sMat1.Transpose[sMat2]]
 sMat1=
     lsaTwoTexts⟹
     LSAMonRepresentByTopics[txt1]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue;
     sMat1=WeightTermsOfSSparseMatrix[sMat1,"None","None","Cosine"]
 ```
@@ -225,7 +225,7 @@ TakeLargest[ColumnSumsAssociation[sMat1],UpTo[6]]
 sMat2=
     lsaTwoTexts⟹
     LSAMonRepresentByTopics[txt2]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue;
     sMat2=WeightTermsOfSSparseMatrix[sMat2,"None","None","Cosine"]
 ```
@@ -288,7 +288,7 @@ Note that in the examples below the computed similarities values are much larger
 sMat1=
     lsaObjWTC⟹
     LSAMonRepresentByTerms[ToLowerCase@txt1]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue
 ```
 
@@ -300,7 +300,7 @@ sMat1=
 sMat2=
     lsaObjWTC⟹
     LSAMonRepresentByTerms[ToLowerCase@txt2]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue
 ```
 
@@ -326,7 +326,7 @@ MatrixForm[sMat1.Transpose[sMat2]]
 sMat1=
     lsaObjWTC⟹
     LSAMonRepresentByTopics[txt1]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue;
     sMat1=WeightTermsOfSSparseMatrix[sMat1,"None","None","Cosine"]
 ```
@@ -345,7 +345,7 @@ TakeLargest[ColumnSumsAssociation[sMat1],UpTo[6]]
 sMat2=
     lsaObjWTC⟹
     LSAMonRepresentByTopics[txt2]⟹
-    LSAMonEchoFunctionValue[MatrixForm[#1\[LeftDoubleBracket]All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]\[RightDoubleBracket]]&]⟹
+    LSAMonEchoFunctionValue[MatrixForm[#1[[All,Keys[Select[ColumnSumsAssociation[#1],#1>0&]]]]]&]⟹
     LSAMonTakeValue;
     sMat2=WeightTermsOfSSparseMatrix[sMat2,"None","None","Cosine"]
 ```
