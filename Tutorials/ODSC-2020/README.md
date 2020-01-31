@@ -11,7 +11,7 @@
 In this tutorial we consider workflows of typical recommendation systems.
 We use both item-item and item-user recommenders. The item-item recommenders are 
 based on Information retrieval principles; the item-user recommenders are based
-on graph theory and Collaborative filtering principles.  
+on Graph theory and Collaborative filtering principles.  
 
 For clarity we use both programming code and sequences of natural language commands. 
 We also introduce and exemplify the use of different recommender interactive interfaces.
@@ -117,7 +117,9 @@ Here is a diagram for the recommender workflows:
 
 ---
  
-This sequence of natural commands:
+This call of 
+[`to_SMRMon_R_command`](https://github.com/antononcube/ConversationalAgents/tree/master/Packages/R/ExternalParsersHookUp) 
+over a sequence of natural commands:
 
 ```r
 to_SMRMon_R_command( 
