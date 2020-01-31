@@ -11,7 +11,7 @@
 In this tutorial we consider workflows of typical recommendation systems.
 We use both item-item and item-user recommenders. The item-item recommenders are 
 based on Information retrieval principles; the item-user recommenders are based
-graph theory (and the so called "collaborative filtering.")  
+on graph theory and Collaborative filtering principles.  
 
 For clarity we use both programming code and sequences of natural language commands. 
 We also introduce and exemplify the use of different recommender interactive interfaces.
