@@ -4,19 +4,19 @@
 [call for speakers](https://odsc.com/boston/call-for-speakers/) for
 [Open Data Science Conference (ODSC) East 2020](https://odsc.com/boston/).)* 
 
-## Title
-
-Recommendation systems work-flows
+## Title: Recommendation systems workflows
 
 ## Abstract
 
-In this tutorial we consider work-flows of typical recommendation systems.
-We use both item-item and item-user recommenders. 
+In this tutorial we consider workflows of typical recommendation systems.
+We use both item-item and item-user recommenders. The item-item recommenders are 
+based on Information retrieval principles; the item-user recommenders are based
+graph theory (and the so called "collaborative filtering.")  
 
 For clarity we use both programming code and sequences of natural language commands. 
 We also introduce and exemplify the use of different recommender interactive interfaces.
 
-The discussed recommender work-flows are constructed with dedicated R packages. 
+The discussed recommender workflows are constructed with dedicated R packages. 
 We mostly use (monadic) pipeline specifications.
 
 All parts of the tutorial are illustrated with a diverse set of examples based on 
@@ -27,8 +27,8 @@ The following plan is (roughly) followed.
 
 1. General set-up: problem formulation, scope, areas of focus.
 
-2. Description of the standard work-flows followed by more advanced or 
-specialized work-flows. 
+2. Description of the standard workflows followed by more advanced or 
+specialized workflows. 
 
 3. Elements of the theory of different aspects of recommendations computation
 algorithms and related interpretations. 
@@ -37,7 +37,7 @@ algorithms and related interpretations.
 Progressive learning and Time series collections analysis.
  
 5. Discussion of the making of conversational agents that generate recommender 
-work-flows. (Julia, Python, R, WL.)
+workflows. (Julia, Python, R, WL.)
  
 ## Detailed tutorial plan 
 
@@ -45,8 +45,9 @@ work-flows. (Julia, Python, R, WL.)
    - The recommendation problem.
    - Approaches.
    - Recommendation systems types.
+   - Introductory examples.
 
-- Core work-flows.
+- Core workflows.
    - Creation
       - Creation by contingency matrices.
       - Creation by specifications.
@@ -58,7 +59,8 @@ work-flows. (Julia, Python, R, WL.)
    - Recommendations re-ordering.
    - Cut-off selection by outlier identifiers.
    
-- Further work-flows.
+- Further workflows.
+   - Using dimension reduction.
    - Tuning recommendations.
    - Recommendations breakdown.
    - Classification.
@@ -101,9 +103,36 @@ work-flows. (Julia, Python, R, WL.)
   
 - Tags significance determination and Learning to rank. 
 
-- Conversational agents for generating recommender work-flows.
+- Conversational agents for generating recommender workflows.
 
 - Summary and Q&A.
   
 
+## Visual aids
 
+Here is a diagram for the recommender workflows:
+
+![SMR-workflows](../../Part-2-Monadic-Workflows/Diagrams/A-monad-for-Sparse-Matrix-Recommender-workflows/SMR-workflows.jpeg)
+
+
+---
+ 
+This sequence of natural commands:
+
+```r
+to_SMRMon_R_command( 
+    "create from dfTitanic; 
+     apply the LSI functions inverse document frequency, term frequency, and cosine;
+     recommend by profile female->3, 30->0.1; 
+     extend recommendations with dfTitanic; 
+     show pipeline value" )
+```
+generates this R code:
+
+```r
+SMRMonCreate( data = dfTitanic) %>%
+  SMRMonApplyTermWeightFunctions( globalWeightFunction = "IDF", localWeightFunction = "TermFrequency", normalizerFunction = "Cosine") %>%
+  SMRMonRecommendByProfile( profile = c("female"=3, "30"=0.1)) %>%
+  SMRMonJoinAcross( data = dfTitanic) %>%
+  SMRMonEchoValue()
+```
