@@ -1,0 +1,148 @@
+---
+title: "How to simplify Machine learning workflows specifications?"
+author: Anton Antonov
+date: 2020-02-02
+output: html_notebook
+---
+
+```{r,echo=F}
+library(SMRMon)
+library(SparseMatrixRecommender)
+library(Matrix)
+library(magrittr)
+library(ExternalParsersHookUp)
+```
+
+```{r, echo = F, eval=T}
+Perl6SMRMonParsingLib <- function() {
+    file.path("/", "Volumes", "Macintosh HD", "Users", "antonov", "ConversationalAgents", "Packages", "Perl6", "RecommenderWorkflows", "lib")
+}
+```
+
+```{r, echo = F, eval=T}
+to_SMRMon_R_command <- function(command, parse=TRUE) {
+  pres <- Perl6Command( command = paste0( "say to_SMRMon_R(\"", command, "\")"),
+                        moduleDirectory = Perl6SMRMonParsingLib(),
+                        moduleName = "RecommenderWorkflows" )
+  messageInds <- grep( "^Possible", pres )
+  if( length(messageInds) > 0 ) {
+    messageLines <- pres[messageInds]
+    print(messageLines)
+    pres <- pres[setdiff(1:length(pres), messageInds)]
+  }
+  pres <- gsub( "\\\"", "\"", pres, fixed = T)
+  if(parse) { parse(text = pres) }
+  else { pres }
+}
+```
+
+# Abstract 
+
+In this presentation we discuss a systematic approach of software development
+that gives us the ability to rapidly specify Machine Learning (ML) computations
+using both natural language commands and programming Domain Specific Languages (DSL's).
+We present in detail the selection of programming paradigms, languages, and packages.
+
+A central topic of the presentation is the transformation of sequences of natural commands 
+that specify ML workflows into corresponding programming DSL pipelines for ML 
+computations. We discuss the general strategy and the concrete implementation steps.
+
+The presented approach is based on
+(1) monadic programming DSL's, 
+(2) finite state machines, and
+(3) natural language context free grammars.
+
+We use monadic programming and code generation for implementation of ML packages.
+We use Raku (Perl 6) for grammar specifications, parsers generation, and interpreters.
+
+Numerous examples are used for illustration and clarification purposes.
+We look into code generation of ML workflows for supervised learning,
+time series analysis, latent semantic analysis, and recommendations. 
+
+Finally we discuss the extensions of the presented approach to (1) handling wrong commands and
+spelling mistakes, and (2) making conversational agents.
+
+Here is an example of a natural language specification for the code generation of 
+a recommendation system pipeline (with an intentional misspelling):
+
+```{r}
+to_SMRMon_R_command( 
+    "create from dfTitanic;
+     apply the LSI functions IDF, TermFrequency, Cosine;
+     recommend for histry id.5, id.7; 
+     join across recommendations with the data frame dfTitanic; 
+     echo pipeline value")
+```
+
+# The big picture
+
+This diagram shows the general pattern followed for making of the conversational agents 
+that we discuss in the presentation:
+
+![MonadicMakingOfMLConversationalAgents](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/Monadic-making-of-ML-conversational-agents.jpg)
+
+# The ML workflows
+
+# "Single line" command interpreter
+
+Here we interpret a sequence of natural commands into a recommender pipeline:
+
+```{r}
+to_SMRMon_R_command( 
+    "create from dfTitanic;
+     apply IDF, TermFrequency, Cosine;
+     recommend for history id.5, id.7; 
+     join across recommendations with the data frame dfTitanic; 
+     echo pipeline value")
+```
+
+Here are the evaluation results of the generated pipeline:
+
+```{r}
+eval( expr = to_SMRMon_R_command( 
+  "create from dfTitanic;
+   apply IDF, TermFrequency, Cosine;
+   recommend for history id.5, id.7; 
+   join across recommendations with the data frame dfTitanic; 
+   echo pipeline value" ) )
+```
+
+
+# The general strategy
+
+The particular approach we follow has the following steps.
+
+1. Design and program a software monad for a certain type of ML workflows.
+   - In a programming language that allows such definition.
+     - Like R and WL.
+   - Referred to as "Machine Learning Monad (MLMon)" below.
+   - Say MLMon for Latent Semantic Analysis (LSA) or Quantile Regression (QR).
+     
+2. Create and systematically run unit tests for MLMon.
+     
+3. Write down a context free grammar for the targeted ML workflows.
+   - In a natural language of choice. Say, English.
+   
+4. Create and systematically run unit test for the grammar parsing.
+
+5. Create an interpreter of natural language parsed commands into MLMon software code.
+
+6. Create and systematically run unit test for the interpreter.
+
+7. Create programming tools that facilitate the creation of such software monads and related grammars.
+
+
+# How to cocretely do it?
+
+- Make software monad generation packages. For example:
+
+  - [StateMonadCodeGenerator-R](https://github.com/antononcube/R-packages/tree/master/StateMonadCodeGenerator);
+  - [StateMonadCodeGenerator-WL](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/StateMonadCodeGenerator.m).
+
+- Using [Raku (Perl 6)](https://www.raku.org) for
+  - the natural language commands grammar parsers, and 
+  - the programming code interpreters.
+  
+ 
+
+
