@@ -9,12 +9,13 @@ output: html_notebook
 library(SMRMon)
 library(SparseMatrixRecommender)
 library(LSAMon)
+library(QRMon)
 library(Matrix)
 library(magrittr)
 library(ExternalParsersHookUp)
 ```
 
-```{r}
+```{r,echo=F}
 source("./Additional-definitions.R")
 ```
 
@@ -66,13 +67,11 @@ that we discuss in the presentation:
 
 ![MonadicMakingOfMLConversationalAgents](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/Monadic-making-of-ML-conversational-agents.jpg)
 
-# The ML workflows
-
-# "Single line" command interpreter
+# ML workflows by natural commands
 
 ## Recommendations
 
-Here we interpret a sequence of natural commands into a recommender pipeline:
+Here we interpret a sequence of natural commands into a recommender pipeline, [AAp1]:
 
 ```{r}
 to_SMRMon_R_command( 
@@ -104,7 +103,7 @@ dfRSCAbstracts <- read.csv( "https://raw.githubusercontent.com/antononcube/Simpl
 lsAbstracts <- setNames( dfRSCAbstracts$Abstract, dfRSCAbstracts$ID )
 ```
 
-Specfy an LSA pipeline and evaluate it:
+Specfy an LSA pipeline and evaluate it, [AAp2]:
 
 ```{r}
 set.seed(942)
@@ -123,6 +122,18 @@ Get statistical thesaurus:
 lsaObj <- 
 eval( expr = to_LSAMon_R_command( "use lsa object lsaObj; 
                                    show thesaurus table for dplyr, shiny, tidyverse;" ))
+```
+
+## Quantile regresion
+
+Specify a Quantile Regression (QR) workflow, [AAp3]:
+
+```{r}
+qrObj <-
+  eval( expr = to_QRMon_R_command( 
+    "create from dfTemperatureData;
+     compute quantile regression with 12 knots;
+     show date plot with date origin 1900-01-01" ) )
 ```
 
 
@@ -164,13 +175,13 @@ The particular approach we follow has the following steps.
  
 # References
 
-## Repositories
+### Repositories
 
 [AAr1] Anton Antonov, [R-packages](https://github.com/antononcube/R-packages), (2019), GitHub.
 
 [AAr2] Anton Antonov, [Conversational Agents](https://github.com/antononcube/ConversationalAgents), (2017), GitHub.
 
-## Packages
+### Packages
 
 [AAp1] Anton Antonov, 
 [Sparse Matrix Recommender Monad in R](https://github.com/antononcube/R-packages/tree/master/SMRMon-R), 
