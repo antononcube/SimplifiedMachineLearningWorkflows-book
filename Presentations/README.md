@@ -2,7 +2,33 @@
 
 ## WTC-2019
 
-***TBD***...
+Here is the Markdown version 
+-- made with [M2MD](https://github.com/kubaPod/M2MD) -- 
+of the presentation notebook:
+- ["Anomalies, breaks, and outliers detection in time series"](./WTC-2019/Anomalies-breaks-and-outliers-detection-in-time-series.md).
+
+Here is the abstract:
+
+>In this presentation we show, explain, and compare methods for finding anomalies, breaks, and outliers in time series. 
+We are interested in finding anomalies in both a single time series and a collection of time series.
+
+>We (mostly) employ non-parametric methods. First, we look at some motivational examples from well known datasets.
+Then we look into definitions of anomalies and definitions for measuring success of time series anomaly detection. 
+
+>For a single time series we apply both WL built-in algorithms and additional, specialized algorithms. 
+>We discuss in more detail algorithms based on K-Nearest Neighbors (KNN), Dimension Reduction, Linear Regression, Quantile Regression, Prefix Trees.
+
+>For collections of time series we discuss: transformations into uniform representations, 
+>simple outlier finding based on variables distributions, anomalous trends finding, anomalies finding with KNN, and other related algorithms.
+
+>We are going to discuss how anomalies finding helps in producing faithful simulations of multi-variable datasets.
+
+>Concrete, real life time series are used in the examples.
+
+>See the related dedicated 
+>[MathematicaVsR](https://github.com/antononcube/MathematicaVsR) 
+>project 
+>["Time series anomalies, breaks, and outliers detection"](https://github.com/antononcube/MathematicaVsR/tree/master/Projects/TimeSeriesAnomaliesBreaksAndOutliersDetection).
 
 ## UseR!-2020
 
