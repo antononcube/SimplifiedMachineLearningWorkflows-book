@@ -61,18 +61,18 @@ find anomalies by outlier identifier SPLUSQuartileIdentifierParameters;
 echo pipeline value
 ",False]
 
-(*Out[20]= Hold[QRMonUnit[tsSP500]==>QRMonDeleteMissing[]==>QRMonEchoDataSummary[]==>QRMonQuantileRegression[Knots->120,Probabilities->{0.5}]==>QRMonDateListPlot[]==>QRMonErrorPlots[RelativeErrors->False]==>QRMonFindAnomaliesByResiduals[OutlierIdentifier->SPLUSQuartileIdentifierParameters]==>QRMonEchoValue]*)
+(*Out[20]= Hold[QRMonUnit[tsSP500]⟹QRMonDeleteMissing[]⟹QRMonEchoDataSummary[]⟹QRMonQuantileRegression[Knots->120,Probabilities->{0.5}]⟹QRMonDateListPlot[]⟹QRMonErrorPlots[RelativeErrors->False]⟹QRMonFindAnomaliesByResiduals[OutlierIdentifier->SPLUSQuartileIdentifierParameters]⟹QRMonEchoValue]*)
 ```
 
 ```wl
 In[21]:= qrmon2=
-QRMonUnit[tsSP500]==>
-QRMonDeleteMissing[]==>
-QRMonEchoDataSummary[]==>
-QRMonQuantileRegression["Knots"->120,"Probabilities"->{0.5`}]==>
-QRMonPlot[]==>
-QRMonErrorPlots["RelativeErrors"->False]==>
-QRMonFindAnomaliesByResiduals["OutlierIdentifier"->SPLUSQuartileIdentifierParameters]==>
+QRMonUnit[tsSP500]⟹
+QRMonDeleteMissing[]⟹
+QRMonEchoDataSummary[]⟹
+QRMonQuantileRegression["Knots"->120,"Probabilities"->{0.5`}]⟹
+QRMonPlot[]⟹
+QRMonErrorPlots["RelativeErrors"->False]⟹
+QRMonFindAnomaliesByResiduals["OutlierIdentifier"->SPLUSQuartileIdentifierParameters]⟹
 QRMonEchoValue;
 ```
 
@@ -85,7 +85,7 @@ QRMonEchoValue;
 ![00krp2ewiu08g](img/00krp2ewiu08g.png)
 
 ```wl
-In[22]:= DateListPlot[{tsSP500,qrmon2==>QRMonTakeValue},Joined->{True,False},PlotStyle->{{},{Red,PointSize[0.01]}},ImageSize->Large]
+In[22]:= DateListPlot[{tsSP500,qrmon2⟹QRMonTakeValue},Joined->{True,False},PlotStyle->{{},{Red,PointSize[0.01]}},ImageSize->Large]
 ```
 
 ![160552bn7lrwt](img/160552bn7lrwt.png)
@@ -305,15 +305,15 @@ We  can use that to find anomalies.
 
 ```wl
 In[42]:= qrObj=
-QRMonUnit[distData]==>
-QRMonQuantileRegression[12,{0.25,0.75}]==>
+QRMonUnit[distData]⟹
+QRMonQuantileRegression[12,{0.25,0.75}]⟹
 QRMonPlot;
 ```
 
 ![002ek7f70yu79](img/002ek7f70yu79.png)
 
 ```wl
-In[43]:= iqds=#[0.75]-#[0.25]&[qrObj==>QRMonEvaluate[(qrObj==>QRMonTakeData)[[All,1]]]==>QRMonTakeValue];
+In[43]:= iqds=#[0.75]-#[0.25]&[qrObj⟹QRMonEvaluate[(qrObj⟹QRMonTakeData)[[All,1]]]⟹QRMonTakeValue];
 ListPlot[iqds,PlotRange->All,PlotTheme->"Detailed"]
 ```
 
@@ -321,7 +321,7 @@ ListPlot[iqds,PlotRange->All,PlotTheme->"Detailed"]
 
 ```wl
 In[45]:= pos=OutlierPosition[iqds,HampelIdentifierParameters];
-data=(qrObj==>QRMonTakeData);
+data=(qrObj⟹QRMonTakeData);
 ListPlot[{data,data[[pos]]},PlotRange->All,PlotTheme->"Detailed"]
 ```
 
@@ -355,12 +355,12 @@ compute quantile regression with 20 knots and probabilities 0.01 and 0.99 and in
 compute and display outliers;
 ",False]
 
-(*Out[49]= Hold[QRMonUnit[tsData1]==>QRMonQuantileRegression[Knots->20,Probabilities->{0.01,0.99},InterpolationOrder->2]==>QRMonOutliersPlot[]]*)
+(*Out[49]= Hold[QRMonUnit[tsData1]⟹QRMonQuantileRegression[Knots->20,Probabilities->{0.01,0.99},InterpolationOrder->2]⟹QRMonOutliersPlot[]]*)
 ```
 
 ```wl
-In[50]:= QRMonUnit[tsData1]==>
-QRMonQuantileRegression["Knots"->20,"Probabilities"->{0.01`,0.99`},"InterpolationOrder"->2]==>
+In[50]:= QRMonUnit[tsData1]⟹
+QRMonQuantileRegression["Knots"->20,"Probabilities"->{0.01`,0.99`},"InterpolationOrder"->2]⟹
 QRMonOutliersPlot[DateListPlot->True,ImageSize->Large];
 ```
 
@@ -415,7 +415,7 @@ echo pipeline value
 ![0der0456kh080](img/0der0456kh080.png)
 
 ```wl
-In[53]:= DateListPlot[{tsSP500,qrmon2==>QRMonTakeValue},Joined->{True,False},PlotStyle->{{},{Red,PointSize[0.01]}},ImageSize->Large]
+In[53]:= DateListPlot[{tsSP500,qrmon2⟹QRMonTakeValue},Joined->{True,False},PlotStyle->{{},{Red,PointSize[0.01]}},ImageSize->Large]
 ```
 
 ![1p1p2meerj1si](img/1p1p2meerj1si.png)
@@ -451,7 +451,7 @@ echo pipeline value
 ![04jnlp3lwyknv](img/04jnlp3lwyknv.png)
 
 ```wl
-In[55]:= DateListPlot[{tsSP500,qrmon2==>QRMonTakeValue},Joined->{True,False},PlotStyle->{{},{Red,PointSize[0.01]}},ImageSize->Large]
+In[55]:= DateListPlot[{tsSP500,qrmon2⟹QRMonTakeValue},Joined->{True,False},PlotStyle->{{},{Red,PointSize[0.01]}},ImageSize->Large]
 ```
 
 ![085qlk57hgqxo](img/085qlk57hgqxo.png)
@@ -482,16 +482,16 @@ This includes random data and appropriate metrics measurements of success, and u
 
 ```wl
 In[56]:= qrObj1=
-QRMonUnit[tsData1]==>
-QRMonQuantileRegression[12,{0.10,0.5,0.90}]==>
-QRMonPlaceOutliers[{15,15},"Factor"->1.6,"Offset"->0]==>
+QRMonUnit[tsData1]⟹
+QRMonQuantileRegression[12,{0.10,0.5,0.90}]⟹
+QRMonPlaceOutliers[{15,15},"Factor"->1.6,"Offset"->0]⟹
 QRMonEchoValue;
 ```
 
 ![014rgz0ymmxnd](img/014rgz0ymmxnd.png)
 
 ```wl
-In[57]:= qrObj1==>QRMonDropRegressionFunctions==>QRMonDateListPlot[ImageSize->Large,Epilog->{PointSize[0.016],Blue,Point@(qrObj1==>QRMonTakeValue)["bottomOutliers"],Green,Point@(qrObj1==>QRMonTakeValue)["topOutliers"]}];
+In[57]:= qrObj1⟹QRMonDropRegressionFunctions⟹QRMonDateListPlot[ImageSize->Large,Epilog->{PointSize[0.016],Blue,Point@(qrObj1⟹QRMonTakeValue)["bottomOutliers"],Green,Point@(qrObj1⟹QRMonTakeValue)["topOutliers"]}];
 ```
 
 ![1f2rbgoa3tznh](img/1f2rbgoa3tznh.png)
@@ -500,10 +500,10 @@ In[57]:= qrObj1==>QRMonDropRegressionFunctions==>QRMonDateListPlot[ImageSize->La
 
 ```wl
 qrObj2=
-QRMonUnit[tsData1]==>
-QRMonDateListPlot[Joined->True,ImageSize->Medium]==>
-QRMonComponentsPartition[5,"FactorRange"->{.8,1.2},"OffsetRange"->{5,6},"AlternateSigns"->True]==>
-QRMonAddToContext["components"]==>
+QRMonUnit[tsData1]⟹
+QRMonDateListPlot[Joined->True,ImageSize->Medium]⟹
+QRMonComponentsPartition[5,"FactorRange"->{.8,1.2},"OffsetRange"->{5,6},"AlternateSigns"->True]⟹
+QRMonAddToContext["components"]⟹
 QRMonDateListPlot[Joined->True,ImageSize->Medium];
 ```
 
@@ -522,11 +522,11 @@ Let us apply the [Characteristic framework Operating Receiver ROC](https://en.wi
 Here is transformed data and the placed outliers:
 
 ```wl
-In[59]:= data1=qrObj1==>QRMonTakeData;
+In[59]:= data1=qrObj1⟹QRMonTakeData;
 ```
 
 ```wl
-In[60]:= placedOutliers=Join@@Values[qrObj1==>QRMonTakeValue];
+In[60]:= placedOutliers=Join@@Values[qrObj1⟹QRMonTakeValue];
 ```
 
 ```wl
@@ -541,12 +541,12 @@ Here we find the median regression quantile and errors:
 
 ```wl
 In[62]:= qrObj3=
-QRMonUnit[data1]==>
-QRMonQuantileRegression[12,{0.5}]==>
-QRMonDateListPlot==>
-QRMonErrorPlots["RelativeErrors"->False]==>
-QRMonErrorPlots["RelativeErrors"->True]==>
-QRMonFindAnomaliesByResiduals["Threshold"->None,"OutlierIdentifier"->SPLUSQuartileIdentifierParameters,"RelativeErrors"->False]==>
+QRMonUnit[data1]⟹
+QRMonQuantileRegression[12,{0.5}]⟹
+QRMonDateListPlot⟹
+QRMonErrorPlots["RelativeErrors"->False]⟹
+QRMonErrorPlots["RelativeErrors"->True]⟹
+QRMonFindAnomaliesByResiduals["Threshold"->None,"OutlierIdentifier"->SPLUSQuartileIdentifierParameters,"RelativeErrors"->False]⟹
 QRMonEchoValue;
 ```
 
@@ -584,7 +584,7 @@ Here we find the outliers for each parameter list:
 In[67]:= foundOutliers=
 Association[
 MapThread[
-{#1,#2,#3}->qrObj3==>QRMonFindAnomaliesByResiduals["Threshold"->#1,"OutlierIdentifier"->#2,"RelativeErrors"->#3]==>QRMonTakeValue&,
+{#1,#2,#3}->qrObj3⟹QRMonFindAnomaliesByResiduals["Threshold"->#1,"OutlierIdentifier"->#2,"RelativeErrors"->#3]⟹QRMonTakeValue&,
 Transpose[parameters]
 ]
 ];
@@ -682,16 +682,16 @@ Before discussing the finding of time series components of we discuss the findin
 
 ```wl
 In[81]:= qrObj2=
-QRMonUnit[tsData1]==>
-QRMonComponentsPartition[7,"FactorRange"->{.8,1.2},"OffsetRange"->{10,14},"AlternateSigns"->True]==>
-QRMonAddToContext["components"]==>
+QRMonUnit[tsData1]⟹
+QRMonComponentsPartition[7,"FactorRange"->{.8,1.2},"OffsetRange"->{10,14},"AlternateSigns"->True]⟹
+QRMonAddToContext["components"]⟹
 QRMonDateListPlot[Joined->True];
 ```
 
 ![0j25u118h19mt](img/0j25u118h19mt.png)
 
 ```wl
-In[82]:= comps=(qrObj2==>QRMonTakeContext)["components"];
+In[82]:= comps=(qrObj2⟹QRMonTakeContext)["components"];
 ```
 
 ```wl
@@ -732,8 +732,8 @@ Find the structural breaks using systematic application of Chow test and a **sem
 
 ```wl
 In[86]:= qrObj=
-QRMonUnit[tsSP500]==>
-QRMonFindChowTestLocalMaxima["Knots"->60,"NearestWithOutliers"->True,"NumberOfProximityPoints"->5,"EchoPlots"->True,"DateListPlot"->True]==>
+QRMonUnit[tsSP500]⟹
+QRMonFindChowTestLocalMaxima["Knots"->60,"NearestWithOutliers"->True,"NumberOfProximityPoints"->5,"EchoPlots"->True,"DateListPlot"->True]⟹
 QRMonEchoValue;
 ```
 
@@ -746,7 +746,7 @@ QRMonEchoValue;
 ### Plot the structural breaks
 
 ```wl
-In[87]:= qrObj==>QRMonPlotStructuralBreakSplits[ImageSize->300,"DateListPlot"->True];
+In[87]:= qrObj⟹QRMonPlotStructuralBreakSplits[ImageSize->300,"DateListPlot"->True];
 ```
 
 ![1xn5l9xx0i025](img/1xn5l9xx0i025.png)
@@ -762,16 +762,16 @@ Note that the components found are not that precise.
 
 ```wl
 In[143]:= qrObj2=
-QRMonUnit[tsData1]==>
-QRMonComponentsPartition[7,"FactorRange"->{.8,1.2},"OffsetRange"->{10,14},"AlternateSigns"->True]==>
-QRMonAddToContext["components"]==>
+QRMonUnit[tsData1]⟹
+QRMonComponentsPartition[7,"FactorRange"->{.8,1.2},"OffsetRange"->{10,14},"AlternateSigns"->True]⟹
+QRMonAddToContext["components"]⟹
 QRMonDateListPlot[Joined->True];
 ```
 
 ![0uph77ejh5fkp](img/0uph77ejh5fkp.png)
 
 ```wl
-In[144]:= comps=(qrObj2==>QRMonTakeContext)["components"];
+In[144]:= comps=(qrObj2⟹QRMonTakeContext)["components"];
 ```
 
 ```wl
@@ -784,8 +784,8 @@ In[145]:= DateListPlot[comps]
 
 ```wl
 In[146]:= qrObj2=
-qrObj2==>
-QRMonFindChowTestLocalMaxima["Knots"->50,InterpolationOrder->2,"NearestWithOutliers"->True,"NumberOfProximityPoints"->15,"DateListPlot"->True,"EchoPlots"->True]==>QRMonEchoValue==>
+qrObj2⟹
+QRMonFindChowTestLocalMaxima["Knots"->50,InterpolationOrder->2,"NearestWithOutliers"->True,"NumberOfProximityPoints"->15,"DateListPlot"->True,"EchoPlots"->True]⟹QRMonEchoValue⟹
 QRMonPlotStructuralBreakSplits[ImageSize->300,"DateListPlot"->True];
 
 ```
@@ -799,13 +799,13 @@ QRMonPlotStructuralBreakSplits[ImageSize->300,"DateListPlot"->True];
 ![0jezm6hsfoup9](img/0jezm6hsfoup9.png)
 
 ```wl
-In[147]:= breakPoints=Keys[qrObj2==>QRMonTakeValue]
+In[147]:= breakPoints=Keys[qrObj2⟹QRMonTakeValue]
 
 (*Out[147]= {{3.65005*10^9,439.385},{3.67114*10^9,468.919},{3.69213*10^9,308.323},{3.71313*10^9,272.679},{3.73516*10^9,465.876},{3.75512*10^9,400.459}}*)
 ```
 
 ```wl
-In[148]:= data2=qrObj2==>QRMonTakeData;
+In[148]:= data2=qrObj2⟹QRMonTakeData;
 ```
 
 ### The found components
@@ -852,9 +852,9 @@ In[154]:= knots=N@Join[{Min@data2[[All,1]]},breakPoints[[All,1]],{Max@data2[[All
 ```
 
 ```wl
-In[155]:= QRMonUnit[data2]==>
-QRMonSetRegressionFunctionsPlotOptions[{PlotStyle->Blue}]==>
-QRMonQuantileRegression[knots,0.5,InterpolationOrder->0]==>
+In[155]:= QRMonUnit[data2]⟹
+QRMonSetRegressionFunctionsPlotOptions[{PlotStyle->Blue}]⟹
+QRMonQuantileRegression[knots,0.5,InterpolationOrder->0]⟹
 QRMonDateListPlot[ImageSize->Medium];
 ```
 
@@ -885,20 +885,20 @@ In[158]:= ListPlot[stats[[All,2]],Filling->Axis,PlotRange->All,PlotLabel->"Stand
 ## Using NLP techniques: sequential representation
 
 ```wl
-In[159]:= qrObj4=QRMonUnit[tsData1]==>QRMonQuantileRegression[12,Range[0.25,0.75,0.25]]==>QRMonDateListPlot[ImageSize->Medium];
+In[159]:= qrObj4=QRMonUnit[tsData1]⟹QRMonQuantileRegression[12,Range[0.25,0.75,0.25]]⟹QRMonDateListPlot[ImageSize->Medium];
 ```
 
 ![1tcbequlh3b80](img/1tcbequlh3b80.png)
 
 ```wl
-In[160]:= seq=qrObj4==>QRMonBandsSequence==>QRMonTakeValue;
+In[160]:= seq=qrObj4⟹QRMonBandsSequence⟹QRMonTakeValue;
 Short[seq]
 ```
 
 ![0ifrm4klqbpth](img/0ifrm4klqbpth.png)
 
 ```wl
-In[162]:= (*seq=qrObj4==>QRMonGridSequence[12]==>QRMonTakeValue;*)
+In[162]:= (*seq=qrObj4⟹QRMonGridSequence[12]⟹QRMonTakeValue;*)
 ```
 
 ```wl
@@ -952,7 +952,7 @@ In[171]:= Partition[tsData1["Values"],3,1][[pos]]
 ![0gw06ms2opn5s](img/0gw06ms2opn5s.png)
 
 ```wl
-In[172]:= qrObj4==>QRMonDateListPlot[GridLines->{posTimes,None}];
+In[172]:= qrObj4⟹QRMonDateListPlot[GridLines->{posTimes,None}];
 ```
 
 ![0di7eo5znd104](img/0di7eo5znd104.png)
@@ -1007,10 +1007,10 @@ In[124]:= ColumnForm[ListLinePlot[#,PlotRange->All,AspectRatio->1/6,ImageSize->L
 ```wl
 In[125]:= AbsoluteTiming[
 lsaObj=
-LSAMonUnit[]==>
-LSAMonSetDocumentTermMatrix[SparseArray[imgVecs]]==>
-LSAMonApplyTermWeightFunctions["None","None","Cosine"]==>
-LSAMonExtractTopics["NumberOfTopics"->40,Method->"NNMF","MaxSteps"->12,"MinNumberOfDocumentsPerTerm"->0]==>
+LSAMonUnit[]⟹
+LSAMonSetDocumentTermMatrix[SparseArray[imgVecs]]⟹
+LSAMonApplyTermWeightFunctions["None","None","Cosine"]⟹
+LSAMonExtractTopics["NumberOfTopics"->40,Method->"NNMF","MaxSteps"->12,"MinNumberOfDocumentsPerTerm"->0]⟹
 LSAMonNormalizeMatrixProduct[Normalized->Left];
 ]
 
@@ -1018,14 +1018,14 @@ LSAMonNormalizeMatrixProduct[Normalized->Left];
 ```
 
 ```wl
-In[126]:= ListPlot[Norm/@SparseArray[lsaObj==>LSAMonTakeH],Filling->Axis,PlotRange->All,PlotTheme->"Scientific"]
+In[126]:= ListPlot[Norm/@SparseArray[lsaObj⟹LSAMonTakeH],Filling->Axis,PlotRange->All,PlotTheme->"Scientific"]
 ```
 
 ![1byiqrus52tkc](img/1byiqrus52tkc.png)
 
 ```wl
-In[127]:= lsaObj==>
-LSAMonNormalizeMatrixProduct[Normalized->Right]==>
+In[127]:= lsaObj⟹
+LSAMonNormalizeMatrixProduct[Normalized->Right]⟹
 LSAMonEchoFunctionContext[ImageAdjust[Image[Partition[#,ImageDimensions[imgs2[[1]]][[1]]]]]&/@SparseArray[#H]&];
 ```
 
@@ -1063,7 +1063,7 @@ In[134]:= matTest=ToSSparseMatrix[SparseArray[{imgTestVec}],"RowNames"->{"TestIm
 ```
 
 ```wl
-In[135]:= matReprsentation=lsaObj==>LSAMonRepresentByTopics[matTest]==>LSAMonTakeValue;
+In[135]:= matReprsentation=lsaObj⟹LSAMonRepresentByTopics[matTest]⟹LSAMonTakeValue;
 ```
 
 ```wl
@@ -1072,7 +1072,7 @@ ListPlot[lsCoeff,Filling->Axis,PlotRange->All];
 ```
 
 ```wl
-In[138]:= H=SparseArray[lsaObj==>LSAMonNormalizeMatrixProduct[Normalized->Right]==>LSAMonTakeH];
+In[138]:= H=SparseArray[lsaObj⟹LSAMonNormalizeMatrixProduct[Normalized->Right]⟹LSAMonTakeH];
 ```
 
 ```wl
@@ -1100,28 +1100,28 @@ In[291]:= Get["~/MathFiles/Anomaly detection for time series/aNRELDataQRObjs.m"]
 ### Simulations of the time series
 
 ```wl
-In[269]:= aQRObjs[[1]]==>QRMonDropRegressionFunctions==>QRMonDateListPlot[ImageSize->Large,AspectRatio->1/4,Joined->True];
+In[269]:= aQRObjs[[1]]⟹QRMonDropRegressionFunctions⟹QRMonDateListPlot[ImageSize->Large,AspectRatio->1/4,Joined->True];
 ```
 
 ![0kzubcjg7y5wt](img/0kzubcjg7y5wt.png)
 
 ```wl
-In[270]:= aQRObjs[[1]]==>
-QRMonSimulate[365]==>
+In[270]:= aQRObjs[[1]]⟹
+QRMonSimulate[365]⟹
 QRMonEchoFunctionValue["Plot:",DateListPlot[#,ImageSize->Large,AspectRatio->1/4]&];
 ```
 
 ![12gsjnbkg97bd](img/12gsjnbkg97bd.png)
 
 ```wl
-In[271]:= aQRObjs[[4]]==>QRMonDropRegressionFunctions==>QRMonDateListPlot[ImageSize->Large,AspectRatio->1/4,Joined->True];
+In[271]:= aQRObjs[[4]]⟹QRMonDropRegressionFunctions⟹QRMonDateListPlot[ImageSize->Large,AspectRatio->1/4,Joined->True];
 ```
 
 ![0g9ehftfzxhtt](img/0g9ehftfzxhtt.png)
 
 ```wl
-In[272]:= aQRObjs[[4]]==>
-QRMonSimulate[365]==>
+In[272]:= aQRObjs[[4]]⟹
+QRMonSimulate[365]⟹
 QRMonEchoFunctionValue["Plot:",DateListPlot[#,ImageSize->Large,AspectRatio->1/4]&];
 ```
 
@@ -1130,7 +1130,7 @@ QRMonEchoFunctionValue["Plot:",DateListPlot[#,ImageSize->Large,AspectRatio->1/4]
 ### Paired data simulations
 
 ```wl
-In[273]:= aSimulated=Map[#==>QRMonSimulate[2*360]==>QRMonTakeValue&,aQRObjs];
+In[273]:= aSimulated=Map[#⟹QRMonSimulate[2*360]⟹QRMonTakeValue&,aQRObjs];
 ```
 
 ```wl
@@ -1165,22 +1165,22 @@ In[278]:= mms=MinMax/@Transpose[points]
 
 ```wl
 In[292]:= gnnObj=
-GNNMonUnit[points]==>
-GNNMonMakeNearestFunction[DistanceFunction->EuclideanDistance]==>
-GNNMonComputeThresholds[10,"OutlierIdentifier"->SPLUSQuartileIdentifierParameters]==>
+GNNMonUnit[points]⟹
+GNNMonMakeNearestFunction[DistanceFunction->EuclideanDistance]⟹
+GNNMonComputeThresholds[10,"OutlierIdentifier"->SPLUSQuartileIdentifierParameters]⟹
 GNNMonEchoFunctionContext[ListPlot[Values[#data],PlotRange->All]&];
 ```
 
 ![0u5mz70pf51mi](img/0u5mz70pf51mi.png)
 
 ```wl
-In[280]:= Keys[gnnObj==>GNNMonTakeContext]
+In[280]:= Keys[gnnObj⟹GNNMonTakeContext]
 
 (*Out[280]= {data,nearestFunction,nearestIndexDistanceFunction,distanceFunction,nearestNeighborDistances,numberOfNNs,radius,aggregationFunction,lowerThreshold,upperThreshold}*)
 ```
 
 ```wl
-In[281]:= gnnObj==>GNNMonFindNearest[ds2[[12]],3,"Indices"]==>GNNMonTakeValue
+In[281]:= gnnObj⟹GNNMonFindNearest[ds2[[12]],3,"Indices"]⟹GNNMonTakeValue
 
 (*Out[281]= {232,203,1287}*)
 ```
@@ -1188,8 +1188,8 @@ In[281]:= gnnObj==>GNNMonFindNearest[ds2[[12]],3,"Indices"]==>GNNMonTakeValue
 Here are properties that can be retrieved:
 
 ```wl
-In[282]:= clRes=gnnObj==>
-GNNMonClassify[ds2,"Properties","UpperThresholdFactor"->2]==>
+In[282]:= clRes=gnnObj⟹
+GNNMonClassify[ds2,"Properties","UpperThresholdFactor"->2]⟹
 GNNMonTakeValue
 ```
 
@@ -1202,8 +1202,8 @@ GNNMonTakeValue
 Find anomalies with a higher threshold:
 
 ```wl
-In[286]:= gnnObj==>
-GNNMonFindAnomalies[ds2,"AnomalyPositions","UpperThresholdFactor"->2.7]==>
+In[286]:= gnnObj⟹
+GNNMonFindAnomalies[ds2,"AnomalyPositions","UpperThresholdFactor"->2.7]⟹
 GNNMonTakeValue
 
 (*Out[286]= {11,18,19,20,21,23,24,25,26,27,28,29,30,31,32,33,34,35,36,38,39,40,41,43,45,64,65,68,69,70,71,73,74,75,77,78,80,81,82,83,85,86,87,88,89,92,96,97,100,132,133,138,168,202,204,209,278,284,315,335,502,506,511,571,572,575,583,587,589,592,596,597,598,601,605,607,624,625,626,632,646,648,653,655,656,658,659,660,662,663,666,667,669,670,672,673,676,677,678,679,681,682,683,684,685,687,688,690,716}*)
@@ -1211,8 +1211,8 @@ GNNMonTakeValue
 
 ```wl
 In[284]:= outliers=
-gnnObj==>
-GNNMonFindAnomalies[ds2,"Anomalies","UpperThresholdFactor"->1.7]==>
+gnnObj⟹
+GNNMonFindAnomalies[ds2,"Anomalies","UpperThresholdFactor"->1.7]⟹
 GNNMonTakeValue;
 ```
 
@@ -1239,7 +1239,7 @@ join across with dfTitanic;
 echo pipeline value
 ",False]
 
-(*Out[383]= Hold[smrTitanic==>SMRMonRecommendByProfile[{male,survived},12]==>SMRMonEchoValue[]==>SMRMonJoinAcross[dfTitanic]==>SMRMonEchoValue[]]*)
+(*Out[383]= Hold[smrTitanic⟹SMRMonRecommendByProfile[{male,survived},12]⟹SMRMonEchoValue[]⟹SMRMonJoinAcross[dfTitanic]⟹SMRMonEchoValue[]]*)
 ```
 
 ```wl
@@ -1249,11 +1249,11 @@ find anomalies;
 echo pipeline value;
 ",False]
 
-(*Out[397]= Hold[smrTitanic==>SMRMonFindAnomalies[NumberOfNearestNeighbors->12,AggregationFunction->Mean,OutlierIdentifier->HampelIdentifierParameters]==>SMRMonEchoValue[]]*)
+(*Out[397]= Hold[smrTitanic⟹SMRMonFindAnomalies[NumberOfNearestNeighbors->12,AggregationFunction->Mean,OutlierIdentifier->HampelIdentifierParameters]⟹SMRMonEchoValue[]]*)
 ```
 
 ```wl
-In[400]:= dsAnomalies=smrTitanic==>SMRMonFindAnomalies["NumberOfNearestNeighbors"->12,"AggregationFunction"->Mean,"OutlierIdentifier"->TopOutliers@*HampelIdentifierParameters]==>SMRMonEchoValue[]==>SMRMonTakeValue;
+In[400]:= dsAnomalies=smrTitanic⟹SMRMonFindAnomalies["NumberOfNearestNeighbors"->12,"AggregationFunction"->Mean,"OutlierIdentifier"->TopOutliers@*HampelIdentifierParameters]⟹SMRMonEchoValue[]⟹SMRMonTakeValue;
 ```
 
 ![1144wkq6dseq9](img/1144wkq6dseq9.png)
@@ -1279,9 +1279,9 @@ In[528]:= MatrixForm[dsAnomalies[[1;;12,All]]]
 ### Triangular trend
 
 ```wl
-In[78]:= p2==>
-SMRMonRecommendByCorrelation[svec,12,"SMRNumberOfRecommendations"->600]==>
-SMRMonEchoValue==>
+In[78]:= p2⟹
+SMRMonRecommendByCorrelation[svec,12,"SMRNumberOfRecommendations"->600]⟹
+SMRMonEchoValue⟹
 SMRMonEchoFunctionValue[Map[ListPlot[{Rescale[svec,MinMax[svec],MinMax[SparseArray[tsSMat[[#,All]]]]],SparseArray[tsSMat[[#,All]]]},PlotLabel->#]&,Keys[#]]&];
 ```
 
@@ -1290,9 +1290,9 @@ SMRMonEchoFunctionValue[Map[ListPlot[{Rescale[svec,MinMax[svec],MinMax[SparseArr
 ### Exponential trend
 
 ```wl
-In[78]:= p2==>
-SMRMonRecommendByCorrelation[svec,12,"SMRNumberOfRecommendations"->600]==>
-SMRMonEchoValue==>
+In[78]:= p2⟹
+SMRMonRecommendByCorrelation[svec,12,"SMRNumberOfRecommendations"->600]⟹
+SMRMonEchoValue⟹
 SMRMonEchoFunctionValue[Map[ListPlot[{Rescale[svec,MinMax[svec],MinMax[SparseArray[tsSMat[[#,All]]]]],SparseArray[tsSMat[[#,All]]]},PlotLabel->#]&,Keys[#]]&];
 ```
 
