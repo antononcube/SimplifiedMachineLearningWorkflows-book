@@ -8,33 +8,16 @@ output: html_notebook
 ```{r,echo=F}
 library(SMRMon)
 library(SparseMatrixRecommender)
+library(LSAMon)
 library(Matrix)
 library(magrittr)
 library(ExternalParsersHookUp)
 ```
 
-```{r, echo = F, eval=T}
-Perl6SMRMonParsingLib <- function() {
-    file.path("/", "Volumes", "Macintosh HD", "Users", "antonov", "ConversationalAgents", "Packages", "Perl6", "RecommenderWorkflows", "lib")
-}
+```{r}
+source("./Additional-definitions.R")
 ```
 
-```{r, echo = F, eval=T}
-to_SMRMon_R_command <- function(command, parse=TRUE) {
-  pres <- Perl6Command( command = paste0( "say to_SMRMon_R(\"", command, "\")"),
-                        moduleDirectory = Perl6SMRMonParsingLib(),
-                        moduleName = "RecommenderWorkflows" )
-  messageInds <- grep( "^Possible", pres )
-  if( length(messageInds) > 0 ) {
-    messageLines <- pres[messageInds]
-    print(messageLines)
-    pres <- pres[setdiff(1:length(pres), messageInds)]
-  }
-  pres <- gsub( "\\\"", "\"", pres, fixed = T)
-  if(parse) { parse(text = pres) }
-  else { pres }
-}
-```
 
 # Abstract 
 
@@ -87,6 +70,8 @@ that we discuss in the presentation:
 
 # "Single line" command interpreter
 
+## Recommendations
+
 Here we interpret a sequence of natural commands into a recommender pipeline:
 
 ```{r}
@@ -108,6 +93,36 @@ smrObj <-
      recommend for history id.5, id.7; 
      join across recommendations with the data frame dfTitanic; 
      echo pipeline value" ) )
+```
+
+## Latent semantic analysis
+
+Get rstudio::conf 2019 abstracts:
+
+```{r}
+dfRSCAbstracts <- read.csv( "https://raw.githubusercontent.com/antononcube/SimplifiedMachineLearningWorkflows-book/master/Data/RStudio-conf-2019-abstracts.csv", stringsAsFactors = FALSE )
+lsAbstracts <- setNames( dfRSCAbstracts$Abstract, dfRSCAbstracts$ID )
+```
+
+Specfy an LSA pipeline and evaluate it:
+
+```{r}
+set.seed(942)
+lsaObj <-
+  eval( expr = to_LSAMon_R_command( 
+  "create from lsAbstracts;
+   make document term matrix with stemming FALSE and automatic stop words;
+   apply LSI functions global weight function idf, local term weight function none, normalizer function cosine;
+   extract 16 topics using method NNMF and max steps 12;
+   show topics table with 12 columns and 10 terms;" ) )
+```
+
+Get statistical thesaurus:
+
+```{r}
+lsaObj <- 
+eval( expr = to_LSAMon_R_command( "use lsa object lsaObj; 
+                                   show thesaurus table for dplyr, shiny, tidyverse;" ))
 ```
 
 
@@ -135,7 +150,7 @@ The particular approach we follow has the following steps.
 7. Create programming tools that facilitate the creation of such software monads and related grammars.
 
 
-# How to cocretely do it?
+# How to concretely do it?
 
 - Make software monad generation packages. For example:
 
