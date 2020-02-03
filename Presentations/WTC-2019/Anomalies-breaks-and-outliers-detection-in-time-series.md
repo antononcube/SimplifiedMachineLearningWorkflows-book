@@ -1,11 +1,9 @@
----
-
 # Anomalies, breaks, and outliers detection in time series
 
 **Anton Antonov**      
 **Accendo Data LLC**   
 
-![03m3jlb0t3ken](img/03m3jlb0t3ken.png) Join the Conversation #WolframTechConf
+![03m3jlb0t3ken](img/03m3jlb0t3ken.png) 
 
 ---
 
@@ -1416,56 +1414,4 @@ Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/m
 Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicGeometricNearestNeighbors.m"];
 Import["https://raw.githubusercontent.com/antononcube/ConversationalAgents/master/Packages/WL/ExternalParsersHookup.m"]
 ]
-```
-
----
-
-## Export
-
-```wl
-In[311]:= SetDirectory[NotebookDirectory[]]
-
-(*Out[311]= /Users/antonov/MathFiles/Presentations/WTC-2019*)
-```
-
-```wl
-In[312]:= Needs["M2MD`"]
-```
-
-```wl
-In[313]:= EvaluationNotebook[]
-```
-
-![01gcdhvnef1rh](img/01gcdhvnef1rh.png)
-
-```wl
-In[314]:= Options[MDExport]
-
-(*Out[314]= {ImagesExportURL->Automatic,ImagesFetchURL->Relative,IgnoredStyles->None,ImageNameFunction->Automatic,OverwriteImages->True,CellStyleRules->Automatic,MDElementTemplates->Automatic}*)
-```
-
-```wl
-In[315]:= fileName=StringReplace[FileNameSplit[NotebookFileName[]][[-1]],{".nb"~~EndOfString->".md"}]
-
-(*Out[315]= WTC-2019 Antonov - Anomalies, breaks, and outliers detection in time series (new).md*)
-```
-
-```wl
-In[316]:= SeedRandom[2323]
-```
-
-```wl
-In[317]:= Options[MDExport]
-
-(*Out[317]= {ImagesExportURL->Automatic,ImagesFetchURL->Relative,IgnoredStyles->None,ImageNameFunction->Automatic,OverwriteImages->True,CellStyleRules->Automatic,MDElementTemplates->Automatic}*)
-```
-
-```wl
-In[318]:= MDExport[fileName,EvaluationNotebook[]]
-
-(*Out[309]= WTC-2019 Antonov - Anomalies, breaks, and outliers detection in time series (new).md*)
-```
-
-```wl
-In[310]:= SystemOpen[fileName]
 ```
