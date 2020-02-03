@@ -32,7 +32,7 @@ Then we look into definitions of anomalies and definitions for measuring success
 
 ## UseR!-2020
 
-Here is the (extended) abstract the *proposed* presentation:
+Here is the (extended) abstract of the *proposed* presentation:
 
 - ["How to simplify Machine learning workflows specifications?"](https://htmlpreview.github.io/?https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Presentations/UseR!-2020/How-to-simplify-ML-workflows-specifications.nb.html). 
 
@@ -61,3 +61,4 @@ programming languages can be generated.
 
 >Finally we discuss the extensions of the presented approach to (1) handling wrong commands and
 spelling mistakes, (2) using multiple natural languages, and (3) making conversational agents.
+
