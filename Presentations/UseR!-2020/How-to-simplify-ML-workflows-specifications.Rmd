@@ -99,12 +99,13 @@ to_SMRMon_R_command(
 Here are the evaluation results of the generated pipeline:
 
 ```{r}
-eval( expr = to_SMRMon_R_command( 
-  "create from dfTitanic;
-   apply IDF, TermFrequency, Cosine;
-   recommend for history id.5, id.7; 
-   join across recommendations with the data frame dfTitanic; 
-   echo pipeline value" ) )
+smrObj <- 
+  eval( expr = to_SMRMon_R_command( 
+    "create from dfTitanic;
+     apply IDF, TermFrequency, Cosine;
+     recommend for history id.5, id.7; 
+     join across recommendations with the data frame dfTitanic; 
+     echo pipeline value" ) )
 ```
 
 
