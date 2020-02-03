@@ -9,3 +9,10 @@ This directory has proposals, plan documents, and notebooks for a tutorial propo
 (See the file
 [Proposal.org](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Tutorials/UseR!-2020/Proposal.org) 
 for my submission. That file has submission directions details provided by the organizers.)
+
+## Update (2020-01-31)
+
+The tutorial proposal was rejected (because too many other tutorial proposals.) 
+The rejection email suggested submitting an abstract for a related presentation. 
+See 
+[this presentation proposal](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Presentations#user-2020). 
