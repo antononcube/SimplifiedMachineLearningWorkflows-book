@@ -40,12 +40,12 @@ to_SMRMon_R_command <- function(command, parse=TRUE) {
 
 In this presentation we discuss a systematic approach of software development
 that gives us the ability to rapidly specify Machine Learning (ML) computations
-using both natural language commands and programming Domain Specific Languages (DSL's).
+using both programming Domain Specific Languages (DSL's) and natural language commands.
 We present in detail the selection of programming paradigms, languages, and packages.
 
-A central topic of the presentation is the transformation of sequences of natural commands 
-that specify ML workflows into corresponding programming DSL pipelines for ML 
-computations. We discuss the general strategy and the concrete implementation steps.
+A central topic of the presentation is the transformation of sequences of natural 
+commands into corresponding DSL pipelines for ML computations. 
+We discuss the general strategy and the concrete implementation steps.
 
 The presented approach is based on
 (1) monadic programming DSL's, 
@@ -55,12 +55,14 @@ The presented approach is based on
 We use monadic programming and code generation for implementation of ML packages.
 We use Raku (Perl 6) for grammar specifications, parsers generation, and interpreters.
 
-Numerous examples are used for illustration and clarification purposes.
-We look into code generation of ML workflows for supervised learning,
-time series analysis, latent semantic analysis, and recommendations. 
+Numerous examples are used for illustration and clarification purposes based on 
+ML packages written in R and English-based grammar rules. We look into code generation 
+of ML workflows for supervised learning, time series analysis, latent semantic analysis, 
+and recommendations. We show how with the same natural commands pipelines in other
+programming languages can be generated.
 
 Finally we discuss the extensions of the presented approach to (1) handling wrong commands and
-spelling mistakes, and (2) making conversational agents.
+spelling mistakes, (2) using multiple natural languages, and (3) making conversational agents.
 
 Here is an example of a natural language specification for the code generation of 
 a recommendation system pipeline (with an intentional misspelling):
