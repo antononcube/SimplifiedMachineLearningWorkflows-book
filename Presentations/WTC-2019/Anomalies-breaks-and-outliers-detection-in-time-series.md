@@ -110,7 +110,7 @@ There are many ways to define anomalies in time series. Here we are going to lis
 
 ### Using a general anomalies finder
 
-A general anomalies finder can be used. [in is one Python GeoPosition[{28.5, -81.54}]](https://github.com/yzhao062/Pyod):
+A general anomalies finder can be used. [Here is one in Python](https://github.com/yzhao062/Pyod):
 
 ```mathematica
 In[23]:= WebImage["https://github.com/yzhao062/Pyod",Method->"Chrome"]
@@ -513,7 +513,7 @@ QRMonDateListPlot[Joined->True,ImageSize->Medium];
 
 ## ROC application
 
-Let us apply the [Characteristic framework Operating Receiver ROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic).
+Let us apply the [Receiver Operating Characteristic (ROC) framework](https://en.wikipedia.org/wiki/Receiver_operating_characteristic).
 
 ### Test data and its outliers
 
@@ -558,7 +558,7 @@ QRMonEchoValue;
 
 ### The parameters lists
 
-Here we make list of parameter lists for the function QRMonFindAnomaliesByResiduals:
+Here we make list of parameter lists for the function `QRMonFindAnomaliesByResiduals`:
 
 ```mathematica
 In[63]:= parameters=Flatten[Outer[List,{None,0.5,1,3,4,5,10},{HampelIdentifierParameters,SPLUSQuartileIdentifierParameters,QuartileIdentifierParameters},{True,False}],2];
@@ -630,10 +630,6 @@ Tally[foundLabels];ToROCAssociation[{True,False},dataLabels,foundLabels]],foundO
 In[75]:= Keys[foundOutliers]
 
 (*Out[75]= {{0.5,None,False},{0.5,None,True},{1,None,False},{1,None,True},{3,None,False},{3,None,True},{4,None,False},{4,None,True},{5,None,False},{5,None,True},{10,None,False},{10,None,True},{None,HampelIdentifierParameters,False},{None,HampelIdentifierParameters,True},{None,QuartileIdentifierParameters,False},{None,QuartileIdentifierParameters,True},{None,SPLUSQuartileIdentifierParameters,False},{None,SPLUSQuartileIdentifierParameters,True}}*)
-```
-
-```mathematica
-In[76]:= Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/ROCFunctions.m"]
 ```
 
 ```mathematica
@@ -1383,13 +1379,21 @@ In[16]:= pathComponents={{1.`,2.2`},{2.`,2.6`},{3.`,2.92`},{4.`,3.`},{5.`,3.`},{
 ```mathematica
 If[TrueQ[localLoadQ],
 Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicQuantileRegression.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicStructuralBreaksFinder.m"];Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicAnomaliesFinder.m"];Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicAnomalyzer.m"];
+Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicStructuralBreaksFinder.m"];
+Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicAnomaliesFinder.m"];
+Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicAnomalyzer.m"];
 Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicGeometricNearestNeighbors.m"];
 Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/OutlierIdentifiers.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/ConversationalAgents/Packages/WL/ExternalParsersHookup.m"],
+Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/ROCFunctions.m"],
+Get["/Volumes/Macintosh HD/Users/antonov/ConversationalAgents/Packages/WL/ExternalParsersHookup.m"];
 (*ELSE*)
-Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/OutlierIdentifiers.m"];Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicQuantileRegression.m"];Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicStructuralBreaksFinder.m"];Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicAnomaliesFinder.m"];Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicAnomalyzer.m"];
+Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicQuantileRegression.m"];
+Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicStructuralBreaksFinder.m"];
+Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicAnomaliesFinder.m"];
+Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicAnomalyzer.m"];
 Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicGeometricNearestNeighbors.m"];
-Import["https://raw.githubusercontent.com/antononcube/ConversationalAgents/master/Packages/WL/ExternalParsersHookup.m"]
+Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/OutlierIdentifiers.m"];
+Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/ROCFunctions.m"];
+Import["https://raw.githubusercontent.com/antononcube/ConversationalAgents/master/Packages/WL/ExternalParsersHookup.m"];
 ]
 ```
