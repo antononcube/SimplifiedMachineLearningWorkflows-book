@@ -83,9 +83,22 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
 
      - Representation of unseen mandala images.
 
+5. [X] LSA for image de-noising and classification.
+   Here is [the recording of the fifth session at Twitch](https://www.twitch.tv/videos/548404984).
    
-5. [ ] Further use cases.
+   - Review: last session's image collection topics extraction.
+     - Let us try that two other datasets:
+        - handwritten digits, and
+        - [Hentaigana](https://en.wikipedia.org/wiki/Hentaigana) (maybe).
+   - Image denoising (maybe): 
+     - Using handwritten digits (again).
+   - Image classification:
+     - Handwritten digits.
+   
+6. [ ] Further use cases.
 
+   - LSA for time series collections.
+   
    - LSA for language translations.
      - Using Dostoevsky's novel "The Idiot".
        - [Russian chapters breakdown](../../Data/Dostoyevsky-The-Idiot-Russian-chapters.json.zip).
@@ -94,7 +107,4 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
    - LSA for phrases.
      - Using [AirBnB data](https://community.wolfram.com/groups/-/m/t/1835575).
      
-   - LSA based image classification.
-   
-   - LSA for time series collections.
    
