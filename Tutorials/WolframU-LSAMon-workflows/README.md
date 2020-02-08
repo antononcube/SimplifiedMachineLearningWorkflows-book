@@ -61,11 +61,9 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
    Here is [the recording of the fourth session at Twitch](https://www.twitch.tv/videos/540209071).
    
    - Review: last session's matrix object.
-
       - Sparse matrix with named rows and columns.
 
    - Queries representation.
-
      - Representing 
        [rstudio-conf-2019 abstracts](../../Data/RStudio-conf-2019-abstracts.json)
        in the vector space of 
@@ -73,14 +71,12 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
 
    - Making a search engine for
 
-     - [ ] [Raku's documentation](https://github.com/Raku/doc),
-     
+     - [ ] [Raku's documentation](https://github.com/Raku/doc),    
      - [X] WTC-2019 abstracts.
 
    - Dimension reduction over an image collection.
 
      - Topics over [random mandalas](https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala).
-
      - Representation of unseen mandala images.
 
 5. [X] LSA for image de-noising and classification.
@@ -90,8 +86,10 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      - Let us try that two other datasets:
         - handwritten digits, and
         - [Hentaigana](https://en.wikipedia.org/wiki/Hentaigana) (maybe).
+        
    - Image denoising (maybe): 
      - Using handwritten digits (again).
+     
    - Image classification:
      - Handwritten digits.
    
