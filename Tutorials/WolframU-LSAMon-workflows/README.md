@@ -79,7 +79,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      - Topics over [random mandalas](https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala).
      - Representation of unseen mandala images.
 
-5. [X] LSA for image de-noising and classification.
+5. [X] LSA for image de-noising and classification.   
    Here is [the recording of the fifth session at Twitch](https://www.twitch.tv/videos/548404984).
    
    - Review: last session's image collection topics extraction.
@@ -87,7 +87,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
         - handwritten digits, and
         - [Hentaigana](https://en.wikipedia.org/wiki/Hentaigana) (maybe).
         
-   - Image denoising (maybe): 
+   - Image de-noising: 
      - Using handwritten digits (again).
      
    - Image classification:
