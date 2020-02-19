@@ -13,16 +13,16 @@ In this (tutorial) presentation  we are going to:
 4. see applications to making or supporting search engines;
 5. see applications to image collections classification and generation.
 
-The presentation is based on the (monadic) R package LSAMon: 
-https://github.com/antononcube/R-packages/tree/master/LSAMon-R .
+The presentation is based on the (monadic) R package 
+[LSAMon-R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R).
 
 (A large cycle of LSA tutorial lectures is given 
 [here](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Tutorials/WolframU-LSAMon-workflows).)
 
-## Part 1 - Overview
+## Part 1 - Overview (25 min)
 
-The first part we are going to clarify the basics of LSA's theory and methodology by providing answers to 
-the following list of questions.
+In the first part we are going to clarify the basics of LSA's theory and methodology by providing answers to 
+the questions in the following list.
 
    - What are the typical applications of LSA?   
    - Why use LSA?     
@@ -48,14 +48,14 @@ algorithms discussed in the tutorial (and used by `LSAMon`):
 
 - [Singular Value Decomposition (SVD)](https://en.wikipedia.org/wiki/Singular_value_decomposition).
 
-(The most important is NNMF, the application of which is one of the primary reasons for developing `LSAMon`.)
+(The most important is NNMF; one of the primary reasons for developing "LSAMon-R" is to streamline applications of NNMF.)
 
 
-## Part 2 - Applications
+## Part 2 - Applications (25 min)
 
-In the second part to the tutorial were a going to look into concrete applications
+In the second part of the tutorial were a going to look into concrete applications
 derived from different practical uses cases. 
-(From digital content consumption, industry, academic research, and other fields.)  
+(From the domains of digital content consumption, logistics, academic research, and others.)  
 
 A list of LSA applications examples follows.
  
@@ -77,15 +77,15 @@ A list of LSA applications examples follows.
 
 ## Data 
 
-(Most of) the data used in the tutorial is available 
+(Most of) the data used is available 
 [here](../../Data). 
 
 ## Visual aids
 
-Here is a flow chart diagram that tracks the LSA workflows:
+Here is a flow chart diagram for the typical LSA workflows:
 
 ![LSAWorkflows](../../Diagrams/LSA-workflows.jpg)
 
-Here is `LSAMon` pipeline diagram:
+Here is a `LSAMon` pipeline diagram:
 
 ![LSAMonPipeline](../../Diagrams/LSAMon-pipeline.jpg)
