@@ -5,16 +5,16 @@
 
 ## In brief
 
-In this (tutorial) presentation  we are going to:
+In this (tutorial) presentation we are going to:
 1. overview Latent Semantic Analysis (LSA) typical problems and basic workflows;
 2. discus philosophical, scientific, and mathematical justifications; 
-2. follow LSA's application to document collections in more detail;
-3. discuss the theory behind the dimension reduction algorithms used (ICA, NNMF, SVD) and how they compare;
-4. see applications to making or supporting search engines;
-5. see applications to image collections classification and generation.
+3. discuss the theory behind the dimensional reduction algorithms used (ICA, NNMF, SVD) and how they compare;
+4. follow LSA's application to document collections in more detail;
+5. see various LSA applications: search engines support, natural language translations, 
+image classification, and others. 
 
 The presentation is based on the (monadic) R package 
-[LSAMon-R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R).
+[LSAMon-R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), \[AAp1\].
 
 It is emphasized that the presented LSA worfklows are universal and can be used within any powerful enough 
 programming language.
@@ -27,7 +27,7 @@ the questions in the following list.
 
    - What are the typical applications of LSA?   
    - Why use LSA?     
-   - What it the fundamental philosophical or scientific assumption for LSA?   
+   - What it the fundamental philosophical or scientific assumptions for LSA?   
    - What is the most important and/or fundamental step of LSA?   
    - What is the difference between LSA and Latent Semantic Indexing (LSI)?   
    - What are the alternatives?
@@ -35,18 +35,15 @@ the questions in the following list.
    - How is LSA used to derive similarities between two given texts?   
    - How is LSA used to evaluate the proximity of phrases?
      (That have different words, but close semantic meaning.)   
-   - How the main dimension reduction methods compare? 
+   - How the main dimensional reduction methods compare? 
 
 ### Dimensional reduction algorithms
 
 Here is a list of the 
 [Dimensional reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) 
 algorithms discussed in the tutorial (and used by `LSAMon`):
-
 - [Independent Component Analysis](https://en.wikipedia.org/wiki/Independent_component_analysis),
-
 - [Non-Negative Matrix Factorization (NNMF)](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization),
-
 - [Singular Value Decomposition (SVD)](https://en.wikipedia.org/wiki/Singular_value_decomposition).
 
 (The most important is NNMF; one of the primary reasons for developing "LSAMon-R" is to streamline applications of NNMF.)
@@ -63,7 +60,7 @@ A list of LSA applications examples follows.
 - How to utilize LSA for document similarities evaluations?  
   (Like ["Conference Abstracts Similarities"](https://htmlpreview.github.io/?https://github.com/antononcube/MathematicaVsR/blob/master/Projects/ConferenceAbstactsSimilarities/R/ConferenceAbstractsSimilarities.nb.html).)
 
-- How to apply LSA to image classification? 
+- How to apply LSA to image classification?    
   (Like ["Handwritten digits classification by matrix factorization"](https://cdn.rawgit.com/antononcube/MathematicaVsR/master/Projects/HandwrittenDigitsClassificationByMatrixFactorization/R/HandwrittenDigitsClassificationByMatrixFactorization.html).) 
 
 - How to apply LSA to [Great Conversation](https://en.wikipedia.org/wiki/Great_Conversation) studies?
@@ -113,7 +110,7 @@ Here is a flow chart diagram for the typical LSA workflows:
 ## References
 
 \[AAt1\] Anton Antonov, 
-[Wolfram-U LSA live-coding sessions](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Tutorials/WolframU-LSAMon-workflows).
+[Wolfram-U Latent Semantic Analysis live-coding sessions](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Tutorials/WolframU-LSAMon-workflows).
 
 \[AAp1\] Anton Antonov, 
 [Latent Semantic Analysis Monad in R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), 
