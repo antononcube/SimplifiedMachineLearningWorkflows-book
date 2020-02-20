@@ -147,18 +147,18 @@ The particular approach we follow has the following steps.
    - In a programming language that allows such definition.
      - Like R and WL.
    - Referred to as "Machine Learning Monad (MLMon)" below.
-   - Say MLMon for Latent Semantic Analysis (LSA) or Quantile Regression (QR).
+   - For example, program MLMon for Latent Semantic Analysis (LSA) or Quantile Regression (QR).
      
 2. Create and systematically run unit tests for MLMon.
      
 3. Write down a context free grammar for the targeted ML workflows.
    - In a natural language of choice. Say, English.
    
-4. Create and systematically run unit test for the grammar parsing.
+4. Create and systematically run unit tests for the parsing of the specified MLMon grammar.
 
 5. Create an interpreter of natural language parsed commands into MLMon software code.
 
-6. Create and systematically run unit test for the interpreter.
+6. Create and systematically run unit tests for the interpreter.
 
 7. Create programming tools that facilitate the creation of such software monads and related grammars.
 
@@ -170,8 +170,8 @@ The particular approach we follow has the following steps.
   - [StateMonadCodeGenerator-R](https://github.com/antononcube/R-packages/tree/master/StateMonadCodeGenerator);
   - [StateMonadCodeGenerator-WL](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/StateMonadCodeGenerator.m).
 
-- Using [Raku (Perl 6)](https://www.raku.org) for
-  - the natural language commands grammar parsers, and 
+- Using [Raku (Perl 6)](https://www.raku.org) for:
+  - the natural language commands grammar parsers;
   - the programming code interpreters.
   
  
