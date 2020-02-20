@@ -1,8 +1,10 @@
 ---
 title: "How to simplify Machine learning workflows specifications?"
-author: Anton Antonov
-date: 2020-02-02
-output: html_notebook
+author: "Anton Antonov"
+date: '2020-02-02'
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
 ```{r,echo=F}
@@ -103,7 +105,7 @@ dfRSCAbstracts <- read.csv( "https://raw.githubusercontent.com/antononcube/Simpl
 lsAbstracts <- setNames( dfRSCAbstracts$Abstract, dfRSCAbstracts$ID )
 ```
 
-Specfy an LSA pipeline and evaluate it, [AAp2]:
+Specify an LSA pipeline and evaluate it, [AAp2]:
 
 ```{r}
 set.seed(942)
@@ -124,7 +126,7 @@ eval( expr = to_LSAMon_R_command( "use lsa object lsaObj;
                                    show thesaurus table for dplyr, shiny, tidyverse;" ))
 ```
 
-## Quantile regresion
+## Quantile regression
 
 Specify a Quantile Regression (QR) workflow, [AAp3]:
 
@@ -173,6 +175,7 @@ The particular approach we follow has the following steps.
   - the programming code interpreters.
   
  
+
 # References
 
 ### Repositories
@@ -197,5 +200,4 @@ The particular approach we follow has the following steps.
 [Quantle Regression Monad in R](https://github.com/antononcube/QRMon-R), 
 (2019),
 GitHub.
-
 
