@@ -1,4 +1,4 @@
-# Latent Semantic Analysis workflows 
+# Latent Semantic Analysis Workflows 
 ***useR! Meetup Boston, April 2020***   
 ***Extended abstract***
 
@@ -6,11 +6,11 @@
 ## In brief
 
 In this (tutorial) presentation we are going to:
-1. overview Latent Semantic Analysis (LSA) typical problems and basic workflows;
-2. discus philosophical, scientific, and mathematical justifications; 
-3. discuss the theory behind the dimensional reduction algorithms used (ICA, NNMF, SVD) and how they compare;
-4. follow LSA's application to document collections in more detail;
-5. see various LSA applications: search engines support, natural language translations, 
+1. Overview Latent Semantic Analysis (LSA) typical problems and basic workflows
+2. Discus philosophical, scientific, and mathematical justifications
+3. Discuss the theory behind the dimensional reduction algorithms used (ICA, NNMF, SVD) and how they compare
+4. Follow LSA's application to document collections in more detail
+5. See various LSA applications: search engines support, natural language translations,
 image classification, and others. 
 
 The presentation is based on the (monadic) R package 
@@ -57,19 +57,19 @@ derived from different practical uses cases.
 
 A list of LSA applications examples follows.
  
-- How to utilize LSA for document similarities evaluations?  
+- Utilize LSA for document similarities evaluations.  
   (Like ["Conference Abstracts Similarities"](https://htmlpreview.github.io/?https://github.com/antononcube/MathematicaVsR/blob/master/Projects/ConferenceAbstactsSimilarities/R/ConferenceAbstractsSimilarities.nb.html).)
 
-- How to apply LSA to image classification?    
+- Apply LSA to image classification.
   (Like ["Handwritten digits classification by matrix factorization"](https://cdn.rawgit.com/antononcube/MathematicaVsR/master/Projects/HandwrittenDigitsClassificationByMatrixFactorization/R/HandwrittenDigitsClassificationByMatrixFactorization.html).) 
 
-- How to apply LSA to [Great Conversation](https://en.wikipedia.org/wiki/Great_Conversation) studies?
+- Apply LSA to [Great Conversation](https://en.wikipedia.org/wiki/Great_Conversation) studies.
 
-- How to derive a custom taxonomy over a document collection?
+- Derive a custom taxonomy over a document collection.
 
-- How to use LSA for translation of natural languages?
+- Use LSA for translation of natural languages.
 
-- How to use LSA for making or improving search engines?
+- Use LSA for making or improving search engines.
 
 - (Others...)
 
