@@ -16,9 +16,10 @@ In this (tutorial) presentation  we are going to:
 The presentation is based on the (monadic) R package 
 [LSAMon-R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R).
 
-(A large cycle of LSA tutorial lectures is given 
-[here](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Tutorials/WolframU-LSAMon-workflows).)
+It is emphasized that the presented LSA worfklows are universal and can be used within any powerful enough 
+programming language.
 
+ 
 ## Part 1 - Overview (25 min)
 
 In the first part we are going to clarify the basics of LSA's theory and methodology by providing answers to 
@@ -75,17 +76,46 @@ A list of LSA applications examples follows.
 
 - (Others...)
 
+## The software monad 
+
+Here is a basic `LSAMon` pipeline example:
+
+```r
+LSAMonUnit( texts ) %>% 
+  LSAMonMakeDocumentTermMatrix( stemWordsQ = FALSE, stopWords = stopwords::stopwords() ) %>% 
+  LSAMonApplyTermWeightFunctions( globalWeightFunction = "IDF", localWeightFunction = "TermFrequency", normalizerFunction = "Cosine" ) %>% 
+  LSAMonExtractTopics( numberOfTopics = 24, minNumberOfDocumentsPerTerm = 200, method = "NNMF", maxSteps = 12 ) %>%
+  LSAMonEchoTopicsTable( numberOfTerms = 10 )
+```
+
+The `LSAMon` pipeline above corresponds to the following sequence of natural language commands:
+
+```
+create from texts;
+make document term matrix with stemming FALSE and automatic stop words;
+apply LSI functions global weight function IDF, local term weight function TermFrequency, normalizer function Cosine;
+extract 12 topics using method NNMF and max steps 12 and 200 min number of documents per term;
+show topics table with 10 terms;
+``` 
+ 
 ## Data 
 
 (Most of) the data used is available 
 [here](../../Data). 
 
-## Visual aids
+## Flow chart
 
 Here is a flow chart diagram for the typical LSA workflows:
 
 ![LSAWorkflows](../../Diagrams/LSA-workflows.jpg)
 
-Here is a `LSAMon` pipeline diagram:
 
-![LSAMonPipeline](../../Diagrams/LSAMon-pipeline.jpg)
+## References
+
+\[AAt1\] Anton Antonov, 
+[Wolfram-U LSA live-coding sessions](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Tutorials/WolframU-LSAMon-workflows).
+
+\[AAp1\] Anton Antonov, 
+[Latent Semantic Analysis Monad in R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), 
+(2019),
+[R-packages at GitHub](https://github.com/antononcube/R-packages). 
