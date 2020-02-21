@@ -26,7 +26,7 @@ str = Import[url, "String"];
 filename = First@Import[StringToStream[str], "ZIP"];
 
 aURLIdiotRussianChapters = Association[Import[StringToStream[str], {"ZIP", filename, "JSON"}]];
-Length[aULRIdiotRussianChapters]
+Length[aURLIdiotRussianChapters]
 (* 50 *)
 ```
 
@@ -56,3 +56,25 @@ and parsed in order to produce
 Using additional WTC presentation notebooks from past years a 
 [CSV file](./Wolfram-Technology-Conference-2016-to-2019-abstracts.csv) 
 was produced with WTC abstracts for the years 2016 to 2019.  
+
+
+## Data in other, related repositories
+
+### [MathematicaVsR at GitHub](https://github.com/antononcube/MathematicaVsR)
+
+See [MathematicaVsR's data folder](https://github.com/antononcube/MathematicaVsR/tree/master/Data).
+
+- [Shakespeare's play "Hamlet" (1604)](https://github.com/antononcube/MathematicaVsR/blob/master/Data/MathematicaVsR-Data-Hamlet.csv).
+
+- [USA presidential speeches](https://github.com/antononcube/MathematicaVsR/blob/master/Data/MathematicaVsR-Data-StateOfUnionSpeeches.JSON.zip).
+  
+- [Mushroom dataset](https://github.com/antononcube/MathematicaVsR/blob/master/Data/MathematicaVsR-Data-Mushroom.csv).
+
+- [Titanic dataset](https://github.com/antononcube/MathematicaVsR/blob/master/Data/MathematicaVsR-Data-Titanic.csv).
+
+- [Wine quality data](https://github.com/antononcube/MathematicaVsR/blob/master/Data/MathematicaVsR-Data-WineQuality.csv). 
+
+
+## R data packages
+
+Here is related R data package: [MathematicaVsRData](https://github.com/antononcube/R-packages/tree/master/MathematicaVsRData).  
