@@ -93,16 +93,17 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
    - Image classification:
      - Handwritten digits.
    
-6. [ ] Further use cases.
+6. [X] Further use cases.   
+   Here is [the recording of the sixth session at Twitch](https://www.twitch.tv/videos/555707101).
 
-   - LSA for time series collections.
-   
-   - LSA for language translations.
+   - Derive a custom taxonomy over a document collection.
+      - Clustering with the reduced dimension.
+   - Apply LSA to Great Conversation studies.	
+   - Use LSA for translation of natural languages.
      - Using Dostoevsky's novel "The Idiot".
        - [Russian chapters breakdown](../../Data/Dostoyevsky-The-Idiot-Russian-chapters.json.zip).
        - [English chapters breakdown](../../Data/Dostoyevsky-The-Idiot-English-chapters.json.zip).
-       
-   - LSA for phrases.
-     - Using [AirBnB data](https://community.wolfram.com/groups/-/m/t/1835575).
+   - Use LSA for making or improving search engines.
+   - LSA for time series collections.
      
    
