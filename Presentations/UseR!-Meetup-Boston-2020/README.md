@@ -104,7 +104,7 @@ show topics table with 10 terms;
 
 Here is a flow chart diagram for the typical LSA workflows:
 
-![LSAWorkflows](../../Diagrams/LSA-workflows.jpg)
+![LSAWorkflows](../../Part-2-Monadic-Workflows/Diagrams/A-monad-for-Latent-Semantic-Analysis-workflows/LSA-workflows.jpg)
 
 
 ## References
