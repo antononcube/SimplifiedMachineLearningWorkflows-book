@@ -14,9 +14,9 @@ In this (tutorial) presentation we are going to:
 image classification, and others. 
 
 The presentation is based on the (monadic) R package 
-[LSAMon-R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), \[AAp1\].
+[LSAMon](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), \[AAp1\].
 
-It is emphasized that the presented LSA worfklows are universal and can be used within any powerful enough 
+It is emphasized that the presented LSA workflows are universal and can be used within any powerful enough 
 programming language.
 
  
@@ -46,7 +46,7 @@ algorithms discussed in the tutorial (and used by `LSAMon`):
 - [Non-Negative Matrix Factorization (NNMF)](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization),
 - [Singular Value Decomposition (SVD)](https://en.wikipedia.org/wiki/Singular_value_decomposition).
 
-(The most important is NNMF; one of the primary reasons for developing "LSAMon-R" is to streamline applications of NNMF.)
+(The most important is NNMF; one of the primary reasons for developing `LSAMon` is to streamline applications of NNMF.)
 
 
 ## Part 2 - Applications (25 min)
