@@ -1,5 +1,4 @@
-# Anomalies, breaks, and outliers detection in time series
-
+v
 **Anton Antonov**      
 **Accendo Data LLC**   
 
@@ -1067,10 +1066,6 @@ In[140]:= ImageAdjust@ColorNegate@Image[Rescale[Partition[vecReprsentation,Image
 
 ## Rejecting simulation points
 
-```mathematica
-In[291]:= Get["~/MathFiles/Anomaly detection for time series/aNRELDataQRObjs.m"];
-```
-
 ### Simulations of the time series
 
 ```mathematica
@@ -1303,7 +1298,7 @@ SMRMonEchoFunctionValue[Map[ListPlot[{Rescale[svec,MinMax[svec],MinMax[SparseArr
 ## Initialization code
 
 ```mathematica
-In[4]:= localLoadQ=True;
+In[4]:= localLoadQ=False;
 ```
 
 ### Data load
@@ -1378,14 +1373,7 @@ In[16]:= pathComponents={{1.`,2.2`},{2.`,2.6`},{3.`,2.92`},{4.`,3.`},{5.`,3.`},{
 
 ```mathematica
 If[TrueQ[localLoadQ],
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicQuantileRegression.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicStructuralBreaksFinder.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicAnomaliesFinder.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicAnomalyzer.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/MonadicProgramming/MonadicGeometricNearestNeighbors.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/OutlierIdentifiers.m"];
-Get["/Volumes/Macintosh HD/Users/antonov/MathematicaForPrediction/ROCFunctions.m"],
-Get["/Volumes/Macintosh HD/Users/antonov/ConversationalAgents/Packages/WL/ExternalParsersHookup.m"];
+Print["Cannot do it."],
 (*ELSE*)
 Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicQuantileRegression.m"];
 Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/MonadicProgramming/MonadicStructuralBreaksFinder.m"];
