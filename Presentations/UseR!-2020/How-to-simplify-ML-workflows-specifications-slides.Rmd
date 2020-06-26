@@ -6,7 +6,7 @@ output:
   slidy_presentation:
      css: userstyle.css
      footer: "useR! 2020 Conference, lightning talk"
-     logo: userlogo.png
+     keep_md: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -98,7 +98,7 @@ qrmon2 <-
 
 ## How it is done?
 
-For a given ML domain (like, QR or LSA) we create two types of Domain Specific Languages (DSL's):
+For a given ML domain (like QR or LSA) we create two types of Domain Specific Languages (DSL's):
 
 1. a software monad (i.e. programming language pipeline package) and 
 
@@ -106,7 +106,7 @@ For a given ML domain (like, QR or LSA) we create two types of Domain Specific L
 
 These two DSL's are combined: the latter translates natural language commands into the former.
 
-By executing those translations we interpret commands of the spoken DSL into ML computational results.
+By executing those translations we interpret commands of spoken DSL's into ML computational results.
 
 Note, that we assume that there is a separate system that converts speech into text.
 
@@ -120,17 +120,19 @@ Here is a clarification diagram:
 
 ## Grammars and parsers
 
-For each type of workflow is developed a specilized parser-interpreter [Raku](https://raku.org) module.
+For each type of workflow is developed a specialized DSL translation [Raku](https://raku.org) module.
 
 Each Raku module:
 
-1. Parses a sequence of natural commands of a certain DSL
+1. Has grammars for parsing a sequence of natural commands of a certain DSL
 
-2. Interprets the parsing results into corresponding software monad code
+2. Translates the parsing results into corresponding software monad code
 
-Different programming languages and packages can be the targets of the code generation.
+Different programming languages and packages can be the targets of the DSL translation.
 
-(At this point are implemented parser-interpreters to Python, R, and Wolfram Language.)
+(At this point are implemented DSL-translators to Python, R, and Wolfram Language.)
+
+Here is an [example grammar](https://github.com/antononcube/ConversationalAgents/blob/master/Packages/Perl6/QuantileRegressionWorkflows/lib/QuantileRegressionWorkflows/Grammar.pm6). 
 
 
 ## Quantile Regression workflow: translation
