@@ -1,0 +1,55 @@
+/* specify logo size at title page */
+.gdbar img {
+  width: 160px !important;
+  height: 122px !important;
+  margin: 8px 8px;
+}
+
+.gdbar {
+  height: 140px !important;
+}
+
+/* specify logo size on footer */
+slides > slide:not(.nobackground):before {
+  width: 92px;
+  height: 70px;
+  background-size: 85px 70px;
+}
+
+/* change text font size on slides/header1(#)/header2(##)/header3(###)*/
+slides > slide {
+  font-size: 28pt;
+}
+
+h1 {
+  font-size: 36pt;
+}
+
+h2 {
+  font-size: 34pt;
+}
+
+h3 {
+  font-size: 32pt;
+}
+
+/* author size */
+
+author {
+  font-size: 30px;
+  color: DarkBlue;
+}
+
+/* colour for chapter pages */
+slides > slide.dark {
+  background-color: #1464b4 !important;
+}
+
+/* size of code */
+pre {
+  font-size: 22pt;
+}
+
+code.r {
+  font-size: 22pt;
+}

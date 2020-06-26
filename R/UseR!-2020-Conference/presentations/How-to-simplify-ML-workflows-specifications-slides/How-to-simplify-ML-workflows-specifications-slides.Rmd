@@ -1,0 +1,284 @@
+---
+title: ""
+author: "Anton Antonov"
+header-includes: "useR! 2020 Conference"
+output:
+  slidy_presentation:
+     css: userstyle.css
+     footer: "useR! 2020 Conference, lightning talk"
+     keep_md: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(SparseMatrixRecommender)
+library(SMRMon)
+library(LSAMon)
+library(QRMon)
+library(ECMMon)
+library(Matrix)
+library(magrittr)
+library(ExternalParsersHookUp)
+```
+
+## How to simplify Machine Learning workflows specifications?
+
+### *useR! 2020 Conference, lightning talk*
+
+**Anton Antonov**   
+*Senior Research Scientist*   
+*Accendo Data LLC*   
+*https://github.com/antononcube*    
+
+<img src="userlogo.png" width="300"/>
+
+
+## What is this about?
+
+Rapid specification of Machine Learning (ML) workflows using natural language commands.
+
+The easiest things to automate with ML are ML workflows. 
+
+This presentation demonstrates that with interfaces based on natural language commands.
+
+
+## Motivation
+
+Assume that:
+
+1. We want to create conversation agents that help Data Science (DS) and ML 
+practitioners to quickly create first, initial versions of different DS and ML workflows 
+for different programming languages and related packages. 
+
+2. We expect that the initial versions of programming code are tweaked further.
+(In order to produce desired outcomes in the application area of interest.)
+
+
+
+## The workflows considered
+
+In this presentation we focus on these three ML areas:
+
+- Quantile Regression (QR)
+
+- Latent Semantic Analysis (LSA)
+
+- Recommendations
+
+
+
+## First example data
+
+Assume we have a data frame with temperature data. 
+Here is a summary:
+
+```{r}
+summary(dfTemperatureData)
+```
+
+```{r, fig.width=16, fig.height=6}
+ggplot2::ggplot(dfTemperatureData) + ggplot2::geom_point( ggplot2::aes( x = Time, y = Temperature ) )
+```
+
+
+
+## Quantile Regression worfklow: first example
+
+Here is a Quantile Regression (QR) workflow specification:
+
+```{r, warning=FALSE, fig.width=16, fig.height=6}
+qrmon2 <- 
+  eval( expr = to_QRMon_R_command( 
+    "create from dfTemperatureData;
+     compute quantile regression with 12 knots and probabilities 0.25, 0.5, and 0.75;
+     show date list plot with date origin 1900-01-01;", parse = TRUE) )
+```
+
+
+## How it is done?
+
+For a given ML domain (like QR or LSA) we create two types of Domain Specific Languages (DSL's):
+
+1. a software monad (i.e. programming language pipeline package) and 
+
+2. a DSL that is a subset of a spoken language.
+
+These two DSL's are combined: the latter translates natural language commands into the former.
+
+By executing those translations we interpret commands of spoken DSL's into ML computational results.
+
+Note, that we assume that there is a separate system that converts speech into text.
+
+
+## Development cycle
+
+Here is a clarification diagram:
+
+![MonadicMakingOfMLConversationalAgents](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/Monadic-making-of-ML-conversational-agents.jpg)
+
+
+## Grammars and parsers
+
+For each type of workflow is developed a specialized DSL translation [Raku](https://raku.org) module.
+
+Each Raku module:
+
+1. Has grammars for parsing a sequence of natural commands of a certain DSL
+
+2. Translates the parsing results into corresponding software monad code
+
+Different programming languages and packages can be the targets of the DSL translation.
+
+(At this point are implemented DSL-translators to Python, R, and Wolfram Language.)
+
+Here is an [example grammar](https://github.com/antononcube/ConversationalAgents/blob/master/Packages/Perl6/QuantileRegressionWorkflows/lib/QuantileRegressionWorkflows/Grammar.pm6). 
+
+
+## Quantile Regression workflow: translation
+
+Here is how a sequence of natural commands that specifies a QR workflow
+is translated into code for a QR software monad:
+
+```{r}
+qrExpr <- 
+  to_QRMon_R_command( 
+    "create from dfTemperatureData;
+     compute quantile regression with knots 12 and probabilities 0.05, 0.95;
+     find outliers;", parse = FALSE )
+qrExpr
+```
+
+
+## Quantile Regression workflow: evaluation
+
+Here we evaluate the generated QR monad code:
+
+```{r, fig.width=16, fig.height=6}
+qrmon2 <- eval(expr = parse( text = paste(qrExpr)))
+```
+
+## Latent Semantic Analysis workflow: translation
+
+Here is how a sequence of natural commands that specifies a LSA workflow
+is translated into code for a LSA software monad:
+
+```{r}
+lsaExpr <- 
+  to_LSAMon_R_command( 
+    "create from textHamlet;
+     make document term matrix with automatic stop words and without stemming;
+     apply lsi functions global weight function idf, local term weight function none, normalizer function cosine;
+     extract 12 topics using method SVD, max steps 120, and min number of documents per term 2;
+     show thesaurus table for ghost and grave;", parse = FALSE  )
+lsaExpr
+```
+
+
+## Latent Semantic Analysis workflow: evaluation
+
+Here we execute the generated LSA monad code:
+
+```{r}
+lsamon2 <- eval(expr = parse( text = paste(lsaExpr)))
+```
+
+
+## Recommender workflow: data 
+
+Consider the making of a recommender over the Titanic data:
+
+```{r}
+dfTitanic[sample(1:nrow(dfTitanic), 12), ]
+```
+
+```{r}
+summary(as.data.frame(unclass(dfTitanic), stringsAsFactors = TRUE))
+```
+
+## Recommender workflow
+
+Here are recommender workflow specification and evaluation results:
+
+```{r}
+smrmon2 <- 
+  eval( expr = to_SMRMon_R_command( 
+    "create from dfTitanic; 
+     apply the LSI functions inverse document frequency, term frequency, and cosine;
+     compute the top 6 recommendations for the profile female=1, 30=1; 
+     extend recommendations with dfTitanic;
+     show pipeline value", parse = TRUE ) )
+```
+
+
+## Handling misspellings
+
+The approach taken in the design and implementation of the natural language commands interpreters 
+can handle misspellings:
+
+```{r}
+smrmon2 <- 
+  eval( expr = to_SMRMon_R_command( 
+    "create from dfTitanic; 
+     aply the LSI functions inverse document frequency, term frequency, and cosine;
+     compute the top 6 recomendations for the profle female=1, 30=1; 
+     extend recommendations with dfTitanic;
+     show pipeline value" ) )
+```
+
+## Not just ML workflows
+
+Obviously this approach can be used for any type of computational workflows.
+
+Here is an example of an Epidemiology Modeling workflow:
+
+```{r}
+ecmCommands <- 
+'create with the model susceptible exposed infected two hospitalized recovered;
+ assign 100000 to the susceptible population;
+ set infected normally symptomatic population to be 0;
+ set infected severely symptomatic population to be 1;
+ assign 0.56 to contact rate of infected normally symptomatic population;
+ assign 0.58 to contact rate of infected severely symptomatic population;
+ assign 0.1 to contact rate of the hospitalized population;
+ simulate for 240 days;
+ plot populations results;'
+```
+
+```{r}
+to_ECMMon_R_command(ecmCommands, parse = TRUE)
+```
+
+```{r, fig.width=16, fig.height=6}
+ecmmon2 <- eval( to_ECMMon_R_command(ecmCommands) )
+```
+
+## References
+
+### Repositories
+
+[AAr1] Anton Antonov, [R-packages](https://github.com/antononcube/R-packages), (2019), GitHub.
+
+[AAr2] Anton Antonov, [Conversational Agents](https://github.com/antononcube/ConversationalAgents), (2017), GitHub.
+
+### Packages
+
+[AAp1] Anton Antonov, 
+[Quantle Regression Monad in R](https://github.com/antononcube/QRMon-R), 
+(2019),
+GitHub.
+
+[AAp2] Anton Antonov, 
+[Latent Semantic Analysis Monad in R](https://github.com/antononcube/R-packages/tree/master/LSAMon-R), 
+(2019),
+[R-packages at GitHub](https://github.com/antononcube/R-packages).
+
+[AAp3] Anton Antonov, 
+[Sparse Matrix Recommender Monad in R](https://github.com/antononcube/R-packages/tree/master/SMRMon-R), 
+(2019),
+[R-packages at GitHub](https://github.com/antononcube/R-packages).
+
+[AAp4] Anton Antonov, 
+[Epidemiology Compartmental Modeling Monad in R](https://github.com/antononcube/ECMMon-R), 
+(2020),
+GitHub.
