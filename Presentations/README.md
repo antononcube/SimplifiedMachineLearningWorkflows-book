@@ -32,9 +32,9 @@ Then we look into definitions of anomalies and definitions for measuring success
 
 ## UseR!-2020
 
-Here are the HTML slides for the lightning talk:
+Here are HTML slides for the lightning talk:
 
-- ["How to simplify Machine learning workflows specifications?"](./UseR!-2020/How-to-simplify-ML-workflows-specifications-slides.md).
+- ["How to simplify Machine learning workflows specifications?"](https://htmlpreview.github.io/?https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Presentations/UseR!-2020/How-to-simplify-ML-workflows-specifications-slides.html).
 
 Versions:
 [HTML](https://htmlpreview.github.io/?https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Presentations/UseR!-2020/How-to-simplify-ML-workflows-specifications-slides.html),
