@@ -29,7 +29,7 @@ Rapid specification of Machine Learning (ML) workflows using natural language co
 
 The easiest things to automate with ML are ML workflows. 
 
-This presentation demonstrates that with interfaces based on natural language commands.
+This presentation demonstrates that with natural language interfaces to ML algorithms.
 
 
 ## Motivation
