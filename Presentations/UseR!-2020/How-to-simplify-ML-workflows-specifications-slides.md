@@ -155,7 +155,8 @@ qrExpr
 ```
 
 ```
-## [1] "QRMonUnit( data = dfTemperatureData) %>%"                            "QRMonQuantileRegression(df = 12, probabilities = c(0.05, 0.95)) %>%"
+## [1] "QRMonUnit( data = dfTemperatureData) %>%"                            
+## [2] "QRMonQuantileRegression(df = 12, probabilities = c(0.05, 0.95)) %>%"
 ## [3] "QRMonOutliers() %>% QRMonOutliersPlot()"
 ```
 
@@ -331,7 +332,8 @@ smrmon2 <-
 ```
 
 ```
-## [1] "Possible misspelling of 'apply' as 'aply'."                     "Possible misspelling of 'recommendations' as 'recomendations'."
+## [1] "Possible misspelling of 'apply' as 'aply'."                     
+## [2] "Possible misspelling of 'recommendations' as 'recomendations'."
 ## [3] "Possible misspelling of 'profile' as 'profle'."                
 ##   Score Index      id passengerClass passengerAge passengerSex passengerSurvival
 ## 1     2     1    id.1            1st           30       female          survived
@@ -368,13 +370,16 @@ to_ECMMon_R_command(ecmCommands, parse = TRUE)
 ```
 
 ```
-## expression(ECMMonUnit(model = SEI2HRModel()) %>% ECMMonAssignInitialConditions(initConds = c(SPt = 1e+05)) %>% 
+## expression(
+##     ECMMonUnit(model = SEI2HRModel()) %>% 
+##     ECMMonAssignInitialConditions(initConds = c(SPt = 1e+05)) %>% 
 ##     ECMMonAssignInitialConditions(initConds = c(INSPt = 0)) %>% 
 ##     ECMMonAssignInitialConditions(initConds = c(ISSPt = 1)) %>% 
 ##     ECMMonAssignRateValues(rateValues = c(contactRateINSP = 0.56)) %>% 
 ##     ECMMonAssignRateValues(rateValues = c(contactRateISSP = 0.58)) %>% 
 ##     ECMMonAssignRateValues(rateValues = c(contactRateHP = 0.1)) %>% 
-##     ECMMonSimulate(maxTime = 240) %>% ECMMonPlotSolutions(stocksSpec = ".*Population"))
+##     ECMMonSimulate(maxTime = 240) %>% ECMMonPlotSolutions(stocksSpec = ".*Population")
+## )
 ```
 
 
