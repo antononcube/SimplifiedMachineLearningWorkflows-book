@@ -570,47 +570,47 @@ list-style-type: none;
 <pre><code>## Warning in NonNegativeMatrixFactorization::NearestWords(lsaObj$H, word, : More that one column name corresponds to the search word; the first match is used.</code></pre>
 <pre><code>##    SearchTerm Word.Distance Word.Index Word.Word
 ## 1       ghost  0.0000000000        623     ghost
-## 2       ghost  2.7117498443         27     again
-## 3       ghost  3.0336526745        513    father
-## 4       ghost  3.1754078665       1465     stage
-## 5       ghost  3.2291616286       1644     under
-## 6       ghost  3.2400108324        319     cries
-## 7       ghost  3.3838172374       1312         s
-## 8       ghost  3.4982293007       1512     swear
-## 9       ghost  3.5209007974        935       mar
-## 10      ghost  3.5871566342        744       hor
-## 11      ghost  3.5876808549       1550      thee
-## 12      ghost  3.5912866597       1587       thy
+## 2       ghost  2.7104582353         27     again
+## 3       ghost  3.0323549513        513    father
+## 4       ghost  3.1750339154       1465     stage
+## 5       ghost  3.2285642571       1644     under
+## 6       ghost  3.2393248725        319     cries
+## 7       ghost  3.3826537734       1312         s
+## 8       ghost  3.4975768169       1512     swear
+## 9       ghost  3.5204077364        935       mar
+## 10      ghost  3.5868377279       1550      thee
+## 11      ghost  3.5869119178        744       hor
+## 12      ghost  3.5901934408       1587       thy
 ## 13      grave  0.0000000000        648     grave
-## 14      grave  0.0002382900       1597    tongue
-## 15      grave  0.0002395762        151    better
-## 16      grave  0.0002432527         60       any
-## 17      grave  0.0002696059        741    honour
-## 18      grave  0.0002859290       1317      said
-## 19      grave  0.0003267185       1419     sleep
-## 20      grave  0.0003409750        897      long
-## 21      grave  0.0003756209       1251    reason
-## 22      grave  0.0004069755       1362      sent
-## 23      grave  0.0004177100         58    answer
-## 24      grave  0.0004312935       1735     while</code></pre>
+## 14      grave  0.0002598782       1597    tongue
+## 15      grave  0.0002828355        151    better
+## 16      grave  0.0002891626       1317      said
+## 17      grave  0.0003122740        741    honour
+## 18      grave  0.0003327156       1419     sleep
+## 19      grave  0.0003395627        897      long
+## 20      grave  0.0003459771         60       any
+## 21      grave  0.0004090686       1251    reason
+## 22      grave  0.0004264220         58    answer
+## 23      grave  0.0004381933        643     grace
+## 24      grave  0.0004560758        429      each</code></pre>
 </div>
 <div id="recommender-workflow-data" class="slide section level2">
 <h1>Recommender workflow: data</h1>
 <p>Consider the making of a recommender over the Titanic data:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>dfTitanic[<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dfTitanic), <span class="dv">12</span>), ]</span></code></pre></div>
 <pre><code>##           id passengerClass passengerAge passengerSex passengerSurvival
-## 770   id.770            3rd           20         male              died
-## 1266 id.1266            3rd           10       female              died
-## 652   id.652            3rd           30         male              died
-## 849   id.849            3rd           40         male              died
-## 567   id.567            2nd           40         male              died
-## 901   id.901            3rd           -1         male              died
-## 143   id.143            1st           50         male              died
-## 374   id.374            2nd           30       female          survived
-## 720   id.720            3rd           20         male          survived
-## 516   id.516            2nd            0         male          survived
-## 419   id.419            2nd           50         male              died
-## 1006 id.1006            3rd           -1         male              died</code></pre>
+## 1225 id.1225            3rd           20         male              died
+## 443   id.443            2nd           20         male              died
+## 761   id.761            3rd           30         male          survived
+## 835   id.835            3rd           30         male              died
+## 706   id.706            3rd           -1         male              died
+## 339   id.339            2nd           30         male              died
+## 515   id.515            2nd            0         male          survived
+## 10     id.10            1st           70         male              died
+## 579   id.579            2nd           30         male              died
+## 1248 id.1248            3rd           -1       female          survived
+## 673   id.673            3rd           -1         male              died
+## 1205 id.1205            3rd           20         male              died</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">summary</span>(<span class="kw">as.data.frame</span>(<span class="kw">unclass</span>(dfTitanic), <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 <pre><code>##        id       passengerClass  passengerAge   passengerSex passengerSurvival
 ##  id.1   :   1   1st:323        Min.   :-1.00   female:466   died    :809     
