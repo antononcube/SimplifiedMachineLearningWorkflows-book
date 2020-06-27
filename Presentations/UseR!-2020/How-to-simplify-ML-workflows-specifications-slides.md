@@ -20,7 +20,7 @@ output:
 *Accendo Data LLC*   
 *https://github.com/antononcube*    
 
-<img src="userlogo.png" width="300"/>
+<img src="https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/raw/master/R/UseR!-2020-Conference/presentations/How-to-simplify-ML-workflows-specifications-slides/userlogo.png" width="300"/>
 
 
 ## What is this about?
@@ -82,8 +82,7 @@ summary(dfTemperatureData)
 ggplot2::ggplot(dfTemperatureData) + ggplot2::geom_point( ggplot2::aes( x = Time, y = Temperature ) )
 ```
 
-![](How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/unnamed-chunk-2-1.png)<!-- -->
-
+![](https://raw.githubusercontent.com/antononcube/SimplifiedMachineLearningWorkflows-book/master/R/UseR!-2020-Conference/presentations/How-to-simplify-ML-workflows-specifications-slides/How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/qr-data-1.png)
 
 
 ## Quantile Regression worfklow: first example
@@ -99,8 +98,7 @@ qrmon2 <-
      show date list plot with date origin 1900-01-01;", parse = TRUE) )
 ```
 
-![](How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/unnamed-chunk-3-1.png)<!-- -->
-
+![](https://raw.githubusercontent.com/antononcube/SimplifiedMachineLearningWorkflows-book/master/R/UseR!-2020-Conference/presentations/How-to-simplify-ML-workflows-specifications-slides/How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/qr-basic-pipeline-1.png)
 
 ## How it is done?
 
@@ -179,7 +177,7 @@ qrmon2 <- eval(expr = parse( text = paste(qrExpr)))
 ## Warning in QRMonSetData(res, data): Proceeding by renaming the first columm "Time" as "Regressor" and renaming the second columm "Temperature" as "Value".
 ```
 
-![](How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/unnamed-chunk-5-1.png)<!-- -->
+![](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/raw/master/R/UseR!-2020-Conference/presentations/How-to-simplify-ML-workflows-specifications-slides/How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/qr-outliers-1.png)
 
 ## Latent Semantic Analysis workflow: translation
 
@@ -223,29 +221,29 @@ lsamon2 <- eval(expr = parse( text = paste(lsaExpr)))
 ```
 ##    SearchTerm Word.Distance Word.Index Word.Word
 ## 1       ghost  0.0000000000        623     ghost
-## 2       ghost  2.7104585243         27     again
-## 3       ghost  3.0329619792        513    father
-## 4       ghost  3.1748348980       1465     stage
-## 5       ghost  3.2285530964       1644     under
-## 6       ghost  3.2393851854        319     cries
-## 7       ghost  3.3816775817       1312         s
-## 8       ghost  3.4975218903       1512     swear
-## 9       ghost  3.5203690983        935       mar
-## 10      ghost  3.5864016626        744       hor
-## 11      ghost  3.5865925495       1550      thee
-## 12      ghost  3.5899890210       1587       thy
+## 2       ghost  2.7104582353         27     again
+## 3       ghost  3.0323549513        513    father
+## 4       ghost  3.1750339154       1465     stage
+## 5       ghost  3.2285642571       1644     under
+## 6       ghost  3.2393248725        319     cries
+## 7       ghost  3.3826537734       1312         s
+## 8       ghost  3.4975768169       1512     swear
+## 9       ghost  3.5204077364        935       mar
+## 10      ghost  3.5868377279       1550      thee
+## 11      ghost  3.5869119178        744       hor
+## 12      ghost  3.5901934408       1587       thy
 ## 13      grave  0.0000000000        648     grave
-## 14      grave  0.0002163256         60       any
-## 15      grave  0.0002283049       1597    tongue
-## 16      grave  0.0002401747        151    better
-## 17      grave  0.0002528864        741    honour
-## 18      grave  0.0002926401       1317      said
-## 19      grave  0.0003375491       1419     sleep
-## 20      grave  0.0003536033        897      long
-## 21      grave  0.0003747190       1251    reason
-## 22      grave  0.0004035973       1362      sent
-## 23      grave  0.0004207916       1735     while
-## 24      grave  0.0004210154       1288      ring
+## 14      grave  0.0002598782       1597    tongue
+## 15      grave  0.0002828355        151    better
+## 16      grave  0.0002891626       1317      said
+## 17      grave  0.0003122740        741    honour
+## 18      grave  0.0003327156       1419     sleep
+## 19      grave  0.0003395627        897      long
+## 20      grave  0.0003459771         60       any
+## 21      grave  0.0004090686       1251    reason
+## 22      grave  0.0004264220         58    answer
+## 23      grave  0.0004381933        643     grace
+## 24      grave  0.0004560758        429      each
 ```
 
 
@@ -260,18 +258,18 @@ dfTitanic[sample(1:nrow(dfTitanic), 12), ]
 
 ```
 ##           id passengerClass passengerAge passengerSex passengerSurvival
-## 609   id.609            3rd           30         male              died
-## 335   id.335            2nd           30         male              died
-## 1105 id.1105            3rd           20         male              died
-## 330   id.330            2nd           40       female          survived
-## 1292 id.1292            3rd           -1         male              died
-## 17     id.17            1st           20         male              died
-## 472   id.472            2nd           40       female          survived
-## 410   id.410            2nd           40         male              died
-## 666   id.666            3rd           20       female              died
-## 929   id.929            3rd           -1       female              died
-## 949   id.949            3rd           -1         male              died
-## 171   id.171            1st           50         male          survived
+## 1225 id.1225            3rd           20         male              died
+## 443   id.443            2nd           20         male              died
+## 761   id.761            3rd           30         male          survived
+## 835   id.835            3rd           30         male              died
+## 706   id.706            3rd           -1         male              died
+## 339   id.339            2nd           30         male              died
+## 515   id.515            2nd            0         male          survived
+## 10     id.10            1st           70         male              died
+## 579   id.579            2nd           30         male              died
+## 1248 id.1248            3rd           -1       female          survived
+## 673   id.673            3rd           -1         male              died
+## 1205 id.1205            3rd           20         male              died
 ```
 
 
@@ -384,7 +382,7 @@ to_ECMMon_R_command(ecmCommands, parse = TRUE)
 ecmmon2 <- eval( to_ECMMon_R_command(ecmCommands) )
 ```
 
-![](How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/unnamed-chunk-14-1.png)<!-- -->
+![](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/raw/master/R/UseR!-2020-Conference/presentations/How-to-simplify-ML-workflows-specifications-slides/How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/ecm-populations-1.png)
 
 ## References
 

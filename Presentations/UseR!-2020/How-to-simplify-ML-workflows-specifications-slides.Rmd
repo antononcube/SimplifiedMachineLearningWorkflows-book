@@ -77,7 +77,7 @@ Here is a summary:
 summary(dfTemperatureData)
 ```
 
-```{r, fig.width=16, fig.height=6}
+```{r, qr-data, fig.width=16, fig.height=6}
 ggplot2::ggplot(dfTemperatureData) + ggplot2::geom_point( ggplot2::aes( x = Time, y = Temperature ) )
 ```
 
@@ -87,7 +87,7 @@ ggplot2::ggplot(dfTemperatureData) + ggplot2::geom_point( ggplot2::aes( x = Time
 
 Here is a Quantile Regression (QR) workflow specification:
 
-```{r, warning=FALSE, fig.width=16, fig.height=6}
+```{r qr-basic-pipeline, warning=FALSE, fig.width=16, fig.height=6}
 qrmon2 <- 
   eval( expr = to_QRMon_R_command( 
     "create from dfTemperatureData;
@@ -154,7 +154,7 @@ qrExpr
 
 Here we evaluate the generated QR monad code:
 
-```{r, fig.width=16, fig.height=6}
+```{r qr-outliers, fig.width=16, fig.height=6}
 qrmon2 <- eval(expr = parse( text = paste(qrExpr)))
 ```
 
@@ -249,7 +249,7 @@ ecmCommands <-
 to_ECMMon_R_command(ecmCommands, parse = TRUE)
 ```
 
-```{r, fig.width=16, fig.height=6}
+```{r ecm-populations, fig.width=16, fig.height=6}
 ecmmon2 <- eval( to_ECMMon_R_command(ecmCommands) )
 ```
 
