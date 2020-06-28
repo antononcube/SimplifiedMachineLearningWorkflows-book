@@ -13,7 +13,7 @@ output:
 
 ## How to simplify Machine Learning workflows specifications?
 
-### *useR! 2020 Conference, lightning talk*
+### [*useR! 2020 Conference, lightning talk*](https://youtu.be/QqH6eha73xk)
 
 **Anton Antonov**   
 *Senior Research Scientist*   
@@ -29,7 +29,7 @@ Rapid specification of Machine Learning (ML) workflows using natural language co
 
 The easiest things to automate with ML are ML workflows. 
 
-This presentation demonstrates that with interfaces based on natural language commands.
+This presentation demonstrates that with natural language interfaces to ML algorithms.
 
 
 ## Motivation
@@ -223,29 +223,29 @@ lsamon2 <- eval(expr = parse( text = paste(lsaExpr)))
 ```
 ##    SearchTerm Word.Distance Word.Index Word.Word
 ## 1       ghost  0.0000000000        623     ghost
-## 2       ghost  2.7104582353         27     again
-## 3       ghost  3.0323549513        513    father
-## 4       ghost  3.1750339154       1465     stage
-## 5       ghost  3.2285642571       1644     under
-## 6       ghost  3.2393248725        319     cries
-## 7       ghost  3.3826537734       1312         s
-## 8       ghost  3.4975768169       1512     swear
-## 9       ghost  3.5204077364        935       mar
-## 10      ghost  3.5868377279       1550      thee
-## 11      ghost  3.5869119178        744       hor
-## 12      ghost  3.5901934408       1587       thy
+## 2       ghost  2.7115975105         27     again
+## 3       ghost  3.0337860674        513    father
+## 4       ghost  3.1751511099       1465     stage
+## 5       ghost  3.2288933788       1644     under
+## 6       ghost  3.2397578292        319     cries
+## 7       ghost  3.3836383544       1312         s
+## 8       ghost  3.4981754944       1512     swear
+## 9       ghost  3.5206941757        935       mar
+## 10      ghost  3.5872178308        744       hor
+## 11      ghost  3.5874041920       1550      thee
+## 12      ghost  3.5910108214       1587       thy
 ## 13      grave  0.0000000000        648     grave
-## 14      grave  0.0002598782       1597    tongue
-## 15      grave  0.0002828355        151    better
-## 16      grave  0.0002891626       1317      said
-## 17      grave  0.0003122740        741    honour
-## 18      grave  0.0003327156       1419     sleep
-## 19      grave  0.0003395627        897      long
-## 20      grave  0.0003459771         60       any
-## 21      grave  0.0004090686       1251    reason
-## 22      grave  0.0004264220         58    answer
-## 23      grave  0.0004381933        643     grace
-## 24      grave  0.0004560758        429      each
+## 14      grave  0.0002148722         60       any
+## 15      grave  0.0002240588       1597    tongue
+## 16      grave  0.0002393262        151    better
+## 17      grave  0.0002512303        741    honour
+## 18      grave  0.0002984727       1317      said
+## 19      grave  0.0003411081       1419     sleep
+## 20      grave  0.0003546082        897      long
+## 21      grave  0.0003742935       1251    reason
+## 22      grave  0.0004033964       1362      sent
+## 23      grave  0.0004205840       1735     while
+## 24      grave  0.0004235261       1288      ring
 ```
 
 
@@ -260,18 +260,18 @@ dfTitanic[sample(1:nrow(dfTitanic), 12), ]
 
 ```
 ##           id passengerClass passengerAge passengerSex passengerSurvival
-## 1225 id.1225            3rd           20         male              died
-## 443   id.443            2nd           20         male              died
-## 761   id.761            3rd           30         male          survived
-## 835   id.835            3rd           30         male              died
-## 706   id.706            3rd           -1         male              died
-## 339   id.339            2nd           30         male              died
-## 515   id.515            2nd            0         male          survived
-## 10     id.10            1st           70         male              died
-## 579   id.579            2nd           30         male              died
-## 1248 id.1248            3rd           -1       female          survived
-## 673   id.673            3rd           -1         male              died
-## 1205 id.1205            3rd           20         male              died
+## 825   id.825            3rd           40         male              died
+## 439   id.439            2nd           20       female          survived
+## 98     id.98            1st           30       female          survived
+## 726   id.726            3rd           20       female          survived
+## 650   id.650            3rd           20         male              died
+## 1141 id.1141            3rd           20         male              died
+## 418   id.418            2nd           30         male              died
+## 795   id.795            3rd            0       female          survived
+## 616   id.616            3rd           20         male              died
+## 496   id.496            2nd           -1         male              died
+## 822   id.822            3rd           30         male              died
+## 448   id.448            2nd           20         male              died
 ```
 
 
