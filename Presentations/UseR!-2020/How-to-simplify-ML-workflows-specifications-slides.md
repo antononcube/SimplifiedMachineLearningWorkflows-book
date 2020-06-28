@@ -13,7 +13,7 @@ output:
 
 ## How to simplify Machine Learning workflows specifications?
 
-### *useR! 2020 Conference, lightning talk*
+### [*useR! 2020 Conference, lightning talk*](https://youtu.be/QqH6eha73xk)
 
 **Anton Antonov**   
 *Senior Research Scientist*   
