@@ -85,7 +85,7 @@ ggplot2::ggplot(dfTemperatureData) + ggplot2::geom_point( ggplot2::aes( x = Time
 ![](https://raw.githubusercontent.com/antononcube/SimplifiedMachineLearningWorkflows-book/master/R/UseR!-2020-Conference/presentations/How-to-simplify-ML-workflows-specifications-slides/How-to-simplify-ML-workflows-specifications-slides_files/figure-slidy/qr-data-1.png)
 
 
-## Quantile Regression worfklow: first example
+## Quantile Regression workflow: first example
 
 Here is a Quantile Regression (QR) workflow specification:
 

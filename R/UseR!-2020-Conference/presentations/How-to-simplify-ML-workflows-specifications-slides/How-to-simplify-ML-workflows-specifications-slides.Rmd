@@ -83,7 +83,7 @@ ggplot2::ggplot(dfTemperatureData) + ggplot2::geom_point( ggplot2::aes( x = Time
 
 
 
-## Quantile Regression worfklow: first example
+## Quantile Regression workflow: first example
 
 Here is a Quantile Regression (QR) workflow specification:
 
