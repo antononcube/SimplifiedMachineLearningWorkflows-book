@@ -89,7 +89,7 @@ Here is a Quantile Regression (QR) workflow specification:
 
 ```{r qr-basic-pipeline, warning=FALSE, fig.width=16, fig.height=6}
 qrmon2 <- 
-  eval( expr = to_QRMon_R_command( 
+  eval( expr = ToQuantileRegressionWorkflowCode( 
     "create from dfTemperatureData;
      compute quantile regression with 12 knots and probabilities 0.25, 0.5, and 0.75;
      show date list plot with date origin 1900-01-01;", parse = TRUE) )
@@ -142,7 +142,7 @@ is translated into code for a QR software monad:
 
 ```{r}
 qrExpr <- 
-  to_QRMon_R_command( 
+  ToQuantileRegressionWorkflowCode( 
     "create from dfTemperatureData;
      compute quantile regression with knots 12 and probabilities 0.05, 0.95;
      find outliers;", parse = FALSE )
@@ -165,7 +165,7 @@ is translated into code for a LSA software monad:
 
 ```{r}
 lsaExpr <- 
-  to_LSAMon_R_command( 
+  ToLatentSemanticAnalysisWorkflowCode( 
     "create from textHamlet;
      make document term matrix with automatic stop words and without stemming;
      apply lsi functions global weight function idf, local term weight function none, normalizer function cosine;
@@ -202,7 +202,7 @@ Here are recommender workflow specification and evaluation results:
 
 ```{r}
 smrmon2 <- 
-  eval( expr = to_SMRMon_R_command( 
+  eval( expr = ToRecommenderWorkflowCode( 
     "create from dfTitanic; 
      apply the LSI functions inverse document frequency, term frequency, and cosine;
      compute the top 6 recommendations for the profile female=1, 30=1; 
@@ -218,7 +218,7 @@ can handle misspellings:
 
 ```{r}
 smrmon2 <- 
-  eval( expr = to_SMRMon_R_command( 
+  eval( expr = ToRecommenderWorkflowCode( 
     "create from dfTitanic; 
      aply the LSI functions inverse document frequency, term frequency, and cosine;
      compute the top 6 recomendations for the profle female=1, 30=1; 
@@ -246,11 +246,11 @@ ecmCommands <-
 ```
 
 ```{r}
-to_ECMMon_R_command(ecmCommands, parse = TRUE)
+ToEpidemiologyModelingWorkflowCode(ecmCommands, parse = TRUE)
 ```
 
 ```{r ecm-populations, fig.width=16, fig.height=6}
-ecmmon2 <- eval( to_ECMMon_R_command(ecmCommands) )
+ecmmon2 <- eval( ToEpidemiologyModelingWorkflowCode(ecmCommands) )
 ```
 
 ## References

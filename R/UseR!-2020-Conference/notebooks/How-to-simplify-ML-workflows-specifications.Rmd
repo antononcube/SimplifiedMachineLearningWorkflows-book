@@ -50,7 +50,7 @@ Here is an example of a natural language specification for the code generation o
 a recommendation system pipeline (with an intentional misspelling):
 
 ```{r}
-to_SMRMon_R_command( 
+ToRecommenderWorkflowCode( 
     "create from dfTitanic;
      apply the LSI functions IDF, TermFrequency, Cosine;
      recommend for histry id.5, id.7; 
@@ -72,7 +72,7 @@ that we discuss in the presentation:
 Here we interpret a sequence of natural commands into a recommender pipeline, [AAp1]:
 
 ```{r}
-to_SMRMon_R_command( 
+ToRecommenderWorkflowCode( 
     "create from dfTitanic;
      apply IDF, TermFrequency, Cosine;
      recommend for history id.5, id.7; 
@@ -82,9 +82,11 @@ to_SMRMon_R_command(
 
 Here are the evaluation results of the generated pipeline:
 
+
+
 ```{r}
 smrObj <- 
-  eval( expr = to_SMRMon_R_command( 
+  eval( expr = ToRecommenderWorkflowCode( 
     "create from dfTitanic;
      apply IDF, TermFrequency, Cosine;
      recommend for history id.5, id.7; 
@@ -106,7 +108,7 @@ Specify an LSA pipeline and evaluate it, [AAp2]:
 ```{r}
 set.seed(942)
 lsaObj <-
-  eval( expr = to_LSAMon_R_command( 
+  eval( expr = ToLatentSemanticAnalysisWorkflowCode( 
   "create from lsAbstracts;
    make document term matrix with stemming FALSE and automatic stop words;
    apply LSI functions global weight function idf, local term weight function none, normalizer function cosine;
@@ -118,8 +120,8 @@ Get statistical thesaurus:
 
 ```{r}
 lsaObj <- 
-eval( expr = to_LSAMon_R_command( "use lsa object lsaObj; 
-                                   show thesaurus table for dplyr, shiny, tidyverse;" ))
+  eval( expr = ToLatentSemanticAnalysisWorkflowCode( "use lsa object lsaObj; 
+                                                      show thesaurus table for dplyr, shiny, tidyverse;" ))
 ```
 
 ## Quantile regression
@@ -128,7 +130,7 @@ Specify a Quantile Regression (QR) workflow, [AAp3]:
 
 ```{r}
 qrObj <-
-  eval( expr = to_QRMon_R_command( 
+  eval( expr = ToQuantileRegressionWorkflowCode( 
     "create from dfTemperatureData;
      compute quantile regression with 12 knots;
      show date plot with date origin 1900-01-01" ) )
