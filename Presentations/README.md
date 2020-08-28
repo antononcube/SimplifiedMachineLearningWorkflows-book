@@ -93,11 +93,7 @@ We want to do that because:
 3. Natural language workflows are "universal"
   
 We demonstrate data transformation code generation for different programming languages/packages.
-We focus on these three:
-
-- R-base
-- R-tidyverse
-- Python-pandas
+We focus on these three: R-base, R-tidyverse, Python-pandas.
 
 In addition to code generation examples we also outline the utilized software strategy and architecture and 
 the unit testing procedures.
