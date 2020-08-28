@@ -662,11 +662,17 @@ border: 0;
 </div>
 <div id="motivation" class="slide section level2">
 <h1>Motivation</h1>
-<p>Assume that:</p>
-<ol style="list-style-type: decimal">
+<p>Here are our primary motivation points:</p>
+<ul>
+<li><p>Often we have to apply the same data transformation workflows within different programming languages and/or packages.</p></li>
+<li><p>Although the high-level data transformation workflows are the same, it might be time consuming to express those workflows in the logic and syntax of concrete programming languages or packages.</p></li>
+<li><p>It would be nice to have software solutions that speed-up the processes for multi-language expression of data transformation workflows.</p></li>
+</ul>
+<p>Further, assume that:</p>
+<ul>
 <li><p>We want to create conversation agents that help Data Science (DS) and ML practitioners to quickly create first, initial versions of different data wrangling workflows for different programming languages and related packages.</p></li>
 <li><p>We expect that the initial versions of programming code are tweaked further. (In order to produce desired outcomes in the application area of interest.)</p></li>
-</ol>
+</ul>
 </div>
 <div id="the-workflows-considered" class="slide section level2">
 <h1>The workflows considered</h1>
@@ -679,7 +685,7 @@ border: 0;
 </div>
 <div id="first-example-data" class="slide section level2">
 <h1>First example data</h1>
-<p>Assume we have a data frame with Star Wars characters data. Here is a summary:</p>
+<p>Assume we have a data frame with Titanic data. Here is a summary:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">summary</span>(<span class="kw">as.data.frame</span>(<span class="kw">unclass</span>(dfTitanic), <span class="dt">stringsAsFactors =</span> T))</span></code></pre></div>
 <pre><code>##        id       passengerClass  passengerAge   passengerSex passengerSurvival
 ##  id.1   :   1   1st:323        Min.   :-1.00   female:466   died    :809     
@@ -715,25 +721,11 @@ border: 0;
 </div>
 <div id="translation-to-other-programming-languages" class="slide section level2">
 <h1>Translation to other programming languages</h1>
-<p>Here are examples of translations of data wrangling English DSL commands into different programming language (and data transformation packages):</p>
+<p>Here are examples of translations of data wrangling English DSL commands into different programming languages (and data transformation packages):</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>command &lt;-</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="st">&quot;use data frame dfStarwars;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="st">keep the columns name, homeworld, mass &amp; height;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="st">arrange by mass, height, and name&quot;</span>;</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>dfRes &lt;-<span class="st"> </span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="st">  </span>purrr<span class="op">::</span><span class="kw">map_df</span>( <span class="kw">c</span>( <span class="st">&quot;Julia-DataFrames&quot;</span>, <span class="st">&quot;Python-pandas&quot;</span>, <span class="st">&quot;R-base&quot;</span>, <span class="st">&quot;WL&quot;</span>), <span class="cf">function</span>(nlang) {</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    res &lt;-<span class="st"> </span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="st">      </span><span class="kw">data.frame</span>(</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>        <span class="st">&quot;Language-package&quot;</span> =<span class="st"> </span>nlang,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>        <span class="st">&quot;Translated&quot;</span> =<span class="st"> </span><span class="kw">ToDataQueryWorkflowCode</span>( <span class="dt">command =</span> command, <span class="dt">target =</span> nlang, <span class="dt">parse =</span> F),</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>        <span class="st">&quot;tidyverse&quot;</span>  =<span class="st"> </span><span class="kw">ToDataQueryWorkflowCode</span>( <span class="dt">command =</span> command, <span class="dt">target =</span> <span class="st">&quot;tidyverse&quot;</span>, <span class="dt">parse =</span> F),</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>    <span class="kw">rbind</span>(res, <span class="kw">setNames</span>(<span class="kw">data.frame</span>(<span class="st">&quot;---&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="st">&quot; &quot;</span>), <span class="kw">names</span>(res) ))</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>  })</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>dfRes <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kbl</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, <span class="dt">font_size =</span> <span class="dv">22</span>, <span class="dt">full_width =</span> F, <span class="dt">position =</span> <span class="st">&quot;left&quot;</span>)</span></code></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="st">arrange by mass, height, and name&quot;</span>;</span></code></pre></div>
 <table class="table table-striped" style="font-size: 22px; width: auto !important; ">
 <thead>
 <tr>
@@ -926,21 +918,7 @@ dplyr::arrange(mass, height, name)
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>command &lt;-</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="st">&quot;use data frame dfStarwars;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="st">keep the columns name, homeworld, mass &amp; height;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="st">arrange by mass, height, and name&quot;</span>;</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>dfRes &lt;-<span class="st"> </span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="st">  </span>purrr<span class="op">::</span><span class="kw">map_df</span>( <span class="kw">c</span>( <span class="st">&quot;Bulgarian&quot;</span>, <span class="st">&quot;Korean&quot;</span>, <span class="st">&quot;Spanish&quot;</span>), <span class="cf">function</span>(nlang) {</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>    res &lt;-<span class="st"> </span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a><span class="st">      </span><span class="kw">data.frame</span>(</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>        <span class="st">&quot;Language&quot;</span> =<span class="st"> </span>nlang,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>        <span class="st">&quot;Translated&quot;</span> =<span class="st"> </span><span class="kw">ToDataQueryWorkflowCode</span>( <span class="dt">command =</span> command, <span class="dt">target =</span> nlang, <span class="dt">parse =</span> F),</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>        <span class="st">&quot;English&quot;</span> =<span class="st"> </span><span class="kw">trimws</span>( <span class="kw">strsplit</span>(command, <span class="st">&quot;;&quot;</span>)[[<span class="dv">1</span>]] ),</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>    <span class="kw">rbind</span>(res, <span class="kw">setNames</span>(<span class="kw">data.frame</span>(<span class="st">&quot;---&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="st">&quot; &quot;</span>), <span class="kw">names</span>(res) ))</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>  })</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>dfRes <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kbl</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, <span class="dt">font_size =</span> <span class="dv">22</span>, <span class="dt">full_width =</span> F, <span class="dt">position =</span> <span class="st">&quot;left&quot;</span>)</span></code></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="st">arrange by mass, height, and name&quot;</span>;</span></code></pre></div>
 <table class="table table-striped" style="font-size: 22px; width: auto !important; ">
 <thead>
 <tr>
@@ -1087,7 +1065,8 @@ arrange by mass, height, and name
 </div>
 <div id="not-just-data-wrangling-workflows" class="slide section level2">
 <h1>Not just data wrangling workflows</h1>
-<p>Obviously this approach can be used for any type of computational workflows. For more details and examples see the <strong><em>useR! 2020 Conference</em></strong> presentation [AA1, AA2].</p>
+<p>Obviously this approach can be used for any type of computational workflows.<br />
+For more details and examples see the <strong><em>useR! 2020 Conference</em></strong> presentation [AA1, AA2].</p>
 <p>Here is an example of an Epidemiology Modeling workflow:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>ecmCommands &lt;-<span class="st"> </span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="st">&#39;create with the model susceptible exposed infected two hospitalized recovered;</span></span>
@@ -1276,7 +1255,7 @@ arrange by mass, height, and name
 <h1>References</h1>
 <h3 id="articles-movies">Articles, movies</h3>
 <p>[AA1] Anton Antonov, <a href="https://mathematicaforprediction.wordpress.com/2020/06/28/how-to-simplify-machine-learning-workflows-specifications-user-2020/">“How to simplify Machine learning workflows specifications? (useR! 2020)”</a>, (2020), <a href="https://mathematicaforprediction.wordpress.com">MathematicaForPrediction at WordPress</a>.</p>
-<p>[AA2] Anton Antonov, <a href="https://www.youtube.com/watch?v=b9Uu7gRF5KY">“useR! 2020: How to simplify Machine Learning workflows specifications (A. Antonov), lightening”</a>, (2020), R Consortium at YouTube.</p>
+<p>[AA2] Anton Antonov, <a href="https://www.youtube.com/watch?v=b9Uu7gRF5KY">“useR! 2020: How to simplify Machine Learning workflows specifications (A. Antonov), lightning”</a>, (2020), R Consortium at YouTube.</p>
 <h3 id="repositories">Repositories</h3>
 <p>[AAr1] Anton Antonov, <a href="https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows">DSL::English::DataQueryWorkflows Raku package</a>, (2020), GitHub.</p>
 <p>[AAr2] Anton Antonov, <a href="https://github.com/antononcube/Raku-DSL-English-EpidemiologyModelingWorkflows">DSL::English::EpidemiologyModelingWorkflows Raku package</a>, (2020), GitHub.</p>

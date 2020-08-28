@@ -30,13 +30,24 @@ In this presentation we show and compare data wrangling examples in different pr
 
 ## Motivation
 
-Assume that:
+Here are our primary motivation points:
 
-1. We want to create conversation agents that help Data Science (DS) and ML 
+- Often we have to apply the same data transformation workflows within different
+  programming languages and/or packages. 
+  
+- Although the high-level data transformation workflows are the same, it might be time consuming
+  to express those workflows in the logic and syntax of concrete programming languages or packages.
+  
+- It would be nice to have software solutions that speed-up the processes for
+  multi-language expression of data transformation workflows.
+
+Further, assume that:
+
+- We want to create conversation agents that help Data Science (DS) and ML 
 practitioners to quickly create first, initial versions of different data wrangling workflows 
 for different programming languages and related packages. 
 
-2. We expect that the initial versions of programming code are tweaked further.
+- We expect that the initial versions of programming code are tweaked further.
 (In order to produce desired outcomes in the application area of interest.)
 
 
@@ -55,7 +66,7 @@ In this presentation we focus on these three data wrangling packages:
 
 ## First example data
 
-Assume we have a data frame with Star Wars characters data. 
+Assume we have a data frame with Titanic data. 
 Here is a summary:
 
 
@@ -120,7 +131,7 @@ res1
 
 ## Translation to other programming languages
 
-Here are examples of translations of data wrangling English DSL commands into different programming language (and data transformation packages):
+Here are examples of translations of data wrangling English DSL commands into different programming languages (and data transformation packages):
 
 
 ```r
@@ -128,21 +139,8 @@ command <-
 "use data frame dfStarwars;
 keep the columns name, homeworld, mass & height;
 arrange by mass, height, and name";
-
-dfRes <- 
-  purrr::map_df( c( "Julia-DataFrames", "Python-pandas", "R-base", "WL"), function(nlang) {
-    res <- 
-      data.frame(
-        "Language-package" = nlang,
-        "Translated" = ToDataQueryWorkflowCode( command = command, target = nlang, parse = F),
-        "tidyverse"  = ToDataQueryWorkflowCode( command = command, target = "tidyverse", parse = F),
-        stringsAsFactors = FALSE)
-    rbind(res, setNames(data.frame("---", " ", " "), names(res) ))
-  })
-dfRes %>% 
-  kableExtra::kbl() %>% 
-  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 22, full_width = F, position = "left")
 ```
+
 
 <table class="table table-striped" style="font-size: 22px; width: auto !important; ">
  <thead>
@@ -247,21 +245,8 @@ command <-
 "use data frame dfStarwars;
 keep the columns name, homeworld, mass & height;
 arrange by mass, height, and name";
-
-dfRes <- 
-  purrr::map_df( c( "Bulgarian", "Korean", "Spanish"), function(nlang) {
-    res <- 
-      data.frame(
-        "Language" = nlang,
-        "Translated" = ToDataQueryWorkflowCode( command = command, target = nlang, parse = F),
-        "English" = trimws( strsplit(command, ";")[[1]] ),
-        stringsAsFactors = FALSE)
-    rbind(res, setNames(data.frame("---", " ", " "), names(res) ))
-  })
-dfRes %>% 
-  kableExtra::kbl() %>% 
-  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 22, full_width = F, position = "left")
 ```
+
 
 <table class="table table-striped" style="font-size: 22px; width: auto !important; ">
  <thead>
@@ -338,7 +323,7 @@ dfRes %>%
 
 ## Not just data wrangling workflows
 
-Obviously this approach can be used for any type of computational workflows.
+Obviously this approach can be used for any type of computational workflows.   
 For more details and examples see the ***useR! 2020 Conference*** presentation [AA1, AA2]. 
 
 Here is an example of an Epidemiology Modeling workflow:
@@ -614,7 +599,7 @@ res4 <-
 [MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com).
 
 [AA2] Anton Antonov,
-["useR! 2020: How to simplify Machine Learning workflows specifications (A. Antonov), lightening"](https://www.youtube.com/watch?v=b9Uu7gRF5KY),
+["useR! 2020: How to simplify Machine Learning workflows specifications (A. Antonov), lightning"](https://www.youtube.com/watch?v=b9Uu7gRF5KY),
 (2020),
 R Consortium at YouTube.
 

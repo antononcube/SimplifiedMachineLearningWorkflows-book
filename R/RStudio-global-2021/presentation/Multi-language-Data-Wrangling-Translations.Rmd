@@ -39,13 +39,24 @@ In this presentation we show and compare data wrangling examples in different pr
 
 ## Motivation
 
-Assume that:
+Here are our primary motivation points:
 
-1. We want to create conversation agents that help Data Science (DS) and ML 
+- Often we have to apply the same data transformation workflows within different
+  programming languages and/or packages. 
+  
+- Although the high-level data transformation workflows are the same, it might be time consuming
+  to express those workflows in the logic and syntax of concrete programming languages or packages.
+  
+- It would be nice to have software solutions that speed-up the processes for
+  multi-language expression of data transformation workflows.
+
+Further, assume that:
+
+- We want to create conversation agents that help Data Science (DS) and ML 
 practitioners to quickly create first, initial versions of different data wrangling workflows 
 for different programming languages and related packages. 
 
-2. We expect that the initial versions of programming code are tweaked further.
+- We expect that the initial versions of programming code are tweaked further.
 (In order to produce desired outcomes in the application area of interest.)
 
 
@@ -64,7 +75,7 @@ In this presentation we focus on these three data wrangling packages:
 
 ## First example data
 
-Assume we have a data frame with Star Wars characters data. 
+Assume we have a data frame with Titanic data. 
 Here is a summary:
 
 ```{r}
@@ -99,12 +110,15 @@ res1
 
 Here are examples of translations of data wrangling English DSL commands into different programming languages (and data transformation packages):
 
-```{r translation-table-programming-languages}
+```{r translation-table-programming-command}
 command <-
 "use data frame dfStarwars;
 keep the columns name, homeworld, mass & height;
 arrange by mass, height, and name";
+```
 
+
+```{r translation-table-programming-languages, echo=FALSE}
 dfRes <- 
   purrr::map_df( c( "Julia-DataFrames", "Python-pandas", "R-base", "WL"), function(nlang) {
     res <- 
@@ -125,12 +139,15 @@ dfRes %>%
 
 Here are examples of translations of data wrangling English DSL commands into Bulgarian, Korean, and Spanish:
 
-```{r translation-table-natural-languages, rows.print=20}
+```{r translation-table-natural-languages-command}
 command <-
 "use data frame dfStarwars;
 keep the columns name, homeworld, mass & height;
 arrange by mass, height, and name";
+```
 
+
+```{r translation-table-natural-languages, echo=FALSE}
 dfRes <- 
   purrr::map_df( c( "Bulgarian", "Korean", "Spanish"), function(nlang) {
     res <- 
