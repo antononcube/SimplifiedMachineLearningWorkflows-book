@@ -1,14 +1,13 @@
 # RStudio::global (2021)
 
-This R project is with the RStudio::global (2021) presentation:
-
---- 
-
-**TITLE:** Multi-language Data Wrangling Translations
+This R project is with the RStudio::global (2021) presentation that discusses 
+data wrangling code generation with natural language commands..
 
 ---
 
-**ABSTRACT:**
+## Multi-language Data Wrangling Translations
+
+### Abstract
 
 This presentation discusses how to facilitate the rapid specification of data wrangling programming code using natural language commands.
 
@@ -25,11 +24,22 @@ We focus on these three: R-base, R-tidyverse, Python-pandas.
 
 In addition to code generation examples we also outline the utilized software strategy and architecture and 
 the unit testing procedures.
+
 --- 
 
 ## References
 
-- Here is the call for talks page: 
-["rstudio::global() call for talks"](https://blog.rstudio.com/2020/07/17/rstudio-global-call-for-talks/).
+[HW1] Hadley Wickham, 
+["rstudio::global() call for talks"](https://blog.rstudio.com/2020/07/17/rstudio-global-call-for-talks/), 
+(2020-07-17).
+[RStudio blog](https://blog.rstudio.com/).
 
+[AA1] Anton Antonov,
+["How to simplify Machine learning workflows specifications? (useR! 2020)"](https://mathematicaforprediction.wordpress.com/2020/06/28/how-to-simplify-machine-learning-workflows-specifications-user-2020/),
+(2020),
+[MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com).
 
+[AA2] Anton Antonov,
+["useR! 2020: How to simplify Machine Learning workflows specifications (A. Antonov), lightning"](https://www.youtube.com/watch?v=b9Uu7gRF5KY),
+(2020),
+R Consortium at YouTube.
