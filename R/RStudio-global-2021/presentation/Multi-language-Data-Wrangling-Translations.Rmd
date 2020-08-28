@@ -1,0 +1,335 @@
+---
+title: ""
+author: "Anton Antonov"
+header-includes: "RStudio::global (2021) Conference"
+output:
+  slidy_presentation:
+     footer: "RStudio::global (2021) Conference"
+     keep_md: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(reticulate)
+library(ExternalParsersHookUp)
+library(DataQueryWorkflowsTests)
+library(MathematicaVsRData)
+library(ECMMon)
+```
+
+## Multi-language Data Wrangling Translations
+### *Data wrangling code generation by natural language commands*
+### [*RStudio::global (2021) Conference*](https://blog.rstudio.com/2020/07/17/rstudio-global-2021/)
+
+**Anton Antonov**   
+*Senior Research Scientist*   
+*Accendo Data LLC*   
+*https://github.com/antononcube*    
+
+<!--- <img src="userlogo.png" width="300"/> --->
+
+
+## What is this about?
+
+Rapid specification of data wrangling workflows using natural language commands.
+
+In this presentation we show and compare data wrangling examples in different programming languages using different packages. 
+
+## Motivation
+
+Assume that:
+
+1. We want to create conversation agents that help Data Science (DS) and ML 
+practitioners to quickly create first, initial versions of different data wrangling workflows 
+for different programming languages and related packages. 
+
+2. We expect that the initial versions of programming code are tweaked further.
+(In order to produce desired outcomes in the application area of interest.)
+
+
+
+## The workflows considered
+
+In this presentation we focus on these three data wrangling packages:
+
+- R-base
+
+- R-tidyverse
+
+- Python-pandas
+
+
+
+## First example data
+
+Assume we have a data frame with Star Wars characters data. 
+Here is a summary:
+
+```{r}
+summary(as.data.frame(unclass(dfTitanic), stringsAsFactors = T))
+```
+
+
+## Cross tabulataion: first example
+
+Here is a cross tabulation specification:
+
+```{r titanic-cross-tabulate-command}
+lsCommands <- 'use data frame dfTitanic; 
+filter with passengerAge greater or equal to 0; 
+rename "passengerSex" and "passengerClass" as "sex" and "class";
+cross tabulate sex and class'
+```
+
+
+```{r titanic-cross-tabulate-base}
+res1 <- eval( expr = ToDataQueryWorkflowCode( command = lsCommands, parse = TRUE, target = "R-base") )
+res1
+```
+
+```{r titanic-cross-tabulate-tidyverse}
+res1 <- eval( expr = ToDataQueryWorkflowCode( command = lsCommands, parse = TRUE, target = "R-tidyverse") )
+res1
+```
+
+
+## Translation to other programming languages
+
+Here are examples of translations of data wrangling English DSL commands into different programming languages (and data transformation packages):
+
+```{r translation-table-programming-languages}
+command <-
+"use data frame dfStarwars;
+keep the columns name, homeworld, mass & height;
+arrange by mass, height, and name";
+
+dfRes <- 
+  purrr::map_df( c( "Julia-DataFrames", "Python-pandas", "R-base", "WL"), function(nlang) {
+    res <- 
+      data.frame(
+        "Language-package" = nlang,
+        "Translated" = ToDataQueryWorkflowCode( command = command, target = nlang, parse = F),
+        "tidyverse"  = ToDataQueryWorkflowCode( command = command, target = "tidyverse", parse = F),
+        stringsAsFactors = FALSE)
+    rbind(res, setNames(data.frame("---", " ", " "), names(res) ))
+  })
+dfRes %>% 
+  kableExtra::kbl() %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 22, full_width = F, position = "left")
+```
+
+
+## Translation to other natural languages
+
+Here are examples of translations of data wrangling English DSL commands into Bulgarian, Korean, and Spanish:
+
+```{r translation-table-natural-languages, rows.print=20}
+command <-
+"use data frame dfStarwars;
+keep the columns name, homeworld, mass & height;
+arrange by mass, height, and name";
+
+dfRes <- 
+  purrr::map_df( c( "Bulgarian", "Korean", "Spanish"), function(nlang) {
+    res <- 
+      data.frame(
+        "Language" = nlang,
+        "Translated" = ToDataQueryWorkflowCode( command = command, target = nlang, parse = F),
+        "English" = trimws( strsplit(command, ";")[[1]] ),
+        stringsAsFactors = FALSE)
+    rbind(res, setNames(data.frame("---", " ", " "), names(res) ))
+  })
+dfRes %>% 
+  kableExtra::kbl() %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 22, full_width = F, position = "left")
+```
+
+
+## Not just data wrangling workflows
+
+Obviously this approach can be used for any type of computational workflows.   
+For more details and examples see the ***useR! 2020 Conference*** presentation [AA1, AA2]. 
+
+Here is an example of an Epidemiology Modeling workflow:
+
+```{r}
+ecmCommands <- 
+'create with the model susceptible exposed infected two hospitalized recovered;
+ assign 100000 to the susceptible population;
+ set infected normally symptomatic population to be 0;
+ set infected severely symptomatic population to be 1;
+ assign 0.56 to contact rate of infected normally symptomatic population;
+ assign 0.58 to contact rate of infected severely symptomatic population;
+ assign 0.1 to contact rate of the hospitalized population;
+ simulate for 240 days;
+ plot populations results;'
+```
+
+```{r}
+ToEpidemiologyModelingWorkflowCode(ecmCommands, parse = TRUE)
+```
+
+```{r ecm-populations, fig.width=16, fig.height=6}
+ecmmon2 <- eval( ToEpidemiologyModelingWorkflowCode(ecmCommands) )
+```
+
+## How it is done?
+
+We two types of Domain Specific Languages (DSL's) for data wrangling:
+
+1. a software package for data transformations and 
+
+2. a data wrangling DSL that is a subset of a spoken language.
+
+These two DSL's are combined: the natural language commands of the latter are translated into the former.
+
+By executing those translations we interpret commands of spoken DSL's into data transformation computational results.
+
+Note, that we assume that there is a separate system that converts speech into text.
+
+
+## Development cycle
+
+Here is a clarification diagram:
+
+![MonadicMakingOfMLConversationalAgents](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/Monadic-making-of-ML-conversational-agents.jpg)
+
+
+## Grammars and parsers
+
+For each natural language is developed a specialized DSL translation [Raku](https://raku.org) module.
+
+Each Raku module:
+
+1. Has grammars for parsing a sequence of natural commands of a certain DSL
+
+2. Translates the parsing results into corresponding programming code
+
+Different programming languages and packages can be the targets of the DSL translation.
+
+(At this point are implemented DSL-translators to Julia, Python, R, and Wolfram Language.)
+
+Here is an [example grammar](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows/blob/master/lib/DSL/English/DataQueryWorkflows/Grammar.rakumod). 
+
+## The translation execution loop
+
+In this notebook we use the following translation (parser-interpreter) execution loop:
+
+![ExecutionLoopInRmdNotebook](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/DataQueryWorkflows-execution-in-Rmd-notebook.jpg)
+
+## Filter, group, and summarize: translation
+
+Here is how a sequence of natural commands that specifies a data transformation workflow
+is translated into code for a "tidyverse":
+
+```{r filter-group-summarize-parse}
+qrExpr <- 
+  ToDataQueryWorkflowCode( 
+    "use dfStarwars;
+     filter by birth_year greater than 27;
+     select homeworld, mass and height;
+     group by homeworld;
+     summarize all with mean and median", target = "R-tidyverse" )
+qrExpr
+```
+
+## Filter, group, and summarize: evaluation
+
+Here we evaluate the generated data transformation code:
+
+```{r filter-group-summarize-eval}
+res2 <- eval(expr = parse( text = paste(qrExpr)))
+res2
+```
+
+## More complicated workflow: translation
+
+Here is how a sequence of natural commands that specifies a more complicated data transformation workflow
+is translated into "tidyverse" code:
+
+```{r}
+cExpr <- 
+  ToDataQueryWorkflowCode( "use data frame dfStarwars;
+  keep the columns name, homeworld, mass & height;
+  transform with bmi = `mass/height^2*10000`;
+  filter rows by bmi >= 30 & height < 200;
+  glimpse data;
+  arrange by the variables mass & height descending", target = "tidyverse")
+cExpr
+```
+
+##  More complicated workflow: evaluation
+
+Here we execute the generated LSA monad code:
+
+```{r}
+eval(expr = cExpr)
+```
+## Joins
+
+```{r}
+command <- 
+  'use dfStarwars;
+  filter by species is "Human";
+  select name, sex, homeworld;
+  inner join with dfStarwarsVehicles on "name";'
+```
+
+```{r}
+eval(ToDataQueryWorkflowCode(command = command, target = "R-base"))
+obj
+```
+
+```{r}
+eval(ToDataQueryWorkflowCode(command = command, target = "R-tidyverse"))
+```
+
+## Handling misspellings
+
+The approach taken in the design and implementation of the natural language commands interpreters 
+can handle misspellings:
+
+```{r}
+res4 <- 
+  eval( expr = ToDataQueryWorkflowCode( 
+    "use data frame starwars;
+    keep the columns name, homeworld, mass & height;
+    transfom with bmi = `mass/height^2*10000`;
+    filter rows by bmi >= 30 & height < 200;
+    summarize data;
+    arange by the variables mass & height decending" ) )
+```
+
+
+## References
+
+### Articles, movies
+
+[AA1] Anton Antonov,
+["How to simplify Machine learning workflows specifications? (useR! 2020)"](https://mathematicaforprediction.wordpress.com/2020/06/28/how-to-simplify-machine-learning-workflows-specifications-user-2020/),
+(2020),
+[MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com).
+
+[AA2] Anton Antonov,
+["useR! 2020: How to simplify Machine Learning workflows specifications (A. Antonov), lightning"](https://www.youtube.com/watch?v=b9Uu7gRF5KY),
+(2020),
+R Consortium at YouTube.
+
+### Repositories
+
+[AAr1] Anton Antonov, 
+[DSL::English::DataQueryWorkflows Raku package](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows), 
+(2020),
+GitHub.
+
+[AAr2] Anton Antonov, 
+[DSL::English::EpidemiologyModelingWorkflows Raku package](https://github.com/antononcube/Raku-DSL-English-EpidemiologyModelingWorkflows), 
+(2020),
+GitHub.
+
+[AAr3] Anton Antonov, 
+[Epidemiology Compartmental Modeling Monad in R](https://github.com/antononcube/ECMMon-R), 
+(2020),
+GitHub.

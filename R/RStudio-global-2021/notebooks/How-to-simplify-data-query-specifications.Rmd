@@ -1,0 +1,227 @@
+---
+title: "How to simplify data query specifications"
+author: Anton Antonov
+date: 2020-07-03
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(kableExtra)
+library(tidyverse)
+library(dbplyr)
+library(magrittr)
+library(ExternalParsersHookUp)
+```
+
+# Introduction
+
+# Data
+
+## Get Titanic data
+
+```{r}
+dfTitanic <- read.csv("https://raw.githubusercontent.com/antononcube/MathematicaVsR/master/Data/MathematicaVsR-Data-Titanic.csv", stringsAsFactors=FALSE)
+```
+
+# Star Wars data
+
+```{r}
+head(starwars)
+```
+
+```{r}
+starwars_films <- 
+  purrr::map_df( split(starwars, 1:nrow(starwars)), function(dfX) {
+    data.frame( name= dfX$name[[1]], 
+                film = dfX$films[[1]], 
+                stringsAsFactors = FALSE ) 
+  })
+starwars_films
+```
+
+```{r}
+starwars_starships <- 
+  purrr::map_df( split(starwars, 1:nrow(starwars)), function(dfX) {
+    if( length(dfX$starships[[1]]) == 0 ) {
+      NULL 
+    } else {
+      data.frame( name= dfX$name[[1]], 
+                starship = dfX$starships[[1]], 
+                stringsAsFactors = FALSE ) 
+    }
+  })
+starwars_starships
+```
+
+# Experiments
+
+
+```{r}
+starwars %>%
+  dplyr::select(mass, height ) %>%
+  dplyr::mutate(mass1 = mass) %>%
+  ( function(x) { print(summary(x)); x } ) %>%  
+  dplyr::glimpse() %>% 
+  dplyr::arrange(desc(mass, height))
+```
+# Basic workflow
+
+## Titanic
+
+```{r}
+dfTitanic %>%
+  dplyr::filter(passengerSex == "male") %>%
+  dplyr::group_by(passengerClass) %>%
+  dplyr::count()
+```
+
+## Star Wars
+
+Direct Raku call:
+
+```{r}
+RakuCommand( "say ToDataQueryWorkflowCode('use dfTitanic; filteri by passengerSex == 12;group by passengerClass, passengerSurvival; count; ungroup;')", NULL, "DSL::English::DataQueryWorkflows")
+```
+
+
+```{r}
+commands <- 
+  "use data frame starwars;
+keep the columns name, homeworld, mass & height;
+transform with bmi = `mass/height^2*10000`;
+glimpse data;
+filter rows by bmi >= 30 & height < 200;
+summarise data;
+arrange by the variables mass & height descending"
+
+ToDataQueryWorkflowCode( commands, parse = TRUE )
+```
+
+```{r}
+eval(ToDataQueryWorkflowCode(commands))
+```
+
+# Inner join
+
+```{r}
+ToDataQueryWorkflowCode(
+  "use dfTitanic;
+filter by passengerSex == 'male';
+group by passengerClass, passengerSurvival;
+count;
+ungroup;", parse = TRUE)
+```
+
+
+
+# Cross tabulation
+
+```{r}
+ToDataQueryWorkflowCode(
+  'use data frame starwars; 
+  cross tabulate homeworld with gender over mass;
+  sort by Freq descending')
+```
+
+```{r}
+eval(ToDataQueryWorkflowCode(
+  'use data frame starwars; 
+  cross tabulate homeworld with gender over mass;
+  sort by Freq descending'))
+```
+
+# Long form
+
+```{r}
+semi_join
+```
+
+```{r}
+reshape( data = as.data.frame(starwars[, c("name", "mass", "height")]), varying = c("mass", "height"), v.names = "VAL", timevar = "Var1", direction = "long") %>% 
+  dplyr::arrange( name )
+```
+
+```{r}
+starwars %>%
+  dplyr::select(name, mass, height) %>%
+  tidyr::pivot_longer(cols = c( mass, height), names_to = "Var1", values_to = "VAL" ) %>% 
+  dplyr::arrange(name)
+```
+
+```{r}
+starwars %>% 
+  dplyr::select( name, height, mass ) %>% 
+  tidyr::pivot_longer( cols = c(height, mass), names_to = "Variable", values_to = "Value" )
+```
+
+```{r}
+starwars %>% 
+  dplyr::select( name, height, mass ) %>% 
+  tidyr::pivot_longer( cols = !contains("name"), names_to = "Variable", values_to = "Value" )
+```
+
+```{r}
+starwars %>% 
+  dplyr::select( name, height, mass ) %>% 
+  tidyr::pivot_longer( cols = -name, names_to = "Variable", values_to = "Value" )
+```
+
+```{r}
+starwars %>% 
+  dplyr::select( name, height, mass, homeworld, gender ) %>% 
+  tidyr::pivot_longer( cols = -name, names_to = "Variable", values_to = "Value", values_transform = list( homeworld = as.character, gender = as.character ) )
+```
+# Wide form
+
+```{r}
+dfLong <- 
+  reshape( data = as.data.frame(starwars[, c("name", "mass", "height")]), varying = c("mass", "height"), v.names = "VAL", timevar = "Var1", direction = "long") %>% 
+  dplyr::arrange( name )
+dfLong
+```
+
+```{r}
+reshape(data = dfLong, idvar = "name", v.names = "VAL", timevar = "Var1", direction = "wide" )
+```
+
+
+```{r}
+dfLong <- 
+  starwars %>%
+  dplyr::select(name, mass, height) %>%
+  tidyr::pivot_longer(cols = c( mass, height), names_to = "Var1", values_to = "VAL" ) %>% 
+  dplyr::arrange(name)
+dfLong
+```
+
+```{r}
+dfLong %>% 
+  tidyr::pivot_wider( id_cols = name, names_from = Var1, values_from = VAL )
+```
+
+
+# Explain
+
+```{r}
+if (require("dbplyr")) {
+
+lahman_s <- lahman_sqlite()
+batting <- tbl(lahman_s, "Batting")
+batting %>% show_query()
+batting %>% explain()
+
+# The batting database has indices on all ID variables:
+# SQLite automatically picks the most restrictive index
+batting %>% filter(lgID == "NL" & yearID == 2000L) %>% explain()
+
+# OR's will use multiple indexes
+batting %>% filter(lgID == "NL" | yearID == 2000) %>% explain()
+
+# Joins will use indexes in both tables
+teams <- tbl(lahman_s, "Teams")
+batting %>% left_join(teams, c("yearID", "teamID")) %>% explain()
+}
+```
+
