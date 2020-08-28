@@ -82,22 +82,22 @@ Here is the *submitted* abstract:
 
 **ABSTRACT:**
 
-We want to facilitate the rapid specification of data wrangling workflows using natural language commands.
+This presentation discusses how to facilitate the rapid specification of data wrangling programming code using natural language commands.
 
-Here are our primary motivation points:
+We want to do that because:
 
-- Often we have to apply the same data transformation workflows within different
-  programming languages and/or packages. 
+1. Often we have to apply the same data wrangling workflows within different programming languages and/or packages
+
+2. It might be time consuming to express those workflows with the concrete language/package logic and syntax 
+
+3. Natural language workflows are "universal"
   
-- Although the high-level data transformation workflows are the same, it might be time consuming
-  to express those workflows in the logic and syntax of concrete programming languages or packages.
-  
-- It would be nice to have software solutions that speed-up the processes for
-  multi-language expression of data transformation workflows.
-
-In this presentation we demonstrate the data wrangling code generation for different programming languages, using different packages. 
-We focus on these three data wrangling packages:
+We demonstrate data transformation code generation for different programming languages/packages.
+We focus on these three:
 
 - R-base
 - R-tidyverse
 - Python-pandas
+
+In addition to code generation examples we also outline the utilized software strategy and architecture and 
+the unit testing procedures.
