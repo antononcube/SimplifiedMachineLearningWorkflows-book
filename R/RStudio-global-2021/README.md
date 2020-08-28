@@ -1,12 +1,12 @@
 # RStudio::global (2021)
 
 This R project is with the RStudio::global (2021) 
-[presentation](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/R/RStudio-global-2021/presentation)
+[presentation](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/R/RStudio-global-2021/presentation/Multi-language-Data-Wrangling-Translations.md)
 that discusses data wrangling code generation with natural language commands.
 
 ---
 
-## [Multi-language Data Wrangling Translations](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/R/RStudio-global-2021/presentation)
+## [Multi-language Data Wrangling Translations](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/R/RStudio-global-2021/presentation/Multi-language-Data-Wrangling-Translations.md)
 
 ### Abstract
 

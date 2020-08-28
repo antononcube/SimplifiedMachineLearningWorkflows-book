@@ -78,7 +78,7 @@ Here is the call for talks page:
 
 Here is the *submitted* abstract:
 
-**TITLE:** [Multi-language Data Wrangling Translations](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/R/RStudio-global-2021/presentation)
+**TITLE:** [Multi-language Data Wrangling Translations](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/R/RStudio-global-2021/presentation/Multi-language-Data-Wrangling-Translations.md)
 
 **ABSTRACT:**
 
