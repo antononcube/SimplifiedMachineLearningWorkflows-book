@@ -71,3 +71,33 @@ programming languages can be generated.
 >Finally we discuss the extensions of the presented approach to (1) handling wrong commands and
 spelling mistakes, (2) using multiple natural languages, and (3) making conversational agents.
 
+## RStudio::global (2021)
+
+Here is the call for talks page: 
+["rstudio::global() call for talks"](https://blog.rstudio.com/2020/07/17/rstudio-global-call-for-talks/).
+
+Here is the *submitted* abstract:
+
+**TITLE:** Multi-language Data Wrangling Translations
+
+**ABSTRACT:**
+
+We want to facilitate the rapid specification of data wrangling workflows using natural language commands.
+
+Here are our primary motivation points:
+
+- Often we have to apply the same data transformation workflows within different
+  programming languages and/or packages. 
+  
+- Although the high-level data transformation workflows are the same, it might be time consuming
+  to express those workflows in the logic and syntax of concrete programming languages or packages.
+  
+- It would be nice to have software solutions that speed-up the processes for
+  multi-language expression of data transformation workflows.
+
+In this presentation we demonstrate the data wrangling code generation for different programming languages, using different packages. 
+We focus on these three data wrangling packages:
+
+- R-base
+- R-tidyverse
+- Python-pandas
