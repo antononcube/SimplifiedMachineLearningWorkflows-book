@@ -1,11 +1,12 @@
 ---
-title: ""
+title: ''
 author: "Anton Antonov"
-header-includes: "RStudio::global (2021) Conference"
+header-includes: RStudio::global (2021) Conference
 output:
   slidy_presentation:
-     footer: "RStudio::global (2021) Conference"
-     keep_md: TRUE
+    footer: RStudio::global (2021) Conference
+    keep_md: yes
+  ioslides_presentation: default
 ---
 
 
@@ -408,6 +409,7 @@ In this notebook we use the following translation (parser-interpreter) execution
 
 ![ExecutionLoopInRmdNotebook](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/DataQueryWorkflows-execution-in-Rmd-notebook.jpg)
 
+
 ## Filter, group, and summarize: translation
 
 Here is how a sequence of natural commands that specifies a data transformation workflow
@@ -586,6 +588,63 @@ res4 <-
 ##                                        Mean   : 207.4   Mean   :132   Mean   : 81.90  
 ##                                        3rd Qu.: 113.0   3rd Qu.:178   3rd Qu.: 39.03  
 ##                                        Max.   :1358.0   Max.   :190   Max.   :443.43
+```
+
+## Evaluation in Python
+
+Using `reticulate` we can see the results of translating the natural commands into Python's "pandas" library.
+
+Get data in Python:
+
+
+```python
+import pandas
+dfStarwars = pandas.read_csv("https://raw.githubusercontent.com/antononcube/R-packages/master/DataQueryWorkflowsTests/inst/extdata/dfStarwars.csv")
+dfStarwarsVehicles = pandas.read_csv("https://raw.githubusercontent.com/antononcube/R-packages/master/DataQueryWorkflowsTests/inst/extdata/dfStarwarsVehicles.csv")
+```
+
+Load the translator library and translate commands:
+
+
+```python
+from ExternalParsersHookUp import ParseWorkflowSpecifications
+
+command =  '''
+use dfStarwars; 
+filter by "species" is "Human"; 
+select name, sex, homeworld; 
+inner join with dfStarwarsVehicles on "name";
+'''
+res = ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command = command, parse = True, globals = globals() )
+
+print(res)
+```
+
+```
+## obj = dfStarwars
+## obj = obj[((obj["species"] == "Human"))]
+## obj = obj[["name", "sex", "homeworld"]]
+## obj = obj.merge( dfStarwarsVehicles, on = ["name"], how = "inner" )
+```
+
+Show the evaluation result:
+
+
+```python
+obj
+```
+
+```
+##                name     sex homeworld                vehicle
+## 0    Luke Skywalker    male  Tatooine            Snowspeeder
+## 1    Luke Skywalker    male  Tatooine  Imperial Speeder Bike
+## 2       Leia Organa  female  Alderaan  Imperial Speeder Bike
+## 3    Obi-Wan Kenobi    male   Stewjon        Tribubble bongo
+## 4  Anakin Skywalker    male  Tatooine    Zephyr-G swoop bike
+## 5  Anakin Skywalker    male  Tatooine        XJ-6 airspeeder
+## 6    Wedge Antilles    male  Corellia            Snowspeeder
+## 7      Qui-Gon Jinn    male       NaN        Tribubble bongo
+## 8             Dooku    male   Serenno       Flitknot speeder
 ```
 
 
