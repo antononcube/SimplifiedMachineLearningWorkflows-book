@@ -346,7 +346,7 @@ filter by "species" is "Human";
 select name, sex, homeworld; 
 inner join with dfStarwarsVehicles on "name";
 '''
-res = ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command = command, parse = True, globals = globals() )
+res = ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command = command, execute = True, globals = globals() )
 
 print(res)
 ```

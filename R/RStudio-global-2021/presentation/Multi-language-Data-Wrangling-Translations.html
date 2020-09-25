@@ -757,7 +757,7 @@ dfStarwars %&gt;%
 Julia-DataFrames
 </td>
 <td style="text-align:left;">
-select!( obj, :name, :homeworld, :mass, :height)
+obj = obj[ : , [:name, :homeworld, :mass, :height]]
 </td>
 <td style="text-align:left;">
 dplyr::select(name, homeworld, mass, height) %&gt;%
@@ -768,7 +768,7 @@ dplyr::select(name, homeworld, mass, height) %&gt;%
 Julia-DataFrames
 </td>
 <td style="text-align:left;">
-sort!( obj, [:mass, :height, :name] )
+obj = sort( obj, [:mass, :height, :name] )
 </td>
 <td style="text-align:left;">
 dplyr::arrange(mass, height, name)
@@ -788,7 +788,7 @@ dplyr::arrange(mass, height, name)
 Python-pandas
 </td>
 <td style="text-align:left;">
-obj = dfStarwars
+obj = dfStarwars.copy()
 </td>
 <td style="text-align:left;">
 dfStarwars %&gt;%
@@ -810,7 +810,7 @@ dplyr::select(name, homeworld, mass, height) %&gt;%
 Python-pandas
 </td>
 <td style="text-align:left;">
-obj = obj.sort_values( [mass, height, name] )
+obj = obj.sort_values( [“mass”, “height”, “name”] )
 </td>
 <td style="text-align:left;">
 dplyr::arrange(mass, height, name)
@@ -841,7 +841,7 @@ dfStarwars %&gt;%
 R-base
 </td>
 <td style="text-align:left;">
-obj &lt;- obj[ , c(“name”, “homeworld”, “mass”, “height”) ] ;
+obj &lt;- obj[, c(“name”, “homeworld”, “mass”, “height”)] ;
 </td>
 <td style="text-align:left;">
 dplyr::select(name, homeworld, mass, height) %&gt;%
@@ -852,7 +852,7 @@ dplyr::select(name, homeworld, mass, height) %&gt;%
 R-base
 </td>
 <td style="text-align:left;">
-obj &lt;- obj[ order(obj[ ,c(mass, height, name)]), ]
+obj &lt;- obj[ order(obj[ ,c(“mass”, “height”, “name”)]), ]
 </td>
 <td style="text-align:left;">
 dplyr::arrange(mass, height, name)
@@ -950,7 +950,7 @@ use data frame dfStarwars
 Bulgarian
 </td>
 <td style="text-align:left;">
-избери колоните: name, homeworld, mass, height
+избери колоните: “name”, “homeworld”, “mass”, “height”
 </td>
 <td style="text-align:left;">
 keep the columns name, homeworld, mass &amp; height
@@ -961,7 +961,7 @@ keep the columns name, homeworld, mass &amp; height
 Bulgarian
 </td>
 <td style="text-align:left;">
-сортирай с колоните: mass, height, name
+сортирай с колоните: “mass”, “height”, “name”
 </td>
 <td style="text-align:left;">
 arrange by mass, height, and name
@@ -992,7 +992,7 @@ use data frame dfStarwars
 Korean
 </td>
 <td style="text-align:left;">
-열을 선택: name, homeworld, mass, height
+“name”, “homeworld”, “mass”, “height” 열 선택
 </td>
 <td style="text-align:left;">
 keep the columns name, homeworld, mass &amp; height
@@ -1003,7 +1003,7 @@ keep the columns name, homeworld, mass &amp; height
 Korean
 </td>
 <td style="text-align:left;">
-열로 정렬: mass, height, name
+열로 정렬: “mass”, “height”, “name”
 </td>
 <td style="text-align:left;">
 arrange by mass, height, and name
@@ -1034,7 +1034,7 @@ use data frame dfStarwars
 Spanish
 </td>
 <td style="text-align:left;">
-escoger columnas: name, homeworld, mass, height
+escoger columnas: “name”, “homeworld”, “mass”, “height”
 </td>
 <td style="text-align:left;">
 keep the columns name, homeworld, mass &amp; height
@@ -1045,7 +1045,7 @@ keep the columns name, homeworld, mass &amp; height
 Spanish
 </td>
 <td style="text-align:left;">
-ordenar con columnas: mass, height, name
+ordenar con columnas: “mass”, “height”, “name”
 </td>
 <td style="text-align:left;">
 arrange by mass, height, and name
@@ -1267,11 +1267,11 @@ For more details and examples see the <strong><em>useR! 2020 Conference</em></st
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a><span class="st">select name, sex, homeworld; </span></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a><span class="st">inner join with dfStarwarsVehicles on &quot;name&quot;;</span></span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a><span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a>res <span class="op">=</span> ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command <span class="op">=</span> command, parse <span class="op">=</span> <span class="va">True</span>, <span class="bu">globals</span> <span class="op">=</span> <span class="bu">globals</span>() )</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a>res <span class="op">=</span> ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command <span class="op">=</span> command, execute <span class="op">=</span> <span class="va">True</span>, <span class="bu">globals</span> <span class="op">=</span> <span class="bu">globals</span>() )</span>
 <span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a></span>
 <span id="cb31-11"><a href="#cb31-11" aria-hidden="true"></a><span class="bu">print</span>(res)</span></code></pre></div>
-<pre><code>## obj = dfStarwars
-## obj = obj[((obj[&quot;species&quot;] == &quot;Human&quot;))]
+<pre><code>## obj = dfStarwars.copy()
+## obj = obj[((obj[&quot;species&quot;]== &quot;Human&quot;))]
 ## obj = obj[[&quot;name&quot;, &quot;sex&quot;, &quot;homeworld&quot;]]
 ## obj = obj.merge( dfStarwarsVehicles, on = [&quot;name&quot;], how = &quot;inner&quot; )</code></pre>
 <p>Show the evaluation result:</p>

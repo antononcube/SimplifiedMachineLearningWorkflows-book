@@ -159,12 +159,12 @@ arrange by mass, height, and name";
   </tr>
   <tr>
    <td style="text-align:left;"> Julia-DataFrames </td>
-   <td style="text-align:left;"> select!( obj, :name, :homeworld, :mass, :height) </td>
+   <td style="text-align:left;"> obj = obj[ : , [:name, :homeworld, :mass, :height]] </td>
    <td style="text-align:left;"> dplyr::select(name, homeworld, mass, height) %&gt;% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Julia-DataFrames </td>
-   <td style="text-align:left;"> sort!( obj, [:mass, :height, :name] ) </td>
+   <td style="text-align:left;"> obj = sort( obj, [:mass, :height, :name] ) </td>
    <td style="text-align:left;"> dplyr::arrange(mass, height, name) </td>
   </tr>
   <tr>
@@ -174,7 +174,7 @@ arrange by mass, height, and name";
   </tr>
   <tr>
    <td style="text-align:left;"> Python-pandas </td>
-   <td style="text-align:left;"> obj = dfStarwars </td>
+   <td style="text-align:left;"> obj = dfStarwars.copy() </td>
    <td style="text-align:left;"> dfStarwars %&gt;% </td>
   </tr>
   <tr>
@@ -184,7 +184,7 @@ arrange by mass, height, and name";
   </tr>
   <tr>
    <td style="text-align:left;"> Python-pandas </td>
-   <td style="text-align:left;"> obj = obj.sort_values( [mass, height, name] ) </td>
+   <td style="text-align:left;"> obj = obj.sort_values( ["mass", "height", "name"] ) </td>
    <td style="text-align:left;"> dplyr::arrange(mass, height, name) </td>
   </tr>
   <tr>
@@ -199,12 +199,12 @@ arrange by mass, height, and name";
   </tr>
   <tr>
    <td style="text-align:left;"> R-base </td>
-   <td style="text-align:left;"> obj &lt;- obj[ , c("name", "homeworld", "mass", "height") ] ; </td>
+   <td style="text-align:left;"> obj &lt;- obj[, c("name", "homeworld", "mass", "height")] ; </td>
    <td style="text-align:left;"> dplyr::select(name, homeworld, mass, height) %&gt;% </td>
   </tr>
   <tr>
    <td style="text-align:left;"> R-base </td>
-   <td style="text-align:left;"> obj &lt;- obj[ order(obj[ ,c(mass, height, name)]), ] </td>
+   <td style="text-align:left;"> obj &lt;- obj[ order(obj[ ,c("mass", "height", "name")]), ] </td>
    <td style="text-align:left;"> dplyr::arrange(mass, height, name) </td>
   </tr>
   <tr>
@@ -265,12 +265,12 @@ arrange by mass, height, and name";
   </tr>
   <tr>
    <td style="text-align:left;"> Bulgarian </td>
-   <td style="text-align:left;"> избери колоните: name, homeworld, mass, height </td>
+   <td style="text-align:left;"> избери колоните: "name", "homeworld", "mass", "height" </td>
    <td style="text-align:left;"> keep the columns name, homeworld, mass &amp; height </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Bulgarian </td>
-   <td style="text-align:left;"> сортирай с колоните: mass, height, name </td>
+   <td style="text-align:left;"> сортирай с колоните: "mass", "height", "name" </td>
    <td style="text-align:left;"> arrange by mass, height, and name </td>
   </tr>
   <tr>
@@ -285,12 +285,12 @@ arrange by mass, height, and name";
   </tr>
   <tr>
    <td style="text-align:left;"> Korean </td>
-   <td style="text-align:left;"> 열을 선택: name, homeworld, mass, height </td>
+   <td style="text-align:left;"> "name", "homeworld", "mass", "height" 열 선택 </td>
    <td style="text-align:left;"> keep the columns name, homeworld, mass &amp; height </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Korean </td>
-   <td style="text-align:left;"> 열로 정렬: mass, height, name </td>
+   <td style="text-align:left;"> 열로 정렬: "mass", "height", "name" </td>
    <td style="text-align:left;"> arrange by mass, height, and name </td>
   </tr>
   <tr>
@@ -305,12 +305,12 @@ arrange by mass, height, and name";
   </tr>
   <tr>
    <td style="text-align:left;"> Spanish </td>
-   <td style="text-align:left;"> escoger columnas: name, homeworld, mass, height </td>
+   <td style="text-align:left;"> escoger columnas: "name", "homeworld", "mass", "height" </td>
    <td style="text-align:left;"> keep the columns name, homeworld, mass &amp; height </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Spanish </td>
-   <td style="text-align:left;"> ordenar con columnas: mass, height, name </td>
+   <td style="text-align:left;"> ordenar con columnas: "mass", "height", "name" </td>
    <td style="text-align:left;"> arrange by mass, height, and name </td>
   </tr>
   <tr>
@@ -615,14 +615,14 @@ filter by "species" is "Human";
 select name, sex, homeworld; 
 inner join with dfStarwarsVehicles on "name";
 '''
-res = ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command = command, parse = True, globals = globals() )
+res = ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command = command, execute = True, globals = globals() )
 
 print(res)
 ```
 
 ```
-## obj = dfStarwars
-## obj = obj[((obj["species"] == "Human"))]
+## obj = dfStarwars.copy()
+## obj = obj[((obj["species"]== "Human"))]
 ## obj = obj[["name", "sex", "homeworld"]]
 ## obj = obj.merge( dfStarwarsVehicles, on = ["name"], how = "inner" )
 ```
