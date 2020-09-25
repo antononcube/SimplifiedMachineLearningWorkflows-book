@@ -1,8 +1,11 @@
 # RStudio::global (2021)
 
-This R project is with the RStudio::global (2021) 
+This R project is with the *proposed* RStudio::global (2021) 
 [presentation](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/R/RStudio-global-2021/presentation/Multi-language-Data-Wrangling-Translations.md)
 that discusses data wrangling code generation with natural language commands.
+
+***The presentation was rejected.***   
+A similar presentation is scheduled to be given at [Data Science Study Group: South Florida Meetup](https://www.meetup.com/Data-Science-Study-Group-South-Florida/events/273397708/) on 2020-10-07.
 
 ---
 
