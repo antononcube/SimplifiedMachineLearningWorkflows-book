@@ -8,7 +8,7 @@ in October-December 2020.
 
 Most of the workflows in the lectures have both WL-code and R-code versions.
 
-We do plan to extensively use the Domain Specific Language (DSL) 
+We are going to extensively use the Domain Specific Language (DSL) 
 [Raku](https://www.raku.org) 
 programmed system 
 [DSL::English::RecommenderWorkflows](https://github.com/antononcube/Raku-DSL-English-RecommenderWorkflows), \[AA1\], 
