@@ -6,7 +6,13 @@ The Recommendation Systems (RS) lectures outlined below are *to be* recorded for
 [Wolfram U](https://www.wolfram.com/wolfram-u/) 
 in October-December 2020.
 
-Both WL and R notebooks are planned.
+Most of the workflows in the lectures have both WL-code and R-code versions.
+
+We do plan to extensively use the Domain Specific Language (DSL) 
+[Raku](https://www.raku.org) 
+programmed system 
+[DSL::English::RecommenderWorkflows](https://github.com/antononcube/Raku-DSL-English-RecommenderWorkflows), \[AA1\], 
+that generates code for the software monads `SMRMon-WL` and `SMRMon-R`; see \[AA2,AA3\].
 
 ## General description
 
@@ -144,3 +150,20 @@ SMRMonRecommendByProfile[<|"female"->3, "30"->0.1|>] ⟹
 SMRMonJoinAcross[dfTitanic] ⟹
 SMRMonEchoValue[]
 ```
+
+## References
+
+\[AA1\] Anton Antonov, 
+[DSL::English::RecommenderWorkflows Raku package](https://github.com/antononcube/Raku-DSL-English-RecommenderWorkflows), 
+(2020), 
+[GitHub/antononcube](https://github.com/antononcube).
+
+\[AA2\] Anton Antonov,
+[Monadic Sparse Matrix Recommender Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicSparseMatrixRecommender.m),
+(2018),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
+
+\[AA3\] Anton Antonov,
+[Sparse Matrix Recommender Monad in R](https://github.com/antononcube/R-packages/tree/master/SMRMon-R),
+(2019),
+[R-packages at GitHub](https://github.com/antononcube/R-packages).
