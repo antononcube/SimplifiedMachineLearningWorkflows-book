@@ -36,33 +36,38 @@ the software packages:
     - Data gathering/harvesting 
     - Data ingestion by parsing of, say, XML structures
     - Date-time specific transformations
-    - Natural text specific transformation
+    - Natural text specific transformations
     - Etc. 
-
+  
 - What are the simplifying assumptions about the targeted data and transformations? 
   - Tabular data and collections of tabular data. (E.g. lists of datasets.)
   - Transformation workflows that can be expressed with a certain "standard" or "well-known" subset of SQL.
-   
+  - The flow chart given below illustrates well the targeted DT.
+ 
 - Do these workflows apply to other programming languages and/or data systems?
-  - Yes, we target multiple "data science" programming languages.
+  - Yes, with the presented DT know-how we target multiple "data science" programming languages.
   
 - Are additional packages needed to run the codes?
   - Yes and no: depends on the target data transformation system.
   - Sometimes the WL code uses Wolfram Function Repository functions. 
 
-- Are there similar tutorials specialized to other programming languages or packages?
+- Are there similar tutorials dedicated to other programming languages or packages?
   - Yes, many. Both for WL and the rest (Julia/Python/R.)
   - That said, in this tutorial we use a certain simplified and streamlined data-and-transformations model 
-    that allows cross-system, transferable know-how and workflows to be developed. 
+    that allows the development of cross-system, transferable know-how and workflows. 
   
-- What the most important concepts for a newcomer to data wrangling?
-  - Cross tabulation (or contingency matrices)
-  - Long form and wide form (or data pivoting)
-  - The so called Split-apply-combine pattern
+- What are the most important concepts for a newcomer to data wrangling?
+  1. Cross tabulation (or contingency matrices)
+  2. (Inner) joins 
+  3. The so called Split-apply-combine pattern
+  4. Long form and wide form (or data pivoting)
 
-- How do the considered data transformation workflows relate to well known Machine Learning (ML) workflows? 
+- How do the considered DT workflows relate to well known Machine Learning (ML) workflows? 
   - Generally speaking, data has to be transformed into formats convenient for the application of ML algorithms.
-    Here
+    How much transformation is needed depends a lot on the host system or targeted ML package(s). 
+  - For example, WL has extensive ML data on-boarding functions. 
+    ("Encoders" and "decoders" that make the use of Neural Networks more streamlined.) 
+    Hence, for using ML in WL less DT is needed.  
   
 - How much is WL used?
   - Approximately 80% we use WL; for illustration purposes we show some of the workflows in other languages. 
