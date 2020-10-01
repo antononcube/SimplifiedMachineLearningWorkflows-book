@@ -1,6 +1,6 @@
 # Data transformation workflows
 
-## In brief
+## General description
 
 The Data Transformation (DT) lectures outlined below are *to be* recorded for 
 [Wolfram U](https://www.wolfram.com/wolfram-u/) 
@@ -23,38 +23,71 @@ the software packages:
 
 - The WL generated code uses functions from the [Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/).
   For example:
-
-  - [`CrossTabulate`](https://resources.wolframcloud.com/FunctionRepository/resources/CrossTabulate)
-
-  - [`RecordsSummary`](https://resources.wolframcloud.com/FunctionRepository/resources/RecordsSummary)
-
-## General description
-
-TBD...
+  [`CrossTabulate`](https://resources.wolframcloud.com/FunctionRepository/resources/CrossTabulate),
+  [`RecordsSummary`](https://resources.wolframcloud.com/FunctionRepository/resources/RecordsSummary).
 
 ## Detailed tutorial plan
 
 ### Introduction through questions and answers
 
-TBD...
+- What kind of data is considered?
+  - Tabular data and collections of tabular data.
+ 
+- Do these workflows apply to other programming languages and/or data systems?
+  - Yes, we target multiple "data science" programming languages.
+  
+- Are additional packages needed to run the codes?
+  - Yes and no: depends on the target data transformation system.
 
+- Are there similar tutorials specialized to other programming languages or packages?
+  - Yes, many.
+  
+- What the most important concepts for a newcomer to data wrangling?
+
+- What the simplifying assumptions for the family workflows considered in this class?
+
+- How do the considered data transformation workflows relate to well known Machine Learning (ML) workflows? 
+  
 ### Mental model 
 
-*...of the considered Data queries.* 
+*...of the considered DT queries.* 
 
-TBD...
+- Tabular data
+- The Split-transform-combine DT pattern, \[HW1\]
+- Reshaping
+- Workflows:
+  - (Generalizing) flow chart
+  - Natural language specifications 
 
-### Data summarization
+### Basic operations
 
-TBD...
+- Data load
+- Column selection
+- Row filtering
+- Summarization
+  - Ways to summarize data
+  - "Global" summary
+  - Summarization per group and per column
+  - Summarization vs Cross tabulation
 
 ### Joins 
 
-TBD...
+- Types of joins
+- Inner joins
+- Left joins
+- Semi-joins
 
-### Long form and Wide form 
+### Reshaping 
 
-TBD...
+- Long form (aka "narrow format")
+- Wide form (aka "wide format")
+- Cross tabulation
+
+### Example combinations with ML workflows
+
+- Making a recommender system
+
+- Making a classifier
 
 ## Visual aids
 
@@ -139,3 +172,10 @@ Journal of Statistical Software.
 
 ### Wolfram Function Repository functions
 
+Anton Antonov, [`CrossTabulate`](https://resources.wolframcloud.com/FunctionRepository/resources/CrossTabulate).
+
+Anton Antonov, [`RecordsSummary`](https://resources.wolframcloud.com/FunctionRepository/resources/RecordsSummary).
+
+Anton Antonov, [`ParetoPrinciplePlot`](https://resources.wolframcloud.com/FunctionRepository/resources/ParetoPrinciplePlot).
+
+Seth Chandler, [`ResetDataset`](https://resources.wolframcloud.com/FunctionRepository/resources/ResetDataset).
