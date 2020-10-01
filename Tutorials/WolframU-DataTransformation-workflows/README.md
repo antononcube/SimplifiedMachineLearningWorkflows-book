@@ -30,28 +30,49 @@ the software packages:
 
 ### Introduction through questions and answers
 
-- What kind of data is considered?
-  - Tabular data and collections of tabular data.
- 
+- What are the simplifying assumptions for the family of workflows considered in this tutorial?
+  - We do not consider hard to generalize- or too specialized transformations.
+  - For example, we do not consider:
+    - Data gathering/harvesting 
+    - Data ingestion by parsing of, say, XML structures
+    - Date-time specific transformations
+    - Natural text specific transformation
+    - Etc. 
+
+- What are the simplifying assumptions about the targeted data and transformations? 
+  - Tabular data and collections of tabular data. (E.g. lists of datasets.)
+  - Transformation workflows that can be expressed with a certain "standard" or "well-known" subset of SQL.
+   
 - Do these workflows apply to other programming languages and/or data systems?
   - Yes, we target multiple "data science" programming languages.
   
 - Are additional packages needed to run the codes?
   - Yes and no: depends on the target data transformation system.
+  - Sometimes the WL code uses Wolfram Function Repository functions. 
 
 - Are there similar tutorials specialized to other programming languages or packages?
-  - Yes, many.
+  - Yes, many. Both for WL and the rest (Julia/Python/R.)
+  - That said, in this tutorial we use a certain simplified and streamlined data-and-transformations model 
+    that allows cross-system, transferable know-how and workflows to be developed. 
   
 - What the most important concepts for a newcomer to data wrangling?
-
-- What the simplifying assumptions for the family workflows considered in this class?
+  - Cross tabulation (or contingency matrices)
+  - Long form and wide form (or data pivoting)
+  - The so called Split-apply-combine pattern
 
 - How do the considered data transformation workflows relate to well known Machine Learning (ML) workflows? 
+  - Generally speaking, data has to be transformed into formats convenient for the application of ML algorithms.
+    Here
+  
+- How much is WL used?
+  - Approximately 80% we use WL; for illustration purposes we show some of the workflows in other languages. 
+    (Run within the same Mathematica presentation notebooks.)
   
 ### Mental model 
 
 *...of the considered DT queries.* 
 
+- Simplifying assumptions
 - Tabular data
 - The Split-transform-combine DT pattern, \[HW1\]
 - Reshaping
@@ -91,7 +112,7 @@ the software packages:
 
 ## Visual aids
 
-Here is flow chart that encompases large fraction of typical tabular data transformation workflows:
+Here is a flow chart that encompasses a large fraction of typical tabular data transformation workflows:
 
 ![TabularDataTransformationWorkflow](../../Part-2-Monadic-Workflows/Diagrams/Tabular-data-transformation-workflows/Tabular-data-transformation-workflows.jpg) 
 
