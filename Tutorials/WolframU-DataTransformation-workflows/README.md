@@ -119,7 +119,7 @@ the software packages:
 
 Here is a flow chart that encompasses a large fraction of typical tabular data transformation workflows:
 
-![TabularDataTransformationWorkflow](../../Part-2-Monadic-Workflows/Diagrams/Tabular-data-transformation-workflows/Tabular-data-transformation-workflows.jpg) 
+![TabularDataTransformationWorkflow](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/raw/master/Part-2-Monadic-Workflows/Diagrams/Tabular-data-transformation-workflows/Tabular-data-transformation-workflows.jpg) 
 
 ---
  
