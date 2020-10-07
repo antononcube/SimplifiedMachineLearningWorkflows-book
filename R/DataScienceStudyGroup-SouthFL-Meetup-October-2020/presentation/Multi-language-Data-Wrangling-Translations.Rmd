@@ -405,7 +405,14 @@ obj
 The complete feature set and development state can be seen this 
 [org-mode](https://orgmode.org) file:
 
-  [Data Query Workflows DSL interpreter implementation.org](https://github.com/antononcube/ConversationalAgents/blob/master/org/DataQueryWorkflows-DSL-interpreter-implementation.org)
+  ["Data Query Workflows DSL interpreter implementation.org"](https://github.com/antononcube/ConversationalAgents/blob/master/org/DataQueryWorkflows-DSL-interpreter-implementation.org)
+  
+  
+The big picture design mind-map;
+
+  ["Raku-DSL-package-design"]("https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/Raku-DSL-package-design.png")
+  
+![RakuDSLPackageDesign](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/Raku-DSL-package-design.png)
 
 ## References
 
