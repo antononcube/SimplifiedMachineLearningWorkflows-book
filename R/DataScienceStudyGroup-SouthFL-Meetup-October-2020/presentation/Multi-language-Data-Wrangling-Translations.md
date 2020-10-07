@@ -68,7 +68,6 @@ In this presentation we focus on these four data wrangling packages:
 - Wolfram Language (WL)
 
 
-
 ## First example data
 
 Assume we have a data frame with Titanic data. 
@@ -325,6 +324,21 @@ arrange by mass, height, and name";
 </tbody>
 </table>
 
+## The ideal end result
+
+*Demonstrate the ideal end result.*
+
+
+## Tabular data transformation workflows 
+
+Here is a flow chart that shows the targeted workflows:
+
+![TabularDataTransformationWorkflows](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/Tabular-data-transformation-workflows.jpg)
+
+Only the data loading and summary analysis are not optional. (The left-most diagram elements.)
+
+All other steps are optional.
+
 
 ## Not just data wrangling workflows
 
@@ -413,6 +427,32 @@ In this notebook we use the following translation (parser-interpreter) execution
 
 ![ExecutionLoopInRmdNotebook](https://github.com/antononcube/ConversationalAgents/raw/master/ConceptualDiagrams/DataQueryWorkflows-execution-in-Rmd-notebook.jpg)
 
+## Rigorous testing
+
+Rigorous, multi-faceted, multi-level testing is required in order this whole machinery to work.
+
+- Of course, certain level of testing is required in order to advance with the development. 
+ 
+- Advanced testing is definitely required for any kind of "product release."
+   
+  - That includes "minimal viable product" too.
+  
+Types of tests:
+
+- Parsing and translation tests:
+
+  - [Raku tests](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows/tree/master/t)
+
+- Execution and correctness tests:
+
+  - [R-base and R-tidyverse testing package](https://github.com/antononcube/R-packages/tree/master/DataQueryWorkflowsTests)
+  
+  - [Python-pandas test file](https://github.com/antononcube/ConversationalAgents/blob/master/UnitTests/Python/DataQueryWorkflows-Unit-Tests.py)
+
+  - [WL test file](https://github.com/antononcube/ConversationalAgents/blob/master/UnitTests/WL/DataQueryWorkflows-Unit-Tests.wlt)
+
+  
+***Much of the tests design and programming is not finished yet.***
 
 ## Filter, group, and summarize: translation
 
@@ -427,14 +467,15 @@ qrExpr <-
      filter by birth_year greater than 27;
      select homeworld, mass and height;
      group by homeworld;
-     summarize all with mean and median", target = "R-tidyverse" )
+     summarize the variables mass and height with mean and median", target = "R-tidyverse" )
 qrExpr
 ```
 
 ```
 ## expression(dfStarwars %>% dplyr::filter(birth_year > 27) %>% 
 ##     dplyr::select(homeworld, mass, height) %>% dplyr::group_by(homeworld) %>% 
-##     dplyr::summarise_all(.funs = c(mean = mean, median = median)))
+##     dplyr::summarise_at(.vars = c("mass", "height"), .funs = c(mean = mean, 
+##         median = median)))
 ```
 
 ## Filter, group, and summarize: evaluation
@@ -580,7 +621,7 @@ res4 <-
     keep the columns name, homeworld, mass & height;
     transfom with bmi = `mass/height^2*10000`;
     filter rows by bmi >= 30 & height < 200;
-    summarize data;
+    echo data summary;
     arange by the variables mass & height decending" ) )
 ```
 
@@ -616,8 +657,8 @@ from ExternalParsersHookUp import ParseWorkflowSpecifications
 command =  '''
 use dfStarwars; 
 filter by "species" is "Human"; 
-select name, sex, homeworld; 
-inner join with dfStarwarsVehicles on "name";
+select the columns name, sex, homeworld; 
+inner join with dfStarwarsVehicles by "name";
 '''
 res = ParseWorkflowSpecifications.ToDataQueryWorkflowCode( command = command, execute = True, globals = globals() )
 
@@ -650,7 +691,12 @@ obj
 ## 7      Qui-Gon Jinn    male       NaN        Tribubble bongo
 ## 8             Dooku    male   Serenno       Flitknot speeder
 ```
+## Complete feature set and development state
 
+The complete feature set and development state can be seen this 
+[org-mode](https://orgmode.org) file:
+
+  [Data Query Workflows DSL interpreter implementation.org](https://github.com/antononcube/ConversationalAgents/blob/master/org/DataQueryWorkflows-DSL-interpreter-implementation.org)
 
 ## References
 
