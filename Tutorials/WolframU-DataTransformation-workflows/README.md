@@ -6,6 +6,8 @@ The Data Transformation (DT) lectures outlined below are *to be* recorded for
 [Wolfram U](https://www.wolfram.com/wolfram-u/) 
 in October-December 2020.
 
+- Here is the [Wolfram U recordings playlist at YouTube](https://www.youtube.com/playlist?list=PLxn-kpJHbPx0cOLcQknM1Yvpqr8w-yOkr)
+
 - Each tutorial lecture is between 25 and 40 minutes.
 
 - Most of the workflows in the lectures have (easy to derive) corresponding code in the programming languages: Julia, Python, R, and WL.
