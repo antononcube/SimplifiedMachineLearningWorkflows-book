@@ -8,23 +8,23 @@ in October-December 2020.
 
 - Each tutorial lecture is between 25 and 40 minutes.
 
-- Most of the workflows in the lectures have code in programming languages Julia, Python, R, and WL.
-  (Dedicated data transformation packages are used.)
+- Most of the workflows in the lectures have (easy to derive) corresponding code in the programming languages: Julia, Python, R, and WL.
+  (In Python and Julia dedicated data transformation packages are utilized.)
 
-- We are going to extensively use the Domain Specific Language (DSL) 
-[Raku](https://www.raku.org) 
-programmed system 
-[DSL::English::DataQueryWorkflows](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows), \[AA1\], 
+- For didactic purposes we are going to use the Domain Specific Language (DSL) 
+[Raku](https://www.raku.org)-programmed 
+system 
+[DSL::English::DataQueryWorkflows](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows), \[AAp1\], 
 that generates code for the programming languages R and WL and 
 the software packages:
   - [Julia-DataFrames](http://juliadata.github.io/DataFrames.jl/stable/) 
   - [Python-pandas](https://pandas.pydata.org) 
   - [R-tidyverse](https://www.tidyverse.org) (mostly [dplyr](https://dplyr.tidyverse.org))
 
-- The WL generated code uses functions from the [Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/).
-  For example:
-  [`CrossTabulate`](https://resources.wolframcloud.com/FunctionRepository/resources/CrossTabulate),
-  [`RecordsSummary`](https://resources.wolframcloud.com/FunctionRepository/resources/RecordsSummary).
+- The WL generated code uses functions from the [Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/).   
+  (See the references section "Wolfram Function Repository functions".)
+ 
+- The tutorials sequence has an "inverted" structure: the most conceptually rich and technical sessions are presented first. 
 
 ## Detailed tutorial plan
 
@@ -73,47 +73,54 @@ the software packages:
   - Approximately 80% we use WL; for illustration purposes we show some of the workflows in other languages. 
     (Run within the same Mathematica presentation notebooks.)
   
-### Mental model 
+- Mental model (of the considered DT queries) 
 
-*...of the considered DT queries.* 
+  - Simplifying assumptions -- targeting:
+    - Tabular data
+    - Collections of tabular data
+  - Workflows considered:
+    - (Generalizing) flow chart
+    - The Split-transform-combine DT pattern, \[HW1\]
+    - Reshaping
 
-- Simplifying assumptions
-- Tabular data
-- The Split-transform-combine DT pattern, \[HW1\]
-- Reshaping
-- Workflows:
-  - (Generalizing) flow chart
-  - Natural language specifications 
+### Reshaping of data -- detailed examples
 
-### Basic operations
-
-- Data load
-- Column selection
-- Row filtering
-- Summarization
-  - Ways to summarize data
-  - "Global" summary
-  - Summarization per group and per column
-  - Summarization vs Cross tabulation
-
-### Joins 
-
-- Types of joins
-- Inner joins
-- Left joins
-- Semi-joins
-
-### Reshaping 
-
-- Long form (aka "narrow format")
+- Long form (aka "narrow format"):
+  - Using long form vs not using long form
+  - Programmatic use
+  - Relation to sparse matrices 
+   
 - Wide form (aka "wide format")
+  - As an inversion of long form
+  - Typical usage
+  
 - Cross tabulation
+  - Relation to wide form
+  - The different missions and mind-share of cross tabulation and wide form
 
-### Example combinations with ML workflows
+### Basic operations and joins
 
-- Making a recommender system
+- Basic operations
+    - Data load
+    - Column selection
+    - Row filtering
+    - Summarization
+        - Ways to summarize data
+        - "Global" summary
+        - Summarization per group and per column
+        - Summarization vs Cross tabulation
 
-- Making a classifier
+- Joins 
+    - Types of joins
+    - Inner joins
+    - Left joins
+    - Semi-joins
+
+### Additional topics
+
+- Example combinations with ML workflows
+    - Making a recommender system
+    - Making a classifier
 
 ## Visual aids
 
@@ -200,8 +207,17 @@ Journal of Statistical Software.
 
 Anton Antonov, [`CrossTabulate`](https://resources.wolframcloud.com/FunctionRepository/resources/CrossTabulate).
 
-Anton Antonov, [`RecordsSummary`](https://resources.wolframcloud.com/FunctionRepository/resources/RecordsSummary).
+Anton Antonov, [`ExampleDataset`](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Function/ExampleDataset). 
+*(Submitted)*
 
 Anton Antonov, [`ParetoPrinciplePlot`](https://resources.wolframcloud.com/FunctionRepository/resources/ParetoPrinciplePlot).
+
+Anton Antonov, [`RecordsSummary`](https://resources.wolframcloud.com/FunctionRepository/resources/RecordsSummary).
+
+Anton Antonov, [`ToLongForm`](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Function/ToLongForm). 
+*(Submitted)*
+
+Anton Antonov, [`ToWideForm`](https://www.wolframcloud.com/obj/antononcube/DeployedResources/Function/ToWideForm). 
+*(Submitted)*
 
 Seth Chandler, [`ResetDataset`](https://resources.wolframcloud.com/FunctionRepository/resources/ResetDataset).
