@@ -116,6 +116,9 @@ Here are the steps of building the proposed classifier:
 
 - If the results are not satisfactory redo some or all of the steps above
 
+**Remark:** If the results are not satisfactory we should consider using the obtained classifier at the data generation phase. 
+(This is not done in this document/notebook.)
+
 **Remark:** The elaborated approach outline and flow chart have general applicability, not just for generation of random images of a certain type.
 
 ### Flow chart
@@ -126,11 +129,11 @@ Here is a flow chart that corresponds to the outline above:
 
 A few observations for the flow chart follow:
 
-- The flow chart has a feature extraction block that shows the feature extraction can be done in several ways. 
+- The flow chart has a feature extraction block that shows that the feature extraction can be done in several ways. 
 
   - The application of LSA is a type of feature extraction which this document/notebook uses.
 
-- If the results are not good enough the flow chart shows that classifier can be used at the data generation phase.
+- If the results are not good enough the flow chart shows that the classifier can be used at the data generation phase.
 
 - If the results are not good enough there are several alternatives to redo or tune the ML algorithms. 
 
