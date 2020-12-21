@@ -29,11 +29,11 @@ The document/notebook is structured as follows:
 
     1. Classifier creation and utilization experiments
 
-(This document/notebook is a surrogate chapter for the book ["Simplified Machine Learning Workflows"](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book), [AAr3].)
+(This document/notebook is a "raw" chapter for the book ["Simplified Machine Learning Workflows"](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book), [AAr3].)
 
 ## Target images
 
-Here are the images we consider to be “Bethlehem Stars” in this document/notebook:
+Here are the images taken from [MSE1] that we consider to be "Bethlehem Stars" in this document/notebook:
 
 ```mathematica
 imgStar1 = Import["https://i.stack.imgur.com/qmmOw.png"];
@@ -43,7 +43,9 @@ Row[{imgStar1, Spacer[5], imgStar2}]
 
 ![00dxgln7hhmjl](./Diagrams/Generation-of-Random-Bethlehem-Stars/00dxgln7hhmjl.png)
 
-We notice that similar images can be obtained using the Wolfram Function Repository (WFR) function [RandomMandala](https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala), [AAr1]. Here are a dozen examples:
+We notice that similar images can be obtained using the Wolfram Function Repository (WFR) function 
+[`RandomMandala`](https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala), [AAr1]. 
+Here are a dozen examples:
 
 ```mathematica
 SeedRandom[5];
@@ -54,11 +56,11 @@ Multicolumn[Table[MandalaToWhiterImage@ResourceFunction["RandomMandala"]["Rotati
 
 ## Simplistic approach
 
-We can just generate a large set enough set of mandalas and pick the ones we like. 
+We can just generate a large enough set of mandalas and pick the ones we like. 
 
 More precisely we have the following steps:
 
-1. We generate, say, 200 random mandalas using BlockRandom and keeping track of the random seeds
+1. We generate, say, 200 random mandalas using `BlockRandom` and keeping track of the random seeds
 
     1. The mandalas are generated with rotational symmetry order 2 and filled Bezier curve connections.
 
@@ -68,7 +70,7 @@ More precisely we have the following steps:
 
 1. If too few mandalas are in the results list go to 1.
 
-Here are some mandalas generated with those steps
+Here are some mandalas generated with those steps:
 
 ```mathematica
 lsStarReferenceSeeds = DeleteDuplicates@{697734, 227488491, 296515155601, 328716690761, 25979673846, 48784395076, 61082107304, 63772596796, 128581744446, 194807926867, 254647184786, 271909611066, 296515155601, 575775702222, 595562118302, 663386458123, 664847685618, 680328164429, 859482663706};
@@ -78,13 +80,17 @@ Multicolumn[
 
 ![1aedatd1zb3fh](./Diagrams/Generation-of-Random-Bethlehem-Stars/1aedatd1zb3fh.png)
 
-**Remark:** The plot above looks prettier in notebook converted with the resource function [DarkMode](https://resources.wolframcloud.com/FunctionRepository/resources/DarkMode).
+**Remark:** The plot above looks prettier in notebook converted with the resource function 
+[`DarkMode`](https://resources.wolframcloud.com/FunctionRepository/resources/DarkMode).
 
 ## Elaborated approach
 
-Assume that we want to automate the simplistic approach described in previous section.
+Assume that we want to automate the simplistic approach described in the previous section.
 
-One approach is to create a Machine Learning (ML) classifier that is capable of discerning which RandomMandala objects look like Bethlehem Star target images and which do not. With such a classifier we can write a function BethlehemMandala that applies the classifier on multiple results from RandomMandala and returns those mandalas that classifier says are good. 
+One way to automate is to create a Machine Learning (ML) classifier that is capable of discerning 
+which `RandomMandala` objects look like Bethlehem Star target images and which do not. 
+With such a classifier we can write a function `BethlehemMandala` that applies the classifier on multiple results 
+from `RandomMandala` and returns those mandalas that the classifier says are good. 
 
 Here are the steps of building the proposed classifier:
 
@@ -96,7 +102,7 @@ Here are the steps of building the proposed classifier:
 
 - Make a recommender with the RMIS features and other image data (like pixel values)
 
-- Apply the RMIS recommender over the target Bethlehem Star images and determine and examine image sets that are 
+- Apply the RMIS recommender over the target Bethlehem Star images and determine and examine image sets that are: 
 
     - the best recommendations 
 
@@ -110,17 +116,37 @@ Here are the steps of building the proposed classifier:
 
 - If the results are not satisfactory redo some or all of the steps above
 
-Here is flow chart that corresponds to the outline above:
+**Remark:** The elaborated approach outline and flow chart have general applicability, not just for generation of random images of a certain type.
+
+### Flow chart
+
+Here is a flow chart that corresponds to the outline above:
 
 ![09agsmbmjhhv4](./Diagrams/Generation-of-Random-Bethlehem-Stars/09agsmbmjhhv4.png)
 
-**Remark:** The elaborated approach outline and flow chart have general applicability, not just for generation of random images of a certain type.
+A few observations for the flow chart follow:
 
+- The flow chart has a feature extraction block that shows the feature extraction can be done in several ways. 
+
+  - The application of LSA is a type of feature extraction which this document/notebook uses.
+
+- If the results are not good enough the flow chart shows that classifier can be used at the data generation phase.
+
+- If the results are not good enough there are several alternatives to redo or tune the ML algorithms. 
+
+  - Changing or tuning the recommender implies training a new classifier.
+
+  - Changing or tuning the feature extraction implies making a new recommender and a new classifier.
+    
 ## Data generation and preparation
 
-### Generation data
+In this section we generate random mandala graphics, transform them into images and corresponding vectors.
+Those image-vectors can be used to apply dimension reduction algorithms.
+(Other feature extraction algorithms can be applied over the images.)
 
-Generate a large number of mandalas:
+### Generated data
+
+Generate large number of mandalas:
 
 ```mathematica
 k = 20000;
@@ -181,13 +207,18 @@ AbsoluteTiming[
 
 ## Feature extraction
 
-In this section we use the software monad [LSAMon](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicLatentSemanticAnalysis.m), [AA1, AAp1], to do dimension reduction over a subset of random mandala images.
+In this section we use the software monad 
+[`LSAMon`](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicLatentSemanticAnalysis.m), [AA1, AAp1], 
+to do dimension reduction over a subset of random mandala images.
 
-**Remark:** Other feature extraction methods can be used through the built-in functions [FeatureExtraction](https://reference.wolfram.com/language/ref/FeatureExtraction.html) and [FeatureExtract](https://reference.wolfram.com/language/ref/FeatureExtract.html).
+**Remark:** Other feature extraction methods can be used through the built-in functions 
+[`FeatureExtraction`](https://reference.wolfram.com/language/ref/FeatureExtraction.html) 
+and 
+[`FeatureExtract`](https://reference.wolfram.com/language/ref/FeatureExtract.html).
 
 ### Dimension reduction
 
-Crate an LSAMon object and extract image topics using Singular Value Decomposition (SVD) or Independent Component Analysis (ICA), [AAr2]:
+Create an `LSAMon` object and extract image topics using Singular Value Decomposition (SVD) or Independent Component Analysis (ICA), [AAr2]:
 
 ```mathematica
 SeedRandom[893];
@@ -203,7 +234,7 @@ AbsoluteTiming[
 (*{16.1871, Null}*)
 ```
 
-Show the importance coefficients for the topics (if SVD was used the plot shows the singular values values):
+Show the importance coefficients of the topics (if SVD was used the plot would show the singular values):
 
 ```mathematica
 ListPlot[Norm /@ SparseArray[lsaObj⟹LSAMonTakeH], Filling -> Axis, PlotRange -> All, PlotTheme -> "Scientific"]
@@ -223,7 +254,7 @@ lsaObj⟹
 
 ### Approximation
 
-Pick a mandala or a target image and pre-process it:
+Pick a test image that is a mandala image or a target image and pre-process it:
 
 ```mathematica
 If[True, 
@@ -239,7 +270,7 @@ imgTest
 
 ![0vlq50ryrw0hl](./Diagrams/Generation-of-Random-Bethlehem-Stars/0vlq50ryrw0hl.png)
 
-Find its representation with chosen feature extractor (LSAMon object here):
+Find the representation of the test image with the chosen feature extractor (`LSAMon` object here):
 
 ```mathematica
 matReprsentation = lsaObj⟹LSAMonRepresentByTopics[matImageTest]⟹LSAMonTakeValue;
@@ -261,11 +292,13 @@ ImageAdjust@Image[Rescale[Partition[vecReprsentation, ImageDimensions[aMImages[[
 
 ## Recommendations
 
-In this section we utilize the software monad [SMRMon](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicSparseMatrixRecommender.m), [[AAp3](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicSparseMatrixRecommender.m)], to create a recommender for the random mandala images.
+In this section we utilize the software monad [`SMRMon`](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicSparseMatrixRecommender.m), [[AAp3](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicSparseMatrixRecommender.m)], to create a recommender for the random mandala images.
 
-**Remark:** Instead of the recommender the function built-in function [Nearest](https://reference.wolfram.com/language/ref/Nearest.html) can be used. 
+**Remark:** Instead of the Sparse Matrix Recommender (SMR) object the built-in function 
+[`Nearest`](https://reference.wolfram.com/language/ref/Nearest.html) 
+can be used. 
 
-Create SSparseMatrix object for all image-vectors:
+Create `SSparseMatrix` object for all image-vectors:
 
 ```mathematica
 matImages = ToSSparseMatrix[SparseArray[Values@aMImageVecs], "RowNames" -> Automatic, "ColumnNames" -> Automatic]
@@ -291,7 +324,7 @@ matH = (lsaObj⟹LSAMonNormalizeMatrixProduct[Normalized -> Right]⟹LSAMonTakeH
 
 ![05zsn0o1jyqj6](./Diagrams/Generation-of-Random-Bethlehem-Stars/05zsn0o1jyqj6.png)
 
-Find the image topics representation for each image-vector (assuming matH was computed with SVD or ICA):
+Find the image topics representation for each image-vector (assuming `matH` was computed with SVD or ICA):
 
 ```mathematica
 AbsoluteTiming[
@@ -311,7 +344,8 @@ smrObj =
     SMRMonSetTagTypeWeights[<|"Pixel" -> 0.2, "Topic" -> 1|>];
 ```
 
-**Remark:** Note the weights assigned to the pixels and the topics in the recommender object above. Those weights were derived by examining the recommendations results shown below.
+**Remark:** Note the weights assigned to the pixels and the topics in the recommender object above. 
+Those weights were derived by examining the recommendations results shown below.
 
 Here is the image we want to find most similar mandala images to -- ***the target image***:
 
@@ -321,7 +355,7 @@ imgTarget = Binarize[imgStar2, 0.5]
 
 ![1qdmarfxa5i78](./Diagrams/Generation-of-Random-Bethlehem-Stars/1qdmarfxa5i78.png)
 
-Here is the profile of the target image
+Here is the profile of the target image:
 
 ```mathematica
 aProf = MakeSMRProfile[lsaObj, imgTarget, ImageDimensions[aMImages[[1]]]];
@@ -347,7 +381,7 @@ Row[{ResourceFunction["RecordsSummary"][Values[aRecs]], ListPlot[Values[aRecs], 
 
 ![1kdiisj4jg4ut](./Diagrams/Generation-of-Random-Bethlehem-Stars/1kdiisj4jg4ut.png)
 
-Here are the closest (nearest neighbors) mandala images:
+Here are the closest (nearest neighbor) mandala images:
 
 ```mathematica
 Multicolumn[Values[ImageAdjust@*ColorNegate /@ aMImages[[ToExpression /@ Take[Keys[aRecs], 48]]]], 12, Background -> Black]
@@ -369,7 +403,7 @@ In this section we:
 
 - Prepare classifier data
 
-- Build and examine a classifier using the software monad [ClCon](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicContextualClassification.m), [AA2, AAp2], using appropriate training, testing, and validation data ratios
+- Build and examine a classifier using the software monad [`ClCon`](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicContextualClassification.m), [AA2, AAp2], using appropriate training, testing, and validation data ratios
 
 - Build a classifier utilizing all training data
 
@@ -377,9 +411,9 @@ In this section we:
 
 As it was mentioned above we prepare the data to build classifiers with by:
 
-- Selecting top, highest scores recommendations and labeling them with True
+- Selecting top, highest scores recommendations and labeling them with `True`
 
-- Selecting bad, low score recommendations and labeling them with False
+- Selecting bad, low score recommendations and labeling them with `False`
 
 ```mathematica
 AbsoluteTiming[
@@ -397,7 +431,7 @@ AbsoluteTiming[
 (*{27.9127, Null}*)
 ```
 
-Using ClCon train a classifier and show its performance measures:
+Using `ClCon` train a classifier and show its performance measures:
 
 ```mathematica
 clObj = 
@@ -414,9 +448,9 @@ clObj =
 
 ![03uf3deiz0hsd](./Diagrams/Generation-of-Random-Bethlehem-Stars/03uf3deiz0hsd.png)
 
-**Remark:** We can re-run the ClCon workflow above several times until we obtain a classifier we want to use.
+**Remark:** We can re-run the `ClCon` workflow above several times until we obtain a classifier we want to use.
 
-Train a classifier with all of the training data:
+Train a classifier with all prepared data:
 
 ```mathematica
 clObj2 = 
@@ -433,7 +467,7 @@ cfBStar = clObj2⟹ClConTakeClassifier
 
 ![0awjjib00ihgg](./Diagrams/Generation-of-Random-Bethlehem-Stars/0awjjib00ihgg.png)
 
-Here we generate Bethlehem mandalas using the classifier trained above:
+Here we generate Bethlehem Star mandalas using the classifier trained above:
 
 ```mathematica
 SeedRandom[2020];
@@ -462,7 +496,7 @@ KeyMap[MandalaToWhiterImage, BethlehemMandala[12, cfBStar, 0, "Probabilities" ->
 
 **Remark:** Examine the probabilities in the image-probability associations above -- they show that the classifier is “working.“
 
-Here is another set generated Bethlehem mandalas using rotational symmetry order 4:
+Here is another set generated Bethlehem Star mandalas using rotational symmetry order 4:
 
 ```mathematica
 SeedRandom[777];
