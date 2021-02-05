@@ -1,0 +1,212 @@
+---
+title: "Scaffolding examples"
+author: Anton Antonov
+date: 2021-02-04
+output: html_notebook
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r setup}
+library(shiny)
+library(tidyverse)
+library(magrittr)
+library(QRMon)
+library(OutlierIdentifiers)
+library(ROCFunctions)
+```
+
+# Time series data
+
+## Ingestion
+
+```{r}
+dfTimeSeriesWithOutliers <- read.csv( file = "~/MathFiles/Presentations/Champaign-Urbana-DataScienceUserGroup-Feb-2021/output/dsTimeSeriesWithOutliers.csv")
+```
+
+```{r}
+# dfTimeSeriesWithOutliers <- 
+#   dfTimeSeriesWithOutliers %>% 
+#   dplyr::mutate( Type = ifelse( BottomOutlier == "True", "BottomOutlier", "None") ) %>% 
+#   dplyr::mutate( Type = ifelse( TopOutlier == "True", "TopOutlier", Type) )
+```
+
+```{r}
+summary(as.data.frame(unclass(dfTimeSeriesWithOutliers), stringsAsFactors = T), maxsum = 12)
+```
+
+## Plots
+
+```{r, fig.width = 12, fig.height = 8, fig.fullwidth=TRUE, message=FALSE}
+ggplot(dfTimeSeriesWithOutliers) +
+  geom_point( aes( x = as.POSIXct(Regressor, origin = "1900-01-01"), y = Value, color = Type ) ) +
+  xlab("Regressor") +
+  facet_wrap( ~ID, ncol = 2, scales = "free" )
+```
+
+## Focus time series
+
+Here we pick one of the time series to do the computations below:
+
+```{r}
+dfFocusTimeSeries <- 
+  dfTimeSeriesWithOutliers %>% 
+  dplyr::filter( ID == "hvps-kids-lsro" ) %>% 
+  dplyr::mutate( ID = NULL )
+dfFocusTimeSeries
+```
+
+-----
+
+# Find anomalies
+
+## QRMon object
+
+Here we do the following steps:
+
+1. Create a `QRMon` object with the selected time series
+2. Compute a fit at probability 0.5
+3. Plot data and fit
+
+```{r, fig.width = 8, fig.height = 2, fig.fullwidth=TRUE}
+qrObj <- 
+  QRMonUnit(dfFocusTimeSeries) %>% 
+  QRMonQuantileRegression(df = 20, probabilities = c(0.5) ) %>% 
+  QRMonPlot( datePlotQ = TRUE, dateOrigin = "1900-01-01")
+```
+
+## Batch testing of the anomalies finding 
+
+We want to see the performances of the anomalies finding method with different combinations of parameter values.
+
+Here we make a data frame with different parameter values, each row is a set of parameters:
+
+```{r}
+dfParams <- 
+    expand.grid( c( NA, 0.5, 1, 3, 4, 5, 10),
+                 c( "HampelIdentifierParameters", "SPLUSQuartileIdentifierParameters", "QuartileIdentifierParameters" ), 
+                 c( TRUE, FALSE), 
+                 stringsAsFactors = FALSE )
+dfParams <- setNames( dfParams, c("Threshold", "OutlierIdentifier", "RelativeErrorsQ") )
+dfParams <- 
+  dfParams %>% 
+  dplyr::mutate( OutlierIdentifier = ifelse( !is.na(Threshold), NA, OutlierIdentifier ) ) %>% 
+  unique() %>% 
+  dplyr::mutate( ID = dplyr::row_number() ) %>% 
+  dplyr::select( ID, names(dfParams))
+dfParams
+```
+
+Here we make a dictionary that maps parameters combinations into labels:
+
+```{r}
+aIDToLabel <- purrr::map( split(dfParams,dfParams$ID), function(x) do.call( paste, as.list(x[,-1]) ) )
+```
+
+Find anomalies for each parameter set:
+
+```{r}
+lsFoundOutliers <- 
+  purrr::map( split(dfParams, dfParams$ID), function(dfPars) {
+      cbind(
+        ID = dfPars$ID,
+        qrObj %>% 
+          QRMonFindAnomaliesByResiduals( threshold = if( is.na(dfPars$Threshold) ) { NULL } else { dfPars$Threshold }, 
+                                         outlierIdentifier = if( !is.function(dfPars$OutlierIdentifier) ) { NULL } else { parse( text = dfPars$OutlierIdentifier ) },
+                                         relativeErrorsQ = dfPars$RelativeErrorsQ ) %>% 
+          QRMonTakeValue
+      )
+  })
+length(lsFoundOutliers)
+```
+
+Here is an example of one of the results from the batch run above:
+
+```{r}
+lsFoundOutliers[[2]]
+```
+
+Compare with the known anomalies:
+
+```{r}
+dfFoundOutliersCounts <- 
+  purrr::map_df( lsFoundOutliers, function(dfFound) {
+  res <- 
+    dfFocusTimeSeries %>% 
+    dplyr::mutate( ID = dfFound$ID[[1]], Type = gsub( ".*Outlier", "Outlier", Type ) ) %>% 
+    dplyr::left_join( dfFound %>% dplyr::mutate( ID = NULL, FoundType = "Outlier"), by = c("Regressor", "Value") ) %>% 
+    dplyr::mutate( FoundType = ifelse( is.na(FoundType), "Normal", FoundType ) ) %>%
+    dplyr::count( ID, Type, FoundType, name = "Count" ) %>% 
+    dplyr::inner_join( 
+      dplyr::tribble(
+        ~Type,     ~FoundType, ~ROCType,
+        "Normal",  "Normal",   "TrueNegative",
+        "Outlier", "Outlier",  "TruePositive",
+        "Outlier", "Normal",   "FalseNegative",
+        "Normal",  "Outlier",  "FalsePositive"
+      ), by = c("Type", "FoundType"))
+})
+dfFoundOutliersCounts
+```
+
+Convert to wide form (more convenient for the computations below):
+
+```{r}
+dfFoundOutliersCountsWide <- tidyr::pivot_wider( data = dfFoundOutliersCounts, id_cols = "ID", names_from = "ROCType", values_from = "Count" )
+dfFoundOutliersCountsWide[ is.na(dfFoundOutliersCountsWide) ] <- 0
+dfFoundOutliersCountsWide
+```
+
+Compute 
+[Receiver Operating Characteristic (ROC)](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) functions 
+using the R-package 
+[ROCFunctions](https://github.com/antononcube/R-packages/tree/master/ROCFunctions):
+
+```{r}
+dfROCs <- ROCFunctions::ComputeROCFunctions(dfFoundOutliersCountsWide, c("FPR", "TPR", "PPV"))
+dfROCs
+```
+
+Plot False Positive Rate (FPR) vs True Positive Rate (TPR):
+
+```{r}
+ggplot(dfROCs) +
+  geom_point( aes( x = FPR, y = TPR ) ) +
+  geom_label( aes( x = FPR, y = TPR, label = aIDToLabel[ID]), nudge_x = 0.04, nudge_y = -0.04) +
+  xlim(-0.2, 1.2) + ylim(-0.2, 1.2)
+```
+
+# Custome made measure (and an interactive interface)
+
+We might want to do a weighed sum of True Positive Rate (TPR) and Positive Predictive Value (PPV):
+
+$$\frac{1}{5} \frac{TP}{TP+FN)} + \frac{4}{5} \frac{TP}{TP+FP}$$
+(TPR is the same Recall.)
+
+```{r}
+app <- 
+  shinyApp(
+    ui = fluidPage(
+      sliderInput( inputId = "theta", label = "theta:", min = 0, max = 1, value = 0.5, step = 0.01),
+      plotOutput("plot")
+    ),
+    server = function(input, output) {
+      output$plot <- renderPlot(
+       ggplot(dfROCs) +
+         geom_point( aes( x = ID, y = input$theta * TPR + (1 - input$theta) * PPV ) ) +
+         geom_label( aes( x = ID, y = input$theta * TPR + (1 - input$theta) * PPV, label = aIDToLabel[ID]), nudge_x = 0.04, nudge_y = -0.04) +
+         xlab("ID") + ylab("Score") +
+         ylim(0,1.2)
+      )
+    }
+  )
+
+runApp(app)
+```
+

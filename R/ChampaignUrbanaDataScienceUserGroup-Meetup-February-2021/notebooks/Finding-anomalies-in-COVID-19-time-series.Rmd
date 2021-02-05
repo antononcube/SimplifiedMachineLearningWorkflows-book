@@ -1,0 +1,90 @@
+---
+title: "Finding anomlies in COVID-19 time series"
+author: Anton Antonov
+date: 2021-02-05
+output: html_notebook
+---
+
+```{r setup}
+library(tidyverse)
+library(tidyverse)
+library(magrittr)
+library(QRMon)
+library(OutlierIdentifiers)
+library(SparseMatrixRecommender)
+library(SMRMon)
+```
+
+# Ingest data
+
+## Apple mobility data
+
+```{r}
+# dfAppleMobility <- read.csv( "~/Downloads/applemobilitytrends-2021-01-15.csv", stringsAsFactors = FALSE)
+# names(dfAppleMobility) <- gsub( "^X", "", names(dfAppleMobility))
+# names(dfAppleMobility) <- gsub( ".", "-", names(dfAppleMobility), fixed = TRUE)
+# 
+# dfFocusAppleData <- 
+#   dfAppleMobility %>% 
+#   dplyr::filter( region == "Nice")
+```
+
+## Using pre-igested data
+
+```{r}
+dfFocusAppleData <- read.csv( file = "../data/dfAppleMobilityLongForm.csv")
+```
+
+```{r}
+Summary(dfFocusAppleData)
+```
+
+```{r}
+dfFocusAppleData <- 
+  dfFocusAppleData %>% 
+  dplyr::mutate( Regressor = as.numeric(as.POSIXct(DateObject)) )
+```
+
+```{r}
+Summary(dfFocusAppleData)
+```
+
+
+## Using pre-made data structure
+
+```{r, eval=FALSE}
+# load( "../../../../SystemModeling/Projects/Coronavirus-propagation-dynamics/R/AppleCOVID19MobilityTrends/tssmrApple.RData")
+# 
+# dfNiceData <- 
+#   SMRMatricesToLongForm( tssmrApple$SMR ) %>% 
+#   dplyr::filter( grepl( "Nice", ID ) )
+```
+
+# Plots
+
+```{r}
+ggplot(dfFocusAppleData) +
+  geom_line( aes( x = as.POSIXct(DateObject), y = Value ) ) +
+  xlab("Date") +
+  facet_wrap( ~transportation_type, scales = "free", ncol = 1) 
+```
+# QRMon application
+
+
+```{r, fig.width=8, fig.height=2}
+qrObj <- 
+  QRMonUnit( dfFocusAppleData %>% 
+               dplyr::filter( grepl( "driving", transportation_type ) ) %>% 
+               dplyr::select( Regressor, Value ) ) %>% 
+  QRMonQuantileRegression( df = 12, probabilities = c(0.5) ) %>% 
+  QRMonPlot( dataLineColor = "gray60", dataPointsColor = NULL, datePlotQ = TRUE )
+```
+
+```{r}
+qrObj <- 
+  qrObj %>% 
+  QRMonFindAnomaliesByResiduals( threshold = NULL, outlierIdentifier = NULL, relativeErrorsQ = TRUE ) %>% 
+  QRMonEchoValue
+```
+
+

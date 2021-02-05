@@ -1,0 +1,385 @@
+---
+title: "QRMon anomalies detection"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    theme: spacelab
+    source_code: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(magrittr)
+library(ggplot2)
+library(QRMon)
+library(OutlierIdentifiers)
+
+dfFocusAppleData <- read.csv( file = "../data/dfAppleMobilityLongForm.csv")
+
+dfFocusAppleData <- 
+  dfFocusAppleData %>% 
+  dplyr::mutate( Regressor = as.numeric(as.POSIXct(DateObject)) )
+
+```
+
+
+Sidebar {.sidebar}
+=====================================
+
+```{r}
+selectInput( inputId = "dataSpec", label = "Data:", choices = c( "Driving", "Transporation", "Walking" ), selected = "Driving" )
+
+checkboxInput( inputId = "dateAxisQ", label = "Date axis:", value = FALSE )
+
+checkboxInput( inputId = "joinedPlotQ", label = "Joined plot:", value = FALSE )
+
+hr()
+
+textInput( inputId = "probs", label = "Probabilities:", value = "0.1, 0.5, 0.9")
+
+sliderInput( inputId = "df", label = "Degrees of freedom:", min = 1, max = 120, step = 1, value = 12 )
+
+hr()
+
+checkboxInput( inputId = "relativeErrorsQ", label = "Use relative errors:", value = FALSE )
+
+numericInput( inputId = "outlierThreshold", label = "Outliers threshold:", min = 0, max = 100, step = 0.05, value = 1 )
+
+selectInput( inputId = "outlierIdentifier", 
+             label = "Outlier identifier:", 
+             choices = c( "Hampel", "SPLUSQuartile", "Quartile"), 
+             selected = "Hampel" )
+
+```
+
+Data and fit
+=====================================
+
+```{r}
+
+lsGroupColors <- c( "Data" = "gray60", 
+                    "VarianceDiff" = "gray60", 
+                    "Outliers" = "red", 
+                    "VarianceOutliers" = "red", 
+                    "Anomalies" = "red" )
+
+dataset <- reactive({
+  
+  res <- 
+    dfFocusAppleData %>% 
+    dplyr::filter( grepl( tolower(input$dataSpec), transportation_type) ) %>% 
+    dplyr::select( Regressor, Value )
+  
+  QRMonUnit( setNames( res,  c("Regressor", "Value") ) ) %>% QRMonTakeData
+})
+
+outlierIdentifierParameters <- reactive({
+  list( 
+    "Hampel" = HampelIdentifierParameters, 
+    "SPLUSQuartile" = SPLUSQuartileIdentifierParameters, 
+    "Quartile" = QuartileIdentifierParameters
+  )[[input$outlierIdentifier]]
+})  
+
+pointOutlierIdentifier <- reactive({
+  function(x) TopOutlierIdentifier(data = x, identifier = outlierIdentifierParameters()) 
+})
+
+varianceOutlierIdentifier <- reactive({
+  function(x) OutlierIdentifier(data = x, identifier = outlierIdentifierParameters()) 
+})
+
+lsProbs <- reactive({
+  res <- strsplit( input$probs, ",|\\s")[[1]]
+  as.numeric( res[nchar(res) > 0 ] )
+})
+  
+qrObj <- reactive({
+
+  QRMonUnit( dataset() ) %>%
+  QRMonQuantileRegression( df = input$df, probabilities = lsProbs() )
+})
+```
+
+### Summary
+
+```{r}
+renderPrint({
+  cat( paste0("Number of points: ", nrow(dataset()), "\n"));
+  summary(qrObj() %>% QRMonTakeData)
+})
+```
+
+
+### Data and regression quantiles
+
+```{r}
+plotQR <- reactive({
+  qrObj() %>% 
+    QRMonPlot( echoQ = FALSE, 
+               datePlotQ = input$dateAxisQ, 
+               dateOrigin = "1900-01-01", 
+               dataPointsColor = if( input$joinedPlotQ ) { NULL } else { "gray60" },
+               dataLineColor = if( input$joinedPlotQ ) { "gray60" } else { NULL } ) %>% 
+    QRMonTakeValue
+})
+
+renderPlot( expr = {
+  print(plotQR())
+})
+```
+
+### Errors
+
+```{r}
+renderPlot( expr = {
+  print(qrObj() %>% QRMonErrorsPlot(relativeErrorsQ = input$relativeErrorsQ, datePlotQ = input$dateAxisQ, dateOrigin = "1900-01-01" ))
+})
+```
+
+Point anomalies
+=====================================
+
+### Outliers by regression quantiles
+
+```{r}
+renderPlot( expr = {
+  
+  p <- 
+    qrObj() %>% 
+    QRMonOutliers %>% 
+    QRMonOutliersPlot( 
+      echoQ = FALSE, 
+      plotRegressionCurvesQ = TRUE, 
+      datePlotQ = input$dateAxisQ, 
+      dateOrigin = "1900-01-01",
+      dataPointsColor = if( input$joinedPlotQ ) { NULL } else { "gray60" },
+      dataLineColor = if( input$joinedPlotQ ) { "gray60" } else { NULL } ) %>% 
+    QRMonTakeValue
+  
+  print(p)
+  
+})
+```
+
+### Anomalies by residuals using threshold
+
+```{r}
+dfPointOutliers <- reactive({
+  qrObj() %>% 
+    QRMonFindAnomaliesByResiduals( threshold = input$outlierThreshold, outlierIdentifier = NULL, relativeErrorsQ = input$relativeErrorsQ ) %>% 
+    QRMonTakeValue
+})
+
+renderPlot( expr = {
+  
+  if( is.null(dfPointOutliers()) || nrow(dfPointOutliers()) == 0 ) {
+    dfPlotData <- cbind( Type = "Data", dataset() )
+  } else {
+    dfPlotData <- rbind( cbind( Type = "Data", dataset() ), 
+                         cbind( Type = "Outliers", dfPointOutliers() ) )
+  }
+  
+  ggplot( dfPlotData ) + 
+    geom_point( aes( x = if(input$dateAxisQ) { as.POSIXct(Regressor, origin = "1900-01-01") } else { Regressor }, 
+                     y = Value, 
+                     color = Type ) ) +
+    scale_colour_manual( values = lsGroupColors ) +
+    xlab("Regressor")
+                
+})
+```
+
+### Anomalies by residuals using outlier identifier
+
+```{r}
+dfPointOutliersByFunc <- reactive({
+  qrObj() %>% 
+    QRMonFindAnomaliesByResiduals( threshold = NULL, outlierIdentifier = pointOutlierIdentifier(), relativeErrorsQ = input$relativeErrorsQ ) %>% 
+    QRMonTakeValue
+})
+
+renderPlot( expr = {
+   
+  if( is.null(dfPointOutliers()) || nrow(dfPointOutliersByFunc()) == 0 ) {
+    dfPlotData <- cbind( Type = "Data", dataset() )
+  } else {
+    dfPlotData <- rbind( cbind( Type = "Data", dataset() ), 
+                         cbind( Type = "Outliers", dfPointOutliersByFunc() ) )
+  }
+  
+  ggplot( dfPlotData ) + 
+    geom_point( aes( x = if(input$dateAxisQ) { as.POSIXct(Regressor, origin = "1900-01-01") } else { Regressor }, 
+                     y = Value, 
+                     color = Type ) ) +
+    scale_colour_manual( values = lsGroupColors ) +
+    xlab("Regressor")
+  
+})
+```
+
+
+Variance anomalies
+=====================================
+
+### Regression quantiles for variance evaluation
+
+```{r}
+renderPlot( expr = {
+  
+  print(
+    QRMonUnit( qrObj() %>% QRMonTakeData ) %>% 
+      QRMonQuantileRegression( df = input$df, probabilities = c( min(lsProbs()), max(lsProbs()) ) ) %>% 
+      QRMonPlot( echoQ = FALSE, 
+                 datePlotQ = input$dateAxisQ, 
+                 dateOrigin = "1900-01-01",
+                 dataPointsColor = if( input$joinedPlotQ ) { NULL } else { "gray60" },
+                 dataLineColor = if( input$joinedPlotQ ) { "gray60" } else { NULL } ) %>% 
+      QRMonTakeValue 
+  )
+  
+})
+```
+
+### Conditional variance
+
+```{r}
+renderPlot( expr = {
+  
+  lsRes <- qrObj() %>% QRMonPredict( ) %>% QRMonTakeValue
+  dfRes <- dplyr::bind_rows( lsRes, .id = "Prob")
+  
+  maxPPos <- which.max( as.numeric(names(lsRes)) )
+  minPPos <- which.min( as.numeric(names(lsRes)) )
+
+  dfDiffs <- data.frame( Regressor = lsRes[[maxPPos]]["Regressor"], Value = abs(lsRes[[maxPPos]]["Value"] - lsRes[[minPPos]]["Value"] ) )
+
+  lsOutlierPos <- varianceOutlierIdentifier()( dfDiffs$Value )
+  
+  if(length(lsOutlierPos) == 0 || sum(lsOutlierPos) == 0 ) {
+    dfPlotData <- cbind( Type = "Data", dfDiffs )
+  } else {
+    dfPlotData <-  rbind( cbind( Type = "VarianceDiff", dfDiffs ), 
+                          cbind( Type = "Outliers", dfDiffs[lsOutlierPos, ,drop=F] ) )
+  }
+  
+  ggplot( dfPlotData ) + 
+    geom_point( aes( x = if(input$dateAxisQ) { as.POSIXct(Regressor, origin = "1900-01-01") } else { Regressor }, 
+                     y = Value,  
+                     color = Type)
+    ) +
+    scale_colour_manual( values = lsGroupColors ) +
+    xlab("Regressor")
+    
+})
+```
+
+### Variance outliers
+
+```{r}
+dfVarOutliers <- reactive({
+  qrObj() %>% 
+    QRMonFindVarianceAnomalies( outlierIdentifier = varianceOutlierIdentifier(), positionsQ = FALSE ) %>% 
+    QRMonTakeValue
+})
+
+renderPlot( expr = {
+  
+  if( nrow(dfVarOutliers()) == 0 ) {
+    dfPlotData <- cbind( Type = "Data", dataset() )
+  } else {
+    dfPlotData <-  rbind( cbind( Type = "Data", dataset() ), 
+                          cbind( Type = "VarianceOutliers", dfVarOutliers() ) )
+  }
+  
+  ggplot( dfPlotData ) + 
+    geom_point( aes( x = if(input$dateAxisQ) { as.POSIXct(Regressor, origin = "1900-01-01") } else { Regressor }, 
+                     y = Value, 
+                     color = Type ) ) +
+    scale_colour_manual( values = lsGroupColors ) +
+    xlab("Regressor")
+  
+})
+```
+
+References
+====================================
+
+#### In brief
+
+The quantile regression workflows are made with the R package [`QRMon-R`](https://github.com/antononcube/QRMon-R),
+which is based on [`quantreg`](https://cran.r-project.org/web/packages/quantreg/index.html).
+
+#### Dashboards
+
+[AAd1] Anton Antonov,
+[GNNMon time series anomalies detection](https://antononcube.shinyapps.io/GNNMonTimeSeriesAnomaliesDetection/),
+(2020),
+[shinyapps.io by RStudio](https://www.shinyapps.io).
+
+#### Articles, books
+
+[RK1] Roger Koenker, 
+[Quantile Regression](https://books.google.com/books/about/Quantile_Regression.html?id=hdkt7V4NXsgC), 
+Cambridge University Press, 2005.
+
+[RK2] Roger Koenker,
+["Quantile Regression in R: a vignette"](https://cran.r-project.org/web/packages/quantreg/vignettes/rq.pdf),
+(2006),
+[CRAN](https://cran.r-project.org/).
+
+[AA1] Anton Antonov,
+["A monad for Quantile Regression workflows"](https://github.com/antononcube/MathematicaForPrediction/blob/master/MarkdownDocuments/A-monad-for-Quantile-Regression-workflows.md),
+(2018),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
+
+#### Packages
+
+[RKp1] Roger Koenker,
+[`quantreg`](https://cran.r-project.org/web/packages/quantreg/index.html),
+[CRAN](https://cran.r-project.org/).
+
+[AAp1] Anton Antonov,
+[Quantile Regression Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/QuantileRegression.m),
+(2014),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
+
+[AAp2] Anton Antonov,
+[Monadic Quantile Regression Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicQuantileRegression.m),
+(2018),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
+
+[AAp3] Anton Antonov,
+[`QuantileRegression`](https://resources.wolframcloud.com/FunctionRepository/resources/QuantileRegression),
+(2019),
+[Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository/resources/QuantileRegression).
+
+#### Repositories
+
+[AAr1] Anton Antonov,
+[QRMon-R](https://github.com/antononcube/QRMon-R),
+(2019),
+[GitHub/antononcube](https://github.com/antononcube).
+
+[AAr2] Anton Antonov,
+[DSL::English::QuantileRegressionWorkflows in Raku](https://github.com/antononcube/Raku-DSL-English-QuantileRegressionWorkflows),
+(2020),
+[GitHub/antononcube](https://github.com/antononcube).
+
+#### Videos
+
+[AAv1] Anton Antonov,
+["Anomalies, Breaks, and Outliers Detection in Time Series"](https://www.youtube.com/watch?v=h_fLb6YU87c),
+Wolfram Research Technology 2019 talk,
+[Wolfram Research Inc. channel at YouTube](https://www.youtube.com/channel/UCJekgf6k62CQHdENWf2NgAQ).
+
+[AAv2] Anton Antonov,
+["Boston useR! QuantileRegression Workflows 2019-04-18"](https://www.youtube.com/watch?v=a_Dk25xarvE),
+(2019),
+[Anton Antonov at YouTube](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
+
+[AAv3] Anton Antonov,
+["useR! 2020: How to simplify Machine Learning workflows specifications"](https://www.youtube.com/watch?v=b9Uu7gRF5KY),
+(2020),
+[R Consortium at YouTube](https://www.youtube.com/channel/UC_R5smHVXRYGhZYDJsnXTwg).
