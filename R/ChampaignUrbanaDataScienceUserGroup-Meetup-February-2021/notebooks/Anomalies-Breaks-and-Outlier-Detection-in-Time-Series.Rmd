@@ -1,0 +1,138 @@
+---
+title: "Anomalies, Breaks, and Outlier Detection in Time Series"
+author: Anton Antonov
+date: 2021-02-05
+output: html_notebook
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+
+# Introduction
+
+- I gave a very similar presentation 17 months ago at Wolfram Technology Conference 2019 (WTC-2019):
+  
+  - ["Anomalies, Breaks, and Outlier Detection in Time Series"](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/Presentations/WTC-2019)
+  
+  - [Presentation in Markdown (GitHub)](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Presentations/WTC-2019/Anomalies-breaks-and-outliers-detection-in-time-series.md)
+  
+  - [Presentation recording (YouTube)](https://www.youtube.com/watch?v=h_fLb6YU87c).
+  
+- This presentation aims to:
+ 
+  - Introduce anomalies and time series from Machine Learning (ML) perspective
+  
+  - Give more details to algorithmic topics
+  
+  - Show how some of those algorithms work 
+  
+  - Compare Mathematica and R (but 80% using R)
+  
+- Who am I?
+
+  - [Senior Research Scientist](https://github.com/antononcube)
+  
+  - Former Kernel Developer of Mathematica, 2001-2008
+  
+  - Very suspicious of statisticians and data scientists
+  
+  - [Not that enamored by Machine Learning and Data Science](https://mathematicaforprediction.wordpress.com/2018/02/21/applying-artificial-intelligence-and-machine-learning-to-finance-and-technology/)
+  
+  - Writing a book ["How to be a data scientist impostor?"](https://github.com/antononcube/HowToBeADataScientistImpostor-book)
+  
+-----
+
+# Description through questions and answers
+
+- What are anomalies, outliers, and structural breaks in time series?
+ 
+  - Examples with Numenta and NREL time series data.
+
+- What is the best anomaly detection algorithm?
+
+- Can we do forecast of anomalies?
+
+- What is the most *interesting* message in this presentation?
+
+- What is the most *important* message in this presentation?
+
+- What are the simplest algorithms?
+
+- Where can we find the presentation materials? 
+
+  - [At GitHub](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/tree/master/R/ChampaignUrbanaDataScienceUserGroup-Meetup-February-2021)
+
+- How anomalies are extended for collections of time series?
+
+- What algorithms to use for detecting anomalies in collections of time series?
+
+-----
+
+# Anomalies definitions
+
+There are many ways to define anomalies in time series. Here we are going to list the ones we focus on in this presentation.
+
+**Point Anomaly:** Simply and outlier of the values of the time series.
+
+**Contextual Anomaly:** An anomaly that is local to some sub-sequence of the time series.
+
+**Breakpoint / change-point:** A regressor value (time) of a time series where the mean of the values change. (Also, consider (i) shifts in trend, (ii) other changes in trend and/or, (iii) changes in variance.)
+
+**Structural break:** Unexpected changes of the parameters of regression models.
+
+
+-----
+
+# Enthusiasm instead of expertise
+
+There are two many approaches and methods for time series anomalies detection, so it is hard to make complete overview in this kind of presentation.
+
+We are going to look into a few methods in detail and discuss some of the most important ingredients of anomaly detection algorithms.
+
+We are going to overview some techniques that are applicable.
+
+I am writing a book called ["How to be a Data Scientist Impostor?"](https://github.com/antononcube/HowToBeADataScientistImpostor-book)
+
+The presentation is **flavored** with some of the attitudes, methods, and skills acquisition I advocate in that book. 
+
+In general we want to provide mental and software tools that allow enthusiasm to be a good substitute for expertise.
+
+- Scaffolding (for development.)
+
+- Early success measurement definitions and application.
+
+- Quantile Regression.
+
+- Using of non-parametric models.
+
+- Using of simplified Machine Learning workflows.
+
+
+-----
+
+# 1D outlier finders
+
+Assume we have a list of values: 
+
+```{r, fig.width = 6, fig.height = 4, echo=FALSE}
+vals <- rnorm( n = 100, mean = 12, sd = 7)
+dfVals <- data.frame( Index = 1:length(vals), Value = sort(vals) )
+dfVals2 <- 
+  rbind(
+    cbind( dfVals, Outlier = OutlierIdentifiers::OutlierIdentifier( data = dfVals$Value, identifier = HampelIdentifierParameters ), OutlierIdentifier = "HampelIdentifierParameters" ),
+    cbind( dfVals, Outlier = OutlierIdentifiers::OutlierIdentifier( data = dfVals$Value, identifier = SPLUSQuartileIdentifierParameters), OutlierIdentifier = "SPLUSQuartileIdentifierParameters" ),
+    cbind( dfVals, Outlier = OutlierIdentifiers::OutlierIdentifier( data = dfVals$Value, identifier = QuartileIdentifierParameters ), OutlierIdentifier = "QuartileIdentifierParameters" )
+  )
+ggplot(dfVals2) +
+  geom_point( aes( x = Index, y = Value, color = Outlier) ) +
+  scale_color_manual(breaks = c( TRUE, FALSE),
+                        values=c("red", "gray60")) +
+  facet_wrap( ~OutlierIdentifier, ncol = 3 )
+```
+
