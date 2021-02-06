@@ -15,7 +15,7 @@ library(ggplot2)
 library(QRMon)
 library(OutlierIdentifiers)
 
-dfFocusAppleData <- read.csv( file = "../data/dfAppleMobilityLongForm.csv")
+dfFocusAppleData <- read.csv( file = "https://raw.githubusercontent.com/antononcube/SimplifiedMachineLearningWorkflows-book/master/R/ChampaignUrbanaDataScienceUserGroup-Meetup-February-2021/data/dfAppleMobilityLongForm.csv")
 
 dfFocusAppleData <- 
   dfFocusAppleData %>% 
