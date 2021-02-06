@@ -120,7 +120,7 @@ In general we want to provide mental and software tools that allow enthusiasm to
 
 Assume we have a list of values: 
 
-```{r, fig.width = 6, fig.height = 4, echo=FALSE}
+```{r, fig.width = 8, fig.height = 2, echo=FALSE}
 vals <- rnorm( n = 100, mean = 12, sd = 7)
 dfVals <- data.frame( Index = 1:length(vals), Value = sort(vals) )
 dfVals2 <- 
@@ -136,3 +136,12 @@ ggplot(dfVals2) +
   facet_wrap( ~OutlierIdentifier, ncol = 3 )
 ```
 
+-----
+
+# Interactive examples
+
+- Using `GNNMon`
+
+- Using `QRMon`
+
+- Scaffolding.
