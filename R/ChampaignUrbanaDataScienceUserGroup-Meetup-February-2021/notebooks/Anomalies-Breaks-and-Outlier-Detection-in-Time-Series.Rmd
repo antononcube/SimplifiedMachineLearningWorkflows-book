@@ -101,7 +101,7 @@ I am writing a book called ["How to be a Data Scientist Impostor?"](https://gith
 
 The presentation is **flavored** with some of the attitudes, methods, and skills acquisition I advocate in that book. 
 
-In general we want to provide mental and software tools that allow enthusiasm to be a good substitute for expertise.
+In general, we want to provide mental and software tools that allow enthusiasm to be a good substitute for expertise.
 
 - Scaffolding (for development.)
 
@@ -140,8 +140,8 @@ ggplot(dfVals2) +
 
 # Interactive examples
 
-- Using `GNNMon`
+- Using [`GNNMon`](https://antononcube.shinyapps.io/GNNMonTimeSeriesAnomaliesDetection/)
 
-- Using `QRMon`
+- Using [`QRMon`](https://antononcube.shinyapps.io/QRMonAnomaliesDetection/)
 
-- Scaffolding.
+- [Scaffolding](https://htmlpreview.github.io/?https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/R/ChampaignUrbanaDataScienceUserGroup-Meetup-February-2021/notebooks/Scaffolding-examples.nb.html)
