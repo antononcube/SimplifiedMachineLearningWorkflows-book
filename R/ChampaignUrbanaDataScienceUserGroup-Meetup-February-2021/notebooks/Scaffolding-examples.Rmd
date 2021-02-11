@@ -81,9 +81,9 @@ qrObj <-
   QRMonPlot( datePlotQ = TRUE, dateOrigin = "1900-01-01")
 ```
 
-## Batch testing of the anomalies finding 
+## Batch testing of the anomalies finding algorithm
 
-We want to see the performances of the anomalies finding method with different combinations of parameter values.
+We want to see the performances of the anomalies finding algorithm (method) with different combinations of parameter values.
 
 Here we make a data frame with different parameter values, each row is a set of parameters:
 
@@ -182,11 +182,11 @@ ggplot(dfROCs) +
   xlim(-0.2, 1.2) + ylim(-0.2, 1.2)
 ```
 
-# Custome made measure (and an interactive interface)
+# Custom made measure (and an interactive interface)
 
-We might want to do a weighed sum of True Positive Rate (TPR) and Positive Predictive Value (PPV):
+We might want to do a weighted sum of True Positive Rate (TPR) and Positive Predictive Value (PPV):
 
-$$\frac{1}{5} \frac{TP}{TP+FN)} + \frac{4}{5} \frac{TP}{TP+FP}$$
+$$\frac{1}{5} \frac{TP}{TP+FN} + \frac{4}{5} \frac{TP}{TP+FP}$$
 (TPR is the same Recall.)
 
 ```{r}
@@ -209,4 +209,5 @@ app <-
 
 runApp(app)
 ```
+
 
