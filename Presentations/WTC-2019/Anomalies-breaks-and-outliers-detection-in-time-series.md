@@ -1288,11 +1288,20 @@ SMRMonEchoFunctionValue[Map[ListPlot[{Rescale[svec,MinMax[svec],MinMax[SparseArr
 
 ### Packages
 
-[AAp1] Anton Antonov, [algorithms dimensional identifying Implementation in Mathematica of one outlier](https://github.com/antononcube/MathematicaForPrediction/blob/master/OutlierIdentifiers.m), (2013), [at GitHub MathematicaForPrediction](https://github.com/antononcube/MathematicaForPrediction).
+[AAp1] Anton Antonov, 
+[Implementation of one dimensional outlier identifying algorithms in Mathematica](https://github.com/antononcube/MathematicaForPrediction/blob/master/OutlierIdentifiers.m), 
+(2013),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
 
-[AAp2] Anton Antonov, [Mathematica Monadic package Quantile Regression](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicQuantileRegression.m), (2018), [at GitHub MathematicaForPrediction](https://github.com/antononcube/MathematicaForPrediction).
+[AAp2] Anton Antonov, 
+[Monadic Quantile Regression Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicQuantileRegression.m),
+(2018),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
  
-[AAp3] Anton Antonov, [Event Mathematica Monadic package Records Transformations](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicEventRecordsTransformations.m), (2018), [at GitHub MathematicaForPrediction](https://github.com/antononcube/MathematicaForPrediction).
+[AAp3] Anton Antonov, 
+[Monadic Event Records Transformations Mathematica package](https://github.com/antononcube/MathematicaForPrediction/blob/master/MonadicProgramming/MonadicEventRecordsTransformations.m),
+(2018),
+[MathematicaForPrediction at GitHub](https://github.com/antononcube/MathematicaForPrediction).
 
 ---
 
