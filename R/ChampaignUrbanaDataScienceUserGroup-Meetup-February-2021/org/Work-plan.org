@@ -1,0 +1,103 @@
+#+TITLE: Anomalies, Breaks, and Outlier Detection in Time Series in R
+#+AUTHOR: Anton Antonov,
+#+EMAIL: antononcube@posteo.net
+#+TODO: TODO ONGOING MAYBE POSTPresentation | DONE CANCELED
+#+OPTIONS: toc:1 num:0
+
+* Introduction
+- This work plan was for the presentation at Champaign-Urbana Data
+  Science User Group on [2021-02-05 Fri].
+  - Since I promised the organizers that the presentation is going to
+    be at least 80% in R, the R-programming tasks are given priority.
+- This work plan is copied and extended for the Mathematica-vs-R
+  project :
+  - [[https://github.com/antononcube/MathematicaVsR/tree/master/Projects/TimeSeriesAnomaliesBreaksAndOutliersDetection][Time series anomalies, breaks, and outliers detection]]
+- A large number of the presentation elements and related programming
+  were done for my Wolfram Technology Conference 2019 (WTC-2019) presentation.
+- A lot of the programming and presentation topics center around:
+  - Quantile Regression Monad (QRMon)
+  - Geometric Nearest Neighbours (GNNMon)
+- The Time Series Search Engine (TSSE) interfaces over COVID-19 data
+  were made for in a previous project.
+* DONE Programming [100%] [3/3]
+** DONE Finding variance anomalies [50%] [1/2]
+- ~QRMonFindVarianceAnomalies~
+*** DONE In QRMon-R
+*** POSTPresentation In QRMin-WL
+** DONE Interactive interfaces [100%] [2/2]
+*** DONE Shiny [66%] [2/3]
+**** DONE ~QRMon~ for anomalies finding 
+**** DONE ~GNNMon~ for anomalies finding
+**** POSTPresentation Extend with BYOD
+- Extend with Bring Your Own Data (BYOD) entry fields or panel.
+*** DONE Mathematica [100%] [2/2]
+**** DONE GNNMon for time series anomalies
+**** DONE Multiple runs of ~QRMonFindAnomalies~
+- That was implemented for WTC-2019, but had to be reviewed and made
+  more presentable
+  - (It was not used in the presentation.)
+** DONE ROC functions package in R [100%] [6/6]
+- [X] Make a dedicated package directory in R-packages
+- [X] Program dictionary of ROC functions abbreviations to explanations
+- [X] Program ROC functions application function
+- [X] Document functions
+- [X] Make tests
+- [X] Test with the scaffolding examples in presentation project
+* DONE Presentation [100%] [10/10]
+** DONE Make a mind-map
+- For quicker orientation.
+** DONE Simplest method
+- [X] Application of ~GNNMon~ over overlapping signal blocks
+- [X] Program the method and flex-dashboard
+- [X] Publish on ~shinyapps.io~
+- [X] Same interface in Mathematica
+  - Programmed it but did not show it in the presentation.
+** DONE Scaffolding notebook and examples [100%] [4/4]
+- [X] Generate random time series
+  - Did in Mathematica in order to reuse ~QRMon~ based functions for
+    introducing outliers.
+- [X] Cartesian product of parameters for ~QRMonFindAnomaliesByResiduals~
+- [X] Program ROC functions
+  - Turned out that it was simpler to write an R package for ROC
+    functions calculations.
+    - Similar to the corresponding, much older, Mathematica package.
+- [X] Make simple shiny interface for custom made formula
+** DONE QRMon-R over Apple Maps data for Nice France [100%] [5/5]
+- [X] Copy the general ~QRMon-R~ Shiny flex-dashboard
+- [X] Extract the data for Nice, France from the Apple Mobility data
+- [X] Export the data as part of the presentation's project
+- [X] Change the flex-dashboard code
+- [X] Verify and experiment with the dashboard (and data)
+** DONE Prepare examples time series 
+- [X] Numenta benchmark time series
+- [X] National Renewable Energy Laboratory (NREL) data
+** DONE Find good examples from the COVID-19 time series search engines 
+** DONE Make slides 
+- I made a notebook, not a slideshow.
+- The hardest part was making the plot that demos the 1D outlier identifiers.
+** CANCELED Multi-dimensional examples
+** CANCELED Code generation with natural language commands
+** DONE References [100%] [4/4]
+- [X] Shiny apps
+- [X] WTC-2019 presentation
+- [X] Links in the mind-map
+- [X] Relevant, articles, packages, and posts
+* TODO Documentation
+** TODO GNNMon in R [50%] [1/2]
+- [X] Review and enhance the original ~GNNMon~ examples document.
+  - This was done long time time ago, but I reviewed the document.
+- [ ] Document / describe the use of ~GNNMon~ to find anomalies in
+  time series.
+** POSTPresentation GNNMon in Mathematica [33%] [1/3]
+- [X] Review the original ~GNNMon~ examples document
+  - This document started long time time ago.
+  - I considered publishing it at ~MathematicaForPrediction.wordpress.com~ before the presentation.
+- [ ] Enhance the original ~GNNMon~ examples document
+- [ ] Document / describe the use of ~GNNMon~ to find anomalies in
+  time series.
+- [ ] Make a ~GNNMon~ workflows flow chart.
+** POSTPresentation Complete and publish a Mathematica-vs-R post
+- A dedicated project was made long time ago.
+- Full blown document with comparison examples is the goal.
+- Of course, relevant links to packages and dashboards have to fully
+  listed and described.
