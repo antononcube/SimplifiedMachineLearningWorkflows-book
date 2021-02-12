@@ -1,4 +1,5 @@
-v
+# Anomalies, breaks, and outliers detection in time series
+
 **Anton Antonov**      
 **Accendo Data LLC**   
 
