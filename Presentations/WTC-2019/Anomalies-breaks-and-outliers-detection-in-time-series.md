@@ -96,7 +96,7 @@ In[22]:= DateListPlot[{tsSP500,qrmon2⟹QRMonTakeValue},Joined->{True,False},Plo
 
 There are many ways to define anomalies in time series. Here we are going to list the ones we focus on in this presentation.
 
-**Point Anomaly:** Simply and outlier of the values of the time series.
+**Point Anomaly:** Simply an outlier of the values of the time series.
 
 **Contextual Anomaly:** An anomaly that is local to some sub-sequence of the time series.
 
