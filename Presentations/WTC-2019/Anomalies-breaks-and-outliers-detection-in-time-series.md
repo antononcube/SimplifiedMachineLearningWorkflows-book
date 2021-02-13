@@ -94,15 +94,22 @@ In[22]:= DateListPlot[{tsSP500,qrmon2⟹QRMonTakeValue},Joined->{True,False},Plo
 
 ## Anomalies definitions
 
-There are many ways to define anomalies in time series. Here we are going to list the ones we focus on in this presentation.
+There are many ways to define anomalies in time series. 
+Here we are going to list the ones we focus on in this presentation.
 
-**Point Anomaly:** Simply an outlier of the values of the time series.
+- **Point Anomaly:** Simply an outlier of the values of the time series.
 
-**Contextual Anomaly:** An anomaly that is local to some sub-sequence of the time series.
+- **Contextual Anomaly:** An anomaly that is local to some sub-sequence of the time series.
 
-**Breakpoint / change-point:** A regressor value (time) of a time series where the mean of the values change. (Also, consider (i) shifts in trend, (ii) other changes in trend and/or, (iii) changes in variance.)
+- **Breakpoint / change-point:** A regressor value (time) of a time series where the mean of the values change.
+  
+   - Also, consider:
+      
+      1. Shifts in trend, 
+      2. Other changes in trend
+      3. Changes in variance
 
-**Structural break:** Unexpected changes of the parameters of regression models.
+- **Structural break:** Unexpected changes of the parameters of regression models.
 
 ---
 
