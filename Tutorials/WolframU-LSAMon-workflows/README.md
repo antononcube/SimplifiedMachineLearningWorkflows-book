@@ -12,7 +12,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
 1. [X] Overview Latent Semantic Analysis (LSA) typical problems and basic workflows.    
    Answering preliminary anticipated questions.     
    Here is 
-   [the recording of the first session at Twitch](https://www.twitch.tv/videos/517562647) .
+   [the recording of the first session at YouTube](https://www.youtube.com/watch?v=d5M54_9AMVQ) .
    
    - What are the typical applications of LSA?   
    - Why use LSA?     
@@ -27,7 +27,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
    - How the main dimension reduction methods compare?
       
 2. [X] LSA for document collections.   
-   Here is [the recording of the second session at Twitch](https://www.twitch.tv/videos/523306241) .
+   Here is [the recording of the second session at YouTube](https://www.youtube.com/watch?v=5pX5WAfPNb8) .
    
     - Motivational example -- full blown LSA workflow.
     
@@ -42,7 +42,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      - "Eat your own dog food" example.
 
 3. [X] Representation of the documents - the fundamental matrix object.   
-   Here is [the recording of the third session at Twitch](https://www.twitch.tv/videos/533991174).
+   Here is [the recording of the third session at YouTube](https://www.youtube.com/watch?v=MNQR28P8Juc).
    
    - Review: last session's example.
    
@@ -58,7 +58,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
        - (in general.)
 
 4. [X] Representation of unseen documents.   
-   Here is [the recording of the fourth session at Twitch](https://www.twitch.tv/videos/540209071).
+   Here is [the recording of the fourth session at YouTube](https://www.youtube.com/watch?v=ElwOLyd9GC4).
    
    - Review: last session's matrix object.
       - Sparse matrix with named rows and columns.
@@ -80,7 +80,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      - Representation of unseen mandala images.
 
 5. [X] LSA for image de-noising and classification.   
-   Here is [the recording of the fifth session at Twitch](https://www.twitch.tv/videos/548404984).
+   Here is [the recording of the fifth session at YouTube](https://www.youtube.com/watch?v=_KBecGdzoS0).
    
    - Review: last session's image collection topics extraction.
      - Let us try that two other datasets:
@@ -94,7 +94,7 @@ are to be recorded through Wolfram University (Wolfram U) in December 2019 and J
      - Handwritten digits.
    
 6. [X] Further use cases.   
-   Here is [the recording of the sixth session at Twitch](https://www.twitch.tv/videos/555707101).
+   Here is [the recording of the sixth session at YouTube](https://www.youtube.com/watch?v=Hxawq1O3Oec).
 
    - Derive a custom taxonomy over a document collection.
       - Clustering with the reduced dimension.
