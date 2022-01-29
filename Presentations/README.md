@@ -34,7 +34,7 @@ Then we look into definitions of anomalies and definitions for measuring success
 
 Here is a video recording: 
 
-- ["How to simplify Machine learning workflows specifications - useR! 2020 Conference" (YouTube)](https://youtu.be/QqH6eha73xk).
+- ["How to simplify Machine learning workflows specifications - useR! 2020 Conference" (YouTube)](https://www.youtube.com/watch?v=b9Uu7gRF5KY).
 
 Here are the slides for the (lightning) talk:
 [HTML](https://htmlpreview.github.io/?https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Presentations/UseR!-2020/How-to-simplify-ML-workflows-specifications-slides.html),
