@@ -1,0 +1,172 @@
+---
+title: "Random mandalas generation (Python)"
+author: Anton Antonov
+date: 2022-02-24
+output: html_notebook
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r, echo=FALSE, include=FALSE}
+reticulate::py_config()
+```
+
+------
+
+# Introduction
+
+This notebook shows how to derive a collections of random mandala images in Python and have it available in R.
+
+------
+
+# Setup Python packages
+
+Load necessary Python package and modules:
+
+```{python}
+# "Standard" packages
+import pandas
+import numpy
+import random
+import io
+import time
+
+# Plotting packages
+import matplotlib
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import ImageGrid
+
+# Image processing package(s)
+from PIL import Image, ImageOps
+
+# Random mandalas packages
+from RandomMandala import random_mandala, figure_to_image
+```
+
+-------
+
+# Generate random mandalas
+
+Here we generate single mandala:
+
+```{python}
+# 17, 32, 43, 99, 326, 400, 466, 451, 536, 607, 770, 774, 828, 836, 870, 868, 993
+random.seed(32)
+fig = random_mandala(dpi=60)
+plt.show()
+plt.close(fig)
+```
+
+
+Here generate a `matplotlib` figure object with 12 (3x4) mandalas:
+
+```{python}
+random.seed(51)
+fig1 = random_mandala(n_rows=6, n_columns=6, connecting_function = 'bezier_fill', figsize=(10,10), dpi=200)
+fig1.tight_layout()
+plt.show()
+```
+
+```{python}
+random.seed(21)
+fig2 = random_mandala(n_rows=3, n_columns=3,
+                      radius = [10, 8, 6],
+                      connecting_function = 'bezier_fill', 
+                      color_mapper=matplotlib.cm.gist_earth,
+   						        symmetric_seed=True, dpi=200)
+fig2.tight_layout()
+plt.show()
+plt.close(fig2)
+```
+
+```{python}
+# A list to accumulate random mandala images
+mandala_images = []
+
+# Generation loop
+random.seed(443)
+for i in range(64):
+    
+    # Generate one random mandala figure
+    fig2 = random_mandala(n_rows=None,
+                          n_columns=None,
+                          radius=[8, 6, 3],
+                          rotational_symmetry_order=6,
+                          symmetric_seed=True,
+                          connecting_function='bezier_fill',
+                          face_color="0.")
+    fig2.tight_layout()
+    
+    # Convert the figure into an image and add it to the list
+    mandala_images = mandala_images + [figure_to_image(fig2)]
+    
+    # Close figure to save memoru
+    plt.close(fig2)
+
+# Invert image colors    
+mandala_images2 = [ImageOps.invert(img) for img in mandala_images]
+
+# Binarize images
+mandala_images3 = [im.convert('1') for im in mandala_images2]
+
+# Make a grid of images and display it
+fig3 = plt.figure(figsize=(14., 14.))
+grid = ImageGrid(fig3, 111,
+                 nrows_ncols=(8, 8),
+                 axes_pad=0.02,
+                 )
+
+for ax, img in zip(grid, mandala_images3):
+    ax.imshow(img)
+    ax.set(xticks=[], yticks=[])
+
+plt.show()
+```
+```{python}
+mandala_arrays = [numpy.asarray(x, dtype="int32") for x in mandala_images3]
+```
+
+
+-------
+
+# Python mandalas in R
+
+```{r}
+library(reticulate)
+image(t(py$mandala_arrays[[57]]))
+```
+```{r}
+lsTrainImages <- purrr::map( py$mandala_arrays, t)
+lsTrainImagesLabels <- 1:length(lsTrainImages)
+length(lsTrainImages)
+```
+
+```{r training-sample-image, fig.height = 5, fig.width = 5}
+par( mfrow = c(8,8), mai = c(0,0,0,0))
+for(i in 1:length(lsTrainImages)){
+  image( lsTrainImages[[i]], axes = FALSE, col = gray( 0:255 / 255 ) )
+  text( 0.2, 0, lsTrainImagesLabels[[i]], cex = 1.4, col = 2, pos = c(3,4))
+}
+```
+
+```{r}
+par( mfrow = c(8,8), mai = c(0,0,0,0))
+for(i in 1:length(lsTrainImages)){
+  image( lsTrainImages[[i]], axes = FALSE, col = gray( 0:255 / 255 ) )
+}
+```
+
+-------
+
+# References
+
+[AAp3] Anton Antonov,
+[Random Mandala Python package](https://pypi.org/project/RandomMandala),
+(2021),
+[PyPI.org](https://pypi.org/).
