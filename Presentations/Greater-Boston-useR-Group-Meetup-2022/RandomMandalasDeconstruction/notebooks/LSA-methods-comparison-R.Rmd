@@ -1,0 +1,319 @@
+---
+title: "LSA methods comparison R"
+author: Anton Antonov
+date: 2022-02-27
+output: html_notebook
+---
+
+
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+-------
+
+# Get Python mandalas collection
+
+## Setup
+
+```{r setup, echo=FALSE, include=FALSE}
+library(Matrix)
+library(magrittr)
+library(purrr)
+library(LSAMon)
+
+library(reticulate)
+#reticulate::py_config()
+```
+
+```{python}
+# "Standard" packages
+import pandas
+import numpy
+import random
+import io
+import time
+
+# SSparseMatrix, SMR, and LSA packages
+from SSparseMatrix import *
+from SparseMatrixRecommender import *
+from LatentSemanticAnalyzer import LatentSemanticAnalyzer
+
+# Plotting packages
+import matplotlib
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import ImageGrid
+
+# Image processing package(s)
+from PIL import Image, ImageOps
+
+# Random mandalas packages
+from RandomMandala import random_mandala, figure_to_image
+```
+
+## Mandala collection
+
+```{python}
+# A list to accumulate random mandala images
+mandala_images = []
+
+# Generation loop
+random.seed(443)
+tstart = time.time()
+for i in range(512):
+    
+    # Generate one random mandala figure
+    fig2 = random_mandala(n_rows=None,
+                          n_columns=None,
+                          radius=[8, 6, 3],
+                          rotational_symmetry_order=6,
+                          symmetric_seed=True,
+                          connecting_function='bezier_fill',
+                          face_color="0.", 
+                          alpha = 1.0)
+    fig2.tight_layout()
+    
+    # Convert the figure into an image and add it to the list
+    mandala_images = mandala_images + [figure_to_image(fig2)]
+    
+    # Close figure to save memory
+    plt.close(fig2)
+
+# Invert image colors    
+mandala_images1 = [ImageOps.invert(img) for img in mandala_images]
+
+# Binarize images
+mandala_images2 = [im.convert('1') for im in mandala_images1]
+
+# Resize images
+width, height = mandala_images2[0].size
+print([width, height])
+ratio = height / width
+new_width = 200
+mandala_images3 = [img.resize((new_width, round(new_width * ratio)), Image.ANTIALIAS) for img in mandala_images2]
+print("Process time: " + str(time.time()-tstart))
+```
+
+## Get mandalas in R
+
+```{python}
+mandala_arrays = [numpy.asarray(x, dtype="int32") for x in mandala_images3]
+```
+
+
+```{r}
+length(py$mandala_arrays)
+```
+
+```{r}
+# This plots the 512 images. Using {r include=FALSE} produces some strange behaviour.
+# Hence we just the arrays below.
+
+# system.time({
+#   mandalas3 <- purrr::map(py$mandala_arrays, function(x) image(x, axes = FALSE, col = gray( 0:255 / 255 ) ))
+# })
+```
+
+
+------
+
+# Process random mandalas collection
+
+Get the mandala arrays:
+
+```{r}
+mandalaImageArrays <- purrr::map(py$mandala_arrays, t)
+```
+
+Show one of the random mandalas:
+
+```{r, fig.width=2, fig.height=2}
+image(mandalaImageArrays[[12]], axes = FALSE, col = gray(0:255/255) )
+```
+Show an array of inverted random mandalas:
+
+```{r}
+set.seed(332)
+purrr::map(sample(mandalaImageArrays, 6), function(x) image(x, axes = FALSE, col = gray(0:255/255) ))
+```
+
+Convert each image array into a flatten array:
+
+```{r}
+mandalaArrays <- purrr::map(mandalaImageArrays, as.numeric)
+length(mandalaArrays)
+```
+
+Make a matrix of flattened mandalas:
+
+```{r}
+mandalaMat <- matrix(do.call(c, mandalaArrays), ncol = length(mandalaArrays[[1]]), byrow = TRUE)
+dim(mandalaMat)
+```
+
+
+Make a sparse matrix of flattened mandalas:
+
+```{r}
+mandalaSMat <- as(mandalaMat, "sparseMatrix")
+mandalaSMat <- as(mandalaSMat, "dgCMatrix")
+mandalaSMat <- drop0(mandalaSMat)
+dim(mandalaSMat)
+length(mandalaSMat@x)/length(mandalaSMat)
+```
+
+-----
+
+# LSAMon object creation
+
+Se the number of topics:
+
+```{r}
+numberOfTopics <- 40
+```
+
+Create the `LSAMon` object:
+
+```{r}
+system.time(
+  lsaObj <- 
+    LSAMonUnit() %>% 
+    LSAMonSetDocumentTermMatrix(mandalaSMat) %>% 
+    LSAMonApplyTermWeightFunctions(globalWeightFunction = "None", localWeightFunction = "None", normalizerFunction = "None")
+)
+```
+
+## SVD
+
+Here we extract image topics using Singular Value Decomposition (SVD):
+
+```{r}
+system.time(
+  lsaSVDObj <- 
+    lsaObj %>%
+    LSAMonExtractTopics(numberOfTopics = numberOfTopics, method = "SVD", maxSteps = 120, minNumberOfDocumentsPerTerm = 0)
+)
+```
+
+```{r}
+svdH <- lsaSVDObj %>% LSAMonNormalizeMatrixProduct(normalizeLeftQ = FALSE) %>% LSAMonTakeH
+
+dim(svdH)
+length(svdH@x)/length(svdH)
+```
+
+-------
+
+# Show topics interpretation
+
+Show the importance coefficients of the topics (if SVD was used the plot would show the singular values):
+
+```{r}
+smat <- lsaSVDObj %>% LSAMonNormalizeMatrixProduct(normalizeLeftQ = TRUE) %>% LSAMonTakeH
+lsNorms <- sqrt(rowSums(smat * smat))
+barplot(lsNorms)
+```
+
+Show the interpretation of the extracted image topics:
+
+
+```{r SVD-basis-images}
+lsBasisImages <- 
+  purrr::map(1:nrow(svdH), function(i) { 
+    matrix(svdH[i,], ncol = ncol(mandalaImageArrays[[1]]), byrow =F)
+  })
+lsBasisImagesLabels <- 1:length(lsBasisImages)
+
+par( mfrow = c(5,8), mai = c(0,0,0,0))
+for(i in 1:length(lsBasisImages)){
+  image( lsBasisImages[[i]], axes = FALSE, col = gray( 0:255 / 255 ) )
+  text( 0.2, 0, lsBasisImagesLabels[[i]], cex = 1.2, col = 2, pos = c(3,4))
+}
+```
+
+-------
+
+# Approximation
+
+Get a new, unseen random mandala:
+
+```{python}
+# Consider using radius = [8, 6, 3]
+fig = random_mandala(radius=[8, 6, 3],
+                     rotational_symmetry_order=6,
+                     symmetric_seed=True,
+                     connecting_function='bezier_fill',
+                     face_color="0.", 
+                     alpha = 1.0)
+                      
+# Convert the mandala figure to image
+testMandala = figure_to_image(fig)
+
+# Resize image
+testMandala1 = testMandala.resize((new_width, round(new_width * ratio)), Image.ANTIALIAS)
+
+# Invert image colors    
+testMandala2 = ImageOps.invert(testMandala)
+
+# Binarize image
+testMandala3 = testMandala2.convert('1')
+
+# Resize image
+testMandala4 = testMandala3.resize((new_width, round(new_width * ratio)), Image.ANTIALIAS)
+
+# The image
+testMandala4
+```
+
+Plot the image:
+
+```{python}
+plt.imshow(testMandala4)
+plt.axis('off')
+plt.show()
+```
+Get sparse vector corresponding to the generated mandala image in R:
+
+```{python}
+testMandalaArray = numpy.asarray(testMandala4, dtype="int32")
+```
+
+```{r}
+testMandalaArray <- py$testMandalaArray
+dim(testMandalaArray)
+```
+
+```{r}
+testMandalaSMat <- sparseMatrix( x = as.numeric(testMandalaArray), i = rep_len(1,length(testMandalaArray)), j= 1:length(testMandalaArray))
+testMandalaSMat <- as(testMandalaSMat, "dgCMatrix")
+testMandalaSMat <- drop0(testMandalaSMat)
+dim(testMandalaSMat)
+length(testMandalaSMat@x)/length(testMandalaSMat)
+```
+
+## SVD
+
+Represent by topics:
+
+```{r}
+matRepresentation <- 
+  lsaSVDObj %>% 
+  LSAMonNormalizeMatrixProduct(normalizeLeftQ = FALSE) %>% 
+  LSAMonRepresentByTopics(query = testMandalaSMat) %>% 
+  LSAMonTakeValue
+```
+
+```{r}
+lsCoeff <- matRepresentation@x
+barplot(lsCoeff)
+```
+
+```{r}
+vecRepresentation = lsCoeff %*% svdH
+image(matrix(vecRepresentation, ncol = ncol(mandalaImageArrays[[1]]), byrow=F), axes=FALSE, col = gray(0:255/255))
+```
+
