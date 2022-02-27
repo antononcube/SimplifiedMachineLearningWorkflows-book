@@ -224,7 +224,7 @@ Show the interpretation of the extracted image topics:
 ```{r SVD-basis-images}
 lsBasisImages <- 
   purrr::map(1:nrow(svdH), function(i) { 
-    matrix(svdH[i,], ncol = ncol(mandalaImageArrays[[1]]), byrow =F)
+    matrix(svdH[i,], nrow = nrow(mandalaImageArrays[[1]]), byrow =F)
   })
 lsBasisImagesLabels <- 1:length(lsBasisImages)
 
@@ -288,11 +288,15 @@ dim(testMandalaArray)
 ```
 
 ```{r}
-testMandalaSMat <- sparseMatrix( x = as.numeric(testMandalaArray), i = rep_len(1,length(testMandalaArray)), j= 1:length(testMandalaArray))
+testMandalaSMat <- sparseMatrix( x = as.numeric(t(testMandalaArray)), i = rep_len(1,length(testMandalaArray)), j= 1:length(testMandalaArray))
 testMandalaSMat <- as(testMandalaSMat, "dgCMatrix")
 testMandalaSMat <- drop0(testMandalaSMat)
 dim(testMandalaSMat)
 length(testMandalaSMat@x)/length(testMandalaSMat)
+```
+
+```{r}
+image(matrix(as.numeric(t(testMandalaArray)), nrow = nrow(mandalaImageArrays[[1]]), byrow=F), axes=FALSE, col = gray(0:255/255))
 ```
 
 ## SVD
@@ -314,6 +318,12 @@ barplot(lsCoeff)
 
 ```{r}
 vecRepresentation = lsCoeff %*% svdH
-image(matrix(vecRepresentation, ncol = ncol(mandalaImageArrays[[1]]), byrow=F), axes=FALSE, col = gray(0:255/255))
+dim(vecRepresentation)
+summary(vecRepresentation@x)
+```
+
+
+```{r}
+image(matrix((vecRepresentation[1,]+10), nrow = nrow(mandalaImageArrays[[1]]), byrow=F), axes=FALSE, col = gray(0:255/255))
 ```
 
