@@ -11,7 +11,7 @@
 ** DONE Mandalas collection creation with Python [100%] [3/3]
 - [X] Mathematica notebook
 - [X] Rmd notebook
-** TODO Software development [100%] [2/2]
+** TODO Software development [50%] [1/2]
 *** DONE Python [33%] [1/3]
 - [X] Implement opacity argument (~alpha~) for the Python package
   ~RandomMandala~
@@ -25,9 +25,10 @@
   - SciPy has ~pinv~ function for dense matrices but not a
     corresponding one for sparse matrices.
 - [C] ICA method
-*** CANCELED R
-- [ ] ICA method
-** DONE Mathematica notebook [100%] [8/8]
+*** TODO R [0%] [0/1]
+- [C] ICA method
+- [ ] Shiny app clone buttons for each example
+** DONE Mathematica computations notebook in Mathematica  [100%] [8/8]
 1) [X] Mandalas collection creation
    - [X] Using Python
    - [X] Using the Mathematica WFR function
@@ -38,7 +39,7 @@
 6) [X] Test mandala creation and pre-processing
 7) [X] Approximation with SVD topics
 8) [X] Approximation with NNMF topics
-** DONE Python notebook in Mathematica [100%] [8/8]
+** DONE Python computations notebook in Mathematica [100%] [8/8]
 1) [X] Mandalas collection creation
    - Determine:
      - [X] Appropriate number of images
@@ -50,7 +51,16 @@
 6) [X] Test mandala creation and pre-processing
 7) [X] Approximation with SVD topics
 8) [X] Approximation with NNMF topics
-** MAYBE R computation notebook in Mathematica [0%] [0/8]
+** TODO Python computations notebook in RStudio [75%] [6/8]
+1) [ ] Mandalas collection creation
+2) [ ] Pre-processing of image data
+3) [X] LSA object for both SVD and NNMF
+4) [X] Topic extraction with SVD
+5) [X] Topic extraction with NNMF
+6) [X] Test mandala creation and pre-processing
+7) [X] Approximation with SVD topics
+8) [X] Approximation with NNMF topics
+** MAYBE R computations notebook in Mathematica [0%] [0/8]
 1) [ ] Mandalas collection creation
 2) [ ] Pre-processing of image data
 3) [ ] LSA object for both SVD and NNMF
