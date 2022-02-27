@@ -1,12 +1,32 @@
-# Random mandalas deconstruction with R, Python, & Mathematica
+# Random mandalas deconstruction with R, Python, and Mathematica
 
 ***Presented by Anton Antonov***   
 ***[Boston useR Meetup](https://www.meetup.com/Boston-useR/events/284045968/)***   
-***2022-02-24***   
+***2022-02-28***   
 
-**Abstract:** In this presentation we discuss the application of different dimension reduction algorithms over collections of random mandalas. We discuss and compare the derived image bases and show how those bases explain the underlying collection structure. The presented techniques and insights (1) are applicable to any collection of images, and (2) can be be included in larger, more complicated machine learning workflows. The former is demonstrated with a handwritten digits recognition application; the latter with the generation of random Bethlehem stars. The (parallel) walk-through of the core demonstration is in all three programming languages: Mathematica, Python, and R.
+**Abstract:** In this presentation we discuss the application of different dimension reduction algorithms over collections of random mandalas. 
+We discuss and compare the derived image bases and show how those bases explain the underlying collection structure. 
+The presented techniques and insights (1) are applicable to any collection of images, and (2) can be included in larger, 
+more complicated machine learning workflows. The former is demonstrated with a handwritten digits recognition application; 
+the latter with the generation of random Bethlehem stars. The (parallel) walk-through of the core demonstration is in 
+all three programming languages: Mathematica, Python, and R.
 
-**Speaker Bio:** Anton is an applied mathematician (Ph.D.) with 30+ years of experience in algorithm development, scientific computing, mathematical modeling, natural language processing, combinatorial optimization, research and development programming, machine learning, and data mining. In the last ten years, he focused on developing machine learning algorithms and workflows for different industries (music, movies, recruiting, healthcare.)
+**Speaker Bio:** Anton is an applied mathematician (Ph.D.) with 30+ years of experience in algorithm development, 
+scientific computing, mathematical modeling, natural language processing, combinatorial optimization, research and development programming, 
+machine learning, and data mining. In the last ten years, he focused on developing machine learning algorithms and workflows for 
+different industries (music, movies, recruiting, healthcare.)
+
+------
+
+## Random mandalas generation
+
+Here is a link that generates collages of random mandalas via Wolfram Cloud:
+
+```
+https://www.wolframcloud.com/obj/8691f810-4c70-484e-a325-eda565ce0185?n=12&colorFunction=GrayTones&edgeOpacity=0.4
+```
+
+![*Random mandalas collage via WolframCloud*](https://www.wolframcloud.com/obj/8691f810-4c70-484e-a325-eda565ce0185?n=12&colorFunction=GrayTones&edgeOpacity=0.4)
 
 ------
 
@@ -67,3 +87,13 @@
 [Latent Semantic Analysis Monad R package](https://github.com/antononcube/R-packages/tree/master/LSAMon-R),
 (2019),
 [R-packages at GitHub/antononcube](https://github.com/antononcube/R-packages).
+
+
+
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>

@@ -1,0 +1,125 @@
+#+TITLE: Random mandalas deconstruction work plan
+#+AUTHOR: Anton Antonov, SimplifiedMachineLearningWorkflows-book at GitHub
+#+EMAIL: antononcube@posteo.net
+#+TODO: TODO ONGOING MAYBE | DONE CANCELED 
+#+OPTIONS: toc:1 num:0
+
+* Introduction
+- This work plan is for the preparations for the presentation "Random
+  Mandalas Deconstruction in Mathematica, Python, and R" (to be) given at [[https://www.meetup.com/Boston-useR/events/284045968/][Greater Boston useR Meetup on 2022-02-28]].
+* TODO Work plan [23%] [3/13] 
+** DONE Mandalas collection creation with Python [100%] [3/3]
+- [X] Mathematica notebook
+- [X] Rmd notebook
+** TODO Software development [100%] [2/2]
+*** DONE Python [33%] [1/3]
+- [X] Implement opacity argument (~alpha~) for the Python package
+  ~RandomMandala~
+  - Without the mandalas being generated as fully opaque the
+    conversion to arrays produces [dithering pattern] that makes
+    the topic extraction from the mandala collections hard.
+    - For both SVD and NNMF.
+  - See [[https://pypi.org/project/RandomMandala/0.6.0/][~RandomMandala 0.6.0]].
+  - See the related [[https://stackoverflow.com/q/71267653/14163984][StackOverlow discussion]].
+- [C] Moore-Penrose inverse for sparse matrices
+  - SciPy has ~pinv~ function for dense matrices but not a
+    corresponding one for sparse matrices.
+- [C] ICA method
+*** CANCELED R
+- [ ] ICA method
+** DONE Mathematica notebook [100%] [8/8]
+1) [X] Mandalas collection creation
+   - [X] Using Python
+   - [X] Using the Mathematica WFR function
+2) [X] Pre-processing of image data
+3) [X] LSA object for both SVD and NNMF
+4) [X] Topic extraction with SVD
+5) [X] Topic extraction with NNMF
+6) [X] Test mandala creation and pre-processing
+7) [X] Approximation with SVD topics
+8) [X] Approximation with NNMF topics
+** DONE Python notebook in Mathematica [100%] [8/8]
+1) [X] Mandalas collection creation
+   - Determine:
+     - [X] Appropriate number of images
+     - [X] Appropriate image sizes
+2) [X] Pre-processing of image data
+3) [X] LSA object for both SVD and NNMF
+4) [X] Topic extraction with SVD
+5) [X] Topic extraction with NNMF
+6) [X] Test mandala creation and pre-processing
+7) [X] Approximation with SVD topics
+8) [X] Approximation with NNMF topics
+** MAYBE R computation notebook in Mathematica [0%] [0/8]
+1) [ ] Mandalas collection creation
+2) [ ] Pre-processing of image data
+3) [ ] LSA object for both SVD and NNMF
+4) [ ] Topic extraction with SVD
+5) [ ] Topic extraction with NNMF
+6) [ ] Test mandala creation and pre-processing
+7) [ ] Approximation with SVD topics
+8) [ ] Approximation with NNMF topics
+** TODO R computations notebook in RStudio [0%] [0/8]
+1) [ ] Mandalas collection creation
+2) [ ] Pre-processing of image data
+3) [ ] LSA object for both SVD and NNMF
+4) [ ] Topic extraction with SVD
+5) [ ] Topic extraction with NNMF
+6) [ ] Test mandala creation and pre-processing
+7) [ ] Approximation with SVD topics
+8) [ ] Approximation with NNMF topics
+** TODO DSL commands [0%] [0/2]
+- [ ] LSA worflow for Mathematica
+- [ ] LSA worflow for Python
+- [ ] LSA worflow for R
+- [ ] Shiny / Cro web service verification / installation
+** TODO NLP Template engine [0%] [0/3] 
+- [ ] ~LSAMon~ pipeline Mathematica 
+- [ ] ~LatentSemanticAnalyzer~ pipeline for Python
+- [ ] ~LSAMon~ pipeline for R
+- [ ] Shiny / Cro web service verification / installation
+** TODO Natural language commands demo RStudio notebook [%] [/]
+- [ ] LSA workflows flow-chart
+- [ ] ~LSAMon~ pipeline diagram
+- [ ] Grammars commands in ~DSLMode~ 
+- [ ] NLP template engine commands with ~Concretize~
+** TODO Presentation diagrams [75%] [3/4]
+*** DONE Mind-map for the presentation [100%] [4/4]
+- [X] Mandala collections data
+  - Pretty mandalas with Mathematica
+  - Less pretty mandalas with Python
+  - No R-programmed mandalas
+- [X] Dimensions reduction
+  - [X] Links to the monad packages
+  - [X] Links to dimension reduction packages
+- [X] Notebooks
+  - in RStudio
+  - in Mathematica
+  - GitHub project link
+- [X] Comparison
+  - [X] The sequence of steps
+*** MAYBE Info-graphic of the whole effort
+*** DONE LSA workflow flow chat
+*** DONE ~LSAMon~ pipeline diagram 
+** TODO Presentation as Mathematica notebook
+- [ ] LSA workflows flow-chart
+- [ ] ~LSAMon~ pipeline diagram
+- [ ] Grammars commands in ~DSLMode~ 
+- [ ] NLP template engine commands with ~Concretize~
+- [ ] To the particular notebooks
+** TODO GitHub repository [25%] [1/4]
+- [X] R project
+- [ ] README with references
+- [ ] Proclaim
+** TODO Proclaims [%] [/]
+- [X] Announcements
+  - [X] Slack DS
+  - [X] Slack DSSG South FL
+  - [X] Discord OMLDS
+  - [X] MS Teams
+- [ ] Greater Boston useR meetup
+  - [ ] GitHub project link
+  - [ ] Python ~RandomMandala~ package
+  - [ ] ~WolframCloud~ function for random mandala collages
+    - [ ] Web link
+    - [ ] Siri shortcut
