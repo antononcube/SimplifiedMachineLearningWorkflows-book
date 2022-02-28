@@ -25,9 +25,12 @@ library(Matrix)
 library(magrittr)
 library(purrr)
 library(LSAMon)
+library(SparseMatrixRecommender)
 
 library(reticulate)
 #reticulate::py_config()
+
+source("../R/UtilityFunctions.R")
 ```
 
 ```{python}
@@ -138,7 +141,7 @@ Show an array of inverted random mandalas:
 
 ```{r}
 set.seed(332)
-purrr::map(sample(mandalaImageArrays, 6), function(x) image(x, axes = FALSE, col = gray(0:255/255) ))
+ParImageGrid(sample(mandalaImageArrays, 12), mfrow = c(3,4))
 ```
 
 Convert each image array into a flatten array:
@@ -206,9 +209,31 @@ dim(svdH)
 length(svdH@x)/length(svdH)
 ```
 
+
+## NNMF
+
+Here we extract image topics using Non-Negative Matrix Factorization (NNMF):
+
+```{r}
+system.time(
+  lsaNNMFObj <- 
+    lsaObj %>%
+    LSAMonExtractTopics(numberOfTopics = numberOfTopics, method = "NNMF", maxSteps = 16, minNumberOfDocumentsPerTerm = 0)
+)
+```
+
+```{r}
+nnmfH <- lsaNNMFObj %>% LSAMonNormalizeMatrixProduct(normalizeLeftQ = FALSE) %>% LSAMonTakeH
+
+dim(nnmfH)
+length(nnmfH@x)/length(nnmfH)
+```
+
 -------
 
 # Show topics interpretation
+
+## SVD
 
 Show the importance coefficients of the topics (if SVD was used the plot would show the singular values):
 
@@ -218,13 +243,48 @@ lsNorms <- sqrt(rowSums(smat * smat))
 barplot(lsNorms)
 ```
 
-Show the interpretation of the extracted image topics:
-
 
 ```{r SVD-basis-images}
 lsBasisImages <- 
   purrr::map(1:nrow(svdH), function(i) { 
     matrix(svdH[i,], nrow = nrow(mandalaImageArrays[[1]]), byrow =F)
+  })
+lsBasisImagesLabels <- 1:length(lsBasisImages)
+
+par( mfrow = c(5,8), mai = c(0,0,0,0))
+for(i in 1:length(lsBasisImages)){
+  image( lsBasisImages[[i]], axes = FALSE, col = gray( 0:255 / 255 ) )
+  text( 0.2, 0, lsBasisImagesLabels[[i]], cex = 1.2, col = 2, pos = c(3,4))
+}
+```
+
+## NNMF
+
+Show the importance coefficients of the topics (if SVD was used the plot would show the singular values):
+
+```{r}
+smat <- lsaNNMFObj %>% LSAMonNormalizeMatrixProduct(normalizeLeftQ = TRUE) %>% LSAMonTakeH
+lsNorms <- sqrt(rowSums(smat * smat))
+barplot(lsNorms)
+```
+
+Drop "insignificant" pixels:
+
+```{r clip-NNMF-basis-values}
+summary(nnmfH@x)
+nnmfH2 <- nnmfH
+if( TRUE ) {
+  nnmfH2@x[nnmfH@x < 1.5e-2] <- 0
+  nnmfH2 <- drop0(nnmfH2)
+}
+```
+
+Show the interpretation of the extracted image topics:
+
+```{r NNMF-basis-images}
+lsBasisImages <- 
+  purrr::map(1:nrow(nnmfH), function(i) { 
+    matrix(nnmfH2[i,], nrow = nrow(mandalaImageArrays[[1]]), byrow =F)
   })
 lsBasisImagesLabels <- 1:length(lsBasisImages)
 
@@ -242,6 +302,9 @@ for(i in 1:length(lsBasisImages)){
 Get a new, unseen random mandala:
 
 ```{python}
+random.seed(89)
+
+
 # Consider using radius = [8, 6, 3]
 fig = random_mandala(radius=[8, 6, 3],
                      rotational_symmetry_order=6,
@@ -323,7 +386,53 @@ summary(vecRepresentation@x)
 ```
 
 
-```{r}
-image(matrix((vecRepresentation[1,]+10), nrow = nrow(mandalaImageArrays[[1]]), byrow=F), axes=FALSE, col = gray(0:255/255))
+```{r, message=FALSE}
+vecRepresentation <- SMRApplyTermWeightFunctions(docTermMat = vecRepresentation, normalizerFunction = "AbsMax")
 ```
 
+
+```{r, message=FALSE}
+par( mfrow = c(1,2), mai = c(0,0,0,0))
+image(matrix((1-vecRepresentation[1,]), nrow = nrow(mandalaImageArrays[[1]]), byrow=F), axes=FALSE, col = gray(0:255/255))
+text( 0.2, 0, "approximated", cex = 1.4, col = 2, pos = c(3,4))
+image(1-t(py$testMandalaArray), axes = FALSE, col = gray( 0:255 / 255 ))
+text( 0.2, 0, "original", cex = 1.4, col = 2, pos = c(3,4))
+```
+## NNMF
+
+Represent by topics:
+
+```{r}
+matRepresentation <- 
+  lsaNNMFObj %>% 
+  LSAMonNormalizeMatrixProduct(normalizeLeftQ = FALSE) %>% 
+  LSAMonRepresentByTopics(query = testMandalaSMat, method = "Algebraic" ) %>% 
+  LSAMonTakeValue
+```
+
+```{r}
+lsCoeff <- matRepresentation@x
+barplot(lsCoeff)
+```
+
+```{r}
+vecRepresentation = lsCoeff %*% nnmfH
+dim(vecRepresentation)
+summary(vecRepresentation@x)
+```
+
+
+```{r, message=FALSE}
+vecRepresentation <- SMRApplyTermWeightFunctions(docTermMat = vecRepresentation, normalizerFunction = "AbsMax")
+summary(vecRepresentation@x)
+vecRepresentation@x[vecRepresentation@x < 0] <- 0
+```
+
+
+```{r, message=FALSE}
+par( mfrow = c(1,2), mai = c(0,0,0,0))
+image(matrix((1-vecRepresentation[1,]), nrow = nrow(mandalaImageArrays[[1]]), byrow=F), axes=FALSE, col = gray(0:255/255))
+text( 0.2, 0, "approximated", cex = 1.4, col = 2, pos = c(3,4))
+image(1-t(py$testMandalaArray), axes = FALSE, col = gray( 0:255 / 255 ))
+text( 0.2, 0, "original", cex = 1.4, col = 2, pos = c(3,4))
+```
