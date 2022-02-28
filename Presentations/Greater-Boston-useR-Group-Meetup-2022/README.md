@@ -24,6 +24,9 @@ different industries (music, movies, recruiting, healthcare.)
 
 Here is the related RStudio project: ["RandomMandalasDeconstruction"](./RandomMandalasDeconstruction).
 
+Here is a link to the R-computations notebook converted to HTML: 
+["LSA methods comparison in R"](https://htmlpreview.github.io/?https://raw.githubusercontent.com/antononcube/SimplifiedMachineLearningWorkflows-book/master/Presentations/Greater-Boston-useR-Group-Meetup-2022/RandomMandalasDeconstruction/notebooks/LSA-methods-comparison-R.nb.html).
+
 The Mathematica notebooks are placed in project's folder 
 ["notebooks-WL"](./RandomMandalasDeconstruction/notebooks-WL).
 
