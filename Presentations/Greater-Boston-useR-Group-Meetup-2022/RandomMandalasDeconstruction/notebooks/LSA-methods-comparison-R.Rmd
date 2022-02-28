@@ -134,9 +134,10 @@ mandalaImageArrays <- purrr::map(py$mandala_arrays, t)
 
 Show one of the random mandalas:
 
-```{r, fig.width=2, fig.height=2}
-image(mandalaImageArrays[[12]], axes = FALSE, col = gray(0:255/255) )
+```{r, fig.width=1, fig.height=1}
+ParImageGrid(mandalaImageArrays[12], mfrow = c(1,1))
 ```
+
 Show an array of inverted random mandalas:
 
 ```{r}
