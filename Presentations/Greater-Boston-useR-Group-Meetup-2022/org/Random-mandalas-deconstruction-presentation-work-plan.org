@@ -7,7 +7,7 @@
 * Introduction
 - This work plan is for the preparations for the presentation "Random
   Mandalas Deconstruction in Mathematica, Python, and R" (to be) given at [[https://www.meetup.com/Boston-useR/events/284045968/][Greater Boston useR Meetup on 2022-02-28]].
-* TODO Work plan [57%] [8/14] 
+* DONE Work plan [100%] [14/14] 
 ** DONE Mandalas collection creation with Python [100%] [3/3]
 - [X] Mathematica notebook
 - [X] Rmd notebook
@@ -51,16 +51,16 @@
 6) [X] Test mandala creation and pre-processing
 7) [X] Approximation with SVD topics
 8) [X] Approximation with NNMF topics
-** TODO Python computations notebook in RStudio [75%] [6/8]
-1) [ ] Mandalas collection creation
-2) [ ] Pre-processing of image data
+** DONE Python computations notebook in RStudio [100%] [8/8]
+1) [X] Mandalas collection creation
+2) [X] Pre-processing of image data
 3) [X] LSA object for both SVD and NNMF
 4) [X] Topic extraction with SVD
 5) [X] Topic extraction with NNMF
 6) [X] Test mandala creation and pre-processing
 7) [X] Approximation with SVD topics
 8) [X] Approximation with NNMF topics
-** MAYBE R computations notebook in Mathematica [0%] [0/8]
+** CANCELED R computations notebook in Mathematica [0%] [0/8]
 1) [ ] Mandalas collection creation
 2) [ ] Pre-processing of image data
 3) [ ] LSA object for both SVD and NNMF
@@ -112,24 +112,24 @@
   - [X] ~WolframCloud~ function for random mandala collages
     - [X] Web link
     - [C] Siri shortcut
-** TODO NLP Template engine [75%] [3/4] 
-- [X] ~LSAMon~ pipeline Mathematica 
-- [X] ~LatentSemanticAnalyzer~ pipeline for Python
-- [X] ~LSAMon~ pipeline for R
-- [ ] Shiny / Cro web service verification / installation
-** TODO Natural language commands demo RStudio notebook [%] [/]
+** CANCELED Natural language commands demo RStudio notebook [%] [/]
 - [ ] LSA workflows flow-chart
 - [ ] ~LSAMon~ pipeline diagram
 - [ ] Grammars commands in ~DSLMode~ 
 - [ ] NLP template engine commands with ~Concretize~
-** TODO Presentation as Mathematica notebook
+** DONE NLP Template engine [100%] [4/4] 
+- [X] ~LSAMon~ pipeline Mathematica 
+- [X] ~LatentSemanticAnalyzer~ pipeline for Python
+- [X] ~LSAMon~ pipeline for R
+- [X] Shiny / Cro web service verification / installation
+** CANCELED Presentation as Mathematica notebook
 - [ ] LSA workflows flow-chart
 - [ ] ~LSAMon~ pipeline diagram
 - [ ] Grammars commands in ~DSLMode~ 
 - [ ] NLP template engine commands with ~Concretize~
 - [ ] To the particular notebooks
-** TODO DSL commands [0%] [0/2]
-- [ ] LSA workflow for Mathematica
-- [ ] LSA workflow for Python
-- [ ] LSA workflow for R
-- [ ] Shiny / Cro web service verification / installation
+** DONE DSL commands [100%] [4/4]
+- [X] LSA workflow for Mathematica
+- [X] LSA workflow for Python
+- [X] LSA workflow for R
+- [X] Shiny / Cro web service verification / installation
