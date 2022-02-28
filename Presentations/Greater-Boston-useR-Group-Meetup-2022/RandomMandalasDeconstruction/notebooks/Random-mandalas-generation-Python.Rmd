@@ -13,8 +13,9 @@ output: html_notebook
 }
 </style>
 
-```{r, echo=FALSE, include=FALSE}
-reticulate::py_config()
+```{r setup, echo=FALSE, include=FALSE}
+library(reticulate)
+#reticulate::py_config()
 ```
 
 ------
@@ -100,7 +101,8 @@ for i in range(64):
                           rotational_symmetry_order=6,
                           symmetric_seed=True,
                           connecting_function='bezier_fill',
-                          face_color="0.")
+                          face_color="0.",
+                          alpha=1.0)
     fig2.tight_layout()
     
     # Convert the figure into an image and add it to the list
@@ -127,7 +129,9 @@ for ax, img in zip(grid, mandala_images3):
     ax.set(xticks=[], yticks=[])
 
 plt.show()
+plt.close(fig3)
 ```
+
 ```{python}
 mandala_arrays = [numpy.asarray(x, dtype="int32") for x in mandala_images3]
 ```
@@ -137,28 +141,39 @@ mandala_arrays = [numpy.asarray(x, dtype="int32") for x in mandala_images3]
 
 # Python mandalas in R
 
-```{r}
-library(reticulate)
-image(t(py$mandala_arrays[[57]]))
+**Remark:** image array has to be transposed when processed in R.
+
+Compare the Python and R image plots:
+
+```{python}
+plt.imshow(Image.fromarray(mandala_arrays[56]*255))
+plt.axis('off')
+plt.show()
 ```
 ```{r}
-lsTrainImages <- purrr::map( py$mandala_arrays, t)
+ind <- 56+1
+par( mfrow = c(1,2), mai = c(0,0,0,0))
+image(py$mandala_arrays[[ind]], axes = FALSE, col = gray( 0:255 / 255 ))
+text( 0.2, 0, "direct", cex = 1.4, col = 2, pos = c(3,4))
+image(t(py$mandala_arrays[[ind]]), axes = FALSE, col = gray( 0:255 / 255 ))
+text( 0.2, 0, "transposed", cex = 1.4, col = 2, pos = c(3,4))
+```
+
+Hence below we transpose the image arrays.
+
+```{r}
+lsTrainImages <- purrr::map(py$mandala_arrays, t)
 lsTrainImagesLabels <- 1:length(lsTrainImages)
 length(lsTrainImages)
 ```
+
+Here we plot the images with corresponding indexes:
 
 ```{r training-sample-image, fig.height = 5, fig.width = 5}
 par( mfrow = c(8,8), mai = c(0,0,0,0))
 for(i in 1:length(lsTrainImages)){
   image( lsTrainImages[[i]], axes = FALSE, col = gray( 0:255 / 255 ) )
   text( 0.2, 0, lsTrainImagesLabels[[i]], cex = 1.4, col = 2, pos = c(3,4))
-}
-```
-
-```{r}
-par( mfrow = c(8,8), mai = c(0,0,0,0))
-for(i in 1:length(lsTrainImages)){
-  image( lsTrainImages[[i]], axes = FALSE, col = gray( 0:255 / 255 ) )
 }
 ```
 
