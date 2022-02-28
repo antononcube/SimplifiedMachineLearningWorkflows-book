@@ -20,7 +20,9 @@ output: html_notebook
 ```
 
 ```{r, echo=FALSE, include=FALSE}
+library(reticulate)
 reticulate::py_config()
+source("../R/UtilityFunctions.R")
 ```
 
 ```{python}
@@ -35,23 +37,13 @@ sys.version_info
 This notebook shows how to use Latent Semantic Analysis (LSA) for deriving "topics" of images.
 
 
-------
-
-# Setup Python packages
-
-Load necessary Python package and modules:
-
 ```{python}
 # "Standard" packages
 import pandas
 import numpy
+import random
 import io
 import time
-
-# WolframClient packages
-# Needed for random mandala images generation
-from wolframclient.evaluation import WolframLanguageSession
-from wolframclient.language import wl
 
 # SSparseMatrix, SMR, and LSA packages
 from SSparseMatrix import *
@@ -65,97 +57,75 @@ from mpl_toolkits.axes_grid1 import ImageGrid
 
 # Image processing package(s)
 from PIL import Image, ImageOps
+
+# Random mandalas packages
+from RandomMandala import random_mandala, figure_to_image
+```
+
+## Mandala collection
+
+```{python}
+# A list to accumulate random mandala images
+mandala_images = []
+
+# Generation loop
+random.seed(443)
+tstart = time.time()
+for i in range(512):
+    
+    # Generate one random mandala figure
+    fig2 = random_mandala(n_rows=None,
+                          n_columns=None,
+                          radius=[8, 6, 3],
+                          rotational_symmetry_order=6,
+                          symmetric_seed=True,
+                          connecting_function='bezier_fill',
+                          face_color="0.", 
+                          alpha = 1.0)
+    fig2.tight_layout()
+    
+    # Convert the figure into an image and add it to the list
+    mandala_images = mandala_images + [figure_to_image(fig2)]
+    
+    # Close figure to save memory
+    plt.close(fig2)
+
+# Invert image colors    
+mandala_images1 = [ImageOps.invert(img) for img in mandala_images]
+
+# Binarize images
+mandala_images2 = [im.convert('1') for im in mandala_images1]
+
+# Resize images
+width, height = mandala_images2[0].size
+print([width, height])
+ratio = height / width
+new_width = 200
+mandala_images3 = [img.resize((new_width, round(new_width * ratio)), Image.ANTIALIAS) for img in mandala_images2]
+print("Process time: " + str(time.time()-tstart))
+```
+
+```{python}
+mandala_arrays = [numpy.asarray(x, dtype="int32") for x in mandala_images3]
 ```
 
 -------
 
-# Generate random mandalas data
-
-Start Wolfram Kernel session:
+# Process random mandalas collection
 
 ```{python}
-session = WolframLanguageSession()
-```
-
-Generate a (large) list of random mandalas using the function Wolfram Function Repository function
-[`RandomMandala`](https://resources.wolframcloud.com/FunctionRepository/resources/RandomMandala/)
-evaluated in the Wolfram Kernel through the 
-[Python Wolfram Client](https://reference.wolfram.com/language/WolframClientForPython/).
-
-```{python}
-start = time.time()
-numberOfMandalas = 1000
-imageSize = 100
-rs = session.evaluate(wl.SeedRandom(15))
-mandalas = [session.evaluate(wl.ExportByteArray(
-    wl.Image(
-        wl.ResourceFunction("RandomMandala")(
-            wl.Rule("Radius", 10),
-            wl.Rule("RotationalSymmetryOrder", 6),
-            wl.Rule("ConnectingFunction", wl.Composition(wl.FilledCurve, wl.BezierCurve)),
-            wl.Rule(wl.ImageSize, imageSize)
-        )
-    ),
-    'PNG')) for i in range(numberOfMandalas)]
-end = time.time()
-print("\n\t\tGeneration time : ", end-start)  
-```
-
-Show one of the random mandalas:
-
-```{python}
-img = Image.open(io.BytesIO(mandalas[12]))
-img.show() # Floating
-imgplot = plt.imshow(img)
-plt.show()
-```
-
-Invert the images:
-
-```{python}
-mandalas2 = [ImageOps.invert(Image.open(io.BytesIO(x))) for x in mandalas]
-```
-
-Binarize the images:
-
-```{python}
-mandalas3 = [im.convert('1') for im in mandalas2]
-```
-
-Show an array of inverted random mandalas:
-
-```{r}
-options(reticulate.repl.quiet = FALSE)
-```
-
-```{python}
-# Following https://matplotlib.org/stable/gallery/axes_grid1/simple_axesgrid.html
-fig = plt.figure(figsize=(10., 10.))
-grid = ImageGrid(fig, 111,
-                 nrows_ncols=(10, 10),
-                 axes_pad=0.02, 
-                 )
-
-for ax, img in zip(grid, mandalas3):
-    ax.imshow(img)
-    ax.set(xticks=[], yticks=[])
-    
-plt.show()
+mandala_images3[11]
 ```
 
 Convert each image into array and flatten that array:
 
 ```{python}
-mandala_arrays = [numpy.asarray(x, dtype="int32") for x in mandalas3]
+mandala_arrays = [numpy.asarray(x, dtype="int32") for x in mandala_images3]
+len(mandala_arrays)
 ```
 
-Show the unique shapes and corresponding counts:
-
-```{python}
-shapes = [x.shape for x in mandala_arrays]
-unique, counts = numpy.unique(shapes, return_counts=True)
-unique
-counts
+```{r, fig.height=1, fig.width=1}
+ParImageGrid(py$mandala_arrays[12], mfrow = c(1, 1))
 ```
 
 Make a matrix of flattened mandalas:
@@ -166,7 +136,7 @@ mandalaMat = numpy.array(mandalaMat)
 mandalaMat.shape
 ```
 
-Make the corresponding `SSparseMatrix` object:
+Make the corresponding SSparseMatrix object:
 
 ```{python}
 mandalaSMat = SSparseMatrix(mandalaMat, row_names="", column_names="")
@@ -176,6 +146,14 @@ print(repr(mandalaSMat))
 -------
 
 # LSA object creation
+
+Assign the number of topics for the computations below:
+
+```{python}
+numberOfTopics = 40
+```
+
+Create the LSAMon object:
 
 ```{python}
 start = time.time()
@@ -190,192 +168,129 @@ The LSA object summary:
 ```{python}
 print(repr(lsaObj))
 ```
+## SVD
 
-------
-
-# Extract topics
-
-Here we extract image topics using 
-[Singular Value Decomposition (SVD)](https://en.wikipedia.org/wiki/Singular_value_decomposition):
+Here we extract image topics using Singular Value Decomposition (SVD):
 
 ```{python}
-numberOfTopics = 40
-start = time.time() 
-lsaObj = lsaObj.extract_topics(number_of_topics=numberOfTopics, min_number_of_documents_per_term=0, method="SVD", max_steps=50)
-svdH = lsaObj.normalize_matrix_product(normalize_left=False).take_H().copy()
-end = time.time()
-print("\n\t\tTopic extraction time SVD : ", end-start)      
+tStart = time.time() 
+
+lsaSVDObj = lsaObj.extract_topics(number_of_topics=numberOfTopics, min_number_of_documents_per_term=0, method="SVD", max_steps=50)
+
+tEnd = time.time()
+
+print("Topic extraction time SVD : ", tEnd-tStart)   
 ```
 
-Here we extract image topics using 
-[Non-Negative Matrix Factorization (NNMF)](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization):
+Get the SVD topics matrix:
 
 ```{python}
-start = time.time() 
-lsaObj = lsaObj.extract_topics(number_of_topics=numberOfTopics, min_number_of_documents_per_term=0, method="NNMF", max_steps=12)
-nnmfH = lsaObj.normalize_matrix_product(normalize_left=False).take_H().copy()
-end = time.time()
-print("\n\t\tTopic extraction time NNMF : ", end-start)      
-```
-
-
-The LSA object summary:
-
-```{python}
-print(repr(lsaObj))
-```
-
-Show the topics matrices:
-
-```{python}
-print(repr(svdH))
-print(repr(nnmfH))
-```
-
-Normalize the entries to be between 0 and 1:
-
-```{python}
-svdH2, nnmfH2 = [apply_term_weight_functions(doc_term_matrix=x, global_weight_func="None", local_weight_func="None", normalizer_func="AbsMax") for x in [svdH, nnmfH]]
-```
-
-Convert to `numpy` arrays:
-
-```{python}
-svdArrTopic, nnmfArrTopic = [ numpy.array(x[0,:].sparse_matrix().todense()).reshape(imageSize*imageSize) for x in [svdH2, nnmfH2]]
+svdH = lsaSVDObj.normalize_matrix_product(normalize_left=False).take_H().copy()
 ```
 
 ------
 
 # Show topics interpretation
 
+Show the importance coefficients of the topics (if SVD was used the plot would show the singular values):
+
 Get the topics matrix from the LSA object and convert it into a dense array:
 
 ```{python}
-svdTopicsArray = svdH2.sparse_matrix().todense()
+svdTopicsArray = svdH.sparse_matrix().todense()
 svdTopicsArray.shape
-
-nnmfTopicsArray = nnmfH2.sparse_matrix().todense()
-nnmfTopicsArray.shape
 ```
 
-Obtain topics interpretation images bu:
+Show the interpretation of the extracted image topics:
 
 ```{python}
-svdTopicImages = [(svdTopicsArray[i,:]*255).reshape(imageSize, imageSize) for i in range(svdTopicsArray.shape[0])]
+imageSizeX, imageSizeY = mandala_images3[0].size
+svdTopicImages = [(svdTopicsArray[i,:]*255).reshape(imageSizeY, imageSizeX) for i in range(svdTopicsArray.shape[0])]
 svdTopicImages2 = [Image.fromarray(x) for x in svdTopicImages]
-
-nnmfTopicImages = [(nnmfTopicsArray[i,:]*255).reshape(imageSize, imageSize) for i in range(nnmfTopicsArray.shape[0])]
-nnmfTopicImages2 = [Image.fromarray(x) for x in nnmfTopicImages]
 ```
 
-Show SVD topics:
-
 ```{python}
-fig = plt.figure(figsize=(10., 10.))
-grid = ImageGrid(fig, 111,
-                 nrows_ncols=(4, int(numberOfTopics/4)),
-                 axes_pad=0.02,
-                 )
-
-for ax, img in zip(grid, svdTopicImages2):
-    ax.imshow(img)
-    ax.set(xticks=[], yticks=[])
-
-plt.show()
+svdTopicImages2
+```
+```{r}
+ParImageGrid(py$svdTopicImages, mfrow = c(5,8))
 ```
 
+------
 
-Show NNMF topics:
+# Approximation
 
 ```{python}
-fig = plt.figure(figsize=(10., 10.))
-grid = ImageGrid(fig, 111,
-                 nrows_ncols=(4, int(numberOfTopics/4)),
-                 axes_pad=0.02,
-                 )
+random.seed(89)
 
-for ax, img in zip(grid, nnmfTopicImages2):
-    ax.imshow(img)
-    ax.set(xticks=[], yticks=[])
-
-plt.show()
+# Consider using radius = [8, 6, 3]
+fig = random_mandala(radius=[8, 6, 3],
+                     rotational_symmetry_order=6,
+                     symmetric_seed=True,
+                     connecting_function='bezier_fill',
+                     face_color="0.", 
+                     alpha = 1.0)
+                      
+# Convert the mandala figure to image
+testMandala = figure_to_image(fig)
+testMandala
 ```
 
--------
-
-# Representation
-
-Get a new mandala image:
-
 ```{python}
-# 15778, 889, 889, 355
-rs = session.evaluate(wl.SeedRandom(35))
-mandalaNew = session.evaluate(wl.ExportByteArray(
-    wl.Image(
-        wl.ResourceFunction("RandomMandala")(
-            wl.Rule("Radius", 10),
-            wl.Rule("RotationalSymmetryOrder", 6),
-            wl.Rule("ConnectingFunction", wl.Composition(wl.FilledCurve, wl.BezierCurve)),
-            wl.Rule(wl.ImageSize, imageSize)
-        )
-    ),
-    'PNG'))
-imgNew = Image.open(io.BytesIO(mandalaNew))
-plt.clf()
-imgplot2 = plt.imshow(imgNew)
-plt.show()
+# Resize image
+testMandala1 = testMandala.resize((new_width, round(new_width * ratio)), Image.ANTIALIAS)
+
+# Invert image colors    
+testMandala2 = ImageOps.invert(testMandala)
+
+# Binarize image
+testMandala3 = testMandala2.convert('1')
+
+# Resize image
+testMandala4 = testMandala3.resize((new_width, round(new_width * ratio)), Image.ANTIALIAS)
+
+# The image
+testMandala4
 ```
 
 Get the corresponding vector:
 
 ```{python}
-mandalaNew1 = Image.open(io.BytesIO(mandalaNew))
-# Invert the images:
-mandalaNew2 = ImageOps.invert(mandalaNew1)
-# Binarize the images:
-mandalaNew3 = mandalaNew2.convert('1')
 # Flatten array:
-mandalaNewArray = numpy.asarray(mandalaNew3, dtype="int32")
+testMandalaArray = numpy.asarray(testMandala4, dtype="int32")
+```
+
+```{r, fig.width=1, fig.height=1}
+ParImageGrid(list(testMandalaArray), mfrow = c(1,1))
 ```
 
 Make a query matrix:
 
 ```{python}
-mandalaNewMat = mandalaNewArray.reshape(1, mandalaNewArray.shape[0] * mandalaNewArray.shape[1])
-mandalaNewMat = numpy.array(mandalaNewMat)
-matQuery = SSparseMatrix(mandalaNewMat, row_names="", column_names="")
+testMandalaMat = testMandalaArray.reshape(1, testMandalaArray.shape[0] * testMandalaArray.shape[1])
+testMandalaMat = numpy.array(testMandalaMat)
+matQuery = SSparseMatrix(testMandalaMat, row_names="", column_names="")
 print(repr(matQuery))
 ```
+
+## SVD
 
 Represent by topics:
 
 ```{python}
-resMat = lsaObj.represent_by_topics(matQuery, method="recommendation").take_value()
+resMat = lsaSVDObj.represent_by_topics(matQuery, method="recommendation").take_value()
 resMat
 ```
 
-
-Show representation result:
-
 ```{python}
-plt.clf()
-# plt.scatter(x = list(range(numberOfTopics)), y = resMat.sparse_matrix().data)
-plt.bar(x=range(numberOfTopics), height=resMat.sparse_matrix().data)
-plt.show()
-```
-
-```{python}
-H = lsaObj.normalize_matrix_product(normalize_left=False).take_H().copy()
-approx = resMat.dot(H)
+approx = resMat.dot(svdH)
 approx2 = apply_term_weight_functions(approx, "None", "None", "AbsMax")
 approx2.data
 ```
 
 ```{python}
-approxImg = (255 - approx2.todense().reshape(imageSize, imageSize)*255)
+approxImg = (255 - approx2.todense().reshape(imageSizeY, imageSizeX)*255)
 approxImg2 = Image.fromarray(approxImg)
-# approxImg2.show()
-# mandalaNew1.show()
 
 fig = plt.figure(figsize=(5., 5.))
 grid = ImageGrid(fig, 111,
@@ -383,19 +298,14 @@ grid = ImageGrid(fig, 111,
                  axes_pad=0.02,
                  )
 
-for ax, img in zip(grid, [mandalaNew1, approxImg2]):
+for ax, img in zip(grid, [approxImg2, testMandala1]):
     ax.imshow(img)
     ax.set(xticks=[], yticks=[])
-
-plt.show()
+     
+figure_to_image(fig)
 ```
 
-------
-
-# References
-
-[AA1] Anton Antonov,
-["Generation of Random Bethlehem Stars"](https://mathematicaforprediction.wordpress.com/2020/12/21/generation-of-random-bethlehem-stars/),
-(2020),
-[MathematicaForPrediction at WordPress](https://mathematicaforprediction.wordpress.com).
+```{python}
+plt.show()
+```
 
