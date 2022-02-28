@@ -1,0 +1,277 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9183,        269]
+NotebookOptionsPosition[      7075,        227]
+NotebookOutlinePosition[      7477,        243]
+CellTagsIndexPosition[      7434,        240]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Random mandalas generation in Python", "Title",
+ CellChangeTimes->{{3.85474742711345*^9, 
+  3.8547474368851433`*^9}},ExpressionUUID->"9387d578-f5ba-4340-9b16-\
+8e9d8d94309b"],
+
+Cell["\<\
+Anton Antonov
+PythonForPrediction at WordPress
+SimplifiedMachineLearningWorkflows-book at GitHub
+February 2022\
+\>", "Text",
+ CellChangeTimes->{{3.85478355834112*^9, 
+  3.854783596454812*^9}},ExpressionUUID->"02944afa-fad7-4d7d-afef-\
+f166a140456e"],
+
+Cell[CellGroupData[{
+
+Cell["External evaluators", "Section",
+ CellChangeTimes->{{3.854783601508732*^9, 
+  3.854783607592473*^9}},ExpressionUUID->"e7c5ddd8-a516-44b8-b2d5-\
+202449a3c292"],
+
+Cell[BoxData[
+ RowBox[{"FindExternalEvaluators", "[", "\"\<Python\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.854783532783359*^9, 3.854783538902466*^9}},
+ CellLabel->
+  "In[124]:=",ExpressionUUID->"a9b2236d-cedf-4d86-985e-5e3041846e0e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Setup", "Section",
+ CellChangeTimes->{{3.8547476212726297`*^9, 
+  3.8547476221960087`*^9}},ExpressionUUID->"f79d7f16-9cdf-4673-a896-\
+587155ca50c3"],
+
+Cell["\<\
+# \"Standard\" packages
+import pandas
+import numpy
+import random
+import io
+import time
+
+# Plotting packages
+import matplotlib
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import ImageGrid
+
+# Image processing package(s)
+from PIL import Image, ImageOps
+
+# Random mandalas packages
+from RandomMandala import random_mandala, figure_to_image\
+\>", "ExternalLanguage",
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.854747502228941*^9, 3.854747502927273*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"0e213acb-6dbe-476e-a206-eeccd8aa1b3f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Get the Python session", "Section",
+ CellChangeTimes->{{3.8547843204538527`*^9, 
+  3.85478434205332*^9}},ExpressionUUID->"4cd87cc2-6c7c-4fab-9928-\
+6414963eed0b"],
+
+Cell[BoxData[
+ RowBox[{"Processes", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.854783937486274*^9, 3.854783943131048*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"244ccc13-f6c2-49f2-a5ba-91977145a247"],
+
+Cell[BoxData[
+ RowBox[{"pythonSession", "=", 
+  RowBox[{"First", "@", 
+   RowBox[{"Pick", "[", 
+    RowBox[{
+     RowBox[{"ExternalSessions", "[", "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", "\"\<System\>\"", "]"}], "==", "\"\<Python\>\""}], 
+       "&"}], "/@", 
+      RowBox[{"ExternalSessions", "[", "]"}]}]}], "]"}]}]}]], "Input",
+ CellLabel->"In[9]:=",ExpressionUUID->"4f4bd0ca-f7da-4426-8fd9-89b38b0d87f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Section",
+ CellChangeTimes->{{3.85474762551324*^9, 
+  3.854747627811233*^9}},ExpressionUUID->"f858af77-1dba-40aa-bcc9-\
+a88ac0245b9b"],
+
+Cell["\<\
+# 17, 32, 43, 99, 326, 400, 466, 451, 536, 607, 770, 774, 828, 836, 870, 868, \
+993
+random.seed(32)
+fig = random_mandala(alpha=None, dpi=60)
+figure_to_image(fig)\
+\>", "ExternalLanguage",
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.854747522228915*^9, 3.85474755564084*^9}, {
+  3.8549764924296*^9, 3.854976502374823*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"84dc8842-1754-4e7e-bb31-3e9106b5899e"],
+
+Cell["\<\
+random.seed(21)
+fig2 = random_mandala(n_rows=3, n_columns=3,
+                      radius = [10, 8, 6],
+                      connecting_function = 'bezier_fill', 
+                      color_mapper=matplotlib.cm.gist_earth,
+   \t\t\t\t\t\t        symmetric_seed=True, dpi=200)
+fig2.tight_layout()
+figure_to_image(fig2)\
+\>", "ExternalLanguage",
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.854747643014668*^9, 3.854747684410388*^9}},
+ CellLabel->
+  "In[109]:=",ExpressionUUID->"fceadfe3-7c55-4ebc-9586-8ecb2e7d451d"],
+
+Cell[CellGroupData[{
+
+Cell["Collection", "Subsection",
+ CellChangeTimes->{{3.8547476008091717`*^9, 
+  3.8547476031380377`*^9}},ExpressionUUID->"16f34554-6312-43f8-9218-\
+0726acb6c3a3"],
+
+Cell["\<\
+# A list to accumulate random mandala images
+mandala_images = []
+
+# Generation loop
+random.seed(443)
+for i in range(64):
+    
+    # Generate one random mandala figure
+    fig2 = random_mandala(n_rows=None,
+                          n_columns=None,
+                          radius=[8, 6, 3],
+                          rotational_symmetry_order=6,
+                          symmetric_seed=True,
+                          connecting_function='bezier_fill',
+                          face_color=\"0.\",
+                          alpha=1.0)
+    fig2.tight_layout()
+    
+    # Convert the figure into an image and add it to the list
+    mandala_images = mandala_images + [figure_to_image(fig2)]
+    
+    # Close figure to save memoru
+    plt.close(fig2)
+
+# Invert image colors    
+mandala_images2 = [ImageOps.invert(img) for img in mandala_images]
+
+# Binarize images
+mandala_images3 = [im.convert('1') for im in mandala_images2]
+
+# Make a grid of images and display it
+fig3 = plt.figure(figsize=(14., 14.))
+grid = ImageGrid(fig3, 111,
+                 nrows_ncols=(8, 8),
+                 axes_pad=0.02,
+                 )
+
+for ax, img in zip(grid, mandala_images3):
+    ax.imshow(img)
+    ax.set(xticks=[], yticks=[])
+
+#plt.show()\
+\>", "ExternalLanguage",
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.8547476050953827`*^9, 3.8547476055722437`*^9}, {
+  3.854976514705659*^9, 3.8549765320881567`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"68139f37-65ca-4ddc-81fe-d12f926e0666"],
+
+Cell["figure_to_image(fig3)", "ExternalLanguage",
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.854747753004291*^9, 3.854747766734578*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"98805881-e5f6-4c88-8b02-6b0f9ca8c02a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lsMandalaImages", "=", 
+   RowBox[{"ExternalEvaluate", "[", 
+    RowBox[{"pythonSession", ",", "\"\<mandala_images3\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "lsMandalaImages", "]"}]}], "Input",
+ CellChangeTimes->{{3.854747912546995*^9, 3.854747962939444*^9}, {
+  3.85478395180735*^9, 3.854783963978519*^9}, {3.8547841127978277`*^9, 
+  3.854784113953455*^9}, {3.854784392882525*^9, 3.8547844310626287`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"324fe2e1-4789-413f-a683-b47e01d6ac7c"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"Partition", "[", 
+   RowBox[{"lsMandalaImages", ",", "8"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.85474803924435*^9, 3.85474808351171*^9}, {
+  3.854784436576949*^9, 3.854784444696866*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"c86245bf-3d66-4d1e-85bd-7770ddfe8c70"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{2532, 1378},
+WindowMargins->{{Automatic, 432}, {Automatic, -1440}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0a0038a4-b780-4196-8d4d-f98e931d05bc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 180, 3, 98, "Title",ExpressionUUID->"9387d578-f5ba-4340-9b16-8e9d8d94309b"],
+Cell[763, 27, 259, 8, 104, "Text",ExpressionUUID->"02944afa-fad7-4d7d-afef-f166a140456e"],
+Cell[CellGroupData[{
+Cell[1047, 39, 164, 3, 67, "Section",ExpressionUUID->"e7c5ddd8-a516-44b8-b2d5-202449a3c292"],
+Cell[1214, 44, 237, 4, 30, "Input",ExpressionUUID->"a9b2236d-cedf-4d86-985e-5e3041846e0e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1488, 53, 154, 3, 67, "Section",ExpressionUUID->"f79d7f16-9cdf-4673-a896-587155ca50c3"],
+Cell[1645, 58, 567, 21, 322, "ExternalLanguage",ExpressionUUID->"0e213acb-6dbe-476e-a206-eeccd8aa1b3f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2249, 84, 168, 3, 67, "Section",ExpressionUUID->"4cd87cc2-6c7c-4fab-9928-6414963eed0b"],
+Cell[2420, 89, 201, 3, 30, "Input",ExpressionUUID->"244ccc13-f6c2-49f2-a5ba-91977145a247"],
+Cell[2624, 94, 452, 12, 30, "Input",ExpressionUUID->"4f4bd0ca-f7da-4426-8fd9-89b38b0d87f7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3113, 111, 152, 3, 67, "Section",ExpressionUUID->"f858af77-1dba-40aa-bcc9-a88ac0245b9b"],
+Cell[3268, 116, 422, 10, 101, "ExternalLanguage",ExpressionUUID->"84dc8842-1754-4e7e-bb31-3e9106b5899e"],
+Cell[3693, 128, 539, 13, 169, "ExternalLanguage",ExpressionUUID->"fceadfe3-7c55-4ebc-9586-8ecb2e7d451d"],
+Cell[CellGroupData[{
+Cell[4257, 145, 162, 3, 54, "Subsection",ExpressionUUID->"16f34554-6312-43f8-9218-0726acb6c3a3"],
+Cell[4422, 150, 1497, 47, 747, "ExternalLanguage",ExpressionUUID->"68139f37-65ca-4ddc-81fe-d12f926e0666"],
+Cell[5922, 199, 229, 3, 50, "ExternalLanguage",ExpressionUUID->"98805881-e5f6-4c88-8b02-6b0f9ca8c02a"],
+Cell[6154, 204, 555, 10, 52, "Input",ExpressionUUID->"324fe2e1-4789-413f-a683-b47e01d6ac7c"],
+Cell[6712, 216, 323, 6, 30, "Input",ExpressionUUID->"c86245bf-3d66-4d1e-85bd-7770ddfe8c70"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

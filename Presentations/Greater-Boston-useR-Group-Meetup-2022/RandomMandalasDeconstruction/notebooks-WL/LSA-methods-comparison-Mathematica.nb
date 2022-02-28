@@ -1,0 +1,1170 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     49375,       1162]
+NotebookOptionsPosition[     41148,       1033]
+NotebookOutlinePosition[     41682,       1053]
+CellTagsIndexPosition[     41639,       1050]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["LSA methods comparison", "Title",
+ CellChangeTimes->{{3.848603581961235*^9, 
+  3.848603589703916*^9}},ExpressionUUID->"c2e9b825-2912-434e-8bf2-\
+cc562a89cfb1"],
+
+Cell["Mathematica", "Subtitle",
+ CellChangeTimes->{{3.854829186161524*^9, 3.854829191033044*^9}},
+ FontWeight->"Bold",
+ FontSlant->"Italic",ExpressionUUID->"d9f44a69-37ec-4585-873e-5517c6b16b7e"],
+
+Cell[TextData[{
+ "Anton Antonov\nPythonForPrediction at WordPress\n",
+ ButtonBox["SimplifiedMachineLearningWorkflows-book at GitHub",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://github.com/antononcube/SimplifiedMachineLearningWorkflows-\
+book"], None},
+  ButtonNote->
+   "https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book"],
+ "\nDecember 2021\nFebruary 2022"
+}], "Text",
+ CellChangeTimes->{{3.8486036457614098`*^9, 3.8486037265290947`*^9}, {
+  3.854785240245919*^9, 3.854785250517037*^9}, {3.8547854062362223`*^9, 
+  3.854785423032015*^9}},ExpressionUUID->"cf23b352-69ba-4505-913d-\
+419b2bf9b282"],
+
+Cell[CellGroupData[{
+
+Cell["Get Python mandalas collection", "Section",
+ CellChangeTimes->{{3.848603749015335*^9, 3.848603751872878*^9}, {
+  3.8547853973376293`*^9, 
+  3.854785403828508*^9}},ExpressionUUID->"5d990f83-d896-433f-95e2-\
+cd74c10ad1cc"],
+
+Cell[CellGroupData[{
+
+Cell["Setup", "Subsection",
+ CellChangeTimes->{{3.8547476212726297`*^9, 
+  3.8547476221960087`*^9}},ExpressionUUID->"63df55e7-0942-47b8-9fc8-\
+c51b4d571485"],
+
+Cell["\<\
+# \"Standard\" packages
+import pandas
+import numpy
+import random
+import io
+import time
+
+# Plotting packages
+import matplotlib
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import ImageGrid
+
+# Image processing package(s)
+from PIL import Image, ImageOps
+
+# Random mandalas packages
+from RandomMandala import random_mandala, figure_to_image\
+\>", "ExternalLanguage",
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.854747502228941*^9, 3.854747502927273*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"b0b4b401-be27-47b3-b8aa-5268a4499bd7"],
+
+Cell[BoxData[
+ RowBox[{"pythonSession", "=", 
+  RowBox[{"First", "@", 
+   RowBox[{"Pick", "[", 
+    RowBox[{
+     RowBox[{"ExternalSessions", "[", "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", "\"\<System\>\"", "]"}], "==", "\"\<Python\>\""}], 
+       "&"}], "/@", 
+      RowBox[{"ExternalSessions", "[", "]"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.854784098438942*^9, 3.854784106311935*^9}, {
+   3.8547843633387423`*^9, 3.8547843761976337`*^9}, 3.854829196054303*^9},
+ CellLabel->"In[33]:=",ExpressionUUID->"f0aacddf-a54a-4df6-ae4a-7433607a7419"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Mandala collection", "Subsection",
+ CellChangeTimes->{{3.854785478864876*^9, 
+  3.85478548288138*^9}},ExpressionUUID->"ba17b4b5-9b3f-4d0b-8b9a-\
+b1dea26869ff"],
+
+Cell["\<\
+# A list to accumulate random mandala images
+mandala_images = []
+
+# Generation loop
+random.seed(443)
+tstart = time.time()
+for i in range(512):
+    
+    # Generate one random mandala figure
+    fig2 = random_mandala(n_rows=None,
+                          n_columns=None,
+                          radius=[8, 6, 3],
+                          rotational_symmetry_order=6,
+                          symmetric_seed=True,
+                          connecting_function='bezier_fill',
+                          face_color=\"0.\", 
+                          alpha = 1.0)
+    fig2.tight_layout()
+    
+    # Convert the figure into an image and add it to the list
+    mandala_images = mandala_images + [figure_to_image(fig2)]
+    
+    # Close figure to save memoru
+    plt.close(fig2)
+
+# Invert image colors    
+mandala_images1 = [ImageOps.invert(img) for img in mandala_images]
+
+# Binarize images
+mandala_images2 = [im.convert('1') for im in mandala_images1]
+
+# Resize images
+width, height = mandala_images2[0].size
+print([width, height])
+ratio = height / width
+new_width = 200
+mandala_images3 = [img.resize((new_width, round(new_width * ratio)), \
+Image.ANTIALIAS) for img in mandala_images2]
+print(\"Process time: \" + str(time.time()-tstart))\
+\>", "ExternalLanguage",
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.8547476050953827`*^9, 3.8547476055722437`*^9}, {
+  3.854785488585945*^9, 3.8547855181267967`*^9}, {3.8547855527992563`*^9, 
+  3.8547855532941723`*^9}, {3.8548153315689774`*^9, 3.8548153414237432`*^9}, {
+  3.8548158426654987`*^9, 3.854815843553232*^9}, {3.8548163607114077`*^9, 
+  3.8548163694845467`*^9}, {3.854816547899499*^9, 3.854816566003066*^9}, {
+  3.854816599629868*^9, 3.854816601890956*^9}, {3.854816678117209*^9, 
+  3.8548166954799356`*^9}, {3.854816747423135*^9, 3.854816747996982*^9}, {
+  3.854816784142783*^9, 3.854816918615327*^9}, {3.854816961694639*^9, 
+  3.854817057160602*^9}, {3.854817091924247*^9, 3.8548171116462517`*^9}, {
+  3.854817521893388*^9, 3.854817548083493*^9}, {3.85497952704138*^9, 
+  3.8549795421931677`*^9}, {3.854985102383511*^9, 3.854985111211411*^9}, {
+  3.854989528064378*^9, 3.854989528155435*^9}},
+ CellLabel->"In[51]:=",ExpressionUUID->"552a708a-fdad-4a7b-8de8-8abc7de37a0d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Get mandalas in Mathematica", "Subsection",
+ CellChangeTimes->{{3.85478556109988*^9, 3.854785562788247*^9}, {
+  3.8547856036475*^9, 
+  3.8547856087322063`*^9}},ExpressionUUID->"d166f0fb-8653-44ce-8293-\
+4cd4e9597708"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mandalas3", "=", 
+   RowBox[{"ExternalEvaluate", "[", 
+    RowBox[{"pythonSession", ",", "\"\<mandala_images3\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "mandalas3", "]"}]}], "Input",
+ CellChangeTimes->{{3.854785641362075*^9, 3.854785642574658*^9}, {
+  3.854817142607329*^9, 3.8548171431688766`*^9}, {3.854979556806715*^9, 
+  3.854979557156197*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"6fe36aee-c0d3-475a-9e3e-c688fe0661bf"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Process random mandalas collection", "Section",
+ CellChangeTimes->{{3.8486037298901577`*^9, 3.84860376391225*^9}, {
+  3.85482951069797*^9, 
+  3.854829518639599*^9}},ExpressionUUID->"6dab6eaf-39dd-4968-b7d0-\
+f3bb6fb90529"],
+
+Cell["Show one of the random mandalas:", "Text",
+ CellChangeTimes->{{3.8486039348831673`*^9, 
+  3.848603936088953*^9}},ExpressionUUID->"80dae72d-0000-4464-8afd-\
+5e30e658dd88"],
+
+Cell[BoxData[
+ RowBox[{"mandalas3", "\[LeftDoubleBracket]", "12", 
+  "\[RightDoubleBracket]"}]], "Input",
+ CellChangeTimes->{{3.848603938748213*^9, 3.8486039425696173`*^9}, 
+   3.854785650570244*^9},
+ CellLabel->"In[54]:=",ExpressionUUID->"0578df4f-0e05-41d0-8c1f-a489a25cfd69"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"imageSizeX", ",", "imageSizeY"}], "}"}], "=", 
+  RowBox[{"ImageDimensions", "[", 
+   RowBox[{
+   "mandalas3", "\[LeftDoubleBracket]", "12", "\[RightDoubleBracket]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8547859849481707`*^9, 3.854786001475111*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"663620d4-ec45-4b63-bb49-109a40cf6504"],
+
+Cell["Show an array of inverted random mandalas:", "Text",
+ CellChangeTimes->{{3.8486040969946632`*^9, 
+  3.8486041009548883`*^9}},ExpressionUUID->"042ad1c4-8a00-4b0e-a4f7-\
+8495b86ccf98"],
+
+Cell[BoxData[
+ RowBox[{"Multicolumn", "[", 
+  RowBox[{
+   RowBox[{"RandomSample", "[", 
+    RowBox[{"mandalas3", ",", "36"}], "]"}], ",", "6"}], "]"}]], "Input",
+ CellChangeTimes->{{3.848604046426352*^9, 3.848604057728774*^9}, {
+  3.8486041465292263`*^9, 3.848604175003915*^9}, {3.854785678628745*^9, 
+  3.8547856886508207`*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"78bf9e98-daef-4eb8-b001-10c507755f1f"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"ResourceFunction", "[", "\"\<RandomMandala\>\"", "]"}], "[", 
+   RowBox[{
+    RowBox[{"\"\<SymmetricSeed\>\"", "->", 
+     RowBox[{"RandomChoice", "[", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}], "]"}]}], ",", 
+    RowBox[{"\"\<RotationalSymmetryOrder\>\"", "->", "3"}], ",", 
+    RowBox[{"ImageSize", "->", "Large"}], ",", "opts"}], "]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.84866840157834*^9, 3.8486684106283484`*^9}, {
+  3.848668508849163*^9, 3.8486685508459787`*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"3915de9f-c2da-447f-9935-129bc8a95446"],
+
+Cell[BoxData[
+ RowBox[{"Tally", "[", 
+  RowBox[{"ImageDimensions", "/@", "mandalas3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.848608555824424*^9, 3.84860856724128*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"78cb357f-607c-4c70-b897-f3f0eb842879"],
+
+Cell["Convert each image into array and flatten that array:", "Text",
+ CellChangeTimes->{{3.848604199258428*^9, 
+  3.848604200732697*^9}},ExpressionUUID->"e40f2c05-c9f8-48aa-8aee-\
+14e6dadd52bd"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mandalaArrays", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"ImageData", "[", "#", "]"}], "]"}], "&"}], "/@", 
+    "mandalas3"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Dimensions", "[", "mandalaArrays", "]"}]}], "Input",
+ CellChangeTimes->{{3.848604207126204*^9, 3.8486042946986713`*^9}},
+ CellLabel->"In[59]:=",ExpressionUUID->"1968d6b2-f1f4-4cf1-8c3c-2e834279b625"],
+
+Cell["Make a matrix of flattened mandalas:", "Text",
+ CellChangeTimes->{{3.848604311620265*^9, 
+  3.8486043130231256`*^9}},ExpressionUUID->"9b8963b7-6aea-4b92-9d0b-\
+29a8a59eb62a"],
+
+Cell[BoxData[
+ RowBox[{"mandalaMat", "=", 
+  RowBox[{"SparseArray", "[", 
+   RowBox[{"N", "@", "mandalaArrays"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.848604332725919*^9, 3.848604349667048*^9}, {
+  3.848605071731448*^9, 3.848605074160471*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"a1fee5fa-d565-45a7-828e-74c0e3f7be20"],
+
+Cell[TextData[{
+ "Make the corresponding ",
+ StyleBox["SSparseMatrix", "Program"],
+ " object:"
+}], "Text",
+ CellChangeTimes->{{3.848604368827237*^9, 
+  3.848604378208815*^9}},ExpressionUUID->"a2e9e77e-df9b-48c2-9184-\
+ffc1e1c9862f"],
+
+Cell[BoxData[
+ RowBox[{"mandalaSMat", "=", 
+  RowBox[{"ToSSparseMatrix", "[", 
+   RowBox[{"mandalaMat", ",", 
+    RowBox[{"\"\<RowNames\>\"", "->", "Automatic"}], ",", 
+    RowBox[{"\"\<ColumnNames\>\"", "->", "Automatic"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.848604382881542*^9, 3.848604467021475*^9}, {
+  3.8486055555520763`*^9, 3.848605558171967*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"f93c67fc-ea83-4da6-a2c4-4fbeb09a2b4e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["LSAMon object creation", "Section",
+ CellChangeTimes->{{3.8486044764697533`*^9, 
+  3.8486044818540277`*^9}},ExpressionUUID->"19f1d563-bd47-4ee6-9bad-\
+0225def4415a"],
+
+Cell["Se the number of topics:", "Text",
+ CellChangeTimes->{{3.854985421058078*^9, 
+  3.854985424806347*^9}},ExpressionUUID->"ad526790-9d50-42a2-a87a-\
+7863d17ff749"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"numberOfTopics", "=", "40"}], ";"}]], "Input",
+ CellChangeTimes->{{3.848604642812331*^9, 3.848604665151523*^9}, {
+  3.848608179736321*^9, 3.848608187239726*^9}, {3.848608319997775*^9, 
+  3.848608320493154*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"a10d04d9-aef0-4286-914d-c9938ca908c4"],
+
+Cell["Create the LSAMon object:", "Text",
+ CellChangeTimes->{{3.8486048254018087`*^9, 
+  3.848604835864563*^9}},ExpressionUUID->"4deaca11-98e9-4aa6-a1f3-\
+e6bd9ab4398b"],
+
+Cell[BoxData[
+ RowBox[{"AbsoluteTiming", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"lsaObj", "=", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"LSAMonUnit", "[", "]"}], "\[DoubleLongRightArrow]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"LSAMonSetDocumentTermMatrix", "[", "mandalaSMat", "]"}], 
+     "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+     RowBox[{"LSAMonApplyTermWeightFunctions", "[", 
+      RowBox[{
+       RowBox[{"\"\<GlobalWeightFunction\>\"", "->", "\"\<None\>\""}], ",", 
+       RowBox[{"\"\<LocalWeightFunction\>\"", "->", "\"\<None\>\""}], ",", 
+       RowBox[{"\"\<NormalizerFunction\>\"", "->", "\"\<None\>\""}]}], 
+      "]"}]}]}], ";"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.848604483017782*^9, 3.848604488206697*^9}, {
+  3.8486045385070877`*^9, 3.8486047601741457`*^9}, {3.848605088687182*^9, 
+  3.848605088955862*^9}, {3.848607707120923*^9, 3.848607709854364*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"f988b801-2996-433d-ae81-975dbb6ca870"],
+
+Cell[CellGroupData[{
+
+Cell["SVD", "Subsection",
+ CellChangeTimes->{{3.854824310651957*^9, 
+  3.8548243119446077`*^9}},ExpressionUUID->"659d63af-c1f4-4f64-affd-\
+44384fae741f"],
+
+Cell["\<\
+Here we extract image topics using Singular Value Decomposition (SVD):\
+\>", "Text",
+ CellChangeTimes->{{3.848604803471982*^9, 
+  3.848604805184909*^9}},ExpressionUUID->"31ef3bbb-0a5f-411b-9307-\
+4d3998b584cf"],
+
+Cell[BoxData[
+ RowBox[{"AbsoluteTiming", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"lsaSVDObj", "=", "\[IndentingNewLine]", 
+    RowBox[{"lsaObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+     RowBox[{"LSAMonExtractTopics", "[", 
+      RowBox[{
+       RowBox[{"\"\<NumberOfTopics\>\"", "->", "numberOfTopics"}], ",", 
+       RowBox[{"Method", "->", "\"\<SVD\>\""}], ",", 
+       RowBox[{"\"\<MaxSteps\>\"", "->", "16"}], ",", 
+       RowBox[{"\"\<MinNumberOfDocumentsPerTerm\>\"", "->", "0"}]}], 
+      "]"}]}]}], ";"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.848604483017782*^9, 3.848604488206697*^9}, {
+  3.8486045385070877`*^9, 3.8486047601741457`*^9}, {3.848604863453649*^9, 
+  3.8486048777286158`*^9}, {3.848607716267469*^9, 3.848607716739133*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"d1e3002b-6334-4c9e-94ed-fada15134218"],
+
+Cell[BoxData[
+ RowBox[{"svdH", "=", 
+  RowBox[{"lsaSVDObj", "\[DoubleLongRightArrow]", 
+   RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+    RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+   "LSAMonTakeH"}]}]], "Input",
+ CellChangeTimes->{{3.848604483017782*^9, 3.848604488206697*^9}, {
+  3.8486045385070877`*^9, 3.8486047685203743`*^9}, {3.848604884781958*^9, 
+  3.8486048895519123`*^9}, {3.848608138090294*^9, 3.848608138537071*^9}, {
+  3.848608673491475*^9, 3.848608675988525*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"60220ed5-4c56-44f1-904f-93d95cf07995"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["NNMF", "Subsection",
+ CellChangeTimes->{{3.8548243069615717`*^9, 
+  3.854824307366571*^9}},ExpressionUUID->"7425ff41-3975-4f2a-8ed4-\
+8fef176d5d61"],
+
+Cell["\<\
+Here we extract image topics using Non-Negative Matrix Factorization (NNFM):\
+\>", "Text",
+ CellChangeTimes->{{3.848604803471982*^9, 3.848604805184909*^9}, {
+  3.8486066861425657`*^9, 
+  3.848606701071785*^9}},ExpressionUUID->"8bfbc328-dfdc-4f4b-81db-\
+4b3259998c98"],
+
+Cell[BoxData[
+ RowBox[{"AbsoluteTiming", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"lsaNNMFObj", "=", "\[IndentingNewLine]", 
+    RowBox[{"lsaObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+     RowBox[{"LSAMonExtractTopics", "[", 
+      RowBox[{
+       RowBox[{"\"\<NumberOfTopics\>\"", "->", "numberOfTopics"}], ",", 
+       RowBox[{"Method", "->", "\"\<NNMF\>\""}], ",", 
+       RowBox[{"\"\<MaxSteps\>\"", "->", "16"}], ",", 
+       RowBox[{"\"\<MinNumberOfDocumentsPerTerm\>\"", "->", "0"}]}], 
+      "]"}]}]}], ";"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.848604483017782*^9, 3.848604488206697*^9}, {
+  3.8486045385070877`*^9, 3.8486047601741457`*^9}, {3.848604863453649*^9, 
+  3.8486048777286158`*^9}, {3.848606705741743*^9, 3.8486067075861273`*^9}, {
+  3.85482252764356*^9, 3.8548225471292963`*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"10f08cbb-4772-4a35-90ea-5a2e3806e6ab"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nnmfH", "=", 
+   RowBox[{"lsaNNMFObj", "\[DoubleLongRightArrow]", 
+    RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+     RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+    "LSAMonTakeH"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.848604483017782*^9, 3.848604488206697*^9}, {
+   3.8486045385070877`*^9, 3.8486047685203743`*^9}, {3.848604884781958*^9, 
+   3.8486048895519123`*^9}, {3.848606720061635*^9, 3.8486067206129208`*^9}, 
+   3.854824337477817*^9},
+ CellLabel->"In[68]:=",ExpressionUUID->"0122b36a-9772-4683-8bea-71d45c5fc2a5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ICA", "Subsection",
+ CellChangeTimes->{{3.85482429769007*^9, 
+  3.8548243259877243`*^9}},ExpressionUUID->"34278913-9bc1-4b1d-89e3-\
+2a6e54bef44c"],
+
+Cell["\<\
+Here we extract image topics using Independent Component Analysis (ICA):\
+\>", "Text",
+ CellChangeTimes->{{3.848604803471982*^9, 3.848604805184909*^9}, {
+  3.8486066861425657`*^9, 3.848606701071785*^9}, {3.85483051010419*^9, 
+  3.854830520668663*^9}},ExpressionUUID->"6ab86b18-d853-46e2-b47f-\
+771dbc3cafd8"],
+
+Cell[BoxData[
+ RowBox[{"AbsoluteTiming", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"lsaICAObj", "=", "\[IndentingNewLine]", 
+    RowBox[{"lsaObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+     RowBox[{"LSAMonExtractTopics", "[", 
+      RowBox[{
+       RowBox[{"\"\<NumberOfTopics\>\"", "->", "numberOfTopics"}], ",", 
+       RowBox[{"Method", "->", "\"\<ICA\>\""}], ",", 
+       RowBox[{"\"\<MaxSteps\>\"", "->", "16"}], ",", 
+       RowBox[{"\"\<MinNumberOfDocumentsPerTerm\>\"", "->", "0"}]}], 
+      "]"}]}]}], ";"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.848604483017782*^9, 3.848604488206697*^9}, {
+  3.8486045385070877`*^9, 3.8486047601741457`*^9}, {3.848604863453649*^9, 
+  3.8486048777286158`*^9}, {3.848606705741743*^9, 3.8486067075861273`*^9}, {
+  3.85482252764356*^9, 3.8548225471292963`*^9}, {3.854824315962888*^9, 
+  3.854824322654902*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"9fb7574f-8860-48c6-af7c-c724c6f72f6f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"icaH", "=", 
+   RowBox[{"lsaICAObj", "\[DoubleLongRightArrow]", 
+    RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+     RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+    "LSAMonTakeH"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.848604483017782*^9, 3.848604488206697*^9}, {
+  3.8486045385070877`*^9, 3.8486047685203743`*^9}, {3.848604884781958*^9, 
+  3.8486048895519123`*^9}, {3.848606720061635*^9, 3.8486067206129208`*^9}, {
+  3.8548243296863613`*^9, 3.8548243426618*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"adc350ed-d093-4d70-9a92-081394621810"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Show topics interpretation", "Section",
+ CellChangeTimes->{3.84860490469281*^9, 
+  3.84860510286106*^9},ExpressionUUID->"37a6c6a1-34f2-4040-968e-e3e738f761c2"],
+
+Cell[CellGroupData[{
+
+Cell["SVD", "Subsection",
+ CellChangeTimes->{{3.8486066795048*^9, 
+  3.848606679886969*^9}},ExpressionUUID->"43562b2a-8f83-44f5-9536-\
+8e7af0238005"],
+
+Cell["\<\
+Show the importance coefficients of the topics (if SVD was used the plot \
+would show the singular values):\
+\>", "Text",
+ CellChangeTimes->{
+  3.848605747943492*^9},ExpressionUUID->"b77a5e86-464e-4ee2-9797-\
+b8cec4281c6d"],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Norm", "/@", 
+    RowBox[{"SparseArray", "[", 
+     RowBox[{"lsaSVDObj", "\[DoubleLongRightArrow]", 
+      RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+       RowBox[{"Normalized", "->", "Left"}], "]"}], "\[DoubleLongRightArrow]",
+       "LSAMonTakeH"}], "]"}]}], ",", 
+   RowBox[{"Filling", "->", "Axis"}], ",", 
+   RowBox[{"PlotRange", "->", "All"}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Scientific\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.848605776049439*^9, 3.8486057768034153`*^9}, {
+  3.848606794843758*^9, 3.848606796846381*^9}, {3.848607984110029*^9, 
+  3.8486080064576387`*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"4e0c6bd7-b72c-4ed0-aaa5-eacfa4b0f132"],
+
+Cell["Show the interpretation of the extracted image topics:", "Text",
+ CellChangeTimes->{{3.848605809407934*^9, 
+  3.8486058100606728`*^9}},ExpressionUUID->"57c8b108-808f-4ab5-8867-\
+a43ef6f1eeb7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lsaSVDObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+   RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+    RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+   RowBox[{"LSAMonEchoFunctionContext", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"ImageAdjust", "[", 
+        RowBox[{"Image", "[", 
+         RowBox[{"Partition", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{
+            RowBox[{"ImageDimensions", "[", 
+             RowBox[{
+             "mandalas3", "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "]"}], "]"}], "&"}], "/@", 
+      RowBox[{"SparseArray", "[", "#H", "]"}]}], "&"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8486057304117603`*^9, 3.848605762729629*^9}, {
+   3.84860801485653*^9, 3.848608015930284*^9}, {3.8486086054839573`*^9, 
+   3.8486086136612062`*^9}, 3.848608703025329*^9},
+ CellLabel->"In[72]:=",ExpressionUUID->"0fe3b70e-061a-4c04-a256-0298a9a9fa4a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["NNMF", "Subsection",
+ CellChangeTimes->{{3.8486066795048*^9, 3.848606679886969*^9}, {
+  3.8486067659855623`*^9, 
+  3.848606766412821*^9}},ExpressionUUID->"6d2bf661-cbd8-48b5-a9c7-\
+2e4d928ee524"],
+
+Cell["Show the importance coefficients of the topics :", "Text",
+ CellChangeTimes->{
+  3.848605747943492*^9, {3.848606855076632*^9, 
+   3.84860686855449*^9}},ExpressionUUID->"f0fb71a8-2da1-4699-9555-\
+f3714fa8e1b8"],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Norm", "/@", 
+    RowBox[{"SparseArray", "[", 
+     RowBox[{"lsaNNMFObj", "\[DoubleLongRightArrow]", 
+      RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+       RowBox[{"Normalized", "->", "Left"}], "]"}], "\[DoubleLongRightArrow]",
+       "LSAMonTakeH"}], "]"}]}], ",", 
+   RowBox[{"Filling", "->", "Axis"}], ",", 
+   RowBox[{"PlotRange", "->", "All"}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Scientific\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.848605776049439*^9, 3.8486057768034153`*^9}, {
+  3.8486067788227453`*^9, 3.848606785077628*^9}, {3.848607414865943*^9, 
+  3.848607435177425*^9}, {3.8548243642362022`*^9, 3.854824364733862*^9}},
+ CellLabel->"In[73]:=",ExpressionUUID->"fbb522b9-82ea-4fe8-959d-f11be650d7a2"],
+
+Cell["Show the interpretation of the extracted image topics:", "Text",
+ CellChangeTimes->{{3.848605809407934*^9, 
+  3.8486058100606728`*^9}},ExpressionUUID->"41f0739b-78b6-4c02-ace4-\
+90bbd998fd4d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lsaNNMFObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+   RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+    RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+   RowBox[{"LSAMonEchoFunctionContext", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"ImageAdjust", "[", 
+        RowBox[{"Image", "[", 
+         RowBox[{"Partition", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{
+            RowBox[{"ImageDimensions", "[", 
+             RowBox[{
+             "mandalas3", "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "]"}], "]"}], "&"}], "/@", 
+      RowBox[{"SparseArray", "[", "#H", "]"}]}], "&"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8486057304117603`*^9, 3.848605762729629*^9}, {
+   3.84860801485653*^9, 3.848608015930284*^9}, {3.8486086054839573`*^9, 
+   3.8486086136612062`*^9}, 3.848608703025329*^9, {3.854817341080944*^9, 
+   3.854817353827012*^9}, 3.854824371353505*^9},
+ CellLabel->"In[74]:=",ExpressionUUID->"472585ab-80fe-42f2-9428-4be72ab1cb5d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ICA", "Subsection",
+ CellChangeTimes->{{3.8486066795048*^9, 3.848606679886969*^9}, {
+  3.8486067659855623`*^9, 3.848606766412821*^9}, {3.854824353402596*^9, 
+  3.85482435376233*^9}},ExpressionUUID->"d5995ba7-0a93-4a08-a6e4-\
+14488a8bec2d"],
+
+Cell["Show the importance coefficients of the topics :", "Text",
+ CellChangeTimes->{
+  3.848605747943492*^9, {3.848606855076632*^9, 
+   3.84860686855449*^9}},ExpressionUUID->"4f06e131-9057-4f9a-b4bf-\
+19cda025866f"],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Norm", "/@", 
+    RowBox[{"SparseArray", "[", 
+     RowBox[{"lsaICAObj", "\[DoubleLongRightArrow]", 
+      RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+       RowBox[{"Normalized", "->", "Left"}], "]"}], "\[DoubleLongRightArrow]",
+       "LSAMonTakeH"}], "]"}]}], ",", 
+   RowBox[{"Filling", "->", "Axis"}], ",", 
+   RowBox[{"PlotRange", "->", "All"}], ",", 
+   RowBox[{"PlotTheme", "->", "\"\<Scientific\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.848605776049439*^9, 3.8486057768034153`*^9}, {
+  3.8486067788227453`*^9, 3.848606785077628*^9}, {3.848607414865943*^9, 
+  3.848607435177425*^9}, {3.854824359194934*^9, 3.854824359568324*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"63ef1283-96d4-40ca-81b6-f7319449b426"],
+
+Cell["Show the interpretation of the extracted image topics:", "Text",
+ CellChangeTimes->{{3.848605809407934*^9, 
+  3.8486058100606728`*^9}},ExpressionUUID->"c36c278f-a7ac-4194-af43-\
+fe2277e7980f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lsaICAObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+   RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+    RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+   RowBox[{"LSAMonEchoFunctionContext", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"ImageAdjust", "[", 
+        RowBox[{"Image", "[", 
+         RowBox[{"Partition", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{
+            RowBox[{"ImageDimensions", "[", 
+             RowBox[{
+             "mandalas3", "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "]"}], "]"}], "&"}], "/@", 
+      RowBox[{"SparseArray", "[", "#H", "]"}]}], "&"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8486057304117603`*^9, 3.848605762729629*^9}, {
+   3.84860801485653*^9, 3.848608015930284*^9}, {3.8486086054839573`*^9, 
+   3.8486086136612062`*^9}, 3.848608703025329*^9, {3.854817341080944*^9, 
+   3.854817353827012*^9}, {3.854824380299893*^9, 3.8548243807181883`*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"fcbeec2c-30f1-4306-b9f4-91b95eed4b5e"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Approximation", "Section",
+ CellChangeTimes->{{3.848605707648733*^9, 
+  3.848605715355235*^9}},ExpressionUUID->"0493b344-048a-43be-b6f1-\
+513d7eab8bf7"],
+
+Cell["Get a new, unseen random mandala:", "Text",
+ CellChangeTimes->{{3.848605116819582*^9, 3.8486051186002197`*^9}, {
+  3.8486052071408377`*^9, 3.8486052645636806`*^9}, {3.8549866574621677`*^9, 
+  3.854986663493512*^9}},ExpressionUUID->"0c62f15a-81f7-44d5-924b-\
+039a65cf18f9"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"opts", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<Radius\>\"", "->", "10"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<RotationalSymmetryOrder\>\"", "->", "6"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<ConnectingFunction\>\"", "->", 
+       RowBox[{"FilledCurve", "@*", "BezierCurve"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ImageSize", "->", "imageSizeX"}]}], "}"}]}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{"testMandala", "=", 
+    RowBox[{
+     RowBox[{"ResourceFunction", "[", "\"\<RandomMandala\>\"", "]"}], "[", 
+     RowBox[{
+      RowBox[{"\"\<SymmetricSeed\>\"", "->", "True"}], ",", 
+      RowBox[{"\"\<RotationalSymmetryOrder\>\"", "->", "6"}], ",", "opts"}], 
+     "]"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.848605317003243*^9, 3.848605321243504*^9}, {
+   3.84860539944709*^9, 3.848605423362883*^9}, {3.8486076468188887`*^9, 
+   3.848607658056902*^9}, {3.848607794806499*^9, 3.8486078493026876`*^9}, {
+   3.848608027879816*^9, 3.848608050930513*^9}, {3.848608243347271*^9, 
+   3.848608244009894*^9}, {3.848608772237114*^9, 3.848608800913086*^9}, {
+   3.854785808055558*^9, 3.854785808651582*^9}, {3.854786252825427*^9, 
+   3.854786292254846*^9}, 3.85481549907679*^9},
+ CellLabel->
+  "In[229]:=",ExpressionUUID->"dca8b911-d168-4011-8b0e-5c51872f31cd"],
+
+Cell[BoxData[
+ RowBox[{"testMandala", "=", 
+  RowBox[{"ExternalEvaluate", "[", 
+   RowBox[{
+   "pythonSession", ",", "\[IndentingNewLine]", 
+    "\"\<\n# random.seed(332)\nrandom.seed(89)\n\nfig = \
+random_mandala(radius=[8, 6, 3],\n                     \
+rotational_symmetry_order=6,\n                     symmetric_seed=True,\n     \
+                connecting_function='bezier_fill',\n                     \
+face_color='0.', \n                     alpha = 1.0)\n                      \n\
+figure_to_image(fig)\n\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.848605317003243*^9, 3.848605321243504*^9}, {
+  3.84860539944709*^9, 3.848605423362883*^9}, {3.8486076468188887`*^9, 
+  3.848607658056902*^9}, {3.848607794806499*^9, 3.8486078493026876`*^9}, {
+  3.848608027879816*^9, 3.848608050930513*^9}, {3.848608243347271*^9, 
+  3.848608244009894*^9}, {3.848608772237114*^9, 3.848608800913086*^9}, {
+  3.854785808055558*^9, 3.8547858250995617`*^9}, {3.854785855561179*^9, 
+  3.854785889685013*^9}, {3.854785937938438*^9, 3.8547859539112597`*^9}, {
+  3.854815466831983*^9, 3.8548154752344093`*^9}, {3.854817638970037*^9, 
+  3.854817639927372*^9}, {3.8549965468403797`*^9, 3.854996568540697*^9}, {
+  3.854996889622891*^9, 3.854996925902858*^9}, {3.854997241296955*^9, 
+  3.8549972947916527`*^9}, {3.854997367346692*^9, 3.854997367443631*^9}},
+ CellLabel->
+  "In[230]:=",ExpressionUUID->"db38f21e-19fe-47f7-bcf5-8e517adbb4b0"],
+
+Cell["Get the generated mandala image in Mathematica:", "Text",
+ CellChangeTimes->{{3.8549869357930202`*^9, 
+  3.854986953624442*^9}},ExpressionUUID->"52132fb1-9d97-46fe-bab9-\
+27bc6167f9fa"],
+
+Cell[BoxData[
+ RowBox[{"testMandala01", "=", 
+  RowBox[{"Binarize", "[", 
+   RowBox[{"ColorNegate", "[", 
+    RowBox[{"ColorConvert", "[", 
+     RowBox[{
+      RowBox[{"ImageResize", "[", 
+       RowBox[{"testMandala", ",", 
+        RowBox[{"ImageDimensions", "[", 
+         RowBox[{
+         "mandalas3", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         "]"}]}], "]"}], ",", "\"\<Grayscale\>\""}], "]"}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.848605428709199*^9, 3.8486054983239527`*^9}, {
+  3.8486087253566113`*^9, 3.848608741839163*^9}, {3.854786020752179*^9, 
+  3.854786027980002*^9}, {3.854817472236249*^9, 3.85481747677814*^9}},
+ CellLabel->
+  "In[231]:=",ExpressionUUID->"8fd00157-31e6-45cd-beb3-2d309dbdeaec"],
+
+Cell["Get the corresponding vector:", "Text",
+ CellChangeTimes->{{3.854831891691979*^9, 
+  3.85483189256461*^9}},ExpressionUUID->"a06540c4-a2ab-4afe-843a-\
+d8790351c8dc"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"testMandalaMat", "=", 
+   RowBox[{"SparseArray", "[", 
+    RowBox[{"{", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"ImageData", "[", "testMandala01", "]"}], "]"}], "}"}], "]"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"testMandalaSMat", "=", 
+  RowBox[{"ToSSparseMatrix", "[", 
+   RowBox[{"testMandalaMat", ",", 
+    RowBox[{"\"\<RowNames\>\"", "->", "Automatic"}], ",", 
+    RowBox[{"\"\<ColumnNames\>\"", "->", "Automatic"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.848605501000948*^9, 3.848605520160582*^9}, {
+   3.848605568641266*^9, 3.848605600814786*^9}, 3.854786386259301*^9},
+ CellLabel->
+  "In[232]:=",ExpressionUUID->"159915cf-0953-4850-9378-721c344c5c64"],
+
+Cell[CellGroupData[{
+
+Cell["SVD", "Subsection",
+ CellChangeTimes->{{3.848607734761745*^9, 
+  3.848607735178569*^9}},ExpressionUUID->"a18143dd-b9bd-47eb-a9d5-\
+af228aa3dc60"],
+
+Cell["Represent by topics :", "Text",
+ CellChangeTimes->{{3.854987029337388*^9, 
+  3.854987033787128*^9}},ExpressionUUID->"a9f4780b-96ec-4644-b3ac-\
+b6b408edbd84"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"matRepresentation", "=", "\[IndentingNewLine]", 
+   RowBox[{"lsaSVDObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+    RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+     RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"LSAMonRepresentByTopics", "[", "testMandalaSMat", "]"}], 
+    "\[DoubleLongRightArrow]", "\[IndentingNewLine]", "LSAMonTakeValue"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lsCoeff", "=", 
+   RowBox[{"Normal", "@", 
+    RowBox[{"SparseArray", "[", 
+     RowBox[{"matRepresentation", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ",", "All"}], "]"}], "]"}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"lsCoeff", ",", 
+   RowBox[{"Filling", "->", "Axis"}], ",", 
+   RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.84860519621959*^9, 3.848605196224757*^9}, {
+  3.848605616363101*^9, 3.848605628279562*^9}, {3.848607511240267*^9, 
+  3.848607557478627*^9}, {3.848607738948278*^9, 3.84860773957723*^9}, {
+  3.848608098743916*^9, 3.848608103919834*^9}, {3.854987488144615*^9, 
+  3.8549875171992702`*^9}},
+ CellLabel->
+  "In[234]:=",ExpressionUUID->"59e4ffee-6ac2-49d2-9dfa-db932b4ed52f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"vecRepresentation", "=", 
+   RowBox[{"lsCoeff", ".", 
+    RowBox[{"SparseArray", "[", "svdH", "]"}]}]}], ";"}], "\n", 
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ColorNegate", "@", 
+       RowBox[{"Image", "[", 
+        RowBox[{"Rescale", "[", 
+         RowBox[{
+          RowBox[{"Partition", "[", 
+           RowBox[{"vecRepresentation", ",", 
+            RowBox[{
+             RowBox[{"ImageDimensions", "[", "testMandala01", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1"}], "}"}]}], "]"}], "]"}]}], ",", 
+      "testMandala"}], "}"}], "}"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8486056444515247`*^9, 3.8486056576087*^9}, {
+  3.848605694005178*^9, 3.8486056960052443`*^9}, {3.848606484684606*^9, 
+  3.848606531316359*^9}, {3.848606563954494*^9, 3.848606582697877*^9}, {
+  3.848607475408011*^9, 3.8486074763187113`*^9}, {3.848607611256332*^9, 
+  3.84860761377691*^9}, {3.84860775102007*^9, 3.8486077521680107`*^9}, {
+  3.8486087630345383`*^9, 3.8486087633932877`*^9}, {3.8547860772292747`*^9, 
+  3.8547860778820953`*^9}, {3.8547861281302547`*^9, 3.854786133697801*^9}, {
+  3.854786315935678*^9, 3.8547863639127073`*^9}, {3.854987490430491*^9, 
+  3.854987502912222*^9}},
+ CellLabel->
+  "In[237]:=",ExpressionUUID->"885e2696-41ba-48ff-9d72-5cdd420ab41f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["NNMF", "Subsection",
+ CellChangeTimes->{{3.848607734761745*^9, 
+  3.848607764890173*^9}},ExpressionUUID->"1c358a9f-5fe3-4275-8c9a-\
+43ff24b72561"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"matRepresentation", "=", "\[IndentingNewLine]", 
+   RowBox[{"lsaNNMFObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+    RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+     RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"LSAMonRepresentByTopics", "[", "testMandalaSMat", "]"}], 
+    "\[DoubleLongRightArrow]", "\[IndentingNewLine]", "LSAMonTakeValue"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lsCoeff", "=", 
+   RowBox[{"Normal", "@", 
+    RowBox[{"SparseArray", "[", 
+     RowBox[{"matRepresentation", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ",", "All"}], "]"}], "]"}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"lsCoeff", ",", 
+   RowBox[{"Filling", "->", "Axis"}], ",", 
+   RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.84860519621959*^9, 3.848605196224757*^9}, {
+  3.848605616363101*^9, 3.848605628279562*^9}, {3.848607511240267*^9, 
+  3.848607557478627*^9}, {3.848607738948278*^9, 3.84860773957723*^9}, {
+  3.848608098743916*^9, 3.848608103919834*^9}, {3.854822487433407*^9, 
+  3.854822489108747*^9}, {3.8549875075706177`*^9, 3.854987514384227*^9}},
+ CellLabel->
+  "In[239]:=",ExpressionUUID->"af722751-2139-4499-ae39-9343bfbf5ac8"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"vecRepresentation", "=", 
+   RowBox[{"lsCoeff", ".", 
+    RowBox[{"SparseArray", "[", "nnmfH", "]"}]}]}], ";"}], "\n", 
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ColorNegate", "@", 
+       RowBox[{"Image", "[", 
+        RowBox[{"Rescale", "[", 
+         RowBox[{
+          RowBox[{"Partition", "[", 
+           RowBox[{"vecRepresentation", ",", 
+            RowBox[{
+             RowBox[{"ImageDimensions", "[", "testMandala01", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1"}], "}"}]}], "]"}], "]"}]}], ",", 
+      "testMandala"}], "}"}], "}"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8486056444515247`*^9, 3.8486056576087*^9}, {
+  3.848605694005178*^9, 3.8486056960052443`*^9}, {3.848606484684606*^9, 
+  3.848606531316359*^9}, {3.848606563954494*^9, 3.848606582697877*^9}, {
+  3.848607475408011*^9, 3.8486074763187113`*^9}, {3.848607611256332*^9, 
+  3.84860761377691*^9}, {3.84860775102007*^9, 3.8486077521680107`*^9}, {
+  3.8486087630345383`*^9, 3.8486087633932877`*^9}, {3.8547860772292747`*^9, 
+  3.8547860778820953`*^9}, {3.8547861281302547`*^9, 3.854786133697801*^9}, {
+  3.854786315935678*^9, 3.8547863639127073`*^9}, {3.854822583488764*^9, 
+  3.854822584704369*^9}, {3.854987521159333*^9, 3.8549875255333223`*^9}},
+ CellLabel->
+  "In[242]:=",ExpressionUUID->"ff138589-ce08-4d46-a4cc-48fd0440d9eb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ICA", "Subsection",
+ CellChangeTimes->{{3.848607734761745*^9, 3.848607764890173*^9}, {
+  3.854824395465808*^9, 
+  3.8548243958605967`*^9}},ExpressionUUID->"83218873-07c1-43c3-966a-\
+ef006bf46b92"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"matRepresentation", "=", "\[IndentingNewLine]", 
+   RowBox[{"lsaICAObj", "\[DoubleLongRightArrow]", "\[IndentingNewLine]", 
+    RowBox[{"LSAMonNormalizeMatrixProduct", "[", 
+     RowBox[{"Normalized", "->", "Right"}], "]"}], "\[DoubleLongRightArrow]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"LSAMonRepresentByTopics", "[", "testMandalaSMat", "]"}], 
+    "\[DoubleLongRightArrow]", "\[IndentingNewLine]", "LSAMonTakeValue"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lsCoeff", "=", 
+   RowBox[{"Normal", "@", 
+    RowBox[{"SparseArray", "[", 
+     RowBox[{"matRepresentation", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ",", "All"}], "]"}], "]"}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"lsCoeff", ",", 
+   RowBox[{"Filling", "->", "Axis"}], ",", 
+   RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.84860519621959*^9, 3.848605196224757*^9}, {
+  3.848605616363101*^9, 3.848605628279562*^9}, {3.848607511240267*^9, 
+  3.848607557478627*^9}, {3.848607738948278*^9, 3.84860773957723*^9}, {
+  3.848608098743916*^9, 3.848608103919834*^9}, {3.854822487433407*^9, 
+  3.854822489108747*^9}, {3.8548243980887947`*^9, 3.854824399326374*^9}, {
+  3.8549875371326323`*^9, 3.854987540859056*^9}},
+ CellLabel->
+  "In[244]:=",ExpressionUUID->"2936f0dd-c9f5-4fbf-bf75-2484cbdfd7db"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"vecRepresentation", "=", 
+   RowBox[{"lsCoeff", ".", 
+    RowBox[{"SparseArray", "[", "icaH", "]"}]}]}], ";"}], "\n", 
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ColorNegate", "@", 
+       RowBox[{"Image", "[", 
+        RowBox[{"Rescale", "[", 
+         RowBox[{
+          RowBox[{"Partition", "[", 
+           RowBox[{"vecRepresentation", ",", 
+            RowBox[{
+             RowBox[{"ImageDimensions", "[", "testMandala01", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1"}], "}"}]}], "]"}], "]"}]}], ",", 
+      "testMandala"}], "}"}], "}"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8486056444515247`*^9, 3.8486056576087*^9}, {
+  3.848605694005178*^9, 3.8486056960052443`*^9}, {3.848606484684606*^9, 
+  3.848606531316359*^9}, {3.848606563954494*^9, 3.848606582697877*^9}, {
+  3.848607475408011*^9, 3.8486074763187113`*^9}, {3.848607611256332*^9, 
+  3.84860761377691*^9}, {3.84860775102007*^9, 3.8486077521680107`*^9}, {
+  3.8486087630345383`*^9, 3.8486087633932877`*^9}, {3.8547860772292747`*^9, 
+  3.8547860778820953`*^9}, {3.8547861281302547`*^9, 3.854786133697801*^9}, {
+  3.854786315935678*^9, 3.8547863639127073`*^9}, {3.854822583488764*^9, 
+  3.854822584704369*^9}, {3.854824402521665*^9, 3.8548244039271793`*^9}, {
+  3.85498753306181*^9, 3.854987535343123*^9}},
+ CellLabel->
+  "In[247]:=",ExpressionUUID->"51aedfe8-5fdc-495e-a979-b1ffdf66fa3d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1774, 1387},
+WindowMargins->{{Automatic, 713}, {Automatic, -1440}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PrintingOptions->{"PaperOrientation"->"Landscape",
+"PaperSize"->{1191, 842}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"406bd529-3e91-4ecd-8202-2e20097e5bee"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 165, 3, 98, "Title",ExpressionUUID->"c2e9b825-2912-434e-8bf2-cc562a89cfb1"],
+Cell[748, 27, 195, 3, 53, "Subtitle",ExpressionUUID->"d9f44a69-37ec-4585-873e-5517c6b16b7e"],
+Cell[946, 32, 633, 14, 127, "Text",ExpressionUUID->"cf23b352-69ba-4505-913d-419b2bf9b282"],
+Cell[CellGroupData[{
+Cell[1604, 50, 226, 4, 67, "Section",ExpressionUUID->"5d990f83-d896-433f-95e2-cd74c10ad1cc"],
+Cell[CellGroupData[{
+Cell[1855, 58, 157, 3, 54, "Subsection",ExpressionUUID->"63df55e7-0942-47b8-9fc8-c51b4d571485"],
+Cell[2015, 63, 568, 21, 322, "ExternalLanguage",ExpressionUUID->"b0b4b401-be27-47b3-b8aa-5268a4499bd7"],
+Cell[2586, 86, 595, 14, 30, "Input",ExpressionUUID->"f0aacddf-a54a-4df6-ae4a-7433607a7419"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3218, 105, 165, 3, 54, "Subsection",ExpressionUUID->"ba17b4b5-9b3f-4d0b-8b9a-b1dea26869ff"],
+Cell[3386, 110, 2245, 54, 679, "ExternalLanguage",ExpressionUUID->"552a708a-fdad-4a7b-8de8-8abc7de37a0d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5668, 169, 223, 4, 54, "Subsection",ExpressionUUID->"d166f0fb-8653-44ce-8293-4cd4e9597708"],
+Cell[5894, 175, 496, 10, 52, "Input",ExpressionUUID->"6fe36aee-c0d3-475a-9e3e-c688fe0661bf"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6439, 191, 228, 4, 67, "Section",ExpressionUUID->"6dab6eaf-39dd-4968-b7d0-f3bb6fb90529"],
+Cell[6670, 197, 176, 3, 35, "Text",ExpressionUUID->"80dae72d-0000-4464-8afd-5e30e658dd88"],
+Cell[6849, 202, 278, 5, 30, "Input",ExpressionUUID->"0578df4f-0e05-41d0-8c1f-a489a25cfd69"],
+Cell[7130, 209, 388, 9, 30, "Input",ExpressionUUID->"663620d4-ec45-4b63-bb49-109a40cf6504"],
+Cell[7521, 220, 188, 3, 35, "Text",ExpressionUUID->"042ad1c4-8a00-4b0e-a4f7-8495b86ccf98"],
+Cell[7712, 225, 408, 8, 30, "Input",ExpressionUUID->"78bf9e98-daef-4eb8-b001-10c507755f1f"],
+Cell[8123, 235, 634, 14, 30, "Input",ExpressionUUID->"3915de9f-c2da-447f-9935-129bc8a95446"],
+Cell[8760, 251, 248, 4, 30, "Input",ExpressionUUID->"78cb357f-607c-4c70-b897-f3f0eb842879"],
+Cell[9011, 257, 195, 3, 35, "Text",ExpressionUUID->"e40f2c05-c9f8-48aa-8aee-14e6dadd52bd"],
+Cell[9209, 262, 439, 10, 52, "Input",ExpressionUUID->"1968d6b2-f1f4-4cf1-8c3c-2e834279b625"],
+Cell[9651, 274, 180, 3, 35, "Text",ExpressionUUID->"9b8963b7-6aea-4b92-9d0b-29a8a59eb62a"],
+Cell[9834, 279, 326, 6, 30, "Input",ExpressionUUID->"a1fee5fa-d565-45a7-828e-74c0e3f7be20"],
+Cell[10163, 287, 232, 7, 35, "Text",ExpressionUUID->"a2e9e77e-df9b-48c2-9184-ffc1e1c9862f"],
+Cell[10398, 296, 441, 8, 30, "Input",ExpressionUUID->"f93c67fc-ea83-4da6-a2c4-4fbeb09a2b4e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10876, 309, 171, 3, 67, "Section",ExpressionUUID->"19f1d563-bd47-4ee6-9bad-0225def4415a"],
+Cell[11050, 314, 166, 3, 35, "Text",ExpressionUUID->"ad526790-9d50-42a2-a87a-7863d17ff749"],
+Cell[11219, 319, 324, 6, 30, "Input",ExpressionUUID->"a10d04d9-aef0-4286-914d-c9938ca908c4"],
+Cell[11546, 327, 169, 3, 35, "Text",ExpressionUUID->"4deaca11-98e9-4aa6-a1f3-e6bd9ab4398b"],
+Cell[11718, 332, 1017, 18, 136, "Input",ExpressionUUID->"f988b801-2996-433d-ae81-975dbb6ca870"],
+Cell[CellGroupData[{
+Cell[12760, 354, 153, 3, 54, "Subsection",ExpressionUUID->"659d63af-c1f4-4f64-affd-44384fae741f"],
+Cell[12916, 359, 220, 5, 35, "Text",ExpressionUUID->"31ef3bbb-0a5f-411b-9307-4d3998b584cf"],
+Cell[13139, 366, 874, 15, 115, "Input",ExpressionUUID->"d1e3002b-6334-4c9e-94ed-fada15134218"],
+Cell[14016, 383, 590, 10, 30, "Input",ExpressionUUID->"60220ed5-4c56-44f1-904f-93d95cf07995"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14643, 398, 154, 3, 54, "Subsection",ExpressionUUID->"7425ff41-3975-4f2a-8ed4-8fef176d5d61"],
+Cell[14800, 403, 277, 6, 35, "Text",ExpressionUUID->"8bfbc328-dfdc-4f4b-81db-4b3259998c98"],
+Cell[15080, 411, 928, 16, 115, "Input",ExpressionUUID->"10f08cbb-4772-4a35-90ea-5a2e3806e6ab"],
+Cell[16011, 429, 595, 11, 30, "Input",ExpressionUUID->"0122b36a-9772-4683-8bea-71d45c5fc2a5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16643, 445, 152, 3, 54, "Subsection",ExpressionUUID->"34278913-9bc1-4b1d-89e3-2a6e54bef44c"],
+Cell[16798, 450, 318, 6, 35, "Text",ExpressionUUID->"6ab86b18-d853-46e2-b47f-771dbc3cafd8"],
+Cell[17119, 458, 975, 17, 115, "Input",ExpressionUUID->"9fb7574f-8860-48c6-af7c-c724c6f72f6f"],
+Cell[18097, 477, 614, 11, 30, "Input",ExpressionUUID->"adc350ed-d093-4d70-9a92-081394621810"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18760, 494, 165, 2, 67, "Section",ExpressionUUID->"37a6c6a1-34f2-4040-968e-e3e738f761c2"],
+Cell[CellGroupData[{
+Cell[18950, 500, 149, 3, 54, "Subsection",ExpressionUUID->"43562b2a-8f83-44f5-9536-8e7af0238005"],
+Cell[19102, 505, 233, 6, 35, "Text",ExpressionUUID->"b77a5e86-464e-4ee2-9797-b8cec4281c6d"],
+Cell[19338, 513, 743, 15, 30, "Input",ExpressionUUID->"4e0c6bd7-b72c-4ed0-aaa5-eacfa4b0f132"],
+Cell[20084, 530, 198, 3, 35, "Text",ExpressionUUID->"57c8b108-808f-4ab5-8867-a43ef6f1eeb7"],
+Cell[20285, 535, 1079, 24, 52, "Input",ExpressionUUID->"0fe3b70e-061a-4c04-a256-0298a9a9fa4a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21401, 564, 201, 4, 54, "Subsection",ExpressionUUID->"6d2bf661-cbd8-48b5-a9c7-2e4d928ee524"],
+Cell[21605, 570, 215, 4, 35, "Text",ExpressionUUID->"f0fb71a8-2da1-4699-9555-f3714fa8e1b8"],
+Cell[21823, 576, 792, 15, 30, "Input",ExpressionUUID->"fbb522b9-82ea-4fe8-959d-f11be650d7a2"],
+Cell[22618, 593, 198, 3, 35, "Text",ExpressionUUID->"41f0739b-78b6-4c02-ace4-90bbd998fd4d"],
+Cell[22819, 598, 1152, 25, 52, "Input",ExpressionUUID->"472585ab-80fe-42f2-9428-4be72ab1cb5d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24008, 628, 245, 4, 54, "Subsection",ExpressionUUID->"d5995ba7-0a93-4a08-a6e4-14488a8bec2d"],
+Cell[24256, 634, 215, 4, 35, "Text",ExpressionUUID->"4f06e131-9057-4f9a-b4bf-19cda025866f"],
+Cell[24474, 640, 789, 15, 30, "Input",ExpressionUUID->"63ef1283-96d4-40ca-81b6-f7319449b426"],
+Cell[25266, 657, 198, 3, 35, "Text",ExpressionUUID->"c36c278f-a7ac-4194-af43-fe2277e7980f"],
+Cell[25467, 662, 1177, 25, 52, "Input",ExpressionUUID->"fcbeec2c-30f1-4306-b9f4-91b95eed4b5e"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26693, 693, 158, 3, 67, "Section",ExpressionUUID->"0493b344-048a-43be-b6f1-513d7eab8bf7"],
+Cell[26854, 698, 278, 4, 35, "Text",ExpressionUUID->"0c62f15a-81f7-44d5-924b-039a65cf18f9"],
+Cell[27135, 704, 1378, 29, 115, "Input",ExpressionUUID->"dca8b911-d168-4011-8b0e-5c51872f31cd"],
+Cell[28516, 735, 1422, 23, 304, "Input",ExpressionUUID->"db38f21e-19fe-47f7-bcf5-8e517adbb4b0"],
+Cell[29941, 760, 191, 3, 35, "Text",ExpressionUUID->"52132fb1-9d97-46fe-bab9-27bc6167f9fa"],
+Cell[30135, 765, 748, 17, 30, "Input",ExpressionUUID->"8fd00157-31e6-45cd-beb3-2d309dbdeaec"],
+Cell[30886, 784, 170, 3, 35, "Text",ExpressionUUID->"a06540c4-a2ab-4afe-843a-d8790351c8dc"],
+Cell[31059, 789, 713, 16, 52, "Input",ExpressionUUID->"159915cf-0953-4850-9378-721c344c5c64"],
+Cell[CellGroupData[{
+Cell[31797, 809, 151, 3, 54, "Subsection",ExpressionUUID->"a18143dd-b9bd-47eb-a9d5-af228aa3dc60"],
+Cell[31951, 814, 163, 3, 35, "Text",ExpressionUUID->"a9f4780b-96ec-4644-b3ac-b6b408edbd84"],
+Cell[32117, 819, 1259, 27, 157, "Input",ExpressionUUID->"59e4ffee-6ac2-49d2-9dfa-db932b4ed52f"],
+Cell[33379, 848, 1494, 33, 52, "Input",ExpressionUUID->"885e2696-41ba-48ff-9d72-5cdd420ab41f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34910, 886, 152, 3, 54, "Subsection",ExpressionUUID->"1c358a9f-5fe3-4275-8c9a-43ff24b72561"],
+Cell[35065, 891, 1306, 27, 157, "Input",ExpressionUUID->"af722751-2139-4499-ae39-9343bfbf5ac8"],
+Cell[36374, 920, 1543, 33, 52, "Input",ExpressionUUID->"ff138589-ce08-4d46-a4cc-48fd0440d9eb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37954, 958, 202, 4, 54, "Subsection",ExpressionUUID->"83218873-07c1-43c3-966a-ef006bf46b92"],
+Cell[38159, 964, 1356, 28, 157, "Input",ExpressionUUID->"2936f0dd-c9f5-4fbf-bf75-2484cbdfd7db"],
+Cell[39518, 994, 1590, 34, 52, "Input",ExpressionUUID->"51aedfe8-5fdc-495e-a979-b1ffdf66fa3d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
