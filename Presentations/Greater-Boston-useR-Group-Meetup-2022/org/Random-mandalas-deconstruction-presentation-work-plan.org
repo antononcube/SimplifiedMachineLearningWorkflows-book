@@ -7,7 +7,7 @@
 * Introduction
 - This work plan is for the preparations for the presentation "Random
   Mandalas Deconstruction in Mathematica, Python, and R" (to be) given at [[https://www.meetup.com/Boston-useR/events/284045968/][Greater Boston useR Meetup on 2022-02-28]].
-* TODO Work plan [23%] [3/13] 
+* TODO Work plan [35%] [5/14] 
 ** DONE Mandalas collection creation with Python [100%] [3/3]
 - [X] Mathematica notebook
 - [X] Rmd notebook
@@ -69,15 +69,19 @@
 6) [ ] Test mandala creation and pre-processing
 7) [ ] Approximation with SVD topics
 8) [ ] Approximation with NNMF topics
-** TODO R computations notebook in RStudio [0%] [0/8]
-1) [ ] Mandalas collection creation
-2) [ ] Pre-processing of image data
-3) [ ] LSA object for both SVD and NNMF
-4) [ ] Topic extraction with SVD
-5) [ ] Topic extraction with NNMF
-6) [ ] Test mandala creation and pre-processing
-7) [ ] Approximation with SVD topics
-8) [ ] Approximation with NNMF topics
+** DONE R computations notebook in RStudio [100%] [8/8]
+1) [X] Mandalas collection creation
+2) [X] Pre-processing of image data
+3) [X] LSA object for both SVD and NNMF
+4) [X] Topic extraction with SVD
+5) [X] Topic extraction with NNMF
+6) [X] Test mandala creation and pre-processing
+7) [X] Approximation with SVD topics
+8) [X] Approximation with NNMF topics
+** DONE GitHub repository [100%] [3/3]
+- [X] R project
+- [X] README with references
+- [X] Proclaim
 ** TODO DSL commands [0%] [0/2]
 - [ ] LSA worflow for Mathematica
 - [ ] LSA worflow for Python
@@ -108,19 +112,15 @@
   - GitHub project link
 - [X] Comparison
   - [X] The sequence of steps
-*** MAYBE Info-graphic of the whole effort
 *** DONE LSA workflow flow chat
 *** DONE ~LSAMon~ pipeline diagram 
+*** MAYBE Info-graphic of the whole effort
 ** TODO Presentation as Mathematica notebook
 - [ ] LSA workflows flow-chart
 - [ ] ~LSAMon~ pipeline diagram
 - [ ] Grammars commands in ~DSLMode~ 
 - [ ] NLP template engine commands with ~Concretize~
 - [ ] To the particular notebooks
-** TODO GitHub repository [25%] [1/4]
-- [X] R project
-- [ ] README with references
-- [ ] Proclaim
 ** TODO Proclaims [%] [/]
 - [X] Announcements
   - [X] Slack DS
