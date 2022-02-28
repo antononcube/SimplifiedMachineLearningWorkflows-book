@@ -39,6 +39,11 @@ Here is the mind-map for the presentation:
 
 [![](./org/Random-mandalas-deconstruction-presentation-mind-map.png)](./org/Random-mandalas-deconstruction-presentation-mind-map.pdf)
 
+------
+
+The comparison workflow implemented in the notebooks of this project is summarized in the following flow chart:
+
+[![*Random mandalas deconstruction workflow*](./RandomMandalasDeconstruction/diagrams/Random-mandalas-deconstruction-in-Mathematica-Python-R.png)](./RandomMandalasDeconstruction/diagrams/Random-mandalas-deconstruction-in-Mathematica-Python-R.pdf)
 
 -------
 Anton Antonov    

@@ -16,6 +16,16 @@ scientific computing, mathematical modeling, natural language processing, combin
 machine learning, and data mining. In the last ten years, he focused on developing machine learning algorithms and workflows for 
 different industries (music, movies, recruiting, healthcare.)
 
+
+------
+
+## Comparison workflow
+
+The comparison workflow implemented in the notebooks of this project is summarized in the following flow chart:
+
+[![*Random mandalas deconstruction workflow*](./diagrams/Random-mandalas-deconstruction-in-Mathematica-Python-R.png)](./diagrams/Random-mandalas-deconstruction-in-Mathematica-Python-R.pdf)
+
+
 ------
 
 ## Random mandalas generation
@@ -27,6 +37,7 @@ https://www.wolframcloud.com/obj/8691f810-4c70-484e-a325-eda565ce0185?n=12&color
 ```
 
 ![*Random mandalas collage via WolframCloud*](https://www.wolframcloud.com/obj/8691f810-4c70-484e-a325-eda565ce0185?n=12&colorFunction=GrayTones&edgeOpacity=0.4)
+
 
 ------
 
