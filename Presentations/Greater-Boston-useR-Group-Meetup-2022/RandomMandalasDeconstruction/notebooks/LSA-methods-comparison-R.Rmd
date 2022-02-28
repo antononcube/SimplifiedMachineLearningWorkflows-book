@@ -1,5 +1,5 @@
 ---
-title: "LSA methods comparison R"
+title: "LSA methods comparison (R)"
 author: Anton Antonov
 date: 2022-02-27
 output: html_notebook
@@ -304,7 +304,6 @@ Get a new, unseen random mandala:
 
 ```{python}
 random.seed(89)
-
 
 # Consider using radius = [8, 6, 3]
 fig = random_mandala(radius=[8, 6, 3],
