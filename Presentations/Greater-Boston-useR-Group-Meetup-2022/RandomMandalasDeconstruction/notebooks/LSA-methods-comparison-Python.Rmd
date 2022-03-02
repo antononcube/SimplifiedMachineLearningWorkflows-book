@@ -13,15 +13,9 @@ output: html_notebook
 }
 </style>
 
-```{r setup, echo=FALSE}
-# Sys.setenv(RETICULATE_PYTHON = "~/miniforge3/envs/SciPyCentric/bin/python")
-# library(reticulate)
-# reticulate::use_condaenv("SciPyCentric")
-```
-
-```{r, echo=FALSE, include=FALSE}
+```{r setup}
 library(reticulate)
-reticulate::py_config()
+# reticulate::py_config()
 source("../R/UtilityFunctions.R")
 ```
 
@@ -136,7 +130,7 @@ mandalaMat = numpy.array(mandalaMat)
 mandalaMat.shape
 ```
 
-Make the corresponding SSparseMatrix object:
+Make the corresponding `SSparseMatrix` object:
 
 ```{python}
 mandalaSMat = SSparseMatrix(mandalaMat, row_names="", column_names="")
@@ -188,9 +182,31 @@ Get the SVD topics matrix:
 svdH = lsaSVDObj.normalize_matrix_product(normalize_left=False).take_H().copy()
 ```
 
+## NNMF
+
+Here we extract image topics using Non-Negative Matrix Factorization (NNMF):
+
+```{python}
+tStart = time.time() 
+
+lsaNNMFObj = lsaObj.extract_topics(number_of_topics=numberOfTopics, min_number_of_documents_per_term=0, method="NNMF", max_steps=12)
+
+tEnd = time.time()
+
+print("Topic extraction time NNMF : ", tEnd-tStart)   
+```
+
+Get the NNMF topics matrix:
+
+```{python}
+nnmfH = lsaNNMFObj.normalize_matrix_product(normalize_left=False).take_H().copy()
+```
+
 ------
 
 # Show topics interpretation
+
+## SVD 
 
 Show the importance coefficients of the topics (if SVD was used the plot would show the singular values):
 
@@ -214,6 +230,33 @@ svdTopicImages2
 ```
 ```{r}
 ParImageGrid(py$svdTopicImages, mfrow = c(5,8))
+```
+## NNMF
+
+Show the importance coefficients of the topics (if SVD was used the plot would show the singular values):
+
+Get the topics matrix from the LSA object and convert it into a dense array:
+
+```{python}
+nnmfTopicsArray = nnmfH.sparse_matrix().todense()
+nnmfTopicsArray.shape
+```
+
+Show the interpretation of the extracted image topics:
+
+```{python}
+imageSizeX, imageSizeY = mandala_images3[0].size
+nnmfTopicImages = [(nnmfTopicsArray[i,:]*255).reshape(imageSizeY, imageSizeX) for i in range(nnmfTopicsArray.shape[0])]
+nnmfTopicImages2 = [Image.fromarray(x) for x in nnmfTopicImages]
+```
+
+```{python}
+nnmfTopicImages2
+```
+
+
+```{r}
+ParImageGrid(py$nnmfTopicImages, mfrow = c(5,8))
 ```
 
 ------
