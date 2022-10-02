@@ -1,8 +1,9 @@
 # Mermaid-JS flowcharts
 
-##### Anton Antonov
-##### Vanna-da
-##### September-October 2022
+Anton Antonov   
+Vanna-da    
+[SimplifiedMachineLearningWorkflows-book at GitHub](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book)   
+September-October 2022    
 
 ## Classification workflows
 
