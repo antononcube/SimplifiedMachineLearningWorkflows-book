@@ -63,6 +63,8 @@ graph TB
 
 ## Latent Semantic Analysis workflows
 
+### Workflow flowchart
+
 ```mermaid
 graph TB
  a[/Text data/]
@@ -109,9 +111,7 @@ d--No-->e
 f-->g
 ```
 
-------
-
-## Latent Semantic Analysis workflows
+### Pipeline flowchart
 
 ```mermaid
 graph TB
