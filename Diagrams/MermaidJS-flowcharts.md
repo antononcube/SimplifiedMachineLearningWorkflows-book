@@ -111,6 +111,40 @@ f-->g
 
 ------
 
+## Latent Semantic Analysis workflows
+
+```mermaid
+graph TB
+ subgraph one
+ a[(LSAMon context)]
+ b((LSAMon pipeline value)) 
+ end
+ subgraph LSAMon monad pipeline 
+ c[LSAMonMakeDocumentTermMatrix]
+ d[LSAMonApplyTermWeightFunctions]
+ e[LSAMonExtractTopics]
+ f[LSAMonEchoTopicsTable]
+ g[LSAMonEchoStatisticalThesaurus]
+ h[LSAMonTopicsRepresentation]
+ end
+ i[/_?VectorQ_Association/]
+ j>Echo output]
+ k[/_?SSparseMatrixQ/]
+ l[documents, documentTermMatrix, weightedDocumentTermMatrix, terms, W, H, topicsTable, statisticalThesaurus]
+ c-->d-->e-->f-->g-->h
+i-->c
+h-->k
+f & g--->j
+c-.documenttermMatrix.->a
+d-.weightedDocumentTermMatrix.->a
+e-.W,H.->a
+f-.topicTable.->a
+g-.statisticalThesaurus.->a
+a-.Keys.->l
+```
+
+------
+
 ## Quantile regression
 
 ```mermaid
