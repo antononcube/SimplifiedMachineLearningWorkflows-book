@@ -1,4 +1,8 @@
+# Mermaid-JS flowcharts
 
+##### Anton Antonov
+##### Vanna-da
+##### September-October 2022
 
 ## Classification workflows
 
@@ -166,7 +170,7 @@ graph TB
  i>Display results]
  j{Do results make sense?}
  j1[/Failure/]
- j2[Compute Learnign to rank statistics]
+ j2[Compute Learning To Tank statistics]
  j3[Create interactive interface for recommendation explorations]
     a-->b-->c-->d-->e
     b-.-b1 & b2
