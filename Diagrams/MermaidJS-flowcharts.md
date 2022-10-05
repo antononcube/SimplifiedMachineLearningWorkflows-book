@@ -20,6 +20,82 @@ One can also use https://mermaid.live/ .
 
 ## Classification workflows
 
+### Competition classifiers mind-map
+
+```mermaid
+graph LR
+a[Making competitions classifiers]
+b1[Competition organization]
+c1[Judges]
+c2[Submissions management]
+d1[Give training set]
+d2[Withold test set]
+d3[Submission logs]
+d4[Score calculation]
+d5[Verificiation]
+e1[Judges training dataset]
+e2[Competitors know the labels]
+e3[Judges test dataset]
+e4[Competitiors do *not* know the labels]
+f[Submission preperation]
+g1[Study]
+g2[Make the competition classifier]
+h1[Data analysis]
+h2[Preliminary data transformations]
+h3[Classifier training]
+h4[Transform the judges training dataset according to findings in the study]
+h5[Train a classifier with the method found to be best]
+h6[Run the classifier over the judges test dataset]
+h7[Submit the found tables]
+i1[Summaries]
+i2[Distribution charts]
+i3[Mosaic plots]
+i4[etc.]
+i5[Categorical variables handling]
+i6[Feature extraction]
+i7[Dimension reduction]
+i8[etc.]
+i9[Optional]
+i10[Do multiple times]
+i11[Pick the best classifier and transformation]
+j1[Come up with relevant data transformations]
+j2[Come up with different feature engineering procedures]
+j3[Split the judges training dataset]
+j4[Train classifiers]
+j5[Classifier measurements]
+k1[Training dataset]
+k2[Test dataset]
+k3[Different data transformations]
+k4[Different classifer algorithms]
+k5[Accuracy, Precision, Recall]
+k6[Confusion matrix]
+k7[ROC]
+k8[etc.]
+a-->b1-->c1 & c2
+c1-->d1 & d2
+c2-->d3 & d4 & d5
+d1-->e1 & e2
+d2-->e3 & e4
+a-->f
+f-->g1 & g2
+g1-->h1 & h2 & h3
+g2-->h4 & h5 & h6 & h7
+h1-->i1 & i2 & i3 & i4
+h2-->i5 & i6 & i7 & i8
+h3-->i9 & i10 & i11
+i9-->j1 & j2
+i10-->j3 & j4 & j5
+j3-->k1 & k2
+j4-->k3 & k4
+j5-->k5 & k6 & k7 & k8
+e1-.->g1
+e3-.->g2
+h7-.->c2
+h4-->h5-->h6-->h7
+```
+
+### Workflow
+
 ```mermaid
 graph TB
     a[/Data specification/]
