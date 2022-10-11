@@ -16,6 +16,61 @@ In web browsers GitHub produces diagrams corresponding to mermaid-js specificati
 One can also use https://mermaid.live/ .
 
 
+------
+
+## Data transformations
+
+```mermaid
+graph LR
+    a([English])
+    b([Bulgarian])
+    c([Raku])
+    d([R-tidyverse])
+    e([Python-pandas])
+    f{{"Interpreter (Raku)"}}
+    g([Julia])
+    h([Python])
+    i([R])
+    j([WL])
+    k([SQL])
+    l([Raku])
+    g1>DataFrames]
+    h1>pandas]
+    i1>base]
+    i2>tidyverse]
+    i3>data.table]
+    j1>System]
+    k1>MySQL]
+    k2>PostgreSQL]
+    l1>Reshapers]
+    l2>Red]
+    l3>Dan]
+    subgraph .
+        f1([Bulgaian])
+        f2([English])
+        f3([Korean])
+        f4([Russian])
+        f5([Spanish])
+    end
+    a & b & c & d & e -->f
+    f-->g & h & i & j & k & l
+    g-->g1
+    h-->h1
+    i-->i1 & i2 & i3
+    j-->j1
+    k-->k1 & k2
+    l-->l1 & l2 & l3
+    f---->f1
+    style c #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style d #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style e #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style i3 #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style k1 #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style k2 #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style l2 #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style l3 #,stroke:stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+```
+
 -----
 
 ## Classification workflows
