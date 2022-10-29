@@ -42,9 +42,23 @@ Most of the chapters are previously published in
 
 - ["Quantile Regression workflows" at the useR! meetup](https://www.youtube.com/watch?v=FBhmtIF1bJY), (2019).
 
-----
+- ["NLP Template Engine 1"](https://www.youtube.com/watch?v=a6PvmZnvF9I), (2021).
+
+
+------
+
+## Support & appreciation
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/antonov70)
+
+
+😅 ☕️ 😀 
+
+------
+
 Anton Antonov   
 Windermere, Florida, USA   
 2019-07-16
+2021-10-29
 
 
