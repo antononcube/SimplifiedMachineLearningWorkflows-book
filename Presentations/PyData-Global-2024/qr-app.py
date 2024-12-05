@@ -32,15 +32,20 @@ sns.set(rc={
 })    
 
 # Load the gzipped CSV files
-fileName = "../Regressionizer/resources/dfDistributionData.csv.zip"
+epoch_start = "1970-01-01"
+dirName = "../../../Python-Regressionizer/Regressionizer/resources"
+fileName = dirName + "/dfDistributionData.csv.zip"
 dfDistributionData = pd.read_csv(fileName, compression='zip')
 
-fileName = "../Regressionizer/resources/dfFinancialData.csv.zip"
+fileName = dirName + "/dfFinancialData.csv.zip"
 dfFinancialData = pd.read_csv(fileName, compression='zip')
 dfFinancialData['Time'] = pd.to_datetime(dfFinancialData['Time'], format='%Y-%m-%d')
-dfFinancialData['Time'] = dfFinancialData['Time'].apply(lambda x: x.timestamp(epoch="1900-01-01"))
+#start_date = pd.Timestamp(epoch_start)
+offset_time = 2208988800;
+#dfFinancialData['Time'] = dfFinancialData['Time'].apply(lambda x: start_date + pandas.to_timedelta(x, unit='s'))
+dfFinancialData['Time'] = dfFinancialData['Time'].apply(lambda x: x.timestamp() + offset_time)
 
-fileName = "../Regressionizer/resources/dfTemperatureData.csv.zip"
+fileName = dirName + "/dfTemperatureData.csv.zip"
 dfTemperatureData = pd.read_csv(fileName, compression='zip')
 
 dictData = {"Distribution": dfDistributionData, "Financial" : dfFinancialData, "Temperature" : dfTemperatureData}
