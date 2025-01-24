@@ -8,6 +8,7 @@ ABSTRACT:
 
 > This talk showcases and exemplifies the rapid specification and execution of Quantile Regression workflows. 
 > Various use cases are discussed, including fitting, outlier detection, conditional CDFs, and simulations, using different types of time series data.
+> Anomaly detection is discussed via interactive interface.
 
 
 - [Presentation notebook](./DSSG-SouthFL-2025-Presentation.ipynb)
