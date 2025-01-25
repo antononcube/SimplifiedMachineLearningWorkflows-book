@@ -54,8 +54,10 @@ dictData = {"Distribution": dfDistributionData, "Financial" : dfFinancialData, "
 def sns_plot(obj,
     title="", width=800, height=600,
     data_color: (str | None) = "grey",
-    date_plot: bool = False, epoch_start="1900-01-01",
+    date_plot: bool = False, 
+    epoch_start="1900-01-01",
     background_color="#1f1f1f",
+    palette="Set1",
     point_size=2,
     **kwargs):
     """
@@ -82,17 +84,20 @@ def sns_plot(obj,
     # Set background color
     ax.set_facecolor(background_color)
 
-
     # Plot data points
     sns.scatterplot(
         x=xs, 
         y=obj.take_data()[:, 1], 
-        color=data_color, ax=ax, size=point_size, linewidth=0, alpha = 1, legend=False)
+        color=data_color, 
+        ax=ax, size=point_size, linewidth=0, alpha = 1, legend=False)
+
+    # Create a color palette
+    paletteArray = sns.color_palette(palette, n_colors=len(obj.take_regression_quantiles()))
 
     # Plot each regression quantile
     for i, p in enumerate(obj.take_regression_quantiles().keys()):
         y_fit = [obj.take_regression_quantiles()[p](xi) for xi in obj.take_data()[:, 0]]
-        sns.lineplot(x=xs, y=y_fit, ax=ax, label=f'{p}', linewidth=3)
+        sns.lineplot(x=xs, y=y_fit, ax=ax, label=f'{p}', linewidth=3, color=paletteArray[i])
 
     # Set title
     ax.set_title(title)
@@ -132,7 +137,11 @@ app_ui = ui.page_fluid(
     ui.input_checkbox("datePlotQ", "Date axis", value=True),
     ui.card(
         ui.output_plot("distPlot"),
-    )
+    ),
+    ui.input_select(id = "palette", label = "Color palette:",
+        choices=["Set1", "Set2", "Dark2", "Accent", "Paired", "Pastel1", "Pastel2"], 
+        selected="Set1"
+    ),
 )
 
 def server(input: Inputs, output: Outputs, session: Session):
@@ -155,6 +164,7 @@ def server(input: Inputs, output: Outputs, session: Session):
             date_plot=input.datePlotQ(), 
             template=template,
             data_color=data_color,
+            palette=input.palette(),
             background_color = '#1F1F1F',
             point_size = 2,
             width = 800, height = 300)
