@@ -41,7 +41,7 @@ Cambridge University Press, 2005.
 ### Packages, paclets
 
 [AAp1] Anton Antonov,
-[Quantile Regression Python package](https://github.com/antononcube/Python-Regressionizer),
+[Regressionizer Python package](https://github.com/antononcube/Python-Regressionizer),
 (2024),
 [GitHub/antononcube](https://github.com/antononcube).
 
